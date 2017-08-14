@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KhanyisaIntel.Kbit.Framework.Security.Domain</RootNamespace>
+    <AssemblyName>KhanyisaIntel.Kbit.Framework.Security.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationFunction\ApplicationFunction.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\AddBusiness.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\ModifyBusiness.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\ReadBusiness.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\RemoveBusiness.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\AddCustomer.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\ModifyCustomer.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\ReadCustomer.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\RemoveCustomer.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\DualAuthorizationClassification.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\FunctionClassification.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\Security\UserFunctions\AddUser.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\Security\UserFunctions\ModifyUser.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\Security\UserFunctions\ReadUser.cs" />
+    <Compile Include="ApplicationFunction\ApplicationFunctions\Security\UserFunctions\RemoveUser.cs" />
+    <Compile Include="ApplicationFunction\NoDualAuthorizationRequired.cs" />
+    <Compile Include="ApplicationFunction\NoFunction.cs" />
+    <Compile Include="ApplicationFunction\RequiresDualAuthorization.cs" />
+    <Compile Include="CreateUserParameters.cs" />
+    <Compile Include="LicenseSpecification\LicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\Specifications\AnnualLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\Specifications\DemoLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\Specifications\ExpiredLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\Specifications\MonthlyLicenseSpecification.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Role\AdministratorRole.cs" />
+    <Compile Include="Role\LimitedRole.cs" />
+    <Compile Include="Role\ManagerRole.cs" />
+    <Compile Include="Role\NoRole.cs" />
+    <Compile Include="Role\Role.cs" />
+    <Compile Include="Role\SupermanRole.cs" />
+    <Compile Include="SecurityDomianFactory.cs" />
+    <Compile Include="User\AccountStatus\AccountStatus.cs" />
+    <Compile Include="User\AccountStatus\ActiveAccountStatus.cs" />
+    <Compile Include="User\AccountStatus\BlockedAccountStatus.cs" />
+    <Compile Include="User\AccountStatus\InactiveAccountStatus.cs" />
+    <Compile Include="User\Password\DailyPasswordResetPolicy.cs" />
+    <Compile Include="User\Password\MonthlyPasswordResetPolicy.cs" />
+    <Compile Include="User\Password\NeverResetPasswordResetPolicy.cs" />
+    <Compile Include="User\Password\Password.cs" />
+    <Compile Include="User\Password\PasswordResetPolicy.cs" />
+    <Compile Include="User\Password\WeeklyPasswordResetPolicy.cs" />
+    <Compile Include="User\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
+      <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Validation\Infrustructure.Validation.csproj">
+      <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
+      <Name>Infrustructure.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6dd00406-d7d9-4f6c-8c06-b5275ba96a98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Exceptions\Security.Domain.Exceptions.csproj">
+      <Project>{aca60a48-e0eb-4bf1-892b-336c9cf578c9}</Project>
+      <Name>Security.Domain.Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

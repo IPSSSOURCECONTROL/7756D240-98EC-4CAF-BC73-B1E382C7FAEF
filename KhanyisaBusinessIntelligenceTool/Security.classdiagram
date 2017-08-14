@@ -1,0 +1,1161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="a34ef2d7-a48f-4f01-acfa-5d38e3f6e023" name="Security" linkedPackageId="0d61bef3-d152-4caf-8d55-e8f9ea3c2e46" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="c2d6e98c-22f4-456b-99d8-56a4527f87a4" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="41a66c5d-5490-450b-9d72-9e2cb71ad55b" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="bf1a34ff-1172-491b-8378-c2d56c8bee3a">
+          <propertyInstance Id="b9d66fb0-a1ba-446f-b443-3d7bb42a10d6" name="BaseName">
+            <elementDefinition Id="3f246ca8-f442-4ef0-bff3-69398d2c637e" />
+          </propertyInstance>
+          <elementDefinition Id="96793d8c-194f-4790-a119-17d318f5cf8c" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="317da118-cea7-4093-9380-a3f66426b566">
+          <propertyInstance Id="284919b5-ff3c-4098-9710-8f57971bc2a6" name="ClrAttributes">
+            <elementDefinition Id="e935fe18-c1ae-4c59-acc3-c2313b3ed206" />
+          </propertyInstance>
+          <elementDefinition Id="faf1fd1b-ee54-49f4-98b6-4a80403ec799" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c5622070-0e3c-4e3d-a357-f1915ee9eb43">
+          <propertyInstance Id="37b94007-7a38-488d-ac71-68186d2fdad5" name="Usings">
+            <elementDefinition Id="6f110b49-3cc8-432e-98af-3c112bff571a" />
+          </propertyInstance>
+          <elementDefinition Id="6406eded-c2fe-411f-9ad1-0103c5a3c4bc" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="54b06e3a-e4d1-417e-8d7e-5810d1d07ebc" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="e50b18e5-bd17-4369-bea5-d60f1ced95b7" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="196d0b86-29d5-4778-8834-2783855a0037">
+          <propertyInstance Id="a65f8681-4ef2-4acc-b078-89e4db17add4" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="09223479-694d-47db-a9d5-345b00e9710d" />
+          </propertyInstance>
+          <elementDefinition Id="3a89120b-7d5c-4e95-8a5a-8bb6b8e53dec" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="713cd1d3-129f-4df1-9616-af7fc482a189">
+          <propertyInstance Id="8ec95ce2-5af3-49af-bf86-82255c3395d7" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="059b2198-aaf4-4bd4-99a0-3996b87829c6" />
+          </propertyInstance>
+          <elementDefinition Id="d35b2af7-c181-42c3-88ad-791725138b6c" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="2699045b-c38d-4c49-97f2-fc567f6e87c4">
+          <propertyInstance Id="bd786a36-d437-44df-83e0-bc31edeca98d" name="ProjectPath" value="ClassTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|EnumTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|InterfaceTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|StructTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj">
+            <elementDefinition Id="f34e06a4-1f44-40ec-bf11-7124991dc977" />
+          </propertyInstance>
+          <elementDefinition Id="eeb2e17d-21cf-47ce-8a11-bd8456b66df2" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b38b2495-1daf-4d73-8146-bca592bc353a">
+          <propertyInstance Id="249988e8-af9a-4b9a-8e2e-7b64f0a6b372" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="9db5e6e9-59ef-45c8-9e59-8d299d83e41e" />
+          </propertyInstance>
+          <elementDefinition Id="e5a5742a-a396-4b26-a675-84c6a0dc28e1" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="0bc9340d-f3a4-44b4-8afd-a3071b619483">
+          <propertyInstance Id="01845e8e-dbf6-452e-8191-2cab50ceaef2" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="03e73a82-f222-4a40-97ca-de0ff61e7e81" />
+          </propertyInstance>
+          <elementDefinition Id="72cadc24-4487-4bf5-af64-9720b1e92d2f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="961c90d9-b10f-42f5-8bc2-2f37d3fbaca0">
+          <propertyInstance Id="b1250b13-9ec4-45c3-abfb-fb857265604e" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="d166816b-e772-452a-8591-ee4d1f7cbdcf" />
+          </propertyInstance>
+          <elementDefinition Id="04b85f9f-aa34-41f8-b4fa-e54d86f6ef35" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="79eb0c8a-25be-480d-938b-4b7ed98b0f31">
+          <propertyInstance Id="13b6aa9a-92d0-4dc3-b3c7-3977cd33ddd6" name="Parameters">
+            <elementDefinition Id="fed61859-2707-4613-b159-d9d3f9c09b66" />
+          </propertyInstance>
+          <elementDefinition Id="5743d70f-12de-4d24-8b78-cedbfe6e07be" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f9dbea98-b794-4a2b-82cb-8489eded1d81" name="User" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="876ba0d5-5d47-4f4f-8112-c29a91d4b74a" />
+        <targetEnds>
+          <association Id="6e64f10a-e6a3-45d8-8a77-c7189dabcd5c" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Status" isLeaf="false" isAbstract="false">
+            <classMoniker Id="c863c8dd-ffc0-40ae-8ad7-262b4d750cf0" LastKnownName="AccountStatus" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65211d6a-b239-4295-b167-6e3ac38d4dd0" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="ebec7554-a067-4659-aee0-7bad92f13b71" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ad9e84ec-6c9c-4dbd-9b7d-99220a9cf05f" name="Status" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="6a320100-ec84-47d6-a370-a9b7e256c258" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="014a0a23-f9f9-4e6e-9962-3c057e5b5596" />
+          </association>
+          <association Id="8b46a35a-d9d2-465f-8c25-ed77ecd2f363" isDerived="false" sourceEndRoleName="User" targetEndRoleName="License" isLeaf="false" isAbstract="false">
+            <classMoniker Id="8d28a985-854e-49fa-a114-8adbedd0bcca" LastKnownName="LicenseSpecification" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="31dbe07b-0af5-460a-8e27-3a250ef3c4c4" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="103ede00-d543-45ed-9a77-afcdc6c4191f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="35657939-4937-4805-9f11-54a3718c9b26" name="License" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="33206d4f-3678-42b0-92db-a2870b6a3769" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="917d8eb6-b7ce-40ba-afcd-5058f6d3fe4a" />
+          </association>
+          <association Id="b38896fa-28a8-49a5-bd16-cc9d016fccdf" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Role" isLeaf="false" isAbstract="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2dfa4678-f553-48bb-8659-ccc8b7b64407" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="e97ce6af-5d46-4376-96ca-37e7794fd6c9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="6d5ed9bd-1085-4c94-acc2-20113a87ecc8" name="Role" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="08f506a2-433a-453b-b283-52dd0617f2bf" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="79aaf54d-3b4f-49e9-86dc-9b998cda7910" />
+          </association>
+          <association Id="a78bd782-917e-411a-a178-a61d11484b06" isDerived="false" sourceEndRoleName="User" targetEndRoleName="Password" isLeaf="false" isAbstract="false">
+            <classMoniker Id="5446e675-9f7e-461a-888c-8f294a48eb5f" LastKnownName="Password" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="77664478-66e7-4639-aa17-7588f118424d" name="User" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Composite" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="4daf9b59-e33d-4801-b8d7-82f25c85da3d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f4c071b9-e15f-41d0-8db9-2ea8980a0838" name="Password" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="true">
+                  <elementDefinition Id="eab20bdd-734d-40b5-9376-1bbfd334c8cc" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="953c4747-3e9a-4fdf-b18f-8ce953960882" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="7823f018-aff2-4dd5-82e7-58416ce408b3" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bc4c1982-cc91-4b5f-8e1d-284c2618c308" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="63ccca15-b13e-4aff-8b7b-366956284e30" name="Code" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e75449ca-a409-4449-ab9b-5bb7a4275f6d" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="d3bb27d2-d8ce-4c08-a08e-52f74d38c350" name="Password" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d04b47f3-7146-4b32-be73-3e6a55e9be97" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7c6258dd-5c10-45cb-9365-c0bdb6ac2596" LastKnownName="Password" />
+            </type_NamedElement>
+          </property>
+          <property Id="0fdefdc7-4cab-4465-ae6c-d7a5ba38633f" name="Status" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bb07cfff-3815-4303-bde5-d6485961a29e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="d3fcf79d-c47e-453e-8884-9ee74a6175bc" LastKnownName="AccountStatus" />
+            </type_NamedElement>
+          </property>
+          <property Id="df389624-0ef3-46bb-9422-3288038a2de3" name="Role" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a107291e-9fa1-487c-83de-5f41557d18da" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3e7590ea-dd7a-405e-b216-f12e332bdae4" LastKnownName="Role" />
+            </type_NamedElement>
+          </property>
+          <property Id="442a36c2-7adf-40ae-9dc0-17050f3011a4" name="Email" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="4c147080-c3ab-4987-8017-7e35d7f02ef5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="566de5b9-774f-4961-bfdd-113589a4b2d4" name="License" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="652238aa-926b-4605-821b-070d093f9693" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="1bcd6d43-0fc4-4a44-82f9-c22d467c2ac0" LastKnownName="LicenseSpecification" />
+            </type_NamedElement>
+          </property>
+          <property Id="1c002c40-261b-449d-bdbb-ab790afbb282" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f99a89dc-f8b0-4f4b-a2cb-a4efff05ca6f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="88fbd57e-ca9f-4817-99ee-953ddfe3422b" name="Activate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="40b7a23c-b342-486a-b4cd-7adce6f6af55" />
+          </operation>
+          <operation Id="e0429350-9e88-420c-becc-7294ded49fb8" name="Block" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a83d86dd-3863-48c5-b1a1-54113ec63812" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="0e436f84-6894-4181-961e-9860065a4351" name="reason" direction="In" isUnique="false">
+                  <elementDefinition Id="8968c4a1-507f-49e0-9026-f72cf867b2c5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6253cf43-12ff-402a-9e4f-928a70662d40" name="CheckLicense" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="3d0b2706-b075-44ad-9727-be9337ed26e2" />
+          </operation>
+          <operation Id="a84907e3-f7eb-4537-90d0-1127bbbe6bb9" name="SetPassword" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="f3a214be-0bb5-4418-9911-30494231b190" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="4cf0e907-efca-493f-a09c-3d27f4b0f35c" name="password" direction="In" isUnique="false">
+                  <elementDefinition Id="f6736a8f-a1cf-43ba-b117-febe9449a43e" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="07c4f5b2-523b-4c58-a674-d277f459c8fa" name="SetPasswordResetPolicy" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="16932971-4252-4a90-b348-52fc13d3fd97" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1e43d8ec-1657-4b36-90c3-8e5b265cd059" name="passwordResetPolicy" direction="In" isUnique="false">
+                  <elementDefinition Id="fd74f016-0bbe-4528-852f-74ea974d1f81" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="467a8fb0-8801-44ef-ade7-efc5610ea063" LastKnownName="PasswordResetPolicy" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1bc67af7-f301-4454-8099-e71e1d1c489c" name="GrantRole" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="505abce2-2f6e-4c29-a9a0-f331c7cf89db" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="c87ffd97-98a6-4095-809f-b7b89eaffcce" name="Role" direction="In" isUnique="false">
+                  <elementDefinition Id="889cb857-a4bf-40b3-83a5-52ae82ba9ee6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3e7590ea-dd7a-405e-b216-f12e332bdae4" LastKnownName="Role" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="f3a78819-90ab-47c5-a44a-7cb4676ef8f7" name="SetLicense" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="71e7d57c-90e2-4d4c-baf1-1efcfed9b26c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="7dba5497-38c0-4159-b944-028b8d6f00c3" name="license" direction="In" isUnique="false">
+                  <elementDefinition Id="534887a5-fc89-4d13-be72-2095ea2e4627" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1bcd6d43-0fc4-4a44-82f9-c22d467c2ac0" LastKnownName="LicenseSpecification" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cff7a46c-e364-42ab-b98e-f1d399bd21c3" name="IsLicenseValid" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="1f29ef6d-9dd2-47db-ba6f-fc59f5971508" />
+          </operation>
+          <operation Id="3768b911-4701-4f6a-803f-1f1fa8402cea" name="IsAccountActive" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d6c70b11-6ca2-4cb1-8a02-055dbe4250b1" />
+          </operation>
+          <operation Id="b5f79102-b1f7-40fe-9fdd-ce99c77ab072" name="Deactivate" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="e072f098-8e34-4223-8f2a-59a9df29ae13" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="246878f0-974f-43a4-8339-672ce9ce4c19" name="reason" direction="In" isUnique="false">
+                  <elementDefinition Id="15f34659-59d3-4c97-8afc-81f7e8697a5a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="1ec2619a-1bf8-4335-83ed-6eb0f93727b5" name="CheckAccountStatus" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b14adecd-acaf-42e5-87d5-851b79d2ae18" />
+          </operation>
+          <operation Id="a3688062-38b9-4923-9fa6-4067517a6cfc" name="GetPassword" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="a2f9e13f-d4e5-4016-bbe0-da71bedead8e" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="8ae99d30-6c96-47ca-87ad-c12af5277876" direction="Return" isUnique="false">
+                  <elementDefinition Id="89bea43d-e445-41ef-a64b-7e14a5ec0182" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="a0806e4c-9c7c-4724-a3c9-890878ae75f2" name="Validate" visibility="Private" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="b329a7fa-e4b3-4921-b60e-d6d706f3ac5b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a6cafcc5-ccc5-42ef-97bc-c5016d61e911" name="name" direction="In" isUnique="false">
+                  <elementDefinition Id="430ab4ae-6eb9-499e-bd0f-ece2061704cb" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="cd86cfec-1cb1-41ca-b2fe-2563f9d4f240" name="code" direction="In" isUnique="false">
+                  <elementDefinition Id="f7472f3f-1018-4ba6-a5d1-076eb844aa04" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="6796d779-94da-474e-a2c9-018ac184b19a" name="email" direction="In" isUnique="false">
+                  <elementDefinition Id="69a77bfe-8bd7-4986-ad28-30936a219f14" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5446e675-9f7e-461a-888c-8f294a48eb5f" name="Password" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9698c3c7-adcf-44c3-9d30-9afc91e78b1a" />
+        <targetEnds>
+          <association Id="82eb443c-693f-490a-8710-62a232e941dc" isDerived="false" sourceEndRoleName="Password" targetEndRoleName="PasswordResetPolicy" isLeaf="false" isAbstract="false">
+            <classMoniker Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" LastKnownName="PasswordResetPolicy" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e8da427e-f6a5-430a-a75a-08549b9b093d" name="Password" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="367f3078-0238-4d4f-bee0-3163a55089ef" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="20c8cbd4-4629-4aab-bfb8-37767177dfba" name="PasswordResetPolicy" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="a282a3aa-6e6b-4410-8810-fd4e743aaf19" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c366d3c2-db06-4882-b5a0-bc8e029b9877" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="fcf94764-6ebf-4bd7-bb49-0cb93b5fb4ce" name="Value" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="bcc920fc-9e90-415e-a37c-12c7b32c2bab" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="3be72b36-bfba-41e3-9d2e-83e28ab5d7e5" name="PasswordResetPolicy" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3fe1b90c-ceff-4933-ad8b-61d83b240d58" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="467a8fb0-8801-44ef-ade7-efc5610ea063" LastKnownName="PasswordResetPolicy" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="b7711912-ed63-46c0-8907-e60de42a1e51" name="SetPassword" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cf38821d-5c32-4828-9db9-e51a444e664d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e9890b23-4ed2-408d-b267-25e448bde9d9" name="password" direction="In" isUnique="false">
+                  <elementDefinition Id="21ee4f4e-026b-4165-b7b7-8ee9ba8ba818" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="4e79a4e2-d80b-490f-850b-16aab9ece680" name="SetPasswordResetPolicy" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="71b17c5b-4e88-4af0-8c6a-aa7f56bb262c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="1d63dc22-9b90-4963-86d7-d33224a6d910" name="passwordResetPolicy" direction="In" isUnique="false">
+                  <elementDefinition Id="c0dada6b-b0cf-4ed2-9be6-068c5d9ece05" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="467a8fb0-8801-44ef-ade7-efc5610ea063" LastKnownName="PasswordResetPolicy" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="9d8a34a5-d088-411e-bf52-db8a8973e834" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7c6258dd-5c10-45cb-9365-c0bdb6ac2596" name="Password" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::Password">
+        <elementDefinition Id="9698c3c7-adcf-44c3-9d30-9afc91e78b1a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c863c8dd-ffc0-40ae-8ad7-262b4d750cf0" name="AccountStatus" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0900ee6c-1268-4279-ac59-fd174832d132" />
+        <ownedAttributesInternal>
+          <property Id="c37b0690-e359-4083-895e-849c34fecaf6" name="Description" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c3806129-52b8-4b4c-a815-edd4b07782da" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="0d9ac4fb-1e16-4ddc-8aa6-bb1d040aa1b7" name="CheckAccountState" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d868ee9f-5f0d-49f5-8c5f-9720c6a88533" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="b26a3f47-28ab-41cb-a489-61268e098986" name="user" direction="In" isUnique="false">
+                  <elementDefinition Id="db329042-31cf-41b0-83f9-e302ec55c1af" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c02be777-527f-4356-a085-5f92bb2d8bc1" LastKnownName="User" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="62b51ce2-ebed-4cb6-a646-5d9cd62e20a6" name="ActiveAccountStatus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2f598996-4a78-444c-8231-8c96b6dd72b5" />
+        <generalsInternal>
+          <generalization Id="6ce3a663-5250-4247-afa5-164efe873bb2" isSubstitutable="false">
+            <classMoniker Id="c863c8dd-ffc0-40ae-8ad7-262b4d750cf0" LastKnownName="AccountStatus" />
+            <elementDefinition Id="d0af139f-2309-40a0-8829-776a9314c0a8" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0fc07fff-23fd-4a9b-b332-0f7c78183f40" name="BlockedAccountStatus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="898eb96e-3bbe-4483-b176-6e43723b5044" />
+        <generalsInternal>
+          <generalization Id="7173ff0f-8ede-41e0-b4b1-15f191777f00" isSubstitutable="false">
+            <classMoniker Id="c863c8dd-ffc0-40ae-8ad7-262b4d750cf0" LastKnownName="AccountStatus" />
+            <elementDefinition Id="eaa56add-b2d9-448f-8c24-cead379be188" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b4c16391-5a93-4b95-bd7e-bb2edc2f8074" name="ExpiredLicenseSpecification" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1baf61e9-9509-4e62-9cd2-205d6ef469f2" />
+        <generalsInternal>
+          <generalization Id="0dce40ef-a608-48f5-9e82-e8de20029def" isSubstitutable="false">
+            <classMoniker Id="8d28a985-854e-49fa-a114-8adbedd0bcca" LastKnownName="LicenseSpecification" />
+            <elementDefinition Id="a17bde1b-fa0e-4e75-90f3-2d60ad17d413" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" name="Role" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="d3444b53-5d03-443b-9a4c-7ab31b44d6b3" />
+        <targetEnds>
+          <association Id="873dccda-225c-4e0e-804f-bb2c8ef7e857" isDerived="false" sourceEndRoleName="Role" targetEndRoleName="Function" isLeaf="false" isAbstract="false">
+            <classMoniker Id="39f32d87-5ca5-4ddd-8c89-5e16effed23d" LastKnownName="ApplicationFunction" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="2f4f3a12-3b81-4a61-86b2-163ba26ab2bf" name="Role" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="fb39387f-ad2e-42a5-9b94-df5d95688dc2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d7df586b-0737-4e8f-9546-5560946e31df" name="Function" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="bbc0ac66-b81a-47d3-9ceb-248a6e04be60" name="Lower" value="*">
+                      <elementDefinition Id="176fe28b-f1ae-44e1-95ab-5fa3d3addef1" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="fd05ea7a-f27f-47ea-bb3e-eea0cdb8980b" name="Upper" value="*">
+                      <elementDefinition Id="61f76b21-6fe4-4e0f-a572-dd9a20eb4668" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="1304d08a-d75f-4e82-a477-86edbea08556" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ecd1a97f-d08b-41b8-8073-1d1929ad8881" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="f3be359f-0dc8-4734-872a-e005e3b321a9" name="Functions" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="89bcafd2-7125-4264-9544-b3680ff2c67a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="fe3117af-3261-4b85-8748-061cd3e654b7" LastKnownName="ApplicationFunction" />
+            </type_NamedElement>
+          </property>
+          <property Id="cc721246-d6e1-447b-917d-81b4c113ccd6" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="469d1924-bb0b-4666-86cb-71cfee2747e2" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="df4d60ac-6ffd-4526-bd44-9a53761d3a9f" name="AddFunction" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="cece300a-4f77-4e2d-bdad-c483dee2d1f4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="db3fadf0-9b2c-4671-8587-64de1f4883bb" name="function" direction="In" isUnique="false">
+                  <elementDefinition Id="e1bcf613-1283-4894-a130-6c70d5a05d92" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="fe3117af-3261-4b85-8748-061cd3e654b7" LastKnownName="ApplicationFunction" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dc3b36de-ff18-423f-b7f3-f05a89345243" name="AdministratorRole" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="44126197-3e6d-445d-80fb-d7fc492ce989" />
+        <generalsInternal>
+          <generalization Id="7812bcc6-1d91-45f1-acbe-7b85485328ca" isSubstitutable="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <elementDefinition Id="23da9ac7-70db-4c84-b895-1e3f1c09a147" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="74bc26e3-31d7-4cfc-a072-fd9df7f527c4" name="LimitedRole" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="10a6d313-0eda-47e4-be03-c1c25ea0282e" />
+        <generalsInternal>
+          <generalization Id="11a12791-50ab-4138-9363-e9fadeb23b07" isSubstitutable="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <elementDefinition Id="4702bb63-2012-4c14-8a92-280e90d58d58" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d94e2d04-99a9-4675-b2b7-18600eafaf8e" name="ManagerRole" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="3398cc04-c6db-4b55-b3e7-89279838d7a6" />
+        <generalsInternal>
+          <generalization Id="9621a692-904f-4ad5-9271-1b3e38e4f1ea" isSubstitutable="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <elementDefinition Id="e99465ab-a4c9-4dde-9ffe-e450b4cc4e30" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="d3fcf79d-c47e-453e-8884-9ee74a6175bc" name="AccountStatus" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::AccountStatus">
+        <elementDefinition Id="0900ee6c-1268-4279-ac59-fd174832d132" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3e7590ea-dd7a-405e-b216-f12e332bdae4" name="Role" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::Role">
+        <elementDefinition Id="d3444b53-5d03-443b-9a4c-7ab31b44d6b3" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="8d28a985-854e-49fa-a114-8adbedd0bcca" name="LicenseSpecification" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="e77d3600-72e0-4b97-889d-57cf0de1bf51" />
+        <ownedAttributesInternal>
+          <property Id="78da8878-f489-4406-a4ab-ecf8f570ddcd" name="Expires" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="63a92b05-9e3f-4008-9ffc-c4bf5cecae61" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b0a6ccdf-0f69-498d-a33d-6f9026f0b5e9" LastKnownName="DateTime" />
+            </type_NamedElement>
+          </property>
+          <property Id="854ae420-bbbb-4556-a0ab-8bb3bf661309" name="ValidFrom" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3d7b67d7-016b-4038-9aad-1f53fca8ef4b" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b0a6ccdf-0f69-498d-a33d-6f9026f0b5e9" LastKnownName="DateTime" />
+            </type_NamedElement>
+          </property>
+          <property Id="7045bfbe-4e6b-441c-bad8-c66e944b440c" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="366b7a6d-fc76-4d18-bce1-0603d4d69e7a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="170406e9-80db-4d91-9a23-2d39f67cd870" name="Key" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="e4158ba3-d066-41b0-af59-f1fbe542a5b1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="07917c52-9e87-4c88-bfd9-5b06fcfa83be" name="CheckLicenseState" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ba201de4-e5ef-4140-bb08-3e3eefc1b587" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="48252382-fb39-41f2-8d48-c8275cf38cfc" name="user" direction="In" isUnique="false">
+                  <elementDefinition Id="baa3c2a7-017f-4d42-a27e-370a09800d36" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c02be777-527f-4356-a085-5f92bb2d8bc1" LastKnownName="User" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="37b17f0f-4c03-42c7-bcaa-f0bada393968" name="GetLicenseName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="53878c87-35e5-44ab-9806-b8a3606bab7b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="be517a2f-d52d-4c80-8cc5-2929aff11cd4" direction="Return" isUnique="false">
+                  <elementDefinition Id="10cf6445-cf8e-4d12-bf9c-76a9bf9518cf" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="b0a6ccdf-0f69-498d-a33d-6f9026f0b5e9" name="DateTime" isAbstract="false" isLeaf="false" cachedFullName="DateTime">
+        <elementDefinition Id="35d5380b-20ad-4556-8e64-e705d00e7439" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9cfd4162-e88f-4c37-85d6-40805038d8ed" name="DemoLicenseSpecification" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6de34740-8de8-4bc0-957a-e385e75ba0fa" />
+        <generalsInternal>
+          <generalization Id="894f2766-5fc9-4d04-95ee-85b3975e3988" isSubstitutable="false">
+            <classMoniker Id="8d28a985-854e-49fa-a114-8adbedd0bcca" LastKnownName="LicenseSpecification" />
+            <elementDefinition Id="5262e262-a10e-4779-b059-2afc6d68b8bc" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="7496b831-6409-4245-9bac-48cc8a9afa24" name="MonthlyLicenseSpecification" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1210a891-9156-486b-be4e-3151ce354ab9" />
+        <generalsInternal>
+          <generalization Id="caa8bb2b-74ea-4316-9a62-90d6571e141a" isSubstitutable="false">
+            <classMoniker Id="8d28a985-854e-49fa-a114-8adbedd0bcca" LastKnownName="LicenseSpecification" />
+            <elementDefinition Id="b6f6ff50-c28f-41cc-8629-a62c3eb05610" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="be0303e4-fcdf-4f84-a843-49c8a32bd83e" name="AnnualLicenseSpecification" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0ca98097-e3df-4372-9364-392f0508dae8" />
+        <generalsInternal>
+          <generalization Id="9acf4077-4434-443b-ae20-722caa2e1eeb" isSubstitutable="false">
+            <classMoniker Id="8d28a985-854e-49fa-a114-8adbedd0bcca" LastKnownName="LicenseSpecification" />
+            <elementDefinition Id="8ad54069-e1e3-4e48-8eae-3b1e20f14afd" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" name="PasswordResetPolicy" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="be9f6024-8ea2-49cb-8f3a-6f59af0645b0" />
+        <ownedAttributesInternal>
+          <property Id="61facf34-3fa6-42a4-a0d3-4095a53ba971" name="Description" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="827a4430-6758-44c2-96f8-e17491e0e5bd" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="875b10ca-0cdd-4053-9ab0-d0f708887d17" name="NextReset" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="fd61cb03-3a68-40bf-8e1f-96d6e357b5ac" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="83716634-af01-48c5-b062-80fbc09bf0bc" LastKnownName="datetime" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="b0218427-f551-4c61-991d-815b363dcedb" name="IsDueForReset" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="8a1a8af0-c54e-40c2-81a4-43733fa9deaa" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dec6b6a5-d90d-4bc7-9bb0-943c118ef40a" direction="Return" isUnique="false">
+                  <elementDefinition Id="50cb3fa0-274a-4165-88de-f5e05c06949a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6104baff-6e3b-47f0-be6c-c08da8824b2c" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="020d5fa5-f743-48ce-8677-f0f37087833e" name="CalculateDaysLeftToReset" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="2fd55970-9990-40c6-b11f-01994ddca538" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d6cb5417-7a3e-414c-b3a0-2d972e8e66b9" direction="Return" isUnique="false">
+                  <elementDefinition Id="41bbf770-6b67-4241-9711-fad07b53a57f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="da63cb35-3974-4990-bb8a-11dffcb8d71d" LastKnownName="int" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="40a99318-3228-42da-b51c-e1c4e882ddb8" name="DailyPasswordResetPolicy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="10bc538c-b5e0-45b2-b1bb-21a381168581" />
+        <generalsInternal>
+          <generalization Id="2ddf8aba-d91b-4882-9363-979c3fed184e" isSubstitutable="false">
+            <classMoniker Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" LastKnownName="PasswordResetPolicy" />
+            <elementDefinition Id="02f53586-82a8-4044-b27e-81eedd7b2de7" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="1744c356-6549-4dc3-8e20-26308888034a" name="WeeklyPasswordResetPolicy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="c949fbaa-5d32-431f-b628-2a1c30777c8c" />
+        <generalsInternal>
+          <generalization Id="39ec40fc-7671-44a5-9c36-7bce49e37f8f" isSubstitutable="false">
+            <classMoniker Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" LastKnownName="PasswordResetPolicy" />
+            <elementDefinition Id="a3566fb2-0e10-450c-a0dd-c468bff2f5f2" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="bb3f7c51-1d05-4bb6-8611-bf813573d03f" name="MonthlyPasswordResetPolicy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9835f162-943a-4a63-a294-02b08d768289" />
+        <generalsInternal>
+          <generalization Id="59f339c4-1b35-4c7e-8076-3ac7c4fc6693" isSubstitutable="false">
+            <classMoniker Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" LastKnownName="PasswordResetPolicy" />
+            <elementDefinition Id="249f0a49-cb98-44da-9400-f21719d640c0" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="36470ac0-1614-4fad-9037-7d737b60791d" name="NeverResetPasswordResetPolicy" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="7e89326a-0324-4b57-a85e-b49496269566" />
+        <generalsInternal>
+          <generalization Id="1ba5f26e-999f-412f-941f-5f710c60e588" isSubstitutable="false">
+            <classMoniker Id="d1082f94-6533-458f-8e7c-f3b7032d7e8e" LastKnownName="PasswordResetPolicy" />
+            <elementDefinition Id="8675a85d-c158-4b25-bf4a-3e52a0cf2f71" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="467a8fb0-8801-44ef-ade7-efc5610ea063" name="PasswordResetPolicy" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::PasswordResetPolicy">
+        <elementDefinition Id="be9f6024-8ea2-49cb-8f3a-6f59af0645b0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1bcd6d43-0fc4-4a44-82f9-c22d467c2ac0" name="LicenseSpecification" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::LicenseSpecification">
+        <elementDefinition Id="e77d3600-72e0-4b97-889d-57cf0de1bf51" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="39f32d87-5ca5-4ddd-8c89-5e16effed23d" name="ApplicationFunction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2591288a-4c42-4a2c-833e-18758bc8e0d9" />
+        <targetEnds>
+          <association Id="b5e0a8d7-f9a7-44a6-92b7-ce34933b48ff" isDerived="false" sourceEndRoleName="Function" targetEndRoleName="FunctionClassification" isLeaf="false" isAbstract="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="35d5ad12-2ec7-487d-bad1-74068967cf17" name="Function" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="Shared" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6dd07583-b975-4b26-b8e4-76d3a970426f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="44a1df3a-a56c-44fd-8707-85ebdf49d6f8" name="FunctionClassification" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="8c34a890-c883-44a0-b75f-017d5c211abc" name="Lower" value="*">
+                      <elementDefinition Id="39a08568-c6a9-4346-8207-8043e9cca9e0" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="4569e3cd-3485-42e0-95ed-63c6911c6a65" name="Upper" value="*">
+                      <elementDefinition Id="55f2e853-6b48-4e3a-a25c-0e77e9ae4bd9" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="a0653328-7aa6-4aec-a84a-78618a60b197" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="8eaf8053-2db9-42eb-a443-1c9324fe7df4" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="874d0192-e5bb-448a-a669-c58118727a8b" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="3d6a395b-a49c-4e81-8c28-3bcae1805089" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="c4388e87-e03f-409b-8702-9ff3fc7024af" name="Description" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="61a4bd48-5b4b-448e-9f81-31a51d511a1a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="146eb776-67ed-4578-bd56-e5e5d7250a8d" name="FunctionClassifications" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b43b9bf1-626a-4926-8653-f13f7359e28e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="92490202-773d-4027-b551-cb49bae2b54a" LastKnownName="FunctionClassification[]" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="8c2fa3ef-f5ec-4ace-b99a-12fe9a532e6b" name="Add" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="daa081ca-d89b-4f7e-a39a-dd391caa6eeb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e0b79d4a-d3d7-44c4-aef6-46ef7c02edb3" name="function" direction="In">
+                  <elementDefinition Id="430b9733-783c-44dc-8f50-7070fe6879c2" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="256c6581-dc59-4c2e-a2a1-e85d3dfb1ebc" LastKnownName="FunctionClassification" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="c610fb5b-1149-4df2-bb05-83cdd7addd18" name="Enable" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="63384fb6-93cd-4316-a5bb-51e8af464945" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="fee98c3e-1001-4c02-b4f9-816129808052" name="function" direction="In" isUnique="false">
+                  <elementDefinition Id="ba4b4cb5-d25a-417f-869e-0c6559e91fc7" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="256c6581-dc59-4c2e-a2a1-e85d3dfb1ebc" LastKnownName="FunctionClassification" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="089c6251-6766-4750-8965-8d72360a7645" name="Disable" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="7d0530b2-c87c-42c6-bf08-093d2cd0bcb6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="eaf4c84a-8c5a-4e2f-ab38-f56384d7fc1e" name="function" direction="In" isUnique="false">
+                  <elementDefinition Id="663caf74-6918-42da-8e65-71d7f7ca1d17" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="256c6581-dc59-4c2e-a2a1-e85d3dfb1ebc" LastKnownName="FunctionClassification" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="fe3117af-3261-4b85-8748-061cd3e654b7" name="ApplicationFunction" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::ApplicationFunction">
+        <elementDefinition Id="2591288a-4c42-4a2c-833e-18758bc8e0d9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ad1e8bf3-20e7-4ef1-acc5-dae031d676dd" name="AddCustomer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="2ebccf78-993d-4d41-a3f0-0078beb719a4" />
+        <generalsInternal>
+          <generalization Id="04eaebda-d001-47a2-9bd6-36a8729892af" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="4f6a953b-e9df-4c10-a6c8-e41655ffc657" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="4ce0ecab-5a81-4b6f-9107-de75da6a9a15" name="RemoveCustomer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9eb0a1c5-3363-49fa-9bf7-d1bc22d98d09" />
+        <generalsInternal>
+          <generalization Id="f68ec8c5-3d45-4e33-b85b-849286246cdf" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="172116b6-bcea-4e39-8488-a9f9c0eaa48a" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="9d53d84f-4547-429d-af8d-5c9b3a5f4079" name="AddBusiness" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="718d7a48-9b6a-4919-b390-4d814dd59622" />
+        <generalsInternal>
+          <generalization Id="9605c549-dad5-4e42-8388-a99607c57818" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="dba99169-335c-4abd-a1b7-ad7359de2059" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f5477260-d7bd-4a62-86ee-9d83767064dd" name="ModifyCustomer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0f4efa86-5a28-45df-befe-28aa1ef804a7" />
+        <generalsInternal>
+          <generalization Id="2f14a8c0-2ed2-438f-a821-45cb8d42c2b9" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="a065eeda-2d6a-4b91-862c-eeb9064e604b" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c8f13a11-cf2f-4e6f-bc56-d82fc749fb98" name="ModifyBusiness" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="33d1cb64-9b6e-46ba-b758-42d9cd4f70cb" />
+        <generalsInternal>
+          <generalization Id="29ebbb1b-3253-47e5-a658-34ac14e68741" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="32aa7728-ae4a-4a02-b18c-896e3fdf5598" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="5c0a1ddc-0e26-4e80-8884-1e826c1042f5" name="RemoveBusiness" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="b004f027-176d-4385-b62c-47ba7ab275e6" />
+        <generalsInternal>
+          <generalization Id="4d567259-7353-43ee-9e58-573c05d9c63d" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="58e38387-ca19-441c-86c7-b0ff32c44dd3" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" name="FunctionClassification" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="98d3181c-da90-437b-86e7-418ac9687dfb" />
+        <targetEnds>
+          <association Id="14611226-f291-494f-aba1-df97d206ec4c" isDerived="false" sourceEndRoleName="FunctionClassification" targetEndRoleName="DualAuthorizationClassification" isLeaf="false" isAbstract="false">
+            <classMoniker Id="386d30ca-0d25-4eb1-a982-8bee61974acf" LastKnownName="DualAuthorizationClassification" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="99b1eb7a-b51a-457b-a37f-335133b4f5af" name="FunctionClassification" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a22e13a0-4923-4d16-bc03-82a259eb54e3" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="65112c98-1f81-4eb1-8405-c1725ea1f22b" name="DualAuthorizationClassification" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8814cae2-5cdb-45ad-8dfc-1196f483d6ab" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="0cb6fa3e-61a0-4fa8-b8c9-96bfeb1b75fa" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="cb948fbe-f1e0-4943-acae-7df1d0c6f036" name="DualAuthorizationClassification" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="6db1ac7a-56da-4b0f-8019-ec6794dd4773" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="f3b04bce-f518-4cab-bab7-6e6fd07e471c" LastKnownName="DualAuthorizationClassification" />
+            </type_NamedElement>
+          </property>
+          <property Id="3ece929b-4010-4ae5-8f47-1a02dd6d83f0" name="IsEnabled" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="b25a21e0-f5f0-407b-8766-8b4ed0ed36c1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="6104baff-6e3b-47f0-be6c-c08da8824b2c" LastKnownName="bool" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="bbe4c717-0352-4be7-96ea-9c337d034398" name="RequiresDualAuthorization" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="11608a1c-9740-43af-a333-211bd0054ab3" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="19122ee2-173d-4e6d-abfa-3cf306ce293e" name="authorize" direction="In" isUnique="false">
+                  <elementDefinition Id="dc68d578-4eca-4334-941f-2552309a53b8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="6104baff-6e3b-47f0-be6c-c08da8824b2c" LastKnownName="bool" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="29097b9a-7420-4205-83ee-b76ca036dfa1" name="GetName" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="abfe6d23-7aae-431a-b65b-3b3382cf8c9c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="a73cd815-9bb2-4e1b-a5b2-1971a410bd6d" direction="Return" isUnique="false">
+                  <elementDefinition Id="440aba1c-e1f3-4fd6-af4e-86fc5509521b" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="e2c3252a-5653-4a6e-b7a8-4d2c133b64e1" LastKnownName="string" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="256c6581-dc59-4c2e-a2a1-e85d3dfb1ebc" name="FunctionClassification" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::FunctionClassification">
+        <elementDefinition Id="98d3181c-da90-437b-86e7-418ac9687dfb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="386d30ca-0d25-4eb1-a982-8bee61974acf" name="DualAuthorizationClassification" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="08ebe495-54f2-4ba1-81f7-3ebb59e40fd4" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f3b04bce-f518-4cab-bab7-6e6fd07e471c" name="DualAuthorizationClassification" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::DualAuthorizationClassification">
+        <elementDefinition Id="08ebe495-54f2-4ba1-81f7-3ebb59e40fd4" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="c35c39b8-0575-407d-957f-863fcbca2e73" name="NoDualAuthorizationRequired" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="a55d4a88-82a1-4662-8670-029778abe194" />
+        <generalsInternal>
+          <generalization Id="d5953589-e97e-41dd-a478-50286ad2d017" isSubstitutable="false">
+            <classMoniker Id="386d30ca-0d25-4eb1-a982-8bee61974acf" LastKnownName="DualAuthorizationClassification" />
+            <elementDefinition Id="9206c5b3-3ecc-4d39-8156-07e44089712f" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b2b65aab-80a4-420c-8841-7c034bac7151" name="RequiresDualAuthorization" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="05e657a0-579d-4b4b-80ed-d049120029c1" />
+        <generalsInternal>
+          <generalization Id="8a2bab1e-2480-412e-a19c-a9398e6e475b" isSubstitutable="false">
+            <classMoniker Id="386d30ca-0d25-4eb1-a982-8bee61974acf" LastKnownName="DualAuthorizationClassification" />
+            <elementDefinition Id="e3b7608b-aa33-4822-bb36-47c391a7171b" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="0d376340-fb3a-4fe3-87ed-bba4c66be269" name="NoRole" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="f4a3b4f0-cfbc-49a4-a579-a00b4be2391e" />
+        <generalsInternal>
+          <generalization Id="7a5bff1d-eaa7-4be6-99c1-e95dbd0e7d5d" isSubstitutable="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <elementDefinition Id="ab494193-c8fc-4e27-b0fb-606212d7e551" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="6104baff-6e3b-47f0-be6c-c08da8824b2c" name="bool" isAbstract="false" isLeaf="false" cachedFullName="bool">
+        <elementDefinition Id="4596dbbb-15e3-473d-b685-e99f99e4f463" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="dadecf85-4e36-4ffe-bcdf-776f29f67793" name="NoFunction" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="4e0d1787-4d82-4b10-bce6-0876899ff240" />
+        <generalsInternal>
+          <generalization Id="432f22c4-2d49-4e8a-8347-843d364d5ed1" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="7c315e25-b59e-41e7-8420-b4cee53f19c4" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="87229631-1468-4f2e-a46d-441ae1aed73b" name="ReadCustomer" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="45f387c2-67ba-4d3b-be43-b292fc24ca71" />
+        <generalsInternal>
+          <generalization Id="8f2be416-5aab-4b58-8b0e-75a2f7ff7c8b" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="7c5a73f5-c9b6-4ff4-a05f-dddbf232b86a" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="445f4e3e-f74f-4575-b878-2cd4165708af" name="ReadBusiness" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="9e8ad40c-1f5d-4dc9-a80c-396c2bdbcb47" />
+        <generalsInternal>
+          <generalization Id="b448faef-1651-4036-9137-ac2ab9b403a9" isSubstitutable="false">
+            <classMoniker Id="10095cf8-b03c-4742-8f74-6dac1c4d626a" LastKnownName="FunctionClassification" />
+            <elementDefinition Id="9dbb38a4-4f65-461c-a8a0-9b7c39ca73f8" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c02be777-527f-4356-a085-5f92bb2d8bc1" name="User" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::User">
+        <elementDefinition Id="876ba0d5-5d47-4f4f-8112-c29a91d4b74a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e629824d-d179-42de-b617-8144f06f1fae" name="InactiveAccountStatus" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6d62c239-e1c1-47f9-8e79-37dc228a072d" />
+        <generalsInternal>
+          <generalization Id="d6eff38a-1a47-42ee-aa2c-5747af7f7e1a" isSubstitutable="false">
+            <classMoniker Id="c863c8dd-ffc0-40ae-8ad7-262b4d750cf0" LastKnownName="AccountStatus" />
+            <elementDefinition Id="70d6c0fe-9092-4d4f-9cdc-b15f240543f7" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="83716634-af01-48c5-b062-80fbc09bf0bc" name="datetime" isAbstract="false" isLeaf="false" cachedFullName="datetime">
+        <elementDefinition Id="38bf4a71-de77-4218-88a0-c4b14a388604" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="da63cb35-3974-4990-bb8a-11dffcb8d71d" name="int" isAbstract="false" isLeaf="false" cachedFullName="int">
+        <elementDefinition Id="a9bd2e3e-3736-42bd-9abf-0c607e6562f0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="fbd1913a-95b8-4529-8ce5-fca5cdcebc06" name="Superman" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6a06599d-8b54-4b94-a0c6-467ffe746801" />
+        <generalsInternal>
+          <generalization Id="eca6003d-c845-41dd-aa26-6359fc1cde7f" isSubstitutable="false">
+            <classMoniker Id="6ebf861b-b669-4229-96e1-f992c2b5b39b" LastKnownName="Role" />
+            <elementDefinition Id="0fdc6fdf-dfd0-4abe-8dcb-ae4848a5c245" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="92490202-773d-4027-b551-cb49bae2b54a" name="FunctionClassification[]" isAbstract="false" isLeaf="false" cachedFullName="FunctionClassification[]">
+        <elementDefinition Id="9c8a1f77-0c6d-4365-9219-a992ecf0516a" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="0d61bef3-d152-4caf-8d55-e8f9ea3c2e46" name="KhanyisaBusinessIntelligenceTool">
+    <elementDefinition Id="9a80f74f-1ab1-45d5-96a2-82d3c67eb7e5" />
+    <profileInstances>
+      <packageHasProfileInstances Id="49650161-2aad-47c9-b4a7-1d901bea77e8">
+        <profileInstance Id="10049f08-8129-4f3e-8657-5266c778f504" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="fa3df9af-c16b-4f99-824f-972286299945">
+        <profileInstance Id="9fecf44f-87b1-46d3-989f-abe0673ae543" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="1d30bd91-80a4-4d0a-9b65-0b571769f0b3">
+        <profileInstance Id="16118300-5540-4665-8212-b89c9c1c8083" name="CSharpProfile">
+          <elementDefinition Id="86394c33-fb50-496f-b04b-39558c7153f4" />
+        </profileInstance>
+        <elementDefinition Id="48acd0b3-2d2e-4864-b98b-66a6fdf4693f" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="c57e96cf-9624-4d27-9ed7-ef7603b303a9">
+        <profileInstance Id="812fafca-269b-47b3-b650-4d18b7d7a8f5" name="TextTemplateBindings">
+          <elementDefinition Id="4bb05a10-3556-4172-9bce-ab29b01b3abf" />
+        </profileInstance>
+        <elementDefinition Id="bd39b4f9-3616-49b1-afe5-081939fe8460" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</logicalClassDesignerModel>

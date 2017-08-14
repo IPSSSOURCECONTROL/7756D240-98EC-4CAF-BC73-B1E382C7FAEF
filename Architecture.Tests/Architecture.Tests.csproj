@@ -1,0 +1,365 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0BDE6D6F-7543-4F4E-AB2A-C052A37A511C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Architecture.Tests</RootNamespace>
+    <AssemblyName>Architecture.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=4.1.1.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.4.1.1\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Windsor, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.4.0.0\lib\net45\Castle.Windsor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.4.4\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.4.4\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.4.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.4.4\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+      </ItemGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
+  <ItemGroup>
+    <Compile Include="AutomatedTestingContext.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Business\BusinessResponse.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Business\BusinessService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Business\BusinessServiceRequest.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Customer\CustomerResponse.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Customer\CustomerService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Customer\CustomerServiceRequest.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Business\IBusinessService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Customer\ICustomerService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\ProductListing\IProductListingService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Product\IProductService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\ProductListing\ProductListingResponse.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\ProductListing\ProductListingService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\ProductListing\ProductListingServiceRequest.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Product\ProductResponse.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Product\ProductService.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services\Product\ProductServiceRequest.cs" />
+    <Compile Include="BusinessIntelligence.Domain.Factories\Customer\CustomerFactory.cs" />
+    <Compile Include="BusinessIntelligence.Application.Models\CustomerAm.cs" />
+    <Compile Include="BusinessIntelligence.Repository\Database\BusinessIntelligenceDatabaseContext.cs" />
+    <Compile Include="BusinessIntelligence.Repository\Database\BusinessIntelligenceDbContext.cs" />
+    <Compile Include="DataModels\BusinessLicensesDM.cs" />
+    <Compile Include="DataModels\UserLicenseDM.cs" />
+    <Compile Include="DependencyInjection\Installers\MongoDbMappingInstaller.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\CheckIfRepositoryCallAttribute.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\KbitRequiredAttribute.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\ValidateMethodArgumentsAttribute.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\CheckIfRepositoryCallContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\KbitRequiredContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\ValidateMethodArgumentContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\CheckIfRepositoryCallInterceptor.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\InterceptorBase.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\KbitRequiredFieldValidationException.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\ValidateMethodArgumentInterceptor.cs" />
+    <Compile Include="Infrustructure\Application\ApplicationServiceBase.cs" />
+    <Compile Include="Infrustructure\Application\Model\ApplicationModelBase.cs" />
+    <Compile Include="Infrustructure\Configuration\Function.cs" />
+    <Compile Include="Infrustructure\Domain\NewAggregateDetails.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\AddCustomer.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\ICustomerRepository.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\IProductListing.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\IProductRepository.cs" />
+    <Compile Include="BusinessIntelligence.Repository\CustomerRepository.cs" />
+    <Compile Include="DataModels\AddressDM.cs" />
+    <Compile Include="DataModels\BillingInformationDM.cs" />
+    <Compile Include="DataModels\ContactDetailsDM.cs" />
+    <Compile Include="BusinessIntelligence.Repository\IProductListingRepository.cs" />
+    <Compile Include="BusinessIntelligence.Repository\ProductListingRepository.cs" />
+    <Compile Include="BusinessIntelligence.Repository\ProductRepository.cs" />
+    <Compile Include="BusinessIntelligence.Workflows\ProductListing\ProductListingWorkflow.cs" />
+    <Compile Include="BusinessIntelligence.Workflows\ProductListing\ProductListingWorkflowContext.cs" />
+    <Compile Include="BusinessIntelligence.Workflows\ProductListing\Steps\AddProductListing.cs" />
+    <Compile Include="BusinessIntelligence.Workflows\ProductListing\Steps\ModifyProductListing.cs" />
+    <Compile Include="BusinessIntelligence.Workflows\ProductListing\Steps\RemoveProductListing.cs" />
+    <Compile Include="DependencyInjection\IModelMapping.cs" />
+    <Compile Include="DependencyInjection\Installers\BusinessIntelligenceInstaller.cs" />
+    <Compile Include="DependencyInjection\Installers\InfrustructureInstaller.cs" />
+    <Compile Include="DependencyInjection\Installers\SecurityInstaller.cs" />
+    <Compile Include="DependencyInjection\IocContainer.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\MandatoryInjectionAttribute.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\ServiceRequestMethodAttribute.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\MandatoryInjectionContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\ServiceRequestContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Contributors\TransactionalContributor.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\ServiceRequestInterceptor.cs" />
+    <Compile Include="Infrustructure\AOP\Interceptors\TransactionalInterceptor.cs" />
+    <Compile Include="Infrustructure\Application\IApplicationService.cs" />
+    <Compile Include="Infrustructure\Application\ServiceRequestBase.cs" />
+    <Compile Include="Infrustructure\Application\ServiceResponse.cs" />
+    <Compile Include="Infrustructure\Application\ServiceResponseBase.cs" />
+    <Compile Include="Infrustructure\Application\ServiceResult.cs" />
+    <Compile Include="Infrustructure\Configuration\ApplicationFunctionsConfiguration.cs" />
+    <Compile Include="Infrustructure\DependencyInjection\IAutoResolver.cs" />
+    <Compile Include="Infrustructure\Domain\IValueObject.cs" />
+    <Compile Include="Infrustructure\MongoDb\DatabaseContextWrapper.cs" />
+    <Compile Include="Infrustructure\Factory\IGenericFactory.cs" />
+    <Compile Include="Infrustructure\Logging\ILoggingType.cs" />
+    <Compile Include="Infrustructure\Logging\NLogWrapper.cs" />
+    <Compile Include="Infrustructure\Reflection\IObjectActivator.cs" />
+    <Compile Include="Infrustructure\Reflection\ObjectCreator.cs" />
+    <Compile Include="Infrustructure\Repository\BasicRepositoryBase.cs" />
+    <Compile Include="Infrustructure\Repository\IBasicRepository.cs" />
+    <Compile Include="Infrustructure\Repository\IReadOnlyRepository.cs" />
+    <Compile Include="Infrustructure\Repository\ISecurityContextAvailable.cs" />
+    <Compile Include="Infrustructure\Repository\IRepositoryWorkflowAvailable.cs" />
+    <Compile Include="Infrustructure\Repository\DataModelBase.cs" />
+    <Compile Include="Infrustructure\MongoDb\IDatabaseContext.cs" />
+    <Compile Include="Infrustructure\Repository\IDatabaseContextAvailable.cs" />
+    <Compile Include="Infrustructure\Repository\KbitNullArgumentException.cs" />
+    <Compile Include="Infrustructure\Repository\NotAuthorizedException.cs" />
+    <Compile Include="Infrustructure\Serialization\IObjectSerializer.cs" />
+    <Compile Include="Infrustructure\Serialization\ObjectSerializer.cs" />
+    <Compile Include="Infrustructure\Utilities\MessageFormatter.cs" />
+    <Compile Include="Infrustructure\Validation\Validator.cs" />
+    <Compile Include="Infrustructure\Workflow\AuthorizationContext.cs" />
+    <Compile Include="Infrustructure\Workflow\IWorkflowContext.cs" />
+    <Compile Include="Infrustructure\Workflow\IWorkflowDataAvailable.cs" />
+    <Compile Include="DataModels\BusinessDM.cs" />
+    <Compile Include="BusinessIntelligence.Repository\BusinessRepository.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Business\IBusinessRepository.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\AccountStatus.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\Active.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Address.cs" />
+    <Compile Include="BusinessIntelligence.Domain\BillingInformation.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Business\Business.cs" />
+    <Compile Include="BusinessIntelligence.Domain.Exceptions\CannotAddNullProductToProductListingException.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ContactDetails.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\CostEstimateListing.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\CreditListing.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\Customer.cs" />
+    <Compile Include="Infrustructure\Domain\AggregateRoot.cs" />
+    <Compile Include="Infrustructure\Domain\IEntity.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\Inactive.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\InvoiceListing.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\NoVat.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\PerDayClassification.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\PerHourClassification.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\PerUnitClassification.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\PricingClassification.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\Product.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\ProductListing.cs" />
+    <Compile Include="BusinessIntelligence.Domain\ProductListing\ProductListingItem.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Customer\Representative.cs" />
+    <Compile Include="Infrustructure\Repository\WorkflowRepository.cs" />
+    <Compile Include="Security.Application.Models\ApplicationFunctionAm.cs" />
+    <Compile Include="Security.Application.Models\RoleAm.cs" />
+    <Compile Include="Security.Application.Services\ApplicationFunction\ApplicationFunctionResponse.cs" />
+    <Compile Include="Security.Application.Services\ApplicationFunction\ApplicationFunctionService.cs" />
+    <Compile Include="Security.Application.Services\ApplicationFunction\ApplicationFunctionServiceRequest.cs" />
+    <Compile Include="Security.Application.Services\ApplicationFunction\IApplicationFunctionService.cs" />
+    <Compile Include="Security.Application.Services\LicenseSpecification\ILicenseSpecificationService.cs" />
+    <Compile Include="Security.Application.Services\Role\IRoleService.cs" />
+    <Compile Include="Security.Application.Services\User\IUserService.cs" />
+    <Compile Include="Security.Application.Services\LicenseSpecification\LicenseSpecificationResponse.cs" />
+    <Compile Include="Security.Application.Services\LicenseSpecification\LicenseSpecificationService.cs" />
+    <Compile Include="Security.Application.Services\LicenseSpecification\LicenseSpecificationServiceRequest.cs" />
+    <Compile Include="Security.Application.Services\Role\RoleResponse.cs" />
+    <Compile Include="Security.Application.Services\Role\RoleService.cs" />
+    <Compile Include="Security.Application.Services\Role\RoleServiceRequest.cs" />
+    <Compile Include="Security.Application.Services\User\UserResponse.cs" />
+    <Compile Include="Security.Application.Services\User\UserService.cs" />
+    <Compile Include="Security.Application.Services\User\UserServiceRequest.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\Security\UserFunctions\AddUser.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\Security\UserFunctions\ModifyUser.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\Security\UserFunctions\ReadUser.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\Security\UserFunctions\RemoveUser.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\IApplicationFunctionRepository.cs" />
+    <Compile Include="Security.Domain\CreateUserParameters.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\ILicenseSpecificationRepository.cs" />
+    <Compile Include="Security.Domain\Role\IRoleRepository.cs" />
+    <Compile Include="Security.Domain\Role\SupermanRole.cs" />
+    <Compile Include="Security.Domain\SecurityDomianFactory.cs" />
+    <Compile Include="Security.Domain\User\AccountStatus\AccountStatus.cs" />
+    <Compile Include="Security.Domain\User\AccountStatus\ActiveAccountStatus.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\AddBusiness.cs" />
+    <Compile Include="Security.Domain\Role\AdministratorRole.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\Specifications\AnnualLicenseSpecification.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunction.cs" />
+    <Compile Include="Security.Domain\User\AccountStatus\BlockedAccountStatus.cs" />
+    <Compile Include="Security.Domain.Exceptions\CannotAddInvalidPasswordException.cs" />
+    <Compile Include="Security.Domain.Exceptions\CannotAddNullApplicationFunctionException.cs" />
+    <Compile Include="Security.Domain.Exceptions\CannotAddNullLicenseException.cs" />
+    <Compile Include="Security.Domain.Exceptions\CannotAddNullRoleException.cs" />
+    <Compile Include="Security.Domain.Exceptions\CannotSetNullPasswordResetPolicyException.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\Specifications\DemoLicenseSpecification.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\DualAuthorizationClassification.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\Specifications\ExpiredLicenseSpecification.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\FunctionClassification.cs" />
+    <Compile Include="Security.Domain\User\IUserRepository.cs" />
+    <Compile Include="Security.Domain\User\Password\DailyPasswordResetPolicy.cs" />
+    <Compile Include="Security.Domain\User\AccountStatus\InactiveAccountStatus.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\LicenseSpecification.cs" />
+    <Compile Include="Security.Domain\Role\LimitedRole.cs" />
+    <Compile Include="Security.Domain\Role\ManagerRole.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\ModifyBusiness.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\ModifyCustomer.cs" />
+    <Compile Include="Security.Domain\LicenseSpecification\Specifications\MonthlyLicenseSpecification.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\NoDualAuthorizationRequired.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\NoFunction.cs" />
+    <Compile Include="Security.Domain\Role\NoRole.cs" />
+    <Compile Include="Security.Domain\User\Password\MonthlyPasswordResetPolicy.cs" />
+    <Compile Include="Security.Domain\User\Password\NeverResetPasswordResetPolicy.cs" />
+    <Compile Include="Security.Domain\User\Password\Password.cs" />
+    <Compile Include="Security.Domain.Exceptions\PasswordNoteSetException.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\ReadBusiness.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\ReadCustomer.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\BusinessFunctions\RemoveBusiness.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\ApplicationFunctions\BusinessIntelligence\CustomerFunctions\RemoveCustomer.cs" />
+    <Compile Include="Security.Domain\ApplicationFunction\RequiresDualAuthorization.cs" />
+    <Compile Include="Security.Domain\Role\Role.cs" />
+    <Compile Include="Security.Domain\User\Password\PasswordResetPolicy.cs" />
+    <Compile Include="Security.Domain\User\User.cs" />
+    <Compile Include="Security.Domain\User\Password\WeeklyPasswordResetPolicy.cs" />
+    <Compile Include="Security.Repository\ApplicationFunctionRepository.cs" />
+    <Compile Include="Infrustructure\MongoDb\MongoCollectionExtensions.cs" />
+    <Compile Include="Infrustructure\MongoDb\MongoDbContext.cs" />
+    <Compile Include="Security.Repository\Database\SecurityDatabaseContext.cs" />
+    <Compile Include="DataModels\ApplicationFunctionToFunctionClassificationDM.cs" />
+    <Compile Include="DataModels\FunctionClassificationDM.cs" />
+    <Compile Include="DataModels\RoleToFunctionClassificationDM.cs" />
+    <Compile Include="DataModels\UserToBusinessDM.cs" />
+    <Compile Include="Infrustructure\Repository\EntityAlreadyExistException.cs" />
+    <Compile Include="Security.Repository\LicenseSpecificationRepository.cs" />
+    <Compile Include="Security.Repository\RoleRepository.cs" />
+    <Compile Include="Security.Repository\UserRepository.cs" />
+    <Compile Include="DataModels\ApplicationFunctionDM.cs" />
+    <Compile Include="DataModels\LicenseDM.cs" />
+    <Compile Include="DataModels\PasswordDM.cs" />
+    <Compile Include="DataModels\RoleDM.cs" />
+    <Compile Include="DataModels\RoleToApplicationFunctionDM.cs" />
+    <Compile Include="DataModels\UserDM.cs" />
+    <Compile Include="Security.Repository\Database\SecurityDbContext.cs" />
+    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BusinessIntelligence.Domain\Product\Vat.cs" />
+    <Compile Include="Infrustructure\Workflow.Exceptions\CannotAddExistingEntityException.cs" />
+    <Compile Include="Infrustructure\Workflow.Exceptions\EntityDoesNotExistException.cs" />
+    <Compile Include="Infrustructure\Workflow\IWorkflow.cs" />
+    <Compile Include="Infrustructure\Workflow\IWorkflowStep.cs" />
+    <Compile Include="Infrustructure\Workflow\IWorkflowStepsExecutionStrategy.cs" />
+    <Compile Include="Infrustructure\Exception\KBitException.cs" />
+    <Compile Include="Infrustructure\AOP\Attributes\TransactionalAttribute.cs" />
+    <Compile Include="Infrustructure\Workflow\WorkflowBase.cs" />
+    <Compile Include="Infrustructure\Workflow\WorkflowContext.cs" />
+    <Compile Include="Infrustructure\Workflow\WorkflowOperation.cs" />
+    <Compile Include="Infrustructure\Workflow\WorkflowStepBase.cs" />
+    <Compile Include="Infrustructure\Workflow\WorkflowStepsExecutionStrategy.cs" />
+    <Compile Include="CustomerRepositoryTests.cs" />
+    <Compile Include="CustomerServiceTests.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Security.Workflows\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationFunctionsConfiguration.xml" />
+  </ItemGroup>
+  <Choose>
+    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
+      <ItemGroup>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+          <Private>False</Private>
+        </Reference>
+      </ItemGroup>
+    </When>
+  </Choose>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

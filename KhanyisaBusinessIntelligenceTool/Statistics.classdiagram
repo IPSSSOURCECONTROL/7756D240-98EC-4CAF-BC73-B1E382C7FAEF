@@ -1,0 +1,557 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="9e16a0ad-e184-4692-854f-52938813e8f7" name="Statistics" linkedPackageId="21cb6715-6200-456c-8833-78c4cac1ed8a" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <ownedCommentsInternal>
+    <comment Id="a2b77a24-2ab8-4d67-9772-c4a1872b3072">
+      <elementDefinition Id="830786c8-f0c3-427e-bd79-4294e23910ba" />
+      <body>The protected CalculateTotalCosts() function  must enumerate the CostItem[] &amp; aggregate all amounts</body>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="bf00ee85-01b1-4270-a965-018ae9bd9371" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="41a66c5d-5490-450b-9d72-9e2cb71ad55b" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="fc0069c9-46a6-4909-bbd7-bced62aab17b">
+          <propertyInstance Id="08f0863c-310c-4e32-bd83-ae3d75fa5869" name="BaseName">
+            <elementDefinition Id="3f246ca8-f442-4ef0-bff3-69398d2c637e" />
+          </propertyInstance>
+          <elementDefinition Id="96793d8c-194f-4790-a119-17d318f5cf8c" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f5af31c6-659d-47de-a570-c389f981c0ac">
+          <propertyInstance Id="e77587c4-5aae-4d84-b114-93b4d9a4b2ac" name="ClrAttributes">
+            <elementDefinition Id="e935fe18-c1ae-4c59-acc3-c2313b3ed206" />
+          </propertyInstance>
+          <elementDefinition Id="faf1fd1b-ee54-49f4-98b6-4a80403ec799" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ee508dc2-a950-464a-b068-39fddb7e3ac6">
+          <propertyInstance Id="a3adc854-61ca-403f-8d85-ceb9837ea69e" name="Usings">
+            <elementDefinition Id="6f110b49-3cc8-432e-98af-3c112bff571a" />
+          </propertyInstance>
+          <elementDefinition Id="6406eded-c2fe-411f-9ad1-0103c5a3c4bc" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="47692bef-020f-4e84-9077-af53ea1bad8d" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="e50b18e5-bd17-4369-bea5-d60f1ced95b7" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="bd1b0e90-326b-4258-b3ca-e6f96d5e302d">
+          <propertyInstance Id="237ef569-8c26-48b7-838e-ca6ae194ba97" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="09223479-694d-47db-a9d5-345b00e9710d" />
+          </propertyInstance>
+          <elementDefinition Id="3a89120b-7d5c-4e95-8a5a-8bb6b8e53dec" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="6c2bfb41-be56-4872-8ac4-2fd84281471d">
+          <propertyInstance Id="356f22e7-ff10-4b6b-87e6-b1624ced9fd9" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 14.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="059b2198-aaf4-4bd4-99a0-3996b87829c6" />
+          </propertyInstance>
+          <elementDefinition Id="d35b2af7-c181-42c3-88ad-791725138b6c" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="dfe85a79-89aa-4593-981a-626b6a914e19">
+          <propertyInstance Id="0e93a916-39fe-493a-80b0-7291cc38b8da" name="ProjectPath" value="ClassTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|EnumTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|InterfaceTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj|StructTemplate=..\KhanyisaBusinessIntelligenceToolLib\KhanyisaBusinessIntelligenceToolLib.csproj">
+            <elementDefinition Id="f34e06a4-1f44-40ec-bf11-7124991dc977" />
+          </propertyInstance>
+          <elementDefinition Id="eeb2e17d-21cf-47ce-8a11-bd8456b66df2" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b9a37d06-8ac4-405c-9564-0fb8af856dfa">
+          <propertyInstance Id="91f43bcb-ed0b-4789-b5e2-9f7552a3f04e" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="9db5e6e9-59ef-45c8-9e59-8d299d83e41e" />
+          </propertyInstance>
+          <elementDefinition Id="e5a5742a-a396-4b26-a675-84c6a0dc28e1" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="adcc6c35-3551-414f-bf83-40c553dd4968">
+          <propertyInstance Id="7312dc6e-cdf5-46c4-a3bb-1a666c610d30" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="03e73a82-f222-4a40-97ca-de0ff61e7e81" />
+          </propertyInstance>
+          <elementDefinition Id="72cadc24-4487-4bf5-af64-9720b1e92d2f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="2adebba3-77b9-4f0f-aedd-b76df7df7fdd">
+          <propertyInstance Id="e2950e8b-7415-4730-8800-d9c673d51122" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="d166816b-e772-452a-8591-ee4d1f7cbdcf" />
+          </propertyInstance>
+          <elementDefinition Id="04b85f9f-aa34-41f8-b4fa-e54d86f6ef35" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d7df7cf8-9c9b-47f9-9654-db1b14e850ca">
+          <propertyInstance Id="14d055d5-8861-41d5-8dc8-832ce003b889" name="Parameters">
+            <elementDefinition Id="fed61859-2707-4613-b159-d9d3f9c09b66" />
+          </propertyInstance>
+          <elementDefinition Id="5743d70f-12de-4d24-8b78-cedbfe6e07be" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <profileInstances>
+    <packageHasProfileInstances Id="ac4910e6-dd65-47c1-a653-62c22f9db1a9">
+      <profileInstance Id="0f33d76c-e82e-4d63-9339-27237c0afaef" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="d7d7bf37-9110-4873-a01a-8cbba2ea3616">
+      <profileInstance Id="7b3e1033-fa40-47f9-bd9c-a1a0a0cce0c0" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="44443d49-ae36-4a02-badd-ee568a9a29db">
+      <profileInstance Id="1b2b4fd5-53c2-4755-ac9e-efbd6f9629ca" name="CSharpProfile">
+        <elementDefinition Id="86394c33-fb50-496f-b04b-39558c7153f4" />
+      </profileInstance>
+      <elementDefinition Id="48acd0b3-2d2e-4864-b98b-66a6fdf4693f" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="061a741e-19de-4881-a04b-f5bf91fd44e2">
+      <profileInstance Id="3add69c8-b5d8-4ec0-a4b0-d6f1ed997e15" name="TextTemplateBindings">
+        <elementDefinition Id="4bb05a10-3556-4172-9bce-ab29b01b3abf" />
+      </profileInstance>
+      <elementDefinition Id="bd39b4f9-3616-49b1-afe5-081939fe8460" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="ddeb95ad-67bc-4419-bf3f-6d146a3c6a5a" name="ProfitLossItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="986133fa-b70b-4a15-ba93-50a0de0b1a07" />
+        <generalsInternal>
+          <generalization Id="6245daec-2c5f-465e-9c5e-eb887a02a253" isSubstitutable="false">
+            <classMoniker Id="77176455-d05e-435e-bbff-b0b9dc046fce" LastKnownName="ProfitLossSpecification" />
+            <elementDefinition Id="98fb11ab-c87b-4f2a-9efa-a1982e971fd4" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="897ee7d1-5c4b-4144-a311-607dd2da7638" isDerived="false" sourceEndRoleName="ProfitLossItem" targetEndRoleName="CostSpecification" isLeaf="false" isAbstract="false">
+            <classMoniker Id="e6295de6-3500-4b44-b508-a991f83a7e61" LastKnownName="CostSpecification" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="49092ae5-083a-4838-a098-81d67ec8d022" name="ProfitLossItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6509f8ac-0ecb-430b-a2c9-57508844c27e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0abdd884-6513-46f1-b146-75a967c723ca" name="CostSpecification" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="d50e17e2-9f80-4f72-93ce-560961ee634b" name="Lower" value="*">
+                      <elementDefinition Id="950f3d8b-6a0b-413b-a5dc-409abdd0c2e5" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="72f004f3-1d5b-466e-9a26-951f44543758" name="Upper" value="*">
+                      <elementDefinition Id="3db64d9b-3e0f-499c-b735-44d8def9067d" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="cb605b3f-60ea-417f-b43f-ebad31ec0e9e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="dc4398e4-595f-41d5-b7c6-36d3d93aefc5" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="918414d7-324f-4ad4-a8c1-5350164aa176" name="Month" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="c0fa3f2a-fb42-40f6-b4b3-2d6424602534" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="2ebc7cbc-17c3-4718-81ea-ff1ea3bcdddd" name="TotalExpenses" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="15519dda-d32f-48f1-802e-39633e4bb03f" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="2c1c5dee-0ec7-40ed-a11b-9e7b08d46ea0" name="CostSpecifications" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="57304dc0-7c1f-44fa-a4e8-1e59e17a0d35" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0aefe311-ba72-4ad5-b299-0138ab7be7c2" LastKnownName="CostSpecification[]" />
+            </type_NamedElement>
+          </property>
+          <property Id="38c6f593-342d-4d2b-a09e-b34648ae5eb9" name="GrossMargin" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d47ed62f-f2a2-40a3-9da2-ae60df5cf5b5" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="6c54172e-da2c-4497-ad01-9107c9843da2" name="OperatingProfit" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2d458951-3f4e-41e3-906e-a8ba6ce11282" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="23e148e2-54f7-4936-a620-a96af4bdffaf" name="Turnover" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="2f808b8b-35e2-4e58-ac46-55ac4e494973" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="af53540e-1a47-4c20-b046-ecca8705b5b5" name="AddCostSpecification" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="572aa9e3-41bb-420d-8842-ea417afceb2b" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d75d9147-15b7-43b4-a78b-9f487a53a954" name="costSpecification" direction="In" isUnique="false">
+                  <elementDefinition Id="66fe03e4-b80a-4935-a3b0-77bebab4e3ed" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="f5e52e2e-c559-4797-bc5e-a6d96f09446f" LastKnownName="CostSpecification" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="9d8a34a5-d088-411e-bf52-db8a8973e834" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="af522fa2-ee99-4315-8893-c07a53b79697" name="Business" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="8fd13ae5-5d9b-4d31-963e-c92781f3cf27" />
+        <ownedAttributesInternal>
+          <property Id="019118aa-861b-42f3-aab2-f90cd4ff7818" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="721b0e9c-3081-4e7c-97fa-52841ce84e39" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="07a202bb-14c1-4457-a196-49d83b569e43" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="435e42f3-646b-4df6-9843-4238040803f8" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="623b7519-4bb0-42ed-ba5a-a70523955b65" name="YearToDate" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="fa86b9cf-c47b-4125-ba8c-bc9eb2cb3668" />
+        <generalsInternal>
+          <generalization Id="106a0813-b574-4cd3-83bb-012694c0af2e" isSubstitutable="false">
+            <classMoniker Id="77176455-d05e-435e-bbff-b0b9dc046fce" LastKnownName="ProfitLossSpecification" />
+            <elementDefinition Id="47abd16f-ce82-4d59-8f3f-22e6514781f8" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association Id="de56a932-779d-4048-bd52-ec1942e87212" isDerived="false" sourceEndRoleName="YearToDate" targetEndRoleName="ProfitLossItem" isLeaf="false" isAbstract="false">
+            <classMoniker Id="ddeb95ad-67bc-4419-bf3f-6d146a3c6a5a" LastKnownName="ProfitLossItem" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="222198a4-8c82-4ef2-a916-6fcc260063f2" name="YearToDate" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="db3a0c4b-77d5-4465-abd7-6829dedf2865" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="1e0bee8c-d4d8-4aac-836c-db88bbf88db1" name="ProfitLossItem" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="46e7d424-8235-474b-8669-024035e6e637" name="Lower" value="12">
+                      <elementDefinition Id="d989f7d6-ba56-480b-ba96-500b9ff67222" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="8b9cd6ac-aeac-432e-806d-cdce87ed4124" name="Upper" value="12">
+                      <elementDefinition Id="adbc1112-fd4d-4c35-a1d2-3e241f49929c" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="124c6dfc-8eac-4191-9b57-c8b0108d6961" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c5f36d8f-89da-47a3-8a81-232c9058ad3c" />
+          </association>
+          <association Id="6d28c959-0c42-438e-8589-40e242132093" isDerived="false" sourceEndRoleName="YearToDate" targetEndRoleName="Business" isLeaf="false" isAbstract="false">
+            <classMoniker Id="af522fa2-ee99-4315-8893-c07a53b79697" LastKnownName="Business" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="36c48aa1-4f96-4c75-b9d7-c79da0f54cce" name="YearToDate" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="c1142379-5367-45e3-a7d8-f3cd5ac83987" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e00eba55-6500-47b4-8d15-ba3bd07e1319" name="Business" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="da5ce72b-478e-416b-a25b-be5245ba2d30" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ae4c66b8-13d2-460d-b9d3-40bb296ae544" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="b3c3aa05-d030-41b3-9d58-a43351075925" name="ProfitLossItems" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="1b0402c5-df12-454d-b99b-42606c4e1d6e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c09082ff-6f96-4a8c-bdba-c831f0f3de48" LastKnownName="ProfitLossItem[]" />
+            </type_NamedElement>
+          </property>
+          <property Id="04b9979b-12cc-4ae0-b30c-103ad85e05c7" name="Business" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f99686e6-f59a-4bc7-a4a7-f29109f4ffe1" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7f772c5e-3428-4c93-8ba6-484a97fb0e8e" LastKnownName="Business" />
+            </type_NamedElement>
+          </property>
+          <property Id="ab91e611-a713-4362-9246-a1fbed2f3a12" name="Id" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="437238b4-2376-409f-91fd-60cc75ea2a2a" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="3772dbd7-2d0c-4248-a3e5-8f9f008e1966" name="CalculateYearToDateFigures" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d3abc62b-5d5c-4f5b-aec2-b44cd666461e" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
+        <elementDefinition Id="8f1a8bda-46af-4c05-a933-c06b97e8d3bb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="e6295de6-3500-4b44-b508-a991f83a7e61" name="CostSpecification" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="5e6b4b04-5ee2-455d-9265-b642f6c392c0" />
+        <targetEnds>
+          <association Id="712a800a-eda6-48fc-99cd-a3c00338ab17" isDerived="false" sourceEndRoleName="CostSpecification" targetEndRoleName="CostCategory" isLeaf="false" isAbstract="false">
+            <classMoniker Id="f5a98374-7b2b-4588-854a-534d2428726e" LastKnownName="CostItem" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a4b08ce7-450a-4dd3-b376-388e07ebc593" name="CostSpecification" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f4d9c8e9-c88f-4948-9077-e96800b4cd82" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7e100832-7cf4-43e3-921c-ee6ddf739776" name="CostCategory" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <lowerValueInternal>
+                    <literalString Id="ce99530f-8154-4594-b8e3-e3327609f909" name="Lower" value="*">
+                      <elementDefinition Id="24842c56-032c-49e9-bb1a-3b27c542b6ab" />
+                    </literalString>
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString Id="c7d2d081-ce77-4552-8d29-469caa596761" name="Upper" value="*">
+                      <elementDefinition Id="1d5bb5ba-3078-4192-b151-40484e695942" />
+                    </literalString>
+                  </upperValueInternal>
+                  <elementDefinition Id="b431edca-f12f-43a7-9103-1c442954d4e4" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6a4c729e-cbee-4aed-b41c-d327a17fe7d6" />
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property Id="f529cca1-d88c-4f56-985c-52c0e7240573" name="Name" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f5207f0c-6018-47ab-9412-5ae213ae3489" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="9c4e226b-8d33-4917-820e-4b66f23ee15b" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="385dc56d-5138-4f8a-954a-36c2482948d3" name="Costs" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="d72f29cb-a312-41bc-904d-8349c7aa3111" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="0e2a86c8-e9ef-4d0b-83b7-40cf650d7619" LastKnownName="CostItem[]" />
+            </type_NamedElement>
+          </property>
+          <property Id="8c0cac58-27c8-44b9-af9e-f0ba3b58a2ca" name="Total" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="18cb4726-3bf9-4c38-b080-b4db2cdba87c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="35d96007-b154-41bf-bfb3-9f59b7381f64" name="AddCost" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="d118e2e0-d91e-43a2-ad03-21e9a7e2ce2f" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="50d9a94f-ba85-47b3-ab11-c7979bfe976f" name="cost" direction="In" isUnique="false">
+                  <elementDefinition Id="012567ab-c8a8-4613-9471-6b768b679bd0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="3753ac99-53a2-4996-81f7-ad4d76e356e3" LastKnownName="CostItem" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="3ee69c20-381b-4560-a173-3a9c809cf948" name="CalculateTotalCosts" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="86dbd5b3-28af-469c-91fc-faebe9c3fecb" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="262c67fd-f6a2-4f74-96da-d0875c943481" direction="Return" isUnique="false">
+                  <elementDefinition Id="2fa7aee5-e837-43cc-915d-bdd983eb54d0" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="f5a98374-7b2b-4588-854a-534d2428726e" name="CostItem" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="762a6f63-40d8-47a7-b90a-6018390af31c" />
+        <ownedAttributesInternal>
+          <property Id="628210e6-fad9-4f3e-872b-9ce0527691df" name="Description" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="f71d0187-2cb9-4ecd-b4a9-5011f8f3df5c" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="ff8223f1-698a-44cc-96d7-84324c9d3cfc" LastKnownName="string" />
+            </type_NamedElement>
+          </property>
+          <property Id="58c8446b-9f23-4bad-9c3c-2e1c9642c447" name="Amount" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="89a3c4d7-85ca-492f-bca0-a536f7ea6151" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="c1e816ac-3049-4500-b258-1cc3c1b1a62c" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="847d4032-4b2c-48eb-8c6d-f0c879b785aa" name="Date" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="36c2e9ea-0c46-41d3-9a24-a78f2e7b6d0e" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="3420ab95-b228-40c1-9c66-9069472f0baf" LastKnownName="DateTime" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="f5e52e2e-c559-4797-bc5e-a6d96f09446f" name="CostSpecification" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::CostSpecification">
+        <elementDefinition Id="5e6b4b04-5ee2-455d-9265-b642f6c392c0" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0aefe311-ba72-4ad5-b299-0138ab7be7c2" name="CostSpecification[]" isAbstract="false" isLeaf="false" cachedFullName="CostSpecification[]">
+        <elementDefinition Id="5efeaafb-5d98-485c-b18f-bbede9631cf1" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ff8223f1-698a-44cc-96d7-84324c9d3cfc" name="string" isAbstract="false" isLeaf="false" cachedFullName="string">
+        <elementDefinition Id="9d8a34a5-d088-411e-bf52-db8a8973e834" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="c09082ff-6f96-4a8c-bdba-c831f0f3de48" name="ProfitLossItem[]" isAbstract="false" isLeaf="false" cachedFullName="ProfitLossItem[]">
+        <elementDefinition Id="dcedad6d-c80c-472f-9bfa-c4aa13b2cef7" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3753ac99-53a2-4996-81f7-ad4d76e356e3" name="CostItem" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::CostItem">
+        <elementDefinition Id="762a6f63-40d8-47a7-b90a-6018390af31c" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="3420ab95-b228-40c1-9c66-9069472f0baf" name="DateTime" isAbstract="false" isLeaf="false" cachedFullName="DateTime">
+        <elementDefinition Id="35d5380b-20ad-4556-8e64-e705d00e7439" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="b68eab61-a519-45fc-8b2b-6cdf57815658" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
+        <elementDefinition Id="8f1a8bda-46af-4c05-a933-c06b97e8d3bb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="77176455-d05e-435e-bbff-b0b9dc046fce" name="ProfitLossSpecification" isAbstract="true" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="59990c61-a918-4c8b-ab8a-f75d53fa126b" />
+        <ownedAttributesInternal>
+          <property Id="d96b7ccc-71ff-4ccf-be5f-164284ca6388" name="TotalExpenses" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="30fec698-95eb-475f-a215-137f5157d703" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b68eab61-a519-45fc-8b2b-6cdf57815658" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="0858c214-9421-4850-adba-95250ebe09d0" name="GrossMargin" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="a3d687a3-9cf4-480e-afc1-d1e8bfe511d6" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b68eab61-a519-45fc-8b2b-6cdf57815658" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="9244ef2f-8348-46db-91f6-e110288ec197" name="OperatingProfit" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="77b0ec26-7aea-4ebc-a9d8-24d8f40de477" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="b68eab61-a519-45fc-8b2b-6cdf57815658" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+          <property Id="53a09ef6-b92e-4f4e-a83e-2d99271aa754" name="Turnover" isLeaf="false" isStatic="false" isReadOnly="false" isUnique="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+            <elementDefinition Id="80c2c649-6e07-4359-9cb4-0aa6c258cd28" />
+            <type_NamedElement>
+              <referencedTypeMoniker Id="7450826a-fa8d-41bc-911c-f2d9a9cc05b9" LastKnownName="decimal" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation Id="30233fb6-a419-4f7f-9de8-05ea58261813" name="CalculateTotalExpenses" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="f77b708c-aaee-45c5-8284-d6208a1a728b" name="method" profile="CSharpProfile">
+                <elementDefinition Id="25478adf-9c88-4c17-b7d7-f31ce2224677" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="868d0c05-513f-49fe-8228-89bcd1d291f0">
+                    <propertyInstance Id="ee4b410c-cac2-4da0-a3d0-2af28c927ac4" name="ClrAttributes">
+                      <elementDefinition Id="8c04f70f-1a7c-45c7-b5f9-c2c1bce37b43" />
+                    </propertyInstance>
+                    <elementDefinition Id="99865f6d-d659-405c-9594-4a2ff36a2f09" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e5e9de31-7ca0-4bd2-9b52-11b9ed32a048">
+                    <propertyInstance Id="7395ab4a-7b35-4371-9559-640ecf7c04bd" name="IsPartial" value="false">
+                      <elementDefinition Id="f9c2b6d1-77fa-4396-8e7a-eb7bbfee2204" />
+                    </propertyInstance>
+                    <elementDefinition Id="55fbd837-1a7f-4c04-9aa4-69f02c679af8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="99e300a0-59f1-41a7-9f08-a090f92f0ff9">
+                    <propertyInstance Id="3f6390b0-570b-433e-8f56-7288fe3cb18f" name="IsUnsafe" value="false">
+                      <elementDefinition Id="675a3c85-26d3-4f6c-957e-c52b09f0b0fa" />
+                    </propertyInstance>
+                    <elementDefinition Id="456b4146-061b-48c9-a05f-bc28f9cc344e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2e9fe136-4f2c-4775-9594-7ee1a66545b9">
+                    <propertyInstance Id="1428a45b-c1d4-488e-900a-4e68bacfa6f9" name="Inheritance" value="none">
+                      <elementDefinition Id="affcf901-c164-4907-b577-f95719f0a38e" />
+                    </propertyInstance>
+                    <elementDefinition Id="1f4b1d14-80ca-4394-92d8-378295d108a8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="593b901b-0cc3-431f-a50f-572acbecc8d5">
+                    <propertyInstance Id="5a5a8e23-eaad-42c6-83ca-38057c86efed" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="85a90b1b-3360-47af-b226-bf3bab9d1dc0" />
+                    </propertyInstance>
+                    <elementDefinition Id="eaf35181-8191-4688-bc14-59099b7e5a44" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d5cc077c-e074-4314-839f-3a5f7d0668b1">
+                    <propertyInstance Id="d3c8bc8f-d0bc-455f-b15f-a38835f61908" name="params" value="false">
+                      <elementDefinition Id="f04a49f9-533c-411e-9bcd-395a67025a0f" />
+                    </propertyInstance>
+                    <elementDefinition Id="379fb821-0533-4ffc-b77b-f2f62a05cec0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="68d879d7-c761-4df7-a33c-6173b91568d9" />
+          </operation>
+          <operation Id="429a44bc-fabf-4937-81e2-4460874960e0" name="CalculateTotalGrossMargin" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="4961458d-aa16-489a-a35a-d5924e2bc68d" />
+          </operation>
+          <operation Id="27f8fbcf-15fd-4581-8825-ca49c0541cc4" name="CalculateTotalOperatingProfit" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="00cc121b-6d36-432e-9bba-00f170a34ae1" />
+          </operation>
+          <operation Id="8dbf3138-f619-43f9-bc8d-26f078964894" name="CalculateTurnover" visibility="Protected" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <elementDefinition Id="ff2c443a-7d32-45e0-ac0e-0c35521adb97" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="7450826a-fa8d-41bc-911c-f2d9a9cc05b9" name="decimal" isAbstract="false" isLeaf="false" cachedFullName="decimal">
+        <elementDefinition Id="8f1a8bda-46af-4c05-a933-c06b97e8d3bb" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="0e2a86c8-e9ef-4d0b-83b7-40cf650d7619" name="CostItem[]" isAbstract="false" isLeaf="false" cachedFullName="CostItem[]">
+        <elementDefinition Id="1166aef7-d6df-4c2a-aa49-697943d74118" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="7f772c5e-3428-4c93-8ba6-484a97fb0e8e" name="Business" isAbstract="false" isLeaf="false" cachedFullName="KhanyisaBusinessIntelligenceTool::Business">
+        <elementDefinition Id="138e66ec-1ace-4caa-89c2-f0cadec972c0" />
+      </referencedType>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="21cb6715-6200-456c-8833-78c4cac1ed8a" name="KhanyisaBusinessIntelligenceTool">
+    <elementDefinition Id="9a80f74f-1ab1-45d5-96a2-82d3c67eb7e5" />
+  </package>
+</logicalClassDesignerModel>

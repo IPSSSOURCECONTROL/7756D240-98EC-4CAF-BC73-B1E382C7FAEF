@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F0F18BFD-7163-462F-9247-3C0DF75A59D2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services</RootNamespace>
+    <AssemblyName>KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\BusinessResponse.cs" />
+    <Compile Include="Business\BusinessService.cs" />
+    <Compile Include="Business\BusinessServiceRequest.cs" />
+    <Compile Include="Business\IBusinessService.cs" />
+    <Compile Include="Customer\CustomerResponse.cs" />
+    <Compile Include="Customer\CustomerService.cs" />
+    <Compile Include="Customer\CustomerServiceRequest.cs" />
+    <Compile Include="Customer\ICustomerService.cs" />
+    <Compile Include="ProductListing\IProductListingService.cs" />
+    <Compile Include="ProductListing\ProductListingResponse.cs" />
+    <Compile Include="ProductListing\ProductListingService.cs" />
+    <Compile Include="ProductListing\ProductListingServiceRequest.cs" />
+    <Compile Include="Product\IProductService.cs" />
+    <Compile Include="Product\ProductResponse.cs" />
+    <Compile Include="Product\ProductService.cs" />
+    <Compile Include="Product\ProductServiceRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
+      <Project>{FCEFD633-BB12-4EA8-99CA-3C593B1F4D52}</Project>
+      <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.AOP\Infrustructure.AOP.csproj">
+      <Project>{e41e750b-66c9-4ddc-9d41-86d202ecf014}</Project>
+      <Name>Infrustructure.AOP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
+      <Project>{19541cac-fd7e-40b0-9b36-4146ce46c4cc}</Project>
+      <Name>Infrustructure.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
+      <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
+      <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
+      <Name>Infrustructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>
+      <Name>Infrustructure.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6dd00406-d7d9-4f6c-8c06-b5275ba96a98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Models\BusinessIntelligence.Application.Models.csproj">
+      <Project>{532f9b11-63bc-44fb-b12e-a4f958e28b49}</Project>
+      <Name>BusinessIntelligence.Application.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Factories\BusinessIntelligence.Domain.Factories.csproj">
+      <Project>{F75A7926-6F2A-4EF6-93D2-77930678B52C}</Project>
+      <Name>BusinessIntelligence.Domain.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\BusinessIntelligence.Domain.csproj">
+      <Project>{667383B5-925E-4BF9-ABCC-638B11D2DC81}</Project>
+      <Name>BusinessIntelligence.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Interfaces\BusinessIntelligence.Repository.Interfaces.csproj">
+      <Project>{42c36bb8-f3ce-4a6b-bd6d-b7d82838ed37}</Project>
+      <Name>BusinessIntelligence.Repository.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
