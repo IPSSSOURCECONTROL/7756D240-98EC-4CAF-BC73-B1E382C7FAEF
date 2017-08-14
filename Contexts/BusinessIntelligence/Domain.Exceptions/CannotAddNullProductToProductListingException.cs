@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Exceptions
 {
+    /// <summary>
+    /// GIT TEST
+    /// </summary>
     [Serializable]
     public class CannotAddNullProductToProductListingException : Exception
     {
