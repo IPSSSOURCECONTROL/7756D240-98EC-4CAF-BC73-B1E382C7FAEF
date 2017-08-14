@@ -26,6 +26,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
                 throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
                     MessageFormatter.RecordWithIdAlreadyExists(entity.Id));
 
+
             this.DatabaseContext.Add(entity);
         }
 
