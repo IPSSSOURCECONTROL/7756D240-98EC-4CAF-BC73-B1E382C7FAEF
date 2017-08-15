@@ -1,4 +1,5 @@
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
 {

@@ -8,13 +8,14 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 {
     public class CustomerService: ApplicationServiceBase<CustomerResponse>, ICustomerService
     {
-        private ICustomerRepository _customerRepository;
+        private readonly ICustomerRepository _customerRepository;
 
         public CustomerService(ICustomerRepository customerRepository)
         {
             this._customerRepository = customerRepository;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse GetById(CustomerServiceRequest request)
         {
@@ -39,6 +40,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             return this.Response;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse GetAll(CustomerServiceRequest request)
         {
@@ -47,6 +49,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             return this.Response;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse Add(CustomerServiceRequest request)
         {
@@ -67,6 +70,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             return this.Response;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse Update(CustomerServiceRequest request)
         {
@@ -86,6 +90,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             return this.Response;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse Delete(CustomerServiceRequest request)
         {

@@ -145,6 +145,10 @@
       <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj">
+      <Project>{186EB07A-9981-4ECC-8F70-8197B4807D9C}</Project>
+      <Name>Infrustructure.Interceptors</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Infrustructure\Infrustructure.MongoDb\Infrustructure.MongoDb.csproj">
       <Project>{67B879C6-B59D-4BB1-A79B-E15FA0773D6F}</Project>
       <Name>Infrustructure.MongoDb</Name>

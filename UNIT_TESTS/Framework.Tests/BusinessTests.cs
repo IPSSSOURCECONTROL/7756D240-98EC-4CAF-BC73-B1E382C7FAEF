@@ -1,5 +1,4 @@
-﻿using System;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
+﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;

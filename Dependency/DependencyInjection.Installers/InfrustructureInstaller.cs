@@ -28,6 +28,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(Component.For<ValidateMethodArgumentInterceptor>().LifestyleTransient());
             container.Register(Component.For<TransactionalInterceptor>().LifestyleTransient());
             container.Register(Component.For<ServiceRequestInterceptor>().LifestyleTransient());
+            container.Register(Component.For<AuthorizeActionInterceptor>().LifestyleTransient());
         }
     }
 }

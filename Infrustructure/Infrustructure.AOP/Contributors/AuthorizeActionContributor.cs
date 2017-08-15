@@ -1,6 +1,9 @@
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
 using Castle.Core;
 using Castle.Core.Internal;
 using Castle.MicroKernel;
@@ -10,17 +13,17 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Contributors
 {
-    public class CheckIfRepositoryCallContributor : IContributeComponentModelConstruction
+    public class AuthorizeActionContributor: IContributeComponentModelConstruction
     {
         public void ProcessModel(IKernel kernel, ComponentModel model)
         {
             List<MethodInfo> traceableMethods = model.Implementation.GetMethods()
-                .Where(m => AttributesUtil.GetAttribute<CheckIfRepositoryCallAttribute>(m) != null).ToList();
+                .Where(m => AttributesUtil.GetAttribute<AuthorizeActionAttribute>(m) != null).ToList();
 
 
             if (traceableMethods.Any())
             {
-                model.Interceptors.AddIfNotInCollection(InterceptorReference.ForType<CheckIfRepositoryCallInterceptor>());
+                model.Interceptors.AddIfNotInCollection(InterceptorReference.ForType<AuthorizeActionInterceptor>());
             }
         }
     }

@@ -14,7 +14,6 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
         {
             this._windsorContainer = new WindsorContainer();
             this.RegisterConstructionConstributors();
-            this.ConfigureMappings();
             this.InstallDependencies();
         }
 
@@ -28,11 +27,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new ServiceRequestContributor());
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new TransactionalContributor());
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new MandatoryInjectionContributor());
-        }
-
-        private void ConfigureMappings()
-        {
-           // MappingConfigurator.ConfigureSystemModelMappings();
+            this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new AuthorizeActionContributor());
         }
 
         private void InstallDependencies()

@@ -47,17 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contributors\AuthorizeActionContributor.cs" />
     <Compile Include="Contributors\CheckIfRepositoryCallContributor.cs" />
     <Compile Include="Contributors\KbitRequiredContributor.cs" />
     <Compile Include="Contributors\MandatoryInjectionContributor.cs" />
     <Compile Include="Contributors\ServiceRequestContributor.cs" />
     <Compile Include="Contributors\TransactionalContributor.cs" />
     <Compile Include="Contributors\ValidateMethodArgumentContributor.cs" />
-    <Compile Include="Interceptors\CheckIfRepositoryCallInterceptor.cs" />
-    <Compile Include="Interceptors\InterceptorBase.cs" />
-    <Compile Include="Interceptors\ServiceRequestInterceptor.cs" />
-    <Compile Include="Interceptors\TransactionalInterceptor.cs" />
-    <Compile Include="Interceptors\ValidateMethodArgumentInterceptor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,6 +64,10 @@
     <ProjectReference Include="..\Infrustructure.Application\Infrustructure.Application.csproj">
       <Project>{19541cac-fd7e-40b0-9b36-4146ce46c4cc}</Project>
       <Name>Infrustructure.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj">
+      <Project>{186EB07A-9981-4ECC-8F70-8197B4807D9C}</Project>
+      <Name>Infrustructure.Interceptors</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>

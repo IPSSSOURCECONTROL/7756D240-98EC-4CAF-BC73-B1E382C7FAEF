@@ -1,6 +1,4 @@
-﻿
-
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow;
+﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 
 namespace Framework.Tests
 {

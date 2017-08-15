@@ -1,4 +1,5 @@
-﻿using System.Transactions;
+﻿
+using System.Transactions;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
@@ -22,7 +23,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
             }
 
             TransactionOptions transactionOptions = new TransactionOptions();
-            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
+            transactionOptions.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
 
             using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {

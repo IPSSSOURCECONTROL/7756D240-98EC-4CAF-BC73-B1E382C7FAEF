@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Castle.Windsor;
-using Framework.Application.Api.Web.App_Start;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 
 namespace Framework.Application.Api.Web

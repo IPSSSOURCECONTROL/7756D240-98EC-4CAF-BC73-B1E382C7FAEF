@@ -3,7 +3,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
 {

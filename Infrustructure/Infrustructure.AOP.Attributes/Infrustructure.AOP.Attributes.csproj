@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizeActionAttribute.cs" />
     <Compile Include="CheckIfRepositoryCallAttribute.cs" />
     <Compile Include="KbitRequiredAttribute.cs" />
     <Compile Include="MandatoryInjectionAttribute.cs" />
