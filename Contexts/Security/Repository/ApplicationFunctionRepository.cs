@@ -25,6 +25,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         }
 
         [Transactional]
+        [ValidateMethodArguments]
         public void Add(ApplicationFunction entity)
         {
             Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
@@ -42,6 +43,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         }
 
         [Transactional]
+        [ValidateMethodArguments]
         public void Update(ApplicationFunction entity)
         {
             Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
@@ -56,6 +58,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         }
 
         [Transactional]
+        [ValidateMethodArguments]
         public void Delete(ApplicationFunction entity)
         {
             Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),

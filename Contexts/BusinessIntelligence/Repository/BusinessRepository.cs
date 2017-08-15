@@ -53,7 +53,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
             this.DatabaseContext.Remove<Business>(entity.Id);
         }
 
-        [Transactional]
         [ValidateMethodArguments]
         public Business GetById(string id)
         {
@@ -65,7 +64,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
             return this.DatabaseContext.Table<Business>();
         }
 
-        [Transactional]
         [ValidateMethodArguments]
         public bool IsExist(Business entity)
         {

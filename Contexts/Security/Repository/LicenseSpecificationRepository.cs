@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
@@ -22,6 +23,8 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
             this._objectActivator = objectActivator;
         }
 
+        [Transactional]
+        [ValidateMethodArguments]
         public void Add(LicenseSpecification entity)
         {
             Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(), this.GetType());
@@ -36,16 +39,21 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
             this.DatabaseContext.Add(entity);          
         }
 
+        [Transactional]
+        [ValidateMethodArguments]
         public void Update(LicenseSpecification entity)
         {
             throw new NotImplementedException();
         }
 
+        [Transactional]
+        [ValidateMethodArguments]
         public void Delete(LicenseSpecification entity)
         {
             throw new NotImplementedException();
         }
 
+        [ValidateMethodArguments]
         public LicenseSpecification GetById(string id)
         {
             throw new NotImplementedException();
@@ -56,6 +64,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
             throw new NotImplementedException();
         }
 
+        [ValidateMethodArguments]
         public bool IsExist(LicenseSpecification entity)
         {
             throw new NotImplementedException();
