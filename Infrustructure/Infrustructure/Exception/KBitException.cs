@@ -2,6 +2,9 @@ using System.Reflection;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Exception
 {
+    /// <summary>
+    /// Base KBIT exception.
+    /// </summary>
     public class KBitException : System.Exception
     {
         public readonly MethodBase MethodInfo;

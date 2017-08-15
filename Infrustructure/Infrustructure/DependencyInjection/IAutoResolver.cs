@@ -12,7 +12,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection
         /// Resolves a <see cref="TDependency"/> type.
         /// </summary>
         /// <typeparam name="TDependency"></typeparam>
-        /// <returns></returns>
+        /// <returns><see cref="TDependency"/> however wll return a null if the dependency is 
+        /// not found.</returns>
         TDependency Resolve<TDependency>() where TDependency : class;
     }
 }
