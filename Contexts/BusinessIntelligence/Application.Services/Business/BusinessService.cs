@@ -78,7 +78,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Business.Business business = this._domainFactory.BuildDomainEntityType(request.Business);
+            Domain.Business.Business business = this._domainFactory.BuildDomainEntityType(request.Business, false);
 
             this.Repository.Update(business);
 

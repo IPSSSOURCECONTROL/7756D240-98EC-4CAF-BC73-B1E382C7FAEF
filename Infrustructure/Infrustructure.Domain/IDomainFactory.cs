@@ -8,7 +8,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Domain
         where TApplicationModelType: class
     { 
         [ValidateMethodArguments]
-        TDomainEntityType BuildDomainEntityType(TApplicationModelType applicationModel);
+        TDomainEntityType BuildDomainEntityType(TApplicationModelType applicationModel, bool isNew = true);
         [ValidateMethodArguments]
         TApplicationModelType BuildApplicationModelType(TDomainEntityType domainEntity);
         [ValidateMethodArguments]

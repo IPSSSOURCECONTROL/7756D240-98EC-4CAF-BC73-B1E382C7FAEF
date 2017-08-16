@@ -8,7 +8,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
     public class BusinessFactory: IDomainFactory<Domain.Business.Business, BusinessAm>
     {
         [ValidateMethodArguments]
-        public Domain.Business.Business BuildDomainEntityType(BusinessAm applicationModel)
+        public Domain.Business.Business BuildDomainEntityType(BusinessAm applicationModel, bool isNew)
         {
             applicationModel.Validate();
 
@@ -23,8 +23,19 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
                 applicationModel.AccountNumber, applicationModel.BranchCode,
                 applicationModel.Reference);
 
-            return new Domain.Business.Business(applicationModel.Name, address,
+            if (isNew)
+            {
+                return new Domain.Business.Business(applicationModel.Name, address,
                 contactDetails, billingInformation);
+            }
+            else
+            {
+                Domain.Business.Business business = new Domain.Business.Business(applicationModel.Name, address,
+                    contactDetails, billingInformation);
+                business.Id = applicationModel.Id;
+
+                return business;
+            }
         }
 
         [ValidateMethodArguments]
