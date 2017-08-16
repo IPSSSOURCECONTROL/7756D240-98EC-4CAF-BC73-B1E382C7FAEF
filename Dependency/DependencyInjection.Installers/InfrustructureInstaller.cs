@@ -18,6 +18,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(Component.For<IObjectActivator>().ImplementedBy<ObjectCreator>());
             container.Register(Component.For<ILoggingType>().ImplementedBy<NLogWrapper>());
 
+
             this.InstallAop(container);
         }
 

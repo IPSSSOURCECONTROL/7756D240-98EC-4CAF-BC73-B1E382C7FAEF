@@ -7,7 +7,8 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
 {
-    public class RoleService : ApplicationServiceBase<RoleResponse, IRoleRepository>, IRoleService
+    public class RoleService : ApplicationServiceBase<RoleResponse, 
+        IRoleRepository, Domain.Role.Role,RoleAm>, IRoleService
     {
         [ServiceRequestMethod]
         public RoleResponse GetById(RoleServiceRequest request)

@@ -55,6 +55,7 @@
     <Compile Include="ApplicationServiceBase.cs" />
     <Compile Include="Controller\KbitApiController.cs" />
     <Compile Include="IApplicationService.cs" />
+    <Compile Include="IDomainFactoryAvailable.cs" />
     <Compile Include="IRepositoryAvailable.cs" />
     <Compile Include="Model\ApplicationModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,10 @@
     <ProjectReference Include="..\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
       <Project>{fcefd633-bb12-4ea8-99ca-3c593b1f4d52}</Project>
       <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
+      <Name>Infrustructure.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>

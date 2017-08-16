@@ -7,11 +7,15 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Security.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
+using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction
 {
     public class ApplicationFunctionService :
-        ApplicationServiceBase<ApplicationFunctionResponse, IApplicationFunctionRepository> ,IApplicationFunctionService
+        ApplicationServiceBase<ApplicationFunctionResponse, 
+            IApplicationFunctionRepository,
+            Domain.ApplicationFunction.ApplicationFunction,
+            ApplicationFunctionAm> ,IApplicationFunctionService
     {
         private readonly IObjectSerializer _objectSerializer;
 

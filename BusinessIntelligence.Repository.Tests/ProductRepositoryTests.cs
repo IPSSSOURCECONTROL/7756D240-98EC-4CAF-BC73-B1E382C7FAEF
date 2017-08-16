@@ -14,13 +14,13 @@ namespace BusinessIntelligence.Repository.Tests
 
         public ProductRepositoryTests()
         {
-            _autoResolver = new IocContainer();
+            this._autoResolver = new IocContainer();
         }
 
         [TestMethod]
         public void TestCanResolveDependency()
         {
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
 
             Assert.IsNotNull(target);
             Assert.IsInstanceOfType(target, typeof(IProductRepository));

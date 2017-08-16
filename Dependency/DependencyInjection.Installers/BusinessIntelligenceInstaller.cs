@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.Reflection;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -11,9 +12,10 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Database;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Workflows.ProductListing;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {
@@ -24,20 +26,21 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             this.InstallWorkflows(container);
             this.InstallRepositories(container);
             this.InstallApplicationServices(container);
-            //container.Register(Component.For<CustomerAm>().LifestyleTransient());
             this.InstallFactories(container);
         }
 
         private void InstallFactories(IWindsorContainer container)
         {
-            container.Register(Component.For<IDomainFactory<Business, BusinessAm>>()
-                .ImplementedBy<BusinessFactory>().LifestyleTransient());
+            container.Register(Classes.FromAssembly(Assembly.Load("KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories"))
+                .BasedOn(typeof(IDomainFactory<,>)).WithServiceAllInterfaces());
         }
 
         private void InstallApplicationServices(IWindsorContainer container)
         {
-            container.Register(Component.For<IBusinessService>().ImplementedBy<BusinessService>().LifestyleTransient());
-            container.Register(Component.For<ICustomerService>().ImplementedBy<CustomerService>().LifestyleTransient());
+            container.Register(
+                Classes.FromAssembly(Assembly.Load("KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services"))
+                    .BasedOn(typeof(IApplicationService<,>))
+                    .WithServiceAllInterfaces());
         }
 
         private void InstallRepositories(IWindsorContainer container)
@@ -46,28 +49,21 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
                 .DependsOn(Dependency.OnValue<string>(ConfigurationManager.ConnectionStrings["KBITDB"].ConnectionString))
                 .LifestyleTransient());
 
-            container.Register(Component.For<ICustomerRepository>().LifestyleTransient().ImplementedBy<CustomerRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
+            container.Register(
+                Classes.FromAssembly(Assembly.Load("KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository"))
+                    .BasedOn(typeof(IBasicRepository<>))
+                    .WithServiceAllInterfaces());
 
-            container.Register(Component.For<IProductRepository>().LifestyleTransient().ImplementedBy<ProductRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
-
-            container.Register(Component.For<IBusinessRepository>().LifestyleTransient().ImplementedBy<BusinessRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
-
-            container.Register(Component.For<IProductListingRepository>().ImplementedBy<ProductListingRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<ProductListingWorkflow, ProductListingWorkflow>()));
+            container.Register(
+                Classes.FromAssembly(Assembly.Load("KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository"))
+                    .BasedOn(typeof(IRepositoryWorkflowAvailable<,>))
+                    .WithServiceAllInterfaces());
         }
 
         private void InstallWorkflows(IWindsorContainer container)
         {
             container.Register(Component.For<ProductListingWorkflow>()
-                .ImplementedBy<ProductListingWorkflow>()
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
+                .ImplementedBy<ProductListingWorkflow>().LifestyleTransient());
         }
     }
 }

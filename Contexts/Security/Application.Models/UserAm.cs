@@ -23,5 +23,8 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Models
 
         [KbitRequired]
         public string AccountStatus { get; set; }
+
+        [KbitRequired]
+        public string LicenseSpecification { get; set; }
     }
 }

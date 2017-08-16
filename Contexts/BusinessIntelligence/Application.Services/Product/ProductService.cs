@@ -8,16 +8,12 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Product
 {
-    public class ProductService : ApplicationServiceBase<ProductResponse, IProductRepository>,
+    public class ProductService : ApplicationServiceBase<ProductResponse, 
+        IProductRepository,
+        Domain.Product.Product,
+        ProductAm>,
         IProductService
     {
-        private readonly IDomainFactory<Domain.Product.Product, ProductAm> _domainFactory;
-
-        public ProductService(IDomainFactory<Domain.Product.Product, ProductAm> domainFactory)
-        {
-            _domainFactory = domainFactory;
-        }
-
         [ServiceRequestMethod]
         public ProductResponse GetById(ProductServiceRequest request)
         {
@@ -35,7 +31,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             }
             else
             {
-                this.Response.Product = this._domainFactory.BuildApplicationModelType(domainModel);
+                this.Response.Product = this.DomainFactory.BuildApplicationModelType(domainModel);
                 this.Response.RegisterSuccess();
             }
 
@@ -46,7 +42,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         [ServiceRequestMethod]
         public ProductResponse GetAll(ProductServiceRequest request)
         {
-            this.Response.ProductCollection = this._domainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
+            this.Response.ProductCollection = this.DomainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
             this.Response.RegisterSuccess();
             return this.Response;
         }
@@ -61,7 +57,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Product.Product product = this._domainFactory.BuildDomainEntityType(request.Product);
+            Domain.Product.Product product = this.DomainFactory.BuildDomainEntityType(request.Product);
 
             this.Repository.Add(product);
 
@@ -81,7 +77,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Product.Product product = this._domainFactory.BuildDomainEntityType(request.Product, false);
+            Domain.Product.Product product = this.DomainFactory.BuildDomainEntityType(request.Product, false);
 
             this.Repository.Update(product);
 
@@ -101,7 +97,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Product.Product product = this._domainFactory.BuildDomainEntityType(request.Product);
+            Domain.Product.Product product = this.DomainFactory.BuildDomainEntityType(request.Product);
 
             this.Repository.Delete(product);
 

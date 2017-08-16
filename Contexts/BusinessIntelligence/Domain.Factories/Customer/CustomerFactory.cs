@@ -2,71 +2,81 @@
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer
 {
-    public class CustomerFactory
+    public class CustomerFactory: IDomainFactory<Domain.Customer.Customer, CustomerAm>
     {
-        public static Domain.Customer.Customer BuildNewCustomer(CustomerAm model)
+        public Domain.Customer.Customer BuildDomainEntityType(CustomerAm applicationModel, bool isNew = true)
         {
-            Validator.CheckReferenceTypeForNull(model, nameof(model),
-                MethodBase.GetCurrentMethod(), typeof(CustomerFactory));
+            applicationModel.Validate();
 
-            model.Validate();
+            Address address = new Address(applicationModel.AddressLineOne, 
+                applicationModel.AddressLineTwo,
+                applicationModel.Street, applicationModel.Suburb, 
+                applicationModel.TownOrCity,
+                applicationModel.PostalCode);
 
-            Address address = new Address(model.AddressLineOne, model.AddressLineTwo,
-                model.Street, model.Suburb, model.TownOrCity,
-                model.PostalCode);
+            ContactDetails contactDetails = new ContactDetails(applicationModel.Email,
+                applicationModel.TelephoneNumber, applicationModel.CellphoneNumber);
 
-            ContactDetails contactDetails = new ContactDetails(model.Email,
-                model.TelephoneNumber, model.CellphoneNumber);
+            BillingInformation billingInformation = new BillingInformation(applicationModel.Bank,
+                applicationModel.AccountNumber, 
+                applicationModel.BranchCode, applicationModel.Reference);
 
-            BillingInformation billingInformation = new BillingInformation(model.Bank,
-                model.AccountNumber, model.BranchCode, model.Reference);
+            Representative representative = new Representative(applicationModel.RepresentativeId,
+                applicationModel.RepresentativeName, applicationModel.RepresentativeCode);
 
-            Representative representative = new Representative(model.RepresentativeId,
-                model.RepresentativeName, model.RepresentativeCode);
+            Domain.Customer.Customer customer=  new Domain.Customer.Customer(applicationModel.Name, 
+                address, contactDetails, representative, 
+                billingInformation, applicationModel.BusinessId);
 
-            return new Domain.Customer.Customer(model.Name, address,contactDetails, representative, billingInformation, model.BusinessId);
+            if (!isNew)
+            {
+                customer.Id = applicationModel.Id;
+            }
+
+            return customer;
         }
 
-        public static CustomerAm BuildApplicationModel(Domain.Customer.Customer customer)
+        public CustomerAm BuildApplicationModelType(Domain.Customer.Customer domainEntity)
         {
             CustomerAm applicationModel = new CustomerAm();
-            applicationModel.Id = customer.Id;
-            applicationModel.Name = customer.Name;
-            applicationModel.AddressLineOne = customer.Address.AddressLineOne;
-            applicationModel.AddressLineTwo = customer.Address.AddressLineTwo;
-            applicationModel.Street = customer.Address.Street;
-            applicationModel.Suburb = customer.Address.Suburb;
-            applicationModel.TownOrCity = customer.Address.TownOrCity;
-            applicationModel.PostalCode = customer.Address.PostalCode;
+            applicationModel.Id = domainEntity.Id;
+            applicationModel.Name = domainEntity.Name;
+            applicationModel.AddressLineOne = domainEntity.Address.AddressLineOne;
+            applicationModel.AddressLineTwo = domainEntity.Address.AddressLineTwo;
+            applicationModel.Street = domainEntity.Address.Street;
+            applicationModel.Suburb = domainEntity.Address.Suburb;
+            applicationModel.TownOrCity = domainEntity.Address.TownOrCity;
+            applicationModel.PostalCode = domainEntity.Address.PostalCode;
 
-            applicationModel.TelephoneNumber = customer.ContactDetails.TelephoneNumber;
-            applicationModel.CellphoneNumber = customer.ContactDetails.CellphoneNumber;
-            applicationModel.Email = customer.ContactDetails.Email;
+            applicationModel.TelephoneNumber = domainEntity.ContactDetails.TelephoneNumber;
+            applicationModel.CellphoneNumber = domainEntity.ContactDetails.CellphoneNumber;
+            applicationModel.Email = domainEntity.ContactDetails.Email;
 
-            applicationModel.Bank = customer.BillingInformation.Bank;
-            applicationModel.BranchCode = customer.BillingInformation.BranchCode;
-            applicationModel.AccountNumber = customer.BillingInformation.AccountNumber;
-            applicationModel.Reference = customer.BillingInformation.Reference;
+            applicationModel.Bank = domainEntity.BillingInformation.Bank;
+            applicationModel.BranchCode = domainEntity.BillingInformation.BranchCode;
+            applicationModel.AccountNumber = domainEntity.BillingInformation.AccountNumber;
+            applicationModel.Reference = domainEntity.BillingInformation.Reference;
 
-            applicationModel.RepresentativeId = customer.Representative.Id;
-            applicationModel.RepresentativeName = customer.Representative.Name;
-            applicationModel.RepresentativeCode = customer.Representative.Code;
-            applicationModel.BusinessId = customer.BusinessId;
+            applicationModel.RepresentativeId = domainEntity.Representative.Id;
+            applicationModel.RepresentativeName = domainEntity.Representative.Name;
+            applicationModel.RepresentativeCode = domainEntity.Representative.Code;
+            applicationModel.BusinessId = domainEntity.BusinessId;
 
             return applicationModel;
         }
 
-        public static IEnumerable<CustomerAm> BuildApplicationModels(IEnumerable<Domain.Customer.Customer> customers)
+        public IEnumerable<CustomerAm> BuildApplicationModelTypes(IEnumerable<Domain.Customer.Customer> domainEntities)
         {
             List<CustomerAm> applicationModels = new List<CustomerAm>();
 
-            foreach (Domain.Customer.Customer customer in customers)
+            foreach (Domain.Customer.Customer customer in domainEntities)
             {
-                applicationModels.Add(BuildApplicationModel(customer));
+                applicationModels.Add(this.BuildApplicationModelType(customer));
             }
 
             return applicationModels;

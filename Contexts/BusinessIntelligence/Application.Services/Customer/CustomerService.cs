@@ -1,4 +1,5 @@
-﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer;
+﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
@@ -6,7 +7,10 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer
 {
-    public class CustomerService: ApplicationServiceBase<CustomerResponse, ICustomerRepository>, ICustomerService
+    public class CustomerService: ApplicationServiceBase<CustomerResponse, 
+        ICustomerRepository,
+        Domain.Customer.Customer,
+        CustomerAm>, ICustomerService
     {
         [AuthorizeAction]
         [ServiceRequestMethod]
@@ -27,7 +31,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             }
             else
             {
-                this.Response.CustomerAm = CustomerFactory.BuildApplicationModel(domainModel);
+                this.Response.CustomerAm = this.DomainFactory.BuildApplicationModelType(domainModel);
                 this.Response.RegisterSuccess();
             }
 
@@ -38,7 +42,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         [ServiceRequestMethod]
         public CustomerResponse GetAll(CustomerServiceRequest request)
         {
-            this.Response.CustomerAms = CustomerFactory.BuildApplicationModels(this.Repository.GetAll());
+            this.Response.CustomerAms = DomainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
             this.Response.RegisterSuccess();
             return this.Response;
         }
@@ -54,7 +58,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
+            Domain.Customer.Customer customer = DomainFactory.BuildDomainEntityType(request.Customer);
 
             this.Repository.Add(customer);
 
@@ -75,7 +79,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
+            Domain.Customer.Customer customer = DomainFactory.BuildDomainEntityType(request.Customer);
 
             this.Repository.Update(customer);
 
@@ -95,7 +99,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
+            Domain.Customer.Customer customer = DomainFactory.BuildDomainEntityType(request.Customer);
 
             this.Repository.Delete(customer);
 

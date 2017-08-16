@@ -25,6 +25,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
                                                     $"{nameof(AuthorizeActionAttribute)} can only be used " +
                                                     $"on ApplicationService types.");
             }
+
+            invocation.Proceed();
         }
     }
 }

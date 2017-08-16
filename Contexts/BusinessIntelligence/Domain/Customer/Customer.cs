@@ -4,8 +4,9 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
 {
     public class Customer: BusinessEntity
     {
-        public Customer(string name, Address address, ContactDetails contactDetails, 
-            Representative representative, BillingInformation billingInformation, string businessId):base(businessId)
+        public Customer(string name, Address address, 
+            ContactDetails contactDetails, Representative representative, 
+            BillingInformation billingInformation, string businessId):base(businessId)
         {
             this.Name = name;
             this.Address = address;

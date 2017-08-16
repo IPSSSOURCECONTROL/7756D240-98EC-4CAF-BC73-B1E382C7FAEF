@@ -6,6 +6,7 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Custome
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Framework.Tests
@@ -65,8 +66,9 @@ namespace Framework.Tests
         public void TestAdd_MustAddCustomerSuccessfully()
         {
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
-
-            Customer customer = CustomerFactory.BuildNewCustomer(new CustomerAm()
+            IDomainFactory<Customer, CustomerAm> domainFactory =
+                this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
+            Customer customer = domainFactory.BuildDomainEntityType(new CustomerAm()
             {
                 AddressLineOne = "UNIT 1",
                 AddressLineTwo = "OUT OF BOUNDS",
@@ -120,8 +122,9 @@ namespace Framework.Tests
         public void TestUpdate_MustUpdateCustomerSuccessfully()
         {
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
-
-            Customer customer = CustomerFactory.BuildNewCustomer(new CustomerAm()
+            IDomainFactory<Customer, CustomerAm> domainFactory =
+                this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
+            Customer customer = domainFactory.BuildDomainEntityType(new CustomerAm()
             {
                 AddressLineOne = "UNIT 1",
                 AddressLineTwo = "OUT OF BOUNDS",
@@ -176,8 +179,9 @@ namespace Framework.Tests
         public void TestDelete_MustDeleteCustomerSuccessfully()
         {
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
-
-            Customer customer = CustomerFactory.BuildNewCustomer(new CustomerAm()
+            IDomainFactory<Customer, CustomerAm> domainFactory =
+                this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
+            Customer customer = domainFactory.BuildDomainEntityType(new CustomerAm()
             {
                 AddressLineOne = "UNIT 1",
                 AddressLineTwo = "OUT OF BOUNDS",
@@ -235,8 +239,9 @@ namespace Framework.Tests
         public void TestGetAll_CanGetAllCustomers()
         {
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
-
-            Customer newCustomer = CustomerFactory.BuildNewCustomer(new CustomerAm()
+            IDomainFactory<Customer, CustomerAm> domainFactory =
+                this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
+            Customer newCustomer = domainFactory.BuildDomainEntityType(new CustomerAm()
             {
                 AddressLineOne = "UNIT 1",
                 AddressLineTwo = "OUT OF BOUNDS",

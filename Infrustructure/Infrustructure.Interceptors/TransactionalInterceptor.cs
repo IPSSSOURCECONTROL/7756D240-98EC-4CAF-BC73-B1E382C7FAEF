@@ -23,7 +23,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
             }
 
             TransactionOptions transactionOptions = new TransactionOptions();
-            transactionOptions.IsolationLevel = System.Transactions.IsolationLevel.ReadCommitted;
+            transactionOptions.IsolationLevel = IsolationLevel.ReadCommitted;
 
             using (TransactionScope transactionScope = new TransactionScope(TransactionScopeOption.Required, transactionOptions))
             {

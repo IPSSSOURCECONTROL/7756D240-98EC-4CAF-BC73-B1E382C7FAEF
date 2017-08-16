@@ -18,7 +18,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
 
         public ProductFactory(IObjectActivator objectActivator)
         {
-            _objectActivator = objectActivator;
+            this._objectActivator = objectActivator;
         }
 
         [ValidateMethodArguments]

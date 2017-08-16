@@ -1,12 +1,16 @@
 ﻿using System;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
+using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
 {
-    public class UserService : ApplicationServiceBase<UserResponse, IUserRepository>,IUserService
+    public class UserService : ApplicationServiceBase<UserResponse, 
+        IUserRepository, 
+        Domain.User.User, UserAm>,IUserService
     {
         [ServiceRequestMethod]
         public UserResponse GetById(UserServiceRequest request)
@@ -33,14 +37,18 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
         [ServiceRequestMethod]
         public UserResponse Add(UserServiceRequest request)
         {
-            //if (request.User == null)
-            //{
-            //    this.Response.RegisterError(MessageFormatter.IsARequiredField(
-            //        nameof(UserServiceRequest.User)));
-            //    return this.Response;
-            //}
+            if (request.User != null)
+            {
+                return null;
+            }
 
-            return null;
+            this.Response.RegisterError(MessageFormatter.IsARequiredField(
+                nameof(UserServiceRequest.User)));
+
+            //Domain.User.User user = 
+
+
+            return this.Response;
         }
 
         [ServiceRequestMethod]
