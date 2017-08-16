@@ -22,7 +22,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
         }
 
         [ValidateMethodArguments]
-        public Domain.Product.Product BuildDomainEntityType(ProductAm applicationModel)
+        public Domain.Product.Product BuildDomainEntityType(ProductAm applicationModel, bool isNew)
         {
             applicationModel.Validate();
             Vat vat = (Vat)this._objectActivator.CreateInstanceOf<Vat>(applicationModel.Vat.Replace(" ", string.Empty));
@@ -31,7 +31,17 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
                 .CreateInstanceOf<PricingClassification>(applicationModel.PricingClassification.Replace(" ",string.Empty),
                     applicationModel.Rate, vat);
 
-            return new Domain.Product.Product(applicationModel.Description, pricingClassification);
+            if (isNew)
+            {
+                return new Domain.Product.Product(applicationModel.Description, pricingClassification);
+            }
+            else
+            {
+                Domain.Product.Product product = new Domain.Product.Product(applicationModel.Description, pricingClassification);
+                product.Id = applicationModel.Id;
+                return product;
+            }
+            
         }
 
         [ValidateMethodArguments]
