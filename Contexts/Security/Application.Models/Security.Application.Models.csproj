@@ -43,8 +43,13 @@
     <Compile Include="ApplicationFunctionAm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleAm.cs" />
+    <Compile Include="UserAm.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
+      <Project>{FCEFD633-BB12-4EA8-99CA-3C593B1F4D52}</Project>
+      <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
       <Project>{19541cac-fd7e-40b0-9b36-4146ce46c4cc}</Project>
       <Name>Infrustructure.Application</Name>

@@ -14,7 +14,8 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         {
             if (string.IsNullOrWhiteSpace(request.EntityId))
             {
-                this.Response.RegisterError(MessageFormatter.IsARequiredField(nameof(CustomerServiceRequest.EntityId)));
+                this.Response.RegisterError(
+                    MessageFormatter.IsARequiredField(nameof(CustomerServiceRequest.EntityId)));
                 return this.Response;
             }
 
