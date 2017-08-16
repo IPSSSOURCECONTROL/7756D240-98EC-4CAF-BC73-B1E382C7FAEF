@@ -37,6 +37,8 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(Component.For<CustomerController>().LifestyleTransient());
 
             container.Register(Component.For<BusinessController>().LifestyleTransient());
+            //container.Register(Component.For<AccountController>().LifestyleTransient());
+            //AccountController
         }
     }
 }

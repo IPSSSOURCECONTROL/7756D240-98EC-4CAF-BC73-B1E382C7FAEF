@@ -6,6 +6,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role;
+using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 using KhanyisaIntel.Kbit.Framework.Security.Repository;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
@@ -27,6 +28,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 
         private void InstallApplicationServices(IWindsorContainer container)
         {
+            container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifestyleTransient());
             container.Register(Component.For<IRoleService>().ImplementedBy<RoleService>().LifestyleTransient());
             container.Register(Component.For<IApplicationFunctionService>().ImplementedBy<ApplicationFunctionService>()
                 .LifestyleTransient());

@@ -7,22 +7,14 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
 {
-    public class RoleService : IRoleService
+    public class RoleService : ApplicationServiceBase<RoleResponse, IRoleRepository>, IRoleService
     {
-        private readonly IRoleRepository _roleRepository;
-
-        public RoleService(IRoleRepository roleRepository)
-        {
-            this._roleRepository = roleRepository;
-        }
-
-
         [ServiceRequestMethod]
         public RoleResponse GetById(RoleServiceRequest request)
         {
             RoleResponse response = new RoleResponse();
 
-            Domain.Role.Role role = this._roleRepository.GetById(request.EntityId);
+            Domain.Role.Role role = this.Repository.GetById(request.EntityId);
 
             if (role == null)
             {
@@ -45,7 +37,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
         {
             RoleResponse response = new RoleResponse();
 
-            IEnumerable<Domain.Role.Role> roles = this._roleRepository.GetAll();
+            IEnumerable<Domain.Role.Role> roles = this.Repository.GetAll();
 
             foreach (Domain.Role.Role role in roles)
             {
@@ -80,7 +72,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
 
             
 
-            IEnumerable<Domain.Role.Role> roles = this._roleRepository.GetAll();
+            IEnumerable<Domain.Role.Role> roles = this.Repository.GetAll();
 
             foreach (Domain.Role.Role role in roles)
             {

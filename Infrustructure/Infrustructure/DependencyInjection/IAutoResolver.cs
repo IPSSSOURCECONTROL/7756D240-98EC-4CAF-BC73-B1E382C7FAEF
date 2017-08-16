@@ -1,4 +1,5 @@
 ﻿using System;
+using Castle.MicroKernel.Registration;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection
 {
@@ -14,6 +15,11 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection
         /// <typeparam name="TDependency"></typeparam>
         /// <returns><see cref="TDependency"/> however wll return a null if the dependency is 
         /// not found.</returns>
-        TDependency Resolve<TDependency>() where TDependency : class;
+        TDependency Resolve<TDependency>() where TDependency : class; 
+    }
+
+    public interface IWindsorInstallerAvailable
+    {
+        void RegisterInstaller(IWindsorInstaller installer);
     }
 }

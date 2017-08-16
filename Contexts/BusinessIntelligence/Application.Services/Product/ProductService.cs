@@ -1,9 +1,12 @@
 using System;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Product
 {
-    public class ProductService : IProductService
+    public class ProductService : ApplicationServiceBase<ProductResponse, IProductRepository>,
+        IProductService
     {
         [ServiceRequestMethod]
         public ProductResponse GetById(ProductServiceRequest request)

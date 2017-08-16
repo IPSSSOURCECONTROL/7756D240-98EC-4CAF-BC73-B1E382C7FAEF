@@ -55,6 +55,7 @@
     <Compile Include="ApplicationServiceBase.cs" />
     <Compile Include="Controller\KbitApiController.cs" />
     <Compile Include="IApplicationService.cs" />
+    <Compile Include="IRepositoryAvailable.cs" />
     <Compile Include="Model\ApplicationModelBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRequestBase.cs" />

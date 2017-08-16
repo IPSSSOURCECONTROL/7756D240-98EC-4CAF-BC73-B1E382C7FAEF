@@ -6,15 +6,8 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer
 {
-    public class CustomerService: ApplicationServiceBase<CustomerResponse>, ICustomerService
+    public class CustomerService: ApplicationServiceBase<CustomerResponse, ICustomerRepository>, ICustomerService
     {
-        private readonly ICustomerRepository _customerRepository;
-
-        public CustomerService(ICustomerRepository customerRepository)
-        {
-            this._customerRepository = customerRepository;
-        }
-
         [AuthorizeAction]
         [ServiceRequestMethod]
         public CustomerResponse GetById(CustomerServiceRequest request)
@@ -25,7 +18,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Customer.Customer domainModel = this._customerRepository.GetById(request.EntityId);
+            Domain.Customer.Customer domainModel = this.Repository.GetById(request.EntityId);
 
             if (domainModel == null)
             {
@@ -44,7 +37,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         [ServiceRequestMethod]
         public CustomerResponse GetAll(CustomerServiceRequest request)
         {
-            this.Response.CustomerAms = CustomerFactory.BuildApplicationModels(this._customerRepository.GetAll());
+            this.Response.CustomerAms = CustomerFactory.BuildApplicationModels(this.Repository.GetAll());
             this.Response.RegisterSuccess();
             return this.Response;
         }
@@ -62,7 +55,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
 
-            this._customerRepository.Add(customer);
+            this.Repository.Add(customer);
 
             this.Response.RegisterSuccess(
                 MessageFormatter.EntitySuccessfullyAdded<Domain.Customer.Customer>(customer.Id));
@@ -83,7 +76,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
 
-            this._customerRepository.Update(customer);
+            this.Repository.Update(customer);
 
             this.Response.RegisterSuccess(MessageFormatter.EntitySuccessfullyAdded<Domain.Customer.Customer>(customer.Id));
 
@@ -103,7 +96,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Customer.Customer customer = CustomerFactory.BuildNewCustomer(request.Customer);
 
-            this._customerRepository.Delete(customer);
+            this.Repository.Delete(customer);
 
             this.Response.RegisterSuccess(MessageFormatter.EntitySuccessfullyAdded<Domain.Customer.Customer>(customer.Id));
 

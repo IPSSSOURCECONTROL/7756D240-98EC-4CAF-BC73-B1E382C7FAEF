@@ -6,9 +6,9 @@ namespace Framework.Application.Api.Web.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            this.ViewBag.Title = "Home Page";
 
-            return View();
+            return this.View();
         }
     }
 }

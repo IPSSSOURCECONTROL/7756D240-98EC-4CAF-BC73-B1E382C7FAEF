@@ -1,4 +1,5 @@
 ﻿using System;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Contributors;
@@ -6,7 +7,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
 {
-    public class IocContainer: IAutoResolver
+    public class IocContainer: IAutoResolver, IWindsorInstallerAvailable
     {
         private readonly WindsorContainer _windsorContainer;
 
@@ -18,6 +19,29 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
         }
 
         public IWindsorContainer WindsorContainer { get {return this._windsorContainer;} }
+
+        public TDependency Resolve<TDependency>() where TDependency : class
+        {
+            try
+            {
+                return this._windsorContainer.Resolve<TDependency>();
+            }
+            catch (Exception e)
+            {
+                return default(TDependency);
+            }
+
+        }
+
+        public void Dispose()
+        {
+            this._windsorContainer?.Dispose();
+        }
+
+        public void RegisterInstaller(IWindsorInstaller installer)
+        {
+            this._windsorContainer.Install(installer);
+        }
 
         private void RegisterConstructionConstributors()
         {
@@ -38,24 +62,6 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
                 new SecurityInstaller(),
                 new BusinessIntelligenceInstaller(),
                 new WebApiControllersInstaller());
-        }
-
-        public TDependency Resolve<TDependency>() where TDependency : class
-        {
-            try
-            {
-                return this._windsorContainer.Resolve<TDependency>();
-            }
-            catch (Exception e)
-            {
-                return default(TDependency);
-            }
-
-        }
-
-        public void Dispose()
-        {
-            this._windsorContainer?.Dispose();
         }
     }
 }
