@@ -22,9 +22,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Add(User entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity),
-                MethodBase.GetCurrentMethod(), this.GetType());
-
             if (this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id))
             {
                 throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(), 

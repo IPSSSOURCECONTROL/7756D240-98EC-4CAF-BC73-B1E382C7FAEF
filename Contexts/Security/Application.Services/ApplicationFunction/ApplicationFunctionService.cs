@@ -1,6 +1,7 @@
 using System.IO;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Configuration;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Security.Domain;
@@ -9,16 +10,14 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction
 {
-    public class ApplicationFunctionService : IApplicationFunctionService
+    public class ApplicationFunctionService :
+        ApplicationServiceBase<ApplicationFunctionResponse, IApplicationFunctionRepository> ,IApplicationFunctionService
     {
-        private readonly IApplicationFunctionRepository _applicationFunctionRepository;
         private readonly IObjectSerializer _objectSerializer;
 
         public ApplicationFunctionService(
-            IApplicationFunctionRepository applicationFunctionRepository, 
             IObjectSerializer objectSerializer)
         {
-            this._applicationFunctionRepository = applicationFunctionRepository;
             this._objectSerializer = objectSerializer;
         }
 
@@ -72,7 +71,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Application
                 Domain.ApplicationFunction.ApplicationFunction applicationFunction =
                     SecurityDomianFactory.CreateApplicationFunction(function.Name, function.NameSpace);
 
-                this._applicationFunctionRepository.Add(applicationFunction);
+                this.Repository.Add(applicationFunction);
             }
 
             response.RegisterSuccess("Successfully updated all application functions. ");

@@ -7,16 +7,13 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business
 {
-    public class BusinessService : ApplicationServiceBase<BusinessResponse>, IBusinessService
+    public class BusinessService : ApplicationServiceBase<BusinessResponse, IBusinessRepository>, IBusinessService
     {
         private readonly IDomainFactory<Domain.Business.Business, BusinessAm> _domainFactory;
-        private readonly IBusinessRepository _repository;
 
-        public BusinessService(IDomainFactory<Domain.Business.Business, BusinessAm> domainFactory, 
-            IBusinessRepository repository)
+        public BusinessService(IDomainFactory<Domain.Business.Business, BusinessAm> domainFactory)
         {
             this._domainFactory = domainFactory;
-            this._repository = repository;
         }
 
         [ServiceRequestMethod]
@@ -28,7 +25,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
                 return this.Response;
             }
 
-            Domain.Business.Business domainModel = this._repository.GetById(request.EntityId);
+            Domain.Business.Business domainModel = this.Repository.GetById(request.EntityId);
 
             if (domainModel == null)
             {
@@ -46,7 +43,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         [ServiceRequestMethod]
         public BusinessResponse GetAll(BusinessServiceRequest request)
         {
-            this.Response.BusinessCollection = this._domainFactory.BuildApplicationModelTypes(this._repository.GetAll());
+            this.Response.BusinessCollection = this._domainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
             this.Response.RegisterSuccess();
             return this.Response;
         }
@@ -63,7 +60,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Business.Business business = this._domainFactory.BuildDomainEntityType(request.Business);
 
-            this._repository.Add(business);
+            this.Repository.Add(business);
 
             this.Response.RegisterSuccess(
                 MessageFormatter.EntitySuccessfullyAdded<Domain.Business.Business>(business.Id));
@@ -83,7 +80,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Business.Business business = this._domainFactory.BuildDomainEntityType(request.Business);
 
-            this._repository.Update(business);
+            this.Repository.Update(business);
 
             this.Response.RegisterSuccess(
                 MessageFormatter.EntitySuccessfullyUpdated<Domain.Business.Business>(business.Id));
@@ -103,7 +100,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             Domain.Business.Business business = this._domainFactory.BuildDomainEntityType(request.Business);
 
-            this._repository.Delete(business);
+            this.Repository.Delete(business);
 
             this.Response.RegisterSuccess(
                 MessageFormatter.EntitySuccessfullyRemoved<Domain.Business.Business>(business.Id));

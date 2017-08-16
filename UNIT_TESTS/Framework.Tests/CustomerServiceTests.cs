@@ -3,6 +3,7 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Cus
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
+using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Framework.Tests
@@ -138,6 +139,28 @@ namespace Framework.Tests
             Assert.AreEqual(ServiceResult.Success,response2.ServiceResult);
             Assert.IsNotNull(response2.CustomerAm);
             Assert.AreEqual("Spar Silver Oaks", response2.CustomerAm.Name);
+
+        }
+
+
+
+
+
+        [TestMethod]
+        public void TestCanAddUser()
+        {
+            IUserService service = this._iocContainer.Resolve<IUserService>();
+
+            Assert.IsNotNull(service);
+
+            UserResponse response2 = service.GetById(new UserServiceRequest()
+            {
+                EntityId = "3d2b1db8-4dff-4447-b80d-f72914eddfbe"
+            });
+
+            Assert.AreEqual(ServiceResult.Success, response2.ServiceResult);
+            //Assert.IsNotNull(response2.CustomerAm);
+            //Assert.AreEqual("Spar Silver Oaks", response2.CustomerAm.Name);
 
         }
     }

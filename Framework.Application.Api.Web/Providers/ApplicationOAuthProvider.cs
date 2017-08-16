@@ -6,7 +6,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.OAuth;
-using Framework.Application.Api.Web.Models;
+using ApplicationUser = Framework.Application.Api.Web.Models.ApplicationUser;
 
 namespace Framework.Application.Api.Web.Providers
 {
@@ -21,7 +21,7 @@ namespace Framework.Application.Api.Web.Providers
                 throw new ArgumentNullException("publicClientId");
             }
 
-            _publicClientId = publicClientId;
+            this._publicClientId = publicClientId;
         }
 
         public override async Task GrantResourceOwnerCredentials(OAuthGrantResourceOwnerCredentialsContext context)
@@ -70,7 +70,7 @@ namespace Framework.Application.Api.Web.Providers
 
         public override Task ValidateClientRedirectUri(OAuthValidateClientRedirectUriContext context)
         {
-            if (context.ClientId == _publicClientId)
+            if (context.ClientId == this._publicClientId)
             {
                 Uri expectedRootUri = new Uri(context.Request.Uri, "/");
 
