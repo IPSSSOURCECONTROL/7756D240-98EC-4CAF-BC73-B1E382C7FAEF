@@ -83,7 +83,8 @@ namespace Framework.Tests
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
                 RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878"
+                RepresentativeCode = "88878",
+                BusinessId = "TEST123"
             });
 
             repository.Add(customer);

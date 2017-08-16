@@ -72,7 +72,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
             return $"{InsertSpaceAfterCapitalLetter(field)} is a required field.";
         }
 
-        private static string InsertSpaceAfterCapitalLetter(string input)
+        public static string InsertSpaceAfterCapitalLetter(string input)
         {
             // check if string is empty
             if (string.IsNullOrEmpty(input))

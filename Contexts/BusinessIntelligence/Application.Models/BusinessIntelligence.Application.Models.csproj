@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessAm.cs" />
     <Compile Include="CustomerAm.cs" />
+    <Compile Include="ProductAm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VatAm.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">

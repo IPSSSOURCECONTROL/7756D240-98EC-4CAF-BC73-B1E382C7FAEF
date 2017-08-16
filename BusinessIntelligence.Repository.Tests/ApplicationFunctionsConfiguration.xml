@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ApplicationFunctionsConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Functions>
+    <Function>
+      <Name>Customer Definition</Name>
+      <NameSpace>KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction.ApplicationFunctions.BusinessIntelligence.CustomerFunctions</NameSpace>
+    </Function>
+    <Function>
+      <Name>User Definition</Name>
+      <NameSpace>KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction.ApplicationFunctions.Security.UserFunctions</NameSpace>
+    </Function>
+  </Functions>
+  <BoundedContexts>
+    <BoundedContext>
+      <Name>BusinessIntelligence.Domain</Name>
+    </BoundedContext>
+    <BoundedContext>
+      <Name>Security.Domain</Name>
+    </BoundedContext>
+  </BoundedContexts>
+</ApplicationFunctionsConfiguration>

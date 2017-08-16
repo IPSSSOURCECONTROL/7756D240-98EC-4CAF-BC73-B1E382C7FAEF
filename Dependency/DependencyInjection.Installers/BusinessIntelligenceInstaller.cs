@@ -50,6 +50,10 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
                 .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
                 .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
 
+            container.Register(Component.For<IProductRepository>().LifestyleTransient().ImplementedBy<ProductRepository>()
+                .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
+                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
+
             container.Register(Component.For<IBusinessRepository>().LifestyleTransient().ImplementedBy<BusinessRepository>()
                 .DependsOn(Dependency.OnComponent<IDatabaseContext, BusinessIntelligenceDatabaseContext>())
                 .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));

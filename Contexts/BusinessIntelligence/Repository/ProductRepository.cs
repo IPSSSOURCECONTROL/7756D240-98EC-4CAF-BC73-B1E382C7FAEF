@@ -1,9 +1,17 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using System.Reflection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
 {
@@ -13,34 +21,54 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
         {
         }
 
+        [Transactional]
+        [ValidateMethodArguments]
         public void Add(Product entity)
         {
-            throw new NotImplementedException();
+            if (this.DatabaseContext.Table<Product>().Any(x => x.Id == entity.Id))
+                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
+                    MessageFormatter.RecordWithIdAlreadyExists(entity.Id));
+
+
+            this.DatabaseContext.Add(entity);
         }
 
-        public void Update(Product entity)
-        {
-            throw new NotImplementedException();
-        }
-
+        [Transactional]
+        [ValidateMethodArguments]
         public void Delete(Product entity)
         {
-            throw new NotImplementedException();
-        }
+            if (!this.DatabaseContext.Table<Product>().Any(x => x.Id == entity.Id))
+                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
+                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
 
-        public Product GetById(string id)
-        {
-            throw new NotImplementedException();
+            this.DatabaseContext.Remove<Product>(entity.Id);
         }
 
         public IEnumerable<Product> GetAll()
         {
-            throw new NotImplementedException();
+            return this.DatabaseContext.Table<Product>();
         }
 
+        public Product GetById(string id)
+        {
+            return this.DatabaseContext.TableForQuery<Product>().FirstOrDefault(x => x.Id == id);
+        }
+
+        [ValidateMethodArguments]
         public bool IsExist(Product entity)
         {
-            throw new NotImplementedException();
+            return this.DatabaseContext.Table<Product>().Any(x => x.Id == entity.Id);
         }
+
+        public void Update(Product entity)
+        {
+            if (!this.DatabaseContext.TableForQuery<Product>().Any(x => x.Id == entity.Id))
+                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
+                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
+
+            this.DatabaseContext.Remove<Product>(entity.Id);
+            this.DatabaseContext.Add(entity);
+        }
+
     }
 }

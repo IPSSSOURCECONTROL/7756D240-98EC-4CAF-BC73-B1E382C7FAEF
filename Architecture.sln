@@ -83,6 +83,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Application.Api.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrustructure.Interceptors", "Infrustructure\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj", "{186EB07A-9981-4ECC-8F70-8197B4807D9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessIntelligence.Repository.Tests", "BusinessIntelligence.Repository.Tests\BusinessIntelligence.Repository.Tests.csproj", "{6D0801F0-6BB1-42DD-AA52-E29389DD2836}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +223,10 @@ Global
 		{186EB07A-9981-4ECC-8F70-8197B4807D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{186EB07A-9981-4ECC-8F70-8197B4807D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{186EB07A-9981-4ECC-8F70-8197B4807D9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D0801F0-6BB1-42DD-AA52-E29389DD2836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0801F0-6BB1-42DD-AA52-E29389DD2836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0801F0-6BB1-42DD-AA52-E29389DD2836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0801F0-6BB1-42DD-AA52-E29389DD2836}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,5 +266,6 @@ Global
 		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
 		{864DE0A9-B371-443E-BB18-38A9D647BAF7} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
 		{186EB07A-9981-4ECC-8F70-8197B4807D9C} = {F75D6B30-831C-4F09-9C23-8208C34A00F1}
+		{6D0801F0-6BB1-42DD-AA52-E29389DD2836} = {6BFBFCFB-BC5F-47C5-8B6F-CC2C85AF1F94}
 	EndGlobalSection
 EndGlobal

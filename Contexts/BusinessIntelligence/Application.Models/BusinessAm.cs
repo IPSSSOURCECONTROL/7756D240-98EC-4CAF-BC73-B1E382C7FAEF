@@ -3,7 +3,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models
 {
-    public class CustomerAm: ApplicationModelBase
+    public class BusinessAm : ApplicationModelBase
     {
         [KbitRequired]
         public string AddressLineOne { get; set; } = string.Empty;
@@ -45,17 +45,5 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models
 
         [KbitRequired]
         public string Name { get; set; } = string.Empty;
-
-        [KbitRequired]
-        public string RepresentativeId { get; set; } = string.Empty;
-
-        [KbitRequired]
-        public string RepresentativeName { get; set; } = string.Empty;
-
-        [KbitRequired]
-        public string RepresentativeCode { get; set; } = string.Empty;
-
-        [KbitRequired]
-        public string BusinessId { get; set; } = string.Empty;
     }
 }

@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Business\BusinessFactory.cs" />
     <Compile Include="Customer\CustomerFactory.cs" />
+    <Compile Include="Product\ProductFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -56,6 +57,10 @@
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
       <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
       <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</Project>
+      <Name>Infrustructure.Utilities</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Validation\Infrustructure.Validation.csproj">
       <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
