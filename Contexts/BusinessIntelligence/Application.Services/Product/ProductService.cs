@@ -11,7 +11,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         [ServiceRequestMethod]
         public ProductResponse GetById(ProductServiceRequest request)
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         [ServiceRequestMethod]
