@@ -18,9 +18,11 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection
 
         public object CreateInstanceOf<T>(string className, params object[] constructorArguments) where T : class
         {
+            Assembly assembly = typeof(T).Assembly;
+
             string fullyQualifiedName = $"{typeof(T).Namespace}.{className}";
 
-            Type createdType = Type.GetType(fullyQualifiedName);
+            Type createdType = assembly.GetType(fullyQualifiedName);
 
             if (createdType != null)
             {

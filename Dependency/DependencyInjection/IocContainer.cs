@@ -32,7 +32,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
             {
                 return this._windsorContainer.Resolve<TDependency>();
             }
-            catch (Exception e)
+            catch (Exception eeException)
             {
                 return default(TDependency);
             }

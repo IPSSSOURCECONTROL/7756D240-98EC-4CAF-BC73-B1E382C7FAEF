@@ -1,9 +1,15 @@
 using System;
 
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification
 {
     public class DemoLicenseSpecification : LicenseSpecification
     {
+        public DemoLicenseSpecification()
+        {
+            this.Expires = DateTime.Now.AddMinutes(59).AddSeconds(59);
+            this.ValidFrom = DateTime.Now;
+            this.Key = $"{Guid.NewGuid()}{Guid.NewGuid()}{Guid.NewGuid()}";
+        }
         public DemoLicenseSpecification(DateTime expires, DateTime validFrom, string key = null, string id = null)
             : base(id, expires, validFrom, key)
         {

@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IApplicationFunctionRepository.cs" />
+    <Compile Include="IAspNetPrincipleUserRepository.cs" />
     <Compile Include="ILicenseSpecificationRepository.cs" />
     <Compile Include="IRoleRepository.cs" />
     <Compile Include="IUserRepository.cs" />
@@ -66,6 +67,10 @@
     <ProjectReference Include="..\Domain\Security.Domain.csproj">
       <Project>{6f8696f9-6a54-4ee4-8bf6-59bd4e842cb2}</Project>
       <Name>Security.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security.Domain.AspNet\Security.Domain.AspNet.csproj">
+      <Project>{2D260D27-BBAD-4B79-B503-A4F797A1BC5B}</Project>
+      <Name>Security.Domain.AspNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

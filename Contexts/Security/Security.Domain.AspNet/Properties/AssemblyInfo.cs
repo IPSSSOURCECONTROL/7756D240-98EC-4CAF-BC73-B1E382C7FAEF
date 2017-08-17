@@ -1,14 +1,15 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Framework.Application.Api.Web.Adapters")]
+[assembly: AssemblyTitle("Security.Domain.AspNet")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Framework.Application.Api.Web.Adapters")]
+[assembly: AssemblyProduct("Security.Domain.AspNet")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("6c7aa8a4-dd47-4d09-8369-4a4ce2aeb833")]
+[assembly: Guid("2d260d27-bbad-4b79-b503-a4f797a1bc5b")]
 
 // Version information for an assembly consists of the following four values:
 //

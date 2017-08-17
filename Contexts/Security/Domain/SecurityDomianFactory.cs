@@ -1,5 +1,4 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 

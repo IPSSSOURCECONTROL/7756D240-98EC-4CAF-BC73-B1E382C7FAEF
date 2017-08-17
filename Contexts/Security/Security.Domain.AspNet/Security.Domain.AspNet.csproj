@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</ProjectGuid>
+    <ProjectGuid>{2D260D27-BBAD-4B79-B503-A4F797A1BC5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities</RootNamespace>
-    <AssemblyName>KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities</AssemblyName>
+    <RootNamespace>KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet</RootNamespace>
+    <AssemblyName>KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,17 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MoreLinq, Version=2.6.20831.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\morelinq.2.6.0\lib\net40\MoreLinq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,24 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageFormatter.cs" />
+    <Compile Include="AspNetPrincipleUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringExtensions.cs" />
-    <Compile Include="TypeExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Infrustructure.Domain\Infrustructure.Domain.csproj">
-      <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrustructure.Validation\Infrustructure.Validation.csproj">
-      <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
-      <Name>Infrustructure.Validation</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

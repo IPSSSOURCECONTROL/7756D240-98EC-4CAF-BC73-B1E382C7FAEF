@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationFunctionRepository.cs" />
+    <Compile Include="AspNetPrincipleUserRepository.cs" />
     <Compile Include="Database\SecurityDatabaseContext.cs" />
     <Compile Include="Database\SecurityDbContext.cs" />
     <Compile Include="LicenseSpecificationRepository.cs" />
@@ -96,6 +97,10 @@
     <ProjectReference Include="..\Repository.Interfaces\Security.Repository.Interfaces.csproj">
       <Project>{0b3c51b4-4bb2-4b97-ba83-42e456664742}</Project>
       <Name>Security.Repository.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Security.Domain.AspNet\Security.Domain.AspNet.csproj">
+      <Project>{2D260D27-BBAD-4B79-B503-A4F797A1BC5B}</Project>
+      <Name>Security.Domain.AspNet</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

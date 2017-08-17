@@ -3,9 +3,7 @@ using System.Linq;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
@@ -18,7 +16,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
     public class UserFactory: IDomainFactory<Domain.User.User, UserAm>
     {
         [MandatoryInjection]
-        public IDatabaseContext DatabaseContext { get; set; }
+        public IRoleRepository DatabaseContext { get; set; }
 
         [MandatoryInjection]
         public IObjectActivator ObjectActivator { get; set; }
@@ -35,7 +33,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
             Password password = new Password(applicationModel.Password, passwordResetPolicy);
 
             Role.Role role =
-                this.DatabaseContext.Table<Role.Role>()
+                this.DatabaseContext.GetAll()
                     .FirstOrDefault(x => x.TypeName == applicationModel.RoleId.RemoveWhiteSpaces());
 
             Validator.CheckReferenceTypeForNull(role, 
@@ -46,9 +44,14 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
                 (AccountStatus)
                 this.ObjectActivator.CreateInstanceOf<AccountStatus>(applicationModel.AccountStatus.RemoveWhiteSpaces());
 
+            LicenseSpecification.LicenseSpecification licenseSpecification =
+                (LicenseSpecification.LicenseSpecification)
+                this.ObjectActivator.CreateInstanceOf<LicenseSpecification.LicenseSpecification>(applicationModel.LicenseSpecification.RemoveWhiteSpaces());
+
             Domain.User.User user = new Domain.User.User(applicationModel.Name,
                 applicationModel.Code, applicationModel.Email, password,
                 role, accountStatus);
+            user.SetLicense(licenseSpecification);
 
             if (!isNew)
             {
@@ -65,11 +68,12 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
             userAm.Name = domainEntity.Name;
             userAm.Code = domainEntity.Code;
             userAm.Email = domainEntity.Email;
+            userAm.AccountStatus = domainEntity.AccountStatus.ToFrontEndPresentation();
             userAm.Password = domainEntity.Password.Value;
             userAm.PasswordResetPolicy =
-                domainEntity.Password.PasswordResetPolicy.GetType().Name.InsertSpaceAfterCapitalLetter();
-            userAm.RoleId = domainEntity.Role.TypeName.InsertSpaceAfterCapitalLetter();
-            userAm.LicenseSpecification = domainEntity.License.TypeName.InsertSpaceAfterCapitalLetter();
+                domainEntity.Password.PasswordResetPolicy.ToFrontEndPresentation();
+            userAm.RoleId = domainEntity.Role.ToFrontEndPresentation();
+            userAm.LicenseSpecification = domainEntity.License.ToFrontEndPresentation();
             userAm.Id = domainEntity.Id;
 
             return userAm;

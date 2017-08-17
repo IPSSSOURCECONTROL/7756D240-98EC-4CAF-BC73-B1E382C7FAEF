@@ -7,7 +7,6 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {

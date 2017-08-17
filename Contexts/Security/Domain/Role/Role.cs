@@ -17,7 +17,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Role
             this.Id = id;
         }
 
-        public IList<ApplicationFunction.ApplicationFunction> Functions { get; } = new List<ApplicationFunction.ApplicationFunction>();
+        public IList<ApplicationFunction.ApplicationFunction> Functions { get; private set; } = new List<ApplicationFunction.ApplicationFunction>();
 
         public void AddFunction(ApplicationFunction.ApplicationFunction function)
         {

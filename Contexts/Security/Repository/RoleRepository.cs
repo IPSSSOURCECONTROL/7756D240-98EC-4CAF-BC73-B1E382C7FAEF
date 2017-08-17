@@ -4,8 +4,8 @@ using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
@@ -38,7 +38,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         {
             if (!this.DatabaseContext.TableForQuery<Role>().Any(x => x.Id == entity.Id))
                 throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
-                    $"Record with id {entity.Id} does not exist.");
+                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
 
             this.DatabaseContext.Remove<Role>(entity.Id);
             this.DatabaseContext.Add(entity);
@@ -50,19 +50,15 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         {
             if (!this.DatabaseContext.TableForQuery<Role>().Any(x => x.Id == entity.Id))
                 throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
-                    $"Record with id {entity.Id} does not exist.");
+                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
 
             this.DatabaseContext.Remove<Role>(entity.Id);
         }
 
+        [ValidateMethodArguments]
         public Role GetById(string id)
         {
-            Role roleDa = this.DatabaseContext.TableForQuery<Role>().FirstOrDefault(x => x.Id == id);
-
-            if (roleDa == null)
-                return null;
-
-            return roleDa;
+            return this.DatabaseContext.Table<Role>().FirstOrDefault(x => x.Id == id);
         }
 
         public IEnumerable<Role> GetAll()
@@ -70,10 +66,9 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
             return this.DatabaseContext.TableForQuery<Role>();
         }
 
+        [ValidateMethodArguments]
         public bool IsExist(Role entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity));
-
             return this.DatabaseContext.TableForQuery<Role>().Any(x => x.Id == entity.Id);
         }
     }

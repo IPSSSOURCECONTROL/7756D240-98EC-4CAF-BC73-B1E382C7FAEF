@@ -10,7 +10,6 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {

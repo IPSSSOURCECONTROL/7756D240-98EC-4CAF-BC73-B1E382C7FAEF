@@ -7,6 +7,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
@@ -35,12 +36,9 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Update(User entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity),
-                MethodBase.GetCurrentMethod(), this.GetType());
-
             if (!this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id))
             {
-                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
+                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
                     MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
             }
 
@@ -52,17 +50,18 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Delete(User entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity),
-                MethodBase.GetCurrentMethod(), this.GetType());
+            if (!this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id))
+            {
+                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
+                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
+            }
 
             this.DatabaseContext.Remove<User>(entity.Id);
         }
 
+        [ValidateMethodArguments]
         public User GetById(string id)
         {
-            Validator.IsNullEmptyOrWhitespace(id, nameof(id), 
-                MethodBase.GetCurrentMethod(), this.GetType());
-
             return this.DatabaseContext.Table<User>().FirstOrDefault(x => x.Id == id);
         }
 
@@ -74,7 +73,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public bool IsExist(User entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity));
             return this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id);
         }
     }

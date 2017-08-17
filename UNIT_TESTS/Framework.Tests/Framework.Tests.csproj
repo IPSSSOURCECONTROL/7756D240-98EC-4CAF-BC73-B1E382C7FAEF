@@ -65,9 +65,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AutomatedTestingContext.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\ProductRepositoryTests.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
     <Compile Include="CustomerServiceTests.cs" />
+    <Compile Include="Security.Domain.Factories.Tests\UserFactoryTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessTests.cs" />

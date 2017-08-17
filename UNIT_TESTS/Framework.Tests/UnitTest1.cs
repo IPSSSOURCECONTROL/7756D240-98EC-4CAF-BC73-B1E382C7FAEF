@@ -12,7 +12,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunc
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;

@@ -1,6 +1,6 @@
 using System;
 
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification
 {
     public class ExpiredLicenseSpecification : LicenseSpecification
     {

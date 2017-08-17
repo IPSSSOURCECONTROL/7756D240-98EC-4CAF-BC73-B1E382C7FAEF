@@ -42,7 +42,9 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
                     nameof(UserServiceRequest.User)));
             }
 
-            //Domain.User.User user = 
+            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.User);
+            
+             
 
 
             return this.Response;

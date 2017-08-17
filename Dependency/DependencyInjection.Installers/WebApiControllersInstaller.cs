@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using System.Web.Http;
-using Castle.MicroKernel.Registration;
+﻿using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Business;
 using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Customer;
 

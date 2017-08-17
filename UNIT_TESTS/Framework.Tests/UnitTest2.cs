@@ -1,6 +1,4 @@
-﻿using System;
-using System.Security.Cryptography;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Framework.Tests
 {

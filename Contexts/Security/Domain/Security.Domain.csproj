@@ -68,11 +68,11 @@
     <Compile Include="ApplicationFunction\RequiresDualAuthorization.cs" />
     <Compile Include="CreateUserParameters.cs" />
     <Compile Include="LicenseSpecification\LicenseSpecification.cs" />
-    <Compile Include="LicenseSpecification\Specifications\AnnualLicenseSpecification.cs" />
-    <Compile Include="LicenseSpecification\Specifications\DemoLicenseSpecification.cs" />
-    <Compile Include="LicenseSpecification\Specifications\ExpiredLicenseSpecification.cs" />
-    <Compile Include="LicenseSpecification\Specifications\MonthlyLicenseSpecification.cs" />
-    <Compile Include="LicenseSpecification\Specifications\PerpertualLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\AnnualLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\DemoLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\ExpiredLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\MonthlyLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\PerpertualLicenseSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\AdministratorRole.cs" />
     <Compile Include="Role\LimitedRole.cs" />

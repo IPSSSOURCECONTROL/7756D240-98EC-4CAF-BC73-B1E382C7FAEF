@@ -1,7 +1,7 @@
 ﻿using System;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Exceptions;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
@@ -15,8 +15,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
             Password password, Role.Role role, 
             AccountStatus accountStatus)
         {
-            this.Validate(name, code, email);
-
             //this.Id = id;
             this.Name = name;
             this.Code = code;
@@ -122,16 +120,5 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
             return this.GetType().Name;
         }
 
-        private void Validate(string name, string code, string email)
-        {
-            if(string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException(nameof(name));
-
-            if (string.IsNullOrWhiteSpace(code))
-                throw new ArgumentException(nameof(code));
-
-            if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException(nameof(email));
-        }
     }
 }
