@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer
 {

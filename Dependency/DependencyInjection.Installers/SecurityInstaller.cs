@@ -1,15 +1,14 @@
 using System.Configuration;
+using System.Linq;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
-using KhanyisaIntel.Kbit.Framework.Security.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
-using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {
@@ -28,9 +27,12 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 
         private void InstallApplicationServices(IWindsorContainer container)
         {
-            container.Register(Component.For<IUserService>().ImplementedBy<UserService>().LifestyleTransient());
-            container.Register(Component.For<IRoleService>().ImplementedBy<RoleService>().LifestyleTransient());
-            container.Register(Component.For<IApplicationFunctionService>().ImplementedBy<ApplicationFunctionService>()
+            container.Register(
+                Classes.FromAssembly(container.Resolve<IStackInspector>()
+                .GetAllStackAssemblies()
+                .FirstOrDefault(x => x.ManifestModule.Name=="KhanyisaIntel.Kbit.Framework.Security.Application.Services.dll"))
+                .BasedOn(typeof(IApplicationService<,>))
+                .WithServiceAllInterfaces()
                 .LifestyleTransient());
         }
 
@@ -40,22 +42,32 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
                 .DependsOn(Dependency.OnValue<string>(ConfigurationManager.ConnectionStrings["KBITDB"].ConnectionString))
                 .LifestyleTransient());
 
-            container.Register(Component.For<IUserRepository>().LifestyleTransient().ImplementedBy<UserRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, SecurityDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
+            container.Register(
+                Classes.FromAssembly(container.Resolve<IStackInspector>()
+                .GetAllStackAssemblies()
+                .FirstOrDefault(x => x.FullName.Contains("KhanyisaIntel.Kbit.Framework.Security.Repository")))
+                .BasedOn(typeof(IBasicRepository<>))
+                .WithServiceAllInterfaces()
+                .LifestyleTransient());
 
-            container.Register(Component.For<IRoleRepository>().LifestyleTransient().ImplementedBy<RoleRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, SecurityDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()));
-
-            container.Register(Component.For<IApplicationFunctionRepository>().ImplementedBy<ApplicationFunctionRepository>()
-                .DependsOn(Dependency.OnComponent<IDatabaseContext, SecurityDatabaseContext>())
-                .DependsOn(Dependency.OnComponent<IObjectActivator, ObjectCreator>()).DependsOn());
+            container.Register(
+                Classes.FromAssembly(container.Resolve<IStackInspector>()
+                .GetAllStackAssemblies()
+                .FirstOrDefault(x => x.FullName.Contains("KhanyisaIntel.Kbit.Framework.Security.Repository")))
+                .BasedOn(typeof(IRepositoryWorkflowAvailable<,>))
+                .WithServiceAllInterfaces()
+                .LifestyleTransient());
         }
 
         private static void InstallFactories(IWindsorContainer container)
         {
-
+            container.Register(
+                Classes.FromAssembly(container.Resolve<IStackInspector>()
+                .GetAllStackAssemblies()
+                .FirstOrDefault(x => x.ManifestModule.Name=="KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.dll"))
+                .BasedOn(typeof(IDomainFactory<,>))
+                .WithServiceAllInterfaces()
+                .LifestyleTransient());
         }
     }
 }

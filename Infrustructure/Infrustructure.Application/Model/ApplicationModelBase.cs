@@ -12,13 +12,6 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
     {
         public string Id { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Validates all properties of <see cref="ApplicationModelBase"/> subtypes 
-        /// decorated with the <see cref="KbitRequiredAttribute"/>. Returns true 
-        /// if the property is valid, false if not.
-        /// </summary>
-        public bool IsValid { get { return this.ValidateModel(); } }
-
         public string ValidationReason { get; set; } = string.Empty;
 
         /// <summary>
@@ -51,9 +44,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
                 foreach (PropertyInfo property in properties)
                 {
                     Validator.CheckField(property.GetValue(this).ToString(),
-                        MessageFormatter.IsARequiredField(property.Name),
-                        MethodBase.GetCurrentMethod(),
-                        this.GetType());
+                        MessageFormatter.IsARequiredField(property.Name));
                 }
             }
             catch (KbitRequiredFieldValidationException exception)

@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using AspNet.Identity.MongoDB;
+﻿using AspNet.Identity.MongoDB;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;

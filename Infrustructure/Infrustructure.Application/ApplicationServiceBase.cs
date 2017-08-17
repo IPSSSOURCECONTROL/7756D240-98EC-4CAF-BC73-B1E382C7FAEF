@@ -1,5 +1,4 @@
-﻿using System;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
