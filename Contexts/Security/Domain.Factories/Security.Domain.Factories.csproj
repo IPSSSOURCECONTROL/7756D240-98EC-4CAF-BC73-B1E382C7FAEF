@@ -49,9 +49,56 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\UserFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
+      <Project>{FCEFD633-BB12-4EA8-99CA-3C593B1F4D52}</Project>
+      <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
+      <Project>{19541CAC-FD7E-40B0-9B36-4146CE46C4CC}</Project>
+      <Name>Infrustructure.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
+      <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.MongoDb\Infrustructure.MongoDb.csproj">
+      <Project>{67B879C6-B59D-4BB1-A79B-E15FA0773D6F}</Project>
+      <Name>Infrustructure.MongoDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
+      <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
+      <Name>Infrustructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</Project>
+      <Name>Infrustructure.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Validation\Infrustructure.Validation.csproj">
+      <Project>{1A92CB62-DD3C-47F3-A6CB-843E93119F50}</Project>
+      <Name>Infrustructure.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Application.Models\Security.Application.Models.csproj">
+      <Project>{3596E402-C890-48FF-871B-0F159D29019B}</Project>
+      <Name>Security.Application.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Security.Domain.csproj">
+      <Project>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</Project>
+      <Name>Security.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repository.Interfaces\Security.Repository.Interfaces.csproj">
+      <Project>{0B3C51B4-4BB2-4B97-BA83-42E456664742}</Project>
+      <Name>Security.Repository.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

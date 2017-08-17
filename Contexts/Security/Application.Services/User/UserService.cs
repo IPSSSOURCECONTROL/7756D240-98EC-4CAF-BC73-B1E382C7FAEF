@@ -36,13 +36,11 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
         [ServiceRequestMethod]
         public UserResponse Add(UserServiceRequest request)
         {
-            if (request.User != null)
+            if (request.User == null)
             {
-                return null;
+                this.Response.RegisterError(MessageFormatter.IsARequiredField(
+                    nameof(UserServiceRequest.User)));
             }
-
-            this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                nameof(UserServiceRequest.User)));
 
             //Domain.User.User user = 
 

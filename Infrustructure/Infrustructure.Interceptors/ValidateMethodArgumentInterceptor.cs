@@ -24,6 +24,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
 
             foreach (object invocationArgument in invocation.Arguments)
             {
+                if(invocationArgument != null && invocationArgument.GetType().IsValueType)
+                    continue;
                 Validator.CheckReferenceTypeForNull(invocationArgument, MessageFormatter.EntityCanNotBeNull(),
                     invocation.Method);
             }

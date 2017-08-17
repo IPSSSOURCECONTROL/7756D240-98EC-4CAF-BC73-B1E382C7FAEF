@@ -7,6 +7,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 
@@ -16,12 +17,8 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            //Factories
-            InstallFactories(container);
-
-            //Repositories
             InstallRepositories(container);
-
+            InstallFactories(container);
             this.InstallApplicationServices(container);
         }
 
@@ -64,7 +61,7 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(
                 Classes.FromAssembly(container.Resolve<IStackInspector>()
                 .GetAllStackAssemblies()
-                .FirstOrDefault(x => x.ManifestModule.Name=="KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.dll"))
+                .FirstOrDefault(x => x.FullName.Contains("KhanyisaIntel.Kbit.Framework.Security.Domain.Factories")))
                 .BasedOn(typeof(IDomainFactory<,>))
                 .WithServiceAllInterfaces()
                 .LifestyleTransient());

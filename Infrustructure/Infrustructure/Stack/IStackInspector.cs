@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Stack
 {
     /// <summary>
     /// Provides functionality to inspect various aspects of the stack.

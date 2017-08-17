@@ -15,8 +15,8 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatus;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -169,7 +169,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestBlockUser()
         {
-            User user = new User(Guid.NewGuid().ToString(),
+            User user = new User(
                 "Goodwill",
                 "CODE123",
                 "goodwillgumede@yahoo.co.za", new Password("P@ssW0rd1", new DailyPasswordResetPolicy()),
@@ -195,7 +195,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanCreateClassFromAssembly()
         {
-            IObjectActivator objectActivator = new ObjectCreator();
+            IObjectActivator objectActivator = this._iocContainer.Resolve<IObjectActivator>();
 
 
             Role role = (Role)objectActivator.CreateInstanceOf<Role>("SupermanRole");

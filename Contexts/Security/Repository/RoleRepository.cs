@@ -15,11 +15,8 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 {
     public class RoleRepository : BasicRepositoryBase, IRoleRepository
     {
-        private readonly IObjectActivator _objectActivator;
-
-        public RoleRepository(IDatabaseContext databaseContext, IObjectActivator objectActivator) : base(databaseContext)
+        public RoleRepository(IDatabaseContext databaseContext) : base(databaseContext)
         {
-            this._objectActivator = objectActivator;
         }
 
         [Transactional]

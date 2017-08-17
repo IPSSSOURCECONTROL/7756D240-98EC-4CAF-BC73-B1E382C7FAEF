@@ -1,5 +1,5 @@
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatus;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain
 {

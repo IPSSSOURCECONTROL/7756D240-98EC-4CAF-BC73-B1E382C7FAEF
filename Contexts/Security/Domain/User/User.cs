@@ -2,7 +2,8 @@
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification.Specifications;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatus;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
 {
@@ -10,12 +11,13 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
     {
         private LicenseSpecification.LicenseSpecification _license;
 
-        public User(string id, string name, string code, string email, 
-            Password.Password password, Role.Role role, AccountStatus.AccountStatus accountStatus)
+        public User(string name, string code, string email, 
+            Password password, Role.Role role, 
+            AccountStatus accountStatus)
         {
             this.Validate(name, code, email);
 
-            this.Id = id;
+            //this.Id = id;
             this.Name = name;
             this.Code = code;
             this.Email = email;
@@ -27,9 +29,9 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
         public string Name { get; set; }
         public string Code { get; set; }
         public string Email { get; set; }
-        public Password.Password Password { get; private set; }
+        public Password Password { get; private set; }
         public Role.Role Role { get; private set; }
-        public AccountStatus.AccountStatus AccountStatus { get; private set; }
+        public AccountStatus AccountStatus { get; private set; }
 
         public LicenseSpecification.LicenseSpecification License
         {

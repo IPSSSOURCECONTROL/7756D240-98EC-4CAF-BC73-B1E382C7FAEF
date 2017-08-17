@@ -22,7 +22,7 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Customer
             request.EntityId = id;
 
             IPrincipal user = this.User;
-            var asdasd = user.Identity.Name;
+            string asdasd = user.Identity.Name;
 
             CustomerResponse serviceResponse = this._customerService.GetById(request);
 

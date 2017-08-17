@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Castle.Core.Internal;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection
 {
     public class ObjectCreator : IObjectActivator
     {
+        private readonly IStackInspector _stackInspector;
+
+        public ObjectCreator(IStackInspector stackInspector)
+        {
+            this._stackInspector = stackInspector;
+        }
 
         public object CreateInstanceOf<T>(string className, params object[] constructorArguments) where T : class
         {
@@ -74,7 +81,9 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection
         {
             List<Type> subTypes = new List<Type>();
 
-            foreach (Assembly assembly in AppDomain.CurrentDomain.GetAssemblies())
+            IEnumerable<Assembly> assemblies = this._stackInspector.GetAllStackAssemblies();
+
+            foreach (Assembly assembly in assemblies)
             {
                 var foundTypes = assembly.GetTypes().Where(x => x.BaseType != null &&
                                                                 x.BaseType == baseType && x.Name == derivedTypeName);

@@ -72,6 +72,7 @@
     <Compile Include="LicenseSpecification\Specifications\DemoLicenseSpecification.cs" />
     <Compile Include="LicenseSpecification\Specifications\ExpiredLicenseSpecification.cs" />
     <Compile Include="LicenseSpecification\Specifications\MonthlyLicenseSpecification.cs" />
+    <Compile Include="LicenseSpecification\Specifications\PerpertualLicenseSpecification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\AdministratorRole.cs" />
     <Compile Include="Role\LimitedRole.cs" />
@@ -80,16 +81,16 @@
     <Compile Include="Role\Role.cs" />
     <Compile Include="Role\SupermanRole.cs" />
     <Compile Include="SecurityDomianFactory.cs" />
-    <Compile Include="User\AccountStatus\AccountStatus.cs" />
-    <Compile Include="User\AccountStatus\ActiveAccountStatus.cs" />
-    <Compile Include="User\AccountStatus\BlockedAccountStatus.cs" />
-    <Compile Include="User\AccountStatus\InactiveAccountStatus.cs" />
-    <Compile Include="User\Password\DailyPasswordResetPolicy.cs" />
-    <Compile Include="User\Password\MonthlyPasswordResetPolicy.cs" />
-    <Compile Include="User\Password\NeverResetPasswordResetPolicy.cs" />
-    <Compile Include="User\Password\Password.cs" />
-    <Compile Include="User\Password\PasswordResetPolicy.cs" />
-    <Compile Include="User\Password\WeeklyPasswordResetPolicy.cs" />
+    <Compile Include="User\AccountStatusTypes\AccountStatus.cs" />
+    <Compile Include="User\AccountStatusTypes\ActiveAccountStatus.cs" />
+    <Compile Include="User\AccountStatusTypes\BlockedAccountStatus.cs" />
+    <Compile Include="User\AccountStatusTypes\InactiveAccountStatus.cs" />
+    <Compile Include="User\PasswordTypes\DailyPasswordResetPolicy.cs" />
+    <Compile Include="User\PasswordTypes\MonthlyPasswordResetPolicy.cs" />
+    <Compile Include="User\PasswordTypes\NeverResetPasswordResetPolicy.cs" />
+    <Compile Include="User\PasswordTypes\Password.cs" />
+    <Compile Include="User\PasswordTypes\PasswordResetPolicy.cs" />
+    <Compile Include="User\PasswordTypes\WeeklyPasswordResetPolicy.cs" />
     <Compile Include="User\User.cs" />
   </ItemGroup>
   <ItemGroup>

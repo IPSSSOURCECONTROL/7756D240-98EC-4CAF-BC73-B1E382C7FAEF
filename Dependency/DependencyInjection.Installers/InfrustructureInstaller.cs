@@ -6,6 +6,7 @@ using Castle.Windsor;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
@@ -17,7 +18,10 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(Component.For<IStackInspector>().ImplementedBy<StackInspector>());
             container.Register(
                 Component.For<IObjectSerializer>().ImplementedBy<ObjectSerializer>().LifestyleTransient());
-            container.Register(Component.For<IObjectActivator>().ImplementedBy<ObjectCreator>());
+            
+            container.Register(Component.For<IObjectActivator>()
+                .ImplementedBy<ObjectCreator>().LifestyleTransient());
+
             container.Register(Component.For<ILoggingType>().ImplementedBy<NLogWrapper>());
 
 

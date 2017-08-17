@@ -1,6 +1,6 @@
 ﻿using KhanyisaIntel.Kbit.Framework.Security.Domain.Exceptions;
 
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes
 {
     public class Password
     {

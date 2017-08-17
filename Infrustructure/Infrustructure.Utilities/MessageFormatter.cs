@@ -119,5 +119,10 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
 
             return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully saved.";
         }
+
+        public static string InvalidRole(string value)
+        {
+            return $"{value} is invalid. No such Role exists";
+        }
     }
 }

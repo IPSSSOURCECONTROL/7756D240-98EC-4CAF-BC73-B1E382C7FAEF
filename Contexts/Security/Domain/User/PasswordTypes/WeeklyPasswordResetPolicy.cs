@@ -1,6 +1,6 @@
 using System;
 
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes
 {
     public class WeeklyPasswordResetPolicy : PasswordResetPolicy
     {

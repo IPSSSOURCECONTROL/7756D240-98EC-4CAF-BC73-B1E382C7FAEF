@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{96FF22FA-BC65-4313-B10D-A02D3CF7877E}</ProjectGuid>
+    <ProjectGuid>{C50BF71C-B408-4B8B-AF66-B6703638EF5B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework.Tests</RootNamespace>
-    <AssemblyName>Framework.Tests</AssemblyName>
+    <RootNamespace>Security.Domain.Factories.Tests</RootNamespace>
+    <AssemblyName>Security.Domain.Factories.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -35,17 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MoreLinq, Version=2.6.20831.0, Culture=neutral, PublicKeyToken=384d532d7e88985d, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\morelinq.2.6.0\lib\net40\MoreLinq.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -57,21 +49,99 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AutomatedTestingContext.cs" />
-    <Compile Include="Crypto.cs" />
-    <Compile Include="CustomerRepositoryTests.cs" />
-    <Compile Include="CustomerServiceTests.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="UserFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="BusinessTests.cs" />
-    <Compile Include="UnitTest2.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Contexts\Security\Application.Models\Security.Application.Models.csproj">
+      <Project>{3596E402-C890-48FF-871B-0F159D29019B}</Project>
+      <Name>Security.Application.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Application.Services\Security.Application.Services.csproj">
+      <Project>{ae96833e-c681-4a4f-a57a-b4b10c5c1fed}</Project>
+      <Name>Security.Application.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Domain.Exceptions\Security.Domain.Exceptions.csproj">
+      <Project>{aca60a48-e0eb-4bf1-892b-336c9cf578c9}</Project>
+      <Name>Security.Domain.Exceptions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Domain.Factories\Security.Domain.Factories.csproj">
+      <Project>{de67ef47-bae9-46ea-b8f6-947031123800}</Project>
+      <Name>Security.Domain.Factories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Domain\Security.Domain.csproj">
+      <Project>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</Project>
+      <Name>Security.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Repository.Interfaces\Security.Repository.Interfaces.csproj">
+      <Project>{0b3c51b4-4bb2-4b97-ba83-42e456664742}</Project>
+      <Name>Security.Repository.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Repository\Security.Repository.csproj">
+      <Project>{71bd50b6-66f9-4be9-a701-bfa76a751870}</Project>
+      <Name>Security.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependency\DependencyInjection.Installers\DependencyInjection.Installers.csproj">
+      <Project>{a9090b8a-1ec5-45f2-a6f2-29b40f2f324d}</Project>
+      <Name>DependencyInjection.Installers</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependency\DependencyInjection\DependencyInjection.csproj">
+      <Project>{24A56328-6A40-4C32-A717-64EC512B9F20}</Project>
+      <Name>DependencyInjection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
+      <Project>{fcefd633-bb12-4ea8-99ca-3c593b1f4d52}</Project>
+      <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.AOP\Infrustructure.AOP.csproj">
+      <Project>{e41e750b-66c9-4ddc-9d41-86d202ecf014}</Project>
+      <Name>Infrustructure.AOP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
+      <Project>{19541CAC-FD7E-40B0-9B36-4146CE46C4CC}</Project>
+      <Name>Infrustructure.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Configuration\Infrustructure.Configuration.csproj">
+      <Project>{8c9b8a65-29d4-443a-bd87-00ab7aeb15c4}</Project>
+      <Name>Infrustructure.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
+      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
+      <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj">
+      <Project>{186eb07a-9981-4ecc-8f70-8197b4807d9c}</Project>
+      <Name>Infrustructure.Interceptors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.MongoDb\Infrustructure.MongoDb.csproj">
+      <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
+      <Name>Infrustructure.MongoDb</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
+      <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
+      <Name>Infrustructure.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Serialization\Infrustructure.Serialization.csproj">
+      <Project>{50a8cfdc-4f8e-4e33-a23f-0cbf62e04a81}</Project>
+      <Name>Infrustructure.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>
+      <Name>Infrustructure.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Validation\Infrustructure.Validation.csproj">
+      <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
+      <Name>Infrustructure.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -83,112 +153,6 @@
     <Content Include="ApplicationFunctionsConfiguration.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Application.Models\BusinessIntelligence.Application.Models.csproj">
-      <Project>{532f9b11-63bc-44fb-b12e-a4f958e28b49}</Project>
-      <Name>BusinessIntelligence.Application.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Application.Services\BusinessIntelligence.Application.Services.csproj">
-      <Project>{f0f18bfd-7163-462f-9247-3c0df75a59d2}</Project>
-      <Name>BusinessIntelligence.Application.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Domain.Exceptions\BusinessIntelligence.Domain.Exceptions.csproj">
-      <Project>{a6ef46db-cd14-4780-8215-5c884e743e17}</Project>
-      <Name>BusinessIntelligence.Domain.Exceptions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Domain.Factories\BusinessIntelligence.Domain.Factories.csproj">
-      <Project>{f75a7926-6f2a-4ef6-93d2-77930678b52c}</Project>
-      <Name>BusinessIntelligence.Domain.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Domain\BusinessIntelligence.Domain.csproj">
-      <Project>{667383b5-925e-4bf9-abcc-638b11d2dc81}</Project>
-      <Name>BusinessIntelligence.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Repository.Interfaces\BusinessIntelligence.Repository.Interfaces.csproj">
-      <Project>{42c36bb8-f3ce-4a6b-bd6d-b7d82838ed37}</Project>
-      <Name>BusinessIntelligence.Repository.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\BusinessIntelligence\Repository\BusinessIntelligence.Repository.csproj">
-      <Project>{45a93e0f-46b7-46e8-9216-2968dc0714b1}</Project>
-      <Name>BusinessIntelligence.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Application.Models\Security.Application.Models.csproj">
-      <Project>{3596e402-c890-48ff-871b-0f159d29019b}</Project>
-      <Name>Security.Application.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Application.Services\Security.Application.Services.csproj">
-      <Project>{ae96833e-c681-4a4f-a57a-b4b10c5c1fed}</Project>
-      <Name>Security.Application.Services</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Domain.Exceptions\Security.Domain.Exceptions.csproj">
-      <Project>{aca60a48-e0eb-4bf1-892b-336c9cf578c9}</Project>
-      <Name>Security.Domain.Exceptions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Domain.Factories\Security.Domain.Factories.csproj">
-      <Project>{de67ef47-bae9-46ea-b8f6-947031123800}</Project>
-      <Name>Security.Domain.Factories</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Domain\Security.Domain.csproj">
-      <Project>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</Project>
-      <Name>Security.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Repository.Interfaces\Security.Repository.Interfaces.csproj">
-      <Project>{0B3C51B4-4BB2-4B97-BA83-42E456664742}</Project>
-      <Name>Security.Repository.Interfaces</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Contexts\Security\Repository\Security.Repository.csproj">
-      <Project>{71bd50b6-66f9-4be9-a701-bfa76a751870}</Project>
-      <Name>Security.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Dependency\DependencyInjection\DependencyInjection.csproj">
-      <Project>{24A56328-6A40-4C32-A717-64EC512B9F20}</Project>
-      <Name>DependencyInjection</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
-      <Project>{fcefd633-bb12-4ea8-99ca-3c593b1f4d52}</Project>
-      <Name>Infrustructure.AOP.Attributes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.AOP\Infrustructure.AOP.csproj">
-      <Project>{e41e750b-66c9-4ddc-9d41-86d202ecf014}</Project>
-      <Name>Infrustructure.AOP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
-      <Project>{19541cac-fd7e-40b0-9b36-4146ce46c4cc}</Project>
-      <Name>Infrustructure.Application</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Configuration\Infrustructure.Configuration.csproj">
-      <Project>{8c9b8a65-29d4-443a-bd87-00ab7aeb15c4}</Project>
-      <Name>Infrustructure.Configuration</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
-      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
-      <Name>Infrustructure.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.MongoDb\Infrustructure.MongoDb.csproj">
-      <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
-      <Name>Infrustructure.MongoDb</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
-      <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
-      <Name>Infrustructure.Repository</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Serialization\Infrustructure.Serialization.csproj">
-      <Project>{50a8cfdc-4f8e-4e33-a23f-0cbf62e04a81}</Project>
-      <Name>Infrustructure.Serialization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
-      <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>
-      <Name>Infrustructure.Utilities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure.Validation\Infrustructure.Validation.csproj">
-      <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
-      <Name>Infrustructure.Validation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Infrustructure\Infrustructure\Infrustructure.csproj">
-      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
-      <Name>Infrustructure</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

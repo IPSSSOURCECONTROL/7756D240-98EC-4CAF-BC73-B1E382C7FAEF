@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain
 {
@@ -40,7 +40,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain
             Validator.CheckReferenceTypeForNull(createUserParameters.AccountStatus, nameof(createUserParameters.AccountStatus),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            return new User.User(Guid.NewGuid().ToString(), createUserParameters.Name, 
+            return new User.User( createUserParameters.Name, 
                 createUserParameters.Code, createUserParameters.Email, 
                 new Password(createUserParameters.Password, createUserParameters.PasswordResetPolicy), 
                 createUserParameters.Role, createUserParameters.AccountStatus);

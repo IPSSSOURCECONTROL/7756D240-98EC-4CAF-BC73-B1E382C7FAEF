@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.Password
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes
 {
     public abstract class PasswordResetPolicy
     {
 
-        public string Description { get; protected set; }
-        public DateTime NextResetDate { get; protected set; }
+        public string Description { get; set; }
+        public DateTime NextResetDate { get; set; }
 
         public bool IsDueForReset()
         {

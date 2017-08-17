@@ -1,4 +1,4 @@
-namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatus
+namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes
 {
     public abstract class AccountStatus
     {

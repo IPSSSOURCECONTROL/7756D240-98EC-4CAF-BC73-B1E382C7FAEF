@@ -8,7 +8,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
 {
-    public class ApplicationModelBase
+    public abstract class ApplicationModelBase
     {
         public string Id { get; set; } = string.Empty;
 
@@ -27,7 +27,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
 
             foreach (PropertyInfo property in properties)
             {
-                Validator.CheckField(property.GetValue(this).ToString(),
+                var asdasd = property.GetValue(this);
+                Validator.CheckField(asdasd,
                     MessageFormatter.IsARequiredField(property.Name),
                     MethodBase.GetCurrentMethod());
             }

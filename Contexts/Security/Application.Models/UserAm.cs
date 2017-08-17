@@ -21,5 +21,11 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Models
 
         [KbitRequired]
         public string LicenseSpecification { get; set; }
+
+        [KbitRequired]
+        public string PasswordResetPolicy { get; set; }
+
+        [KbitRequired]
+        public string RoleId { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using MoreLinq;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Stack
 {
     public class StackInspector : IStackInspector
     {
