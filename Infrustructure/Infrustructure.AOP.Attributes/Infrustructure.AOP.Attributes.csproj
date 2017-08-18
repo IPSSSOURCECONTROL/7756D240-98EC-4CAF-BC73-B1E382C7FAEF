@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="AuthorizeActionAttribute.cs" />
     <Compile Include="CheckIfRepositoryCallAttribute.cs" />
+    <Compile Include="OwnDatabaseContextAttribute.cs" />
     <Compile Include="KbitRequiredAttribute.cs" />
     <Compile Include="MandatoryInjectionAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

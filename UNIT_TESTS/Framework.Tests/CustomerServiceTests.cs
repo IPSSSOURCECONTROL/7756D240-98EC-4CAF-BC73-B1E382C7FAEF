@@ -4,9 +4,10 @@ using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
+using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests
 {
     [TestClass]
     public class CustomerServiceTests
@@ -29,6 +30,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddCustomer_MustFailGIvenNullRequest()
         {
+            UnitTestContext.Initialize();
             ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
 
             Assert.IsNotNull(service);
@@ -43,6 +45,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddCustomer_MustFailGIvenInvalidApplicationModel()
         {
+            UnitTestContext.Initialize();
             ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
 
             Assert.IsNotNull(service);
@@ -57,6 +60,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddCustomer_MustFailGIvenInvalidRequireCustomerField_AddressLineOne()
         {
+            UnitTestContext.Initialize();
             ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
 
             Assert.IsNotNull(service);
@@ -90,6 +94,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddCustomer_MustAddSuccessfully()
         {
+            UnitTestContext.Initialize();
             ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
 
             Assert.IsNotNull(service);
@@ -124,44 +129,23 @@ namespace Framework.Tests
             Assert.IsNotNull(response.Message);
         }
 
-        [TestMethod]
-        public void TestCanGetCustomer()
-        {
-            ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
+        //[TestMethod]
+        //public void TestCanGetCustomer()
+        //{
+        //    UnitTestContext.Initialize();
+        //    ICustomerService service = this._iocContainer.Resolve<ICustomerService>();
 
-            Assert.IsNotNull(service);
+        //    Assert.IsNotNull(service);
 
-            CustomerResponse response2 = service.GetById(new CustomerServiceRequest()
-            {
-                EntityId ="3d2b1db8-4dff-4447-b80d-f72914eddfbe"
-            });
+        //    CustomerResponse response2 = service.GetById(new CustomerServiceRequest()
+        //    {
+        //        EntityId ="3d2b1db8-4dff-4447-b80d-f72914eddfbe"
+        //    });
 
-            Assert.AreEqual(ServiceResult.Success,response2.ServiceResult);
-            Assert.IsNotNull(response2.CustomerAm);
-            Assert.AreEqual("Spar Silver Oaks", response2.CustomerAm.Name);
+        //    Assert.AreEqual(ServiceResult.Success,response2.ServiceResult);
+        //    Assert.IsNotNull(response2.CustomerAm);
+        //    Assert.AreEqual("Spar Silver Oaks", response2.CustomerAm.Name);
 
-        }
-
-
-
-
-
-        [TestMethod]
-        public void TestCanAddUser()
-        {
-            IUserService service = this._iocContainer.Resolve<IUserService>();
-
-            Assert.IsNotNull(service);
-
-            UserResponse response2 = service.GetById(new UserServiceRequest()
-            {
-                EntityId = "3d2b1db8-4dff-4447-b80d-f72914eddfbe"
-            });
-
-            Assert.AreEqual(ServiceResult.Success, response2.ServiceResult);
-            //Assert.IsNotNull(response2.CustomerAm);
-            //Assert.AreEqual("Spar Silver Oaks", response2.CustomerAm.Name);
-
-        }
+        //}
     }
 }

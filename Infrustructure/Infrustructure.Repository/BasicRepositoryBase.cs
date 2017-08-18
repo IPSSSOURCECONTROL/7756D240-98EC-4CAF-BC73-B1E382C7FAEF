@@ -9,6 +9,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
 {
@@ -75,6 +76,16 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
             {
                 throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(), 
                     MessageFormatter.RecordWithIdAlreadyExists(id));
+            }
+        }
+
+        protected void ThrowErrorOnEmailExists(User entity)
+        {
+            if (this.DatabaseContext.Table<User>()
+                .Any(x => x.Email == entity.Email))
+            {
+                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
+                    MessageFormatter.RecordWithNameAlreadyExists(entity.Email));
             }
         }
 

@@ -65,6 +65,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AUT\IKbitUnitTestContext.cs" />
+    <Compile Include="Encryption\AspNetCryptology.cs" />
+    <Compile Include="Encryption\IAspNetCryptology.cs" />
     <Compile Include="Exception\EntityAlreadyExistException.cs" />
     <Compile Include="Exception\KbitNullArgumentException.cs" />
     <Compile Include="Exception\KbitRequiredFieldValidationException.cs" />

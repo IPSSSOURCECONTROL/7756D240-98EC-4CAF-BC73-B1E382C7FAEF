@@ -10,7 +10,7 @@
             this.ServiceResult = ServiceResult.Default;
         }
 
-        public ServiceResponseBase(string message, ServiceResult serviceResult)
+        protected ServiceResponseBase(string message, ServiceResult serviceResult)
         {
             this.Message = message;
             this.ServiceResult = serviceResult;

@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities.Encryption
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Encryption
 {
-    public static class AspNetCryptology
+    public class AspNetCryptology : IAspNetCryptology
     {
         private const int PBKDF2IterCount = 1000; // default for Rfc2898DeriveBytes
         private const int PBKDF2SubkeyLength = 256 / 8; // 256 bits
@@ -20,7 +20,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities.Encryption
          * Format: { 0x00, salt, subkey }
          */
 
-        public static string HashPassword(string password)
+        public string HashPassword(string password)
         {
             if (password == null)
             {
@@ -43,7 +43,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities.Encryption
         }
 
         // hashedPassword must be of the format of HashWithPassword (salt + Hash(salt+input)
-        public static bool VerifyHashedPassword(string hashedPassword, string password)
+        public bool VerifyHashedPassword(string hashedPassword, string password)
         {
             if (hashedPassword == null)
             {
@@ -74,12 +74,12 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities.Encryption
             {
                 generatedSubkey = deriveBytes.GetBytes(PBKDF2SubkeyLength);
             }
-            return ByteArraysEqual(storedSubkey, generatedSubkey);
+            return this.ByteArraysEqual(storedSubkey, generatedSubkey);
         }
 
         // Compares two byte arrays for equality. The method is specifically written so that the loop is not optimized.
         [MethodImpl(MethodImplOptions.NoOptimization)]
-        private static bool ByteArraysEqual(byte[] a, byte[] b)
+        private bool ByteArraysEqual(byte[] a, byte[] b)
         {
             if (ReferenceEquals(a, b))
             {

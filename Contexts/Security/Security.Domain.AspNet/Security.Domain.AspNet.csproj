@@ -72,6 +72,14 @@
       <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Security.Domain.csproj">
+      <Project>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</Project>
+      <Name>Security.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

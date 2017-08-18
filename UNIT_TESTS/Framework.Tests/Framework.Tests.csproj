@@ -6,8 +6,8 @@
     <ProjectGuid>{96FF22FA-BC65-4313-B10D-A02D3CF7877E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Framework.Tests</RootNamespace>
-    <AssemblyName>Framework.Tests</AssemblyName>
+    <RootNamespace>KhanyisaIntel.Kbit.Framework.Tests</RootNamespace>
+    <AssemblyName>KhanyisaIntel.Kbit.Framework.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -69,13 +69,15 @@
     <Compile Include="BusinessIntelligence.Repository.Tests\ProductRepositoryTests.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
     <Compile Include="CustomerServiceTests.cs" />
+    <Compile Include="Security.Application.Services\UserServiceTests.cs" />
     <Compile Include="Security.Domain.Factories.Tests\UserFactoryTests.cs" />
     <Compile Include="Security.Repository.Tests\AspNetPrincipleUserRepositoryTests.cs" />
+    <Compile Include="Security.Repository.Tests\UserRepositoryTests.cs" />
+    <Compile Include="TEST_UTILS\UnitTestContext.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessTests.cs" />
     <Compile Include="UnitTest2.cs" />
-    <Compile Include="UnitTest3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

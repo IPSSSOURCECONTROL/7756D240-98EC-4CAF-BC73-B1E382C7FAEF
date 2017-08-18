@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using AspNet.Identity.MongoDB;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet
 {
@@ -39,6 +41,24 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet
 
         public virtual ICollection<IdentityUserLogin> Logins { get; set; }=new List<IdentityUserLogin>();
 
+        public static AspNetPrincipleUser MapFrom(User.User user)
+        {
+            if(user == null)
+                throw new KbitNullArgumentException(MethodBase.GetCurrentMethod(), 
+                    $"Can not map null {nameof(User.User)}");
+
+            AspNetPrincipleUser aspNetPrincipleUser = new AspNetPrincipleUser();
+            aspNetPrincipleUser.Id = user.Id;
+            aspNetPrincipleUser.EmailAddress = user.Email;
+            aspNetPrincipleUser.LowerCaseEmailAddress = user.Email.ToLower();
+            aspNetPrincipleUser.UserName = user.Email;
+            aspNetPrincipleUser.LowerCaseUserName = user.Email;
+            aspNetPrincipleUser.PasswordHash = user.Password.Value;
+            aspNetPrincipleUser.SecurityStamp = Guid.NewGuid().ToString();
+            aspNetPrincipleUser.AccessFailedCount = 0;
+
+            return aspNetPrincipleUser;
+        }
 
         protected override string GetTypeName()
         {

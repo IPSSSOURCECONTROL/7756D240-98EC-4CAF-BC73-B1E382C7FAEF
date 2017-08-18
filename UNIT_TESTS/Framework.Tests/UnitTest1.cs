@@ -18,9 +18,10 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
+using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests
 {
     [TestClass]
     public class UnitTest1
@@ -30,9 +31,7 @@ namespace Framework.Tests
 
         public UnitTest1()
         {
-            //AutomatedTestingContext.SetUpSupermanRole();
             this._iocContainer = new IocContainer();
-
         }
 
 
@@ -61,10 +60,8 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddRoleGetModifyAndDelete()
         {
+            UnitTestContext.Initialize();
             IRoleRepository roleRepository = this._iocContainer.Resolve<IRoleRepository>();
-            //roleRepository.Add(new SupermanRole());
-
-            //roleRepository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
 
             AdministratorRole administratorRole = new AdministratorRole();
 
@@ -88,6 +85,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanGetAllRoles()
         {
+            UnitTestContext.Initialize();
             IRoleRepository roleRepository = this._iocContainer.Resolve<IRoleRepository>();
 
             AdministratorRole administratorRole = new AdministratorRole();
@@ -121,52 +119,6 @@ namespace Framework.Tests
         }
 
         [TestMethod]
-        public void TestCanAddGetModifyDeleteUser()
-        {
-            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
-            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
-
-            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
-            {
-                AccountStatus = new ActiveAccountStatus(),
-                Code = "CODE123" + this._random.Next(1, 99999),
-                Email = "goodwillgumede@yahoo.co.za",
-                Password = "P@ssWord1",
-                Name = "Goodwill",
-                PasswordResetPolicy = new DailyPasswordResetPolicy(),
-                Role = new AdministratorRole()
-            });
-
-            user.SetLicense(new AnnualLicenseSpecification());
-
-            repository.Add(user);
-
-
-            User savedUser = repository.GetById(user.Id);
-
-            Assert.IsNotNull(savedUser);
-            Assert.AreEqual("Goodwill", savedUser.Name);
-
-            savedUser.Name = "Mthokozisi";
-            savedUser.Code = "DHC";
-            savedUser.Email = "hdsddf@fsfklsdfsdf";
-
-            repository.Update(savedUser);
-
-            User updatedUser = repository.GetById(user.Id);
-
-            Assert.IsNotNull(updatedUser);
-            Assert.AreEqual("Mthokozisi", updatedUser.Name);
-
-
-            repository.Delete(updatedUser);
-
-            User deletedUser = repository.GetById(updatedUser.Id);
-
-            Assert.IsNull(deletedUser);
-        }
-
-        [TestMethod]
         public void TestBlockUser()
         {
             User user = new User(
@@ -197,7 +149,6 @@ namespace Framework.Tests
         {
             IObjectActivator objectActivator = this._iocContainer.Resolve<IObjectActivator>();
 
-
             Role role = (Role)objectActivator.CreateInstanceOf<Role>("SupermanRole");
 
             Assert.IsInstanceOfType(role, typeof(SupermanRole));
@@ -206,6 +157,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestRoleService_GetByIdMustReurnErrorGivenNullRequest()
         {
+            UnitTestContext.Initialize();
             IRoleService roleService = this._iocContainer.Resolve<IRoleService>();
 
             RoleResponse response = roleService.GetById(null);
@@ -217,6 +169,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestRoleService_GetById_MustReturnErrorGivenInvalidRoleId_EmptyString()
         {
+            UnitTestContext.Initialize();
             IRoleService roleService = this._iocContainer.Resolve<IRoleService>();
 
             RoleResponse response = roleService.GetById(new RoleServiceRequest());
@@ -229,6 +182,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestRoleService_GetById_MustReturnErrorGivenInvalidRoleId_NonExistantRoleId()
         {
+            UnitTestContext.Initialize();
             IRoleService roleService = this._iocContainer.Resolve<IRoleService>();
 
             RoleResponse response = roleService.GetById(new RoleServiceRequest() { EntityId = "TEST" });
@@ -273,6 +227,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddReadUpdateDeleteApplicationFunctions()
         {
+            UnitTestContext.Initialize();
             IApplicationFunctionService service = this._iocContainer.Resolve<IApplicationFunctionService>();
 
             ApplicationFunctionServiceRequest request = new ApplicationFunctionServiceRequest();
@@ -331,26 +286,5 @@ namespace Framework.Tests
 
             Assert.IsTrue(!deletedApplicationFunctions.Any());
         }
-
-        //[TestMethod]
-        //public void dfsdfsdfsdf()
-        //{
-        //    using (DatabaseContext context = new DatabaseContext())
-        //    {
-        //        context.Add<BusinessDa>(new BusinessDa
-        //        {
-        //            Id = Guid.NewGuid().ToString(),
-        //            LastUpdatedUserId = "asdasds",
-        //            Name = "Test"
-        //        });
-
-        //        context.SaveChanges();
-
-        //        var asdasd = context.Table<BusinessDa>().Where(x => x.Name == "Test").ToList();
-
-        //        var asasd = context.TableForQuery<BusinessDa>().Where(x => x.Name == "Test").ToList();
-        //    }
-
-        //}
     }
 }

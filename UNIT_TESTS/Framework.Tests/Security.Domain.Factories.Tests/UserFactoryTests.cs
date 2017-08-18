@@ -14,7 +14,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests.Security.Domain.Factories.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Domain.Factories.Tests
 {
     [TestClass]
     public class UserFactoryTests

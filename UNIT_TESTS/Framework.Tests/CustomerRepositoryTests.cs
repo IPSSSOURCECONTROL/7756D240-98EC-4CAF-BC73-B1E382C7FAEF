@@ -6,9 +6,10 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests
 {
     [TestClass]
     public class CustomerRepositoryTests
@@ -33,6 +34,8 @@ namespace Framework.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestAdd_MustFailGivenNullEntity()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             repository.Add(null);
         }
@@ -41,6 +44,8 @@ namespace Framework.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestUpdate_MustFailGivenNullEntity()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             repository.Update(null);
         }
@@ -49,6 +54,8 @@ namespace Framework.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestDelete_MustFailGivenNullEntity()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             repository.Delete(null);
         }
@@ -57,6 +64,8 @@ namespace Framework.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestIsExists_MustFailGivenNullEntity()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             repository.IsExist(null);
         }
@@ -64,6 +73,8 @@ namespace Framework.Tests
         [TestMethod]
         public void TestAdd_MustAddCustomerSuccessfully()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             IDomainFactory<Customer, CustomerAm> domainFactory =
                 this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
@@ -120,6 +131,8 @@ namespace Framework.Tests
         [TestMethod]
         public void TestUpdate_MustUpdateCustomerSuccessfully()
         {
+            UnitTestContext.Initialize();
+
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             IDomainFactory<Customer, CustomerAm> domainFactory =
                 this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
@@ -140,7 +153,8 @@ namespace Framework.Tests
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
                 RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878"
+                RepresentativeCode = "88878",
+                BusinessId = "123"
             });
 
             repository.Add(customer);
@@ -177,6 +191,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestDelete_MustDeleteCustomerSuccessfully()
         {
+            UnitTestContext.Initialize();
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             IDomainFactory<Customer, CustomerAm> domainFactory =
                 this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
@@ -197,7 +212,8 @@ namespace Framework.Tests
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
                 RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878"
+                RepresentativeCode = "88878",
+                BusinessId = "123"
             });
 
             repository.Add(customer);
@@ -217,6 +233,7 @@ namespace Framework.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestGetById_MustFailGivenNullId()
         {
+            UnitTestContext.Initialize();
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
 
             Customer savedCustomer = repository.GetById(null);
@@ -227,6 +244,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestGetById_MustReturnNullCustomerGivenIdThatDoesNotExist()
         {
+            UnitTestContext.Initialize();
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
 
             Customer savedCustomer = repository.GetById("asdasdsad");
@@ -237,6 +255,7 @@ namespace Framework.Tests
         [TestMethod]
         public void TestGetAll_CanGetAllCustomers()
         {
+            UnitTestContext.Initialize();
             ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
             IDomainFactory<Customer, CustomerAm> domainFactory =
                 this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
@@ -257,7 +276,8 @@ namespace Framework.Tests
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
                 RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878"
+                RepresentativeCode = "88878",
+                BusinessId = "123"
             });
 
             repository.Add(newCustomer);

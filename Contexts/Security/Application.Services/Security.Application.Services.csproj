@@ -119,6 +119,10 @@
       <Project>{71bd50b6-66f9-4be9-a701-bfa76a751870}</Project>
       <Name>Security.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Security.Domain.AspNet\Security.Domain.AspNet.csproj">
+      <Project>{2D260D27-BBAD-4B79-B503-A4F797A1BC5B}</Project>
+      <Name>Security.Domain.AspNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

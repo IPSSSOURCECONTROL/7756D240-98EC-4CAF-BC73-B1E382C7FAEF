@@ -3,9 +3,10 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Bus
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
+using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests
 {
     [TestClass]
     public class BusinessTests
@@ -20,6 +21,8 @@ namespace Framework.Tests
         [TestMethod]
         public void TestCanAddBusiness()
         {
+            UnitTestContext.Initialize();
+
             IBusinessService service = this._iocContainer.Resolve<IBusinessService>();
 
             Assert.IsNotNull(service);
@@ -49,7 +52,5 @@ namespace Framework.Tests
             Assert.AreEqual(ServiceResult.Success, response.ServiceResult);
             Assert.IsNotNull(response.Message);
         }
-
-
     }
 }

@@ -1,6 +1,6 @@
 ﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests
 {
     public static class AutomatedTestingContext
     {

@@ -51,6 +51,8 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
 
         private void RegisterConstructionConstributors()
         {
+            //OwnDatabaseContextContributor
+            this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new OwnDatabaseContextContributor());
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new KbitRequiredContributor());
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new CheckIfRepositoryCallContributor());
             this._windsorContainer.Kernel.ComponentModelBuilder.AddContributor(new ValidateMethodArgumentContributor());

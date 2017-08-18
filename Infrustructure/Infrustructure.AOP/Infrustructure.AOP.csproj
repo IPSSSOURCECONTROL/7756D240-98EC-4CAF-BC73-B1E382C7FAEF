@@ -59,6 +59,7 @@
     <Compile Include="Contributors\CheckIfRepositoryCallContributor.cs" />
     <Compile Include="Contributors\KbitRequiredContributor.cs" />
     <Compile Include="Contributors\MandatoryInjectionContributor.cs" />
+    <Compile Include="Contributors\OwnDatabaseContextContributor.cs" />
     <Compile Include="Contributors\ServiceRequestContributor.cs" />
     <Compile Include="Contributors\TransactionalContributor.cs" />
     <Compile Include="Contributors\ValidateMethodArgumentContributor.cs" />

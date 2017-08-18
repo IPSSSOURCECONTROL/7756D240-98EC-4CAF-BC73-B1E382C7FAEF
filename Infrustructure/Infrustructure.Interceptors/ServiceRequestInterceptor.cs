@@ -50,7 +50,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
             }
             catch (System.Exception exception)
             {
-                string errorMessage = $"Exception occurred whilst executing action. :";
+                string errorMessage = $"The following exception occurred whilst executing action. : {exception.Message} ";
 
                 this.Logger.Log(MessageFormatter.FormatException(exception));
 
