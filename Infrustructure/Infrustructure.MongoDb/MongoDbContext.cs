@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using System.Configuration;
+using MongoDB.Driver;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
 {
@@ -12,7 +13,20 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
             if (_client == null)
             {
                 _client = new MongoClient(connectionString);
-                _database = _client.GetDatabase("KBIT");
+
+                if (ConfigurationManager.AppSettings["IS_DEV_ENV"] == "N")
+                {
+                    _database = _client.GetDatabase("KBIT");
+                }
+                else if (ConfigurationManager.AppSettings["IS_DEV_ENV"] == "Y")
+                {
+                    _client.DropDatabase("KBIT_TEST");
+                    _database = _client.GetDatabase("KBIT_TEST");
+                }
+                else
+                {
+                    throw new MongodbContextException("Invalid configuration");
+                }
             }
         }
 
@@ -26,6 +40,11 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
         {
             string adsas = typeof(TEntity).Name + "s";
             return _database.GetCollection<TEntity>(adsas);
+        }
+
+        private void DropDatabase()
+        {
+            _client.DropDatabase("KBIT_TEST");
         }
     }
 }

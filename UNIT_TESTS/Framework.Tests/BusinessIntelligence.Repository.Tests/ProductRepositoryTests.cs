@@ -1,6 +1,9 @@
-﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
+﻿using System.Configuration;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Database;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
+using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Framework.Tests.BusinessIntelligence.Repository.Tests
@@ -14,6 +17,15 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         public ProductRepositoryTests()
         {
             this._autoResolver = new IocContainer();
+        }
+
+        // Use TestInitialize to run code before running each test 
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            //will drop and recreate the test database after each test...
+            BusinessIntelligenceDatabaseContext context = new BusinessIntelligenceDatabaseContext(
+              ConfigurationManager.ConnectionStrings["KBITDB"].ConnectionString);
         }
 
         [TestMethod]

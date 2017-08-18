@@ -40,6 +40,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
@@ -66,14 +67,15 @@
   <ItemGroup>
     <Compile Include="AutomatedTestingContext.cs" />
     <Compile Include="BusinessIntelligence.Repository.Tests\ProductRepositoryTests.cs" />
-    <Compile Include="Crypto.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
     <Compile Include="CustomerServiceTests.cs" />
     <Compile Include="Security.Domain.Factories.Tests\UserFactoryTests.cs" />
+    <Compile Include="Security.Repository.Tests\AspNetPrincipleUserRepositoryTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessTests.cs" />
     <Compile Include="UnitTest2.cs" />
+    <Compile Include="UnitTest3.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -142,6 +144,10 @@
     <ProjectReference Include="..\..\Contexts\Security\Repository\Security.Repository.csproj">
       <Project>{71bd50b6-66f9-4be9-a701-bfa76a751870}</Project>
       <Name>Security.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Contexts\Security\Security.Domain.AspNet\Security.Domain.AspNet.csproj">
+      <Project>{2D260D27-BBAD-4B79-B503-A4F797A1BC5B}</Project>
+      <Name>Security.Domain.AspNet</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Dependency\DependencyInjection\DependencyInjection.csproj">
       <Project>{24A56328-6A40-4C32-A717-64EC512B9F20}</Project>

@@ -89,6 +89,10 @@
       <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
       <Name>Infrustructure.MongoDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</Project>
+      <Name>Infrustructure.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Validation\Infrustructure.Validation.csproj">
       <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
       <Name>Infrustructure.Validation</Name>

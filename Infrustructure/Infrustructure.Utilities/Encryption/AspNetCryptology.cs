@@ -2,9 +2,9 @@
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
-namespace Framework.Tests
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities.Encryption
 {
-    public static class Crypto
+    public static class AspNetCryptology
     {
         private const int PBKDF2IterCount = 1000; // default for Rfc2898DeriveBytes
         private const int PBKDF2SubkeyLength = 256 / 8; // 256 bits
