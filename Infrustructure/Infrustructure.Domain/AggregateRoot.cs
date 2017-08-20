@@ -1,4 +1,7 @@
 ﻿using System;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+using MongoDB.Bson.Serialization.IdGenerators;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Domain
 {
@@ -13,16 +16,21 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Domain
 
         protected AggregateRoot()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString();
         }
 
         /// <summary>
         /// Entity ID. The Getter will generate a new Id if the Setter has 
         /// not been called to set the Id.
         /// </summary>
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id
         {
-            get { return this._id ?? (this._id = Guid.NewGuid().ToString()); }
+            get
+            {
+                return this._id ?? (this._id = MongoDB.Bson.ObjectId.GenerateNewId().ToString());
+            }
             set { this._id = value; }
         }
 

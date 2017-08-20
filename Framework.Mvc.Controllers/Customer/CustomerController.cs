@@ -1,44 +1,53 @@
-﻿using System.Security.Principal;
-using System.Web.Http;
+﻿using System.Web.Http;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 
 namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Customer
 {
     [Authorize]
-    public class CustomerController : ApiController
+    public class CustomerController : ApiController, IKbitApiController<CustomerAm>
     {
-        private readonly ICustomerService _customerService;
+        private readonly ICustomerService _applicationService;
 
         public CustomerController(ICustomerService customerService)
         {
-            this._customerService = customerService;
+            this._applicationService = customerService;
         }
 
         [HttpGet]
-        public IHttpActionResult GetCustomerById(string id)
+        public IHttpActionResult GetById(string id)
         {
-            CustomerServiceRequest request = new CustomerServiceRequest();
-            request.EntityId = id;
+            CustomerResponse response = this._applicationService.GetById(
+                new CustomerServiceRequest()
+                {
+                    EntityId = id
+                });
 
-            IPrincipal user = this.User;
-            string asdasd = user.Identity.Name;
+            if (response.ServiceResult != ServiceResult.Success)
+                return this.BadRequest(response.Message);
 
-            CustomerResponse serviceResponse = this._customerService.GetById(request);
+            return this.Ok(response.CustomerAm);
+        }
 
-            switch (serviceResponse.ServiceResult)
-            {
-                case ServiceResult.Default:
-                    return this.BadRequest(serviceResponse.Message);
-                case ServiceResult.Success:
-                    return this.Ok(serviceResponse.CustomerAm);
-                case ServiceResult.Error:
-                    return this.BadRequest(serviceResponse.Message);
-                case ServiceResult.Exception:
-                    return this.BadRequest(serviceResponse.Message);
-                default:
-                    return this.BadRequest("Undefined response type.");
-            }
+        public IHttpActionResult GetAll()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IHttpActionResult Add(CustomerAm applicationModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IHttpActionResult Update(CustomerAm applicationModel)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public IHttpActionResult Delete(CustomerAm applicationModel)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

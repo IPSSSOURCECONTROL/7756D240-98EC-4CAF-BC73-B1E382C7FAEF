@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Configuration;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Encryption;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet;
-using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

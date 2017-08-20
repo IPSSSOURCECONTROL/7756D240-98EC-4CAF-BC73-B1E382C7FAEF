@@ -1,10 +1,8 @@
-﻿using System;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Encryption;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User

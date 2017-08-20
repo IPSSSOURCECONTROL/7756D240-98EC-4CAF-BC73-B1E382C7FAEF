@@ -27,7 +27,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet
 
         public virtual string SecurityStamp { get; set; }
 
-        public virtual DateTimeOffset? LockoutEndDateUtc { get; set; }
+        //public virtual DateTimeOffset? LockoutEndDateUtc { get; set; }
 
         public virtual bool LockoutEnabled { get; set; }
 
@@ -35,11 +35,11 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.AspNet
 
         public virtual bool TwoFactorEnabled { get; set; }
 
-        public virtual ICollection<IdentityUserRole> Roles { get; set; }=new List<IdentityUserRole>();
+        //public virtual ICollection<IdentityUserRole> Roles { get; set; }=new List<IdentityUserRole>();
 
-        public virtual ICollection<IdentityUserClaim> Claims { get; set; }=new List<IdentityUserClaim>();
+        //public virtual ICollection<IdentityUserClaim> Claims { get; set; }=new List<IdentityUserClaim>();
 
-        public virtual ICollection<IdentityUserLogin> Logins { get; set; }=new List<IdentityUserLogin>();
+        //public virtual ICollection<IdentityUserLogin> Logins { get; set; }=new List<IdentityUserLogin>();
 
         public static AspNetPrincipleUser MapFrom(User.User user)
         {

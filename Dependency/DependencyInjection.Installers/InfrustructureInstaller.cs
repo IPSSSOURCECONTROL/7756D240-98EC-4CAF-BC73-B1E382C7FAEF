@@ -3,8 +3,6 @@ using Castle.DynamicProxy;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AUT;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Encryption;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;

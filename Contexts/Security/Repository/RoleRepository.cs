@@ -6,7 +6,6 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;

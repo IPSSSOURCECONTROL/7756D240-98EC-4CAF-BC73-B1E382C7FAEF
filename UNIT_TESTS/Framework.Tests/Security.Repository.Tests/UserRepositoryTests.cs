@@ -1,7 +1,4 @@
-﻿using System.Configuration;
-using KhanyisaIntel.Kbit.Framework.DependencyInjection;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AUT;
+﻿using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Security.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
@@ -9,7 +6,6 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
-using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

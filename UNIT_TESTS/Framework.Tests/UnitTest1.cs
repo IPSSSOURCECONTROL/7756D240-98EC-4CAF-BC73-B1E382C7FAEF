@@ -10,7 +10,6 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role;
-using KhanyisaIntel.Kbit.Framework.Security.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;

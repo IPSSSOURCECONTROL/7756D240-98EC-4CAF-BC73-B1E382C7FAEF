@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Database;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
+﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;

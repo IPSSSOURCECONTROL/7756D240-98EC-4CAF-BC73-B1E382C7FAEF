@@ -62,7 +62,9 @@
   <ItemGroup>
     <Compile Include="Business\BusinessController.cs" />
     <Compile Include="Customer\CustomerController.cs" />
+    <Compile Include="IKbitApiController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\UserController.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -77,6 +79,14 @@
     <ProjectReference Include="..\Contexts\BusinessIntelligence\Application.Services\BusinessIntelligence.Application.Services.csproj">
       <Project>{F0F18BFD-7163-462F-9247-3C0DF75A59D2}</Project>
       <Name>BusinessIntelligence.Application.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Application.Models\Security.Application.Models.csproj">
+      <Project>{3596E402-C890-48FF-871B-0F159D29019B}</Project>
+      <Name>Security.Application.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contexts\Security\Application.Services\Security.Application.Services.csproj">
+      <Project>{AE96833E-C681-4A4F-A57A-B4B10C5C1FED}</Project>
+      <Name>Security.Application.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure\Infrustructure.Application\Infrustructure.Application.csproj">
       <Project>{19541CAC-FD7E-40B0-9B36-4146CE46C4CC}</Project>

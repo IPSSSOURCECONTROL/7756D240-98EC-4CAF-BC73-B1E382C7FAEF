@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Database;
 
 namespace KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS

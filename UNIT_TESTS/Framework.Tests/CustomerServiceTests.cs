@@ -3,7 +3,6 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Cus
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 using KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
