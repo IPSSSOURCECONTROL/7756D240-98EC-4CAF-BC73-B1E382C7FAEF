@@ -3,7 +3,8 @@
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
 {
     public interface IApplicationService<TServiceRequest, TServiceResponse>
-        where TServiceRequest : class where TServiceResponse : class
+        where TServiceRequest : class 
+        where TServiceResponse : class
     {
         [AuthorizeAction]
         [ServiceRequestMethod]

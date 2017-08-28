@@ -1,8 +1,9 @@
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.WorkflowCommon;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
 {
@@ -12,7 +13,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
     {
         protected WorkflowRepository(IDatabaseContext databaseContext)
         {
-            Validator.CheckReferenceTypeForNull(databaseContext, nameof(databaseContext), MethodBase.GetCurrentMethod());
+            ValidationUtility.CheckReferenceTypeForNull(databaseContext, nameof(databaseContext), MethodBase.GetCurrentMethod());
             this.DatabaseContext = databaseContext;
         }
 

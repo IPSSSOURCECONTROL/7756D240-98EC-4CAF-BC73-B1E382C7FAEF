@@ -1,9 +1,8 @@
-﻿using System.Linq;
-using System.Web.Http;
+﻿using System.Security.Principal;
+using System.Web;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
 using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Business;
 using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Customer;
 using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.User;
@@ -14,9 +13,12 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<CustomerController>().LifestyleTransient());
-            container.Register(Component.For<BusinessController>().LifestyleTransient());
-            container.Register(Component.For<UserController>().LifestyleTransient());
+            container.Register(Component.For<CustomerController>().LifestylePerWebRequest());
+            container.Register(Component.For<BusinessController>().LifestylePerWebRequest());
+            container.Register(Component.For<UserController>().LifestylePerWebRequest());
+            container.Register(Component.For<IPrincipal>()
+              .LifeStyle.PerWebRequest
+              .UsingFactoryMethod(() => HttpContext.Current.User));
             //container.Register(
             //    Classes.FromAssembly(container.Resolve<IStackInspector>()
             //    .GetAllStackAssemblies()

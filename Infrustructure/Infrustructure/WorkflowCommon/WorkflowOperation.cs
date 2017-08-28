@@ -1,4 +1,4 @@
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.WorkflowCommon
 {
     public enum WorkflowOperation
     {

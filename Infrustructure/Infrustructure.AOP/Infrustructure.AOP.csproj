@@ -74,9 +74,9 @@
       <Project>{19541cac-fd7e-40b0-9b36-4146ce46c4cc}</Project>
       <Name>Infrustructure.Application</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj">
+    <ProjectReference Include="..\Infrustructure.Interceptors\Infrustructure.AOP.Interceptors.csproj">
       <Project>{186EB07A-9981-4ECC-8F70-8197B4807D9C}</Project>
-      <Name>Infrustructure.Interceptors</Name>
+      <Name>Infrustructure.AOP.Interceptors</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>

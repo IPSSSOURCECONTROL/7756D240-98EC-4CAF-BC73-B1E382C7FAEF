@@ -296,5 +296,49 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             Assert.IsNotNull(allCustomers);
             Assert.AreEqual(0, allCustomers.Count());
         }
+
+
+
+
+
+
+
+        [TestMethod]
+        public void TestAddAlotOfCustomers()
+        {
+            UnitTestContext.Initialize();
+
+            ICustomerRepository repository = this._iocContainer.Resolve<ICustomerRepository>();
+
+            IDomainFactory<Customer, CustomerAm> domainFactory =
+                this._iocContainer.Resolve<IDomainFactory<Customer, CustomerAm>>();
+
+            for (int i = 0; i < 10000; i++)
+            {
+                Customer customer = domainFactory.BuildDomainEntityType(new CustomerAm()
+                {
+                    AddressLineOne = "UNIT 1",
+                    AddressLineTwo = "OUT OF BOUNDS",
+                    Street = "Von Backstrom Boulevard",
+                    Suburb = "Silverlakes",
+                    TownOrCity = "Pretoria",
+                    PostalCode = "0081",
+                    Email = $"{i}@testData.com",
+                    CellphoneNumber = "0721248899",
+                    Bank = "FNB",
+                    AccountNumber = "6211134445267",
+                    BranchCode = "206658",
+                    Reference = "aasasdasd",
+                    Name = $"TESTCUSTOMER_{i}",
+                    RepresentativeId = "789",
+                    RepresentativeName = "Goodwill",
+                    RepresentativeCode = "88878",
+                    BusinessId = "TEST123"
+                });
+
+
+                repository.Add(customer);
+            }
+        }
     }
 }

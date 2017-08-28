@@ -101,23 +101,23 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
 
         public static string EntitySuccessfullyAdded<T>(string id) where T: AggregateRoot
         {
-            Validator.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
+            ValidationUtility.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
 
             return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully saved.";
         }
 
         public static string EntitySuccessfullyUpdated<T>(string id) where T : AggregateRoot
         {
-            Validator.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
+            ValidationUtility.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
 
-            return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully saved.";
+            return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully updated.";
         }
 
         public static string EntitySuccessfullyRemoved<T>(string id) where T : AggregateRoot
         {
-            Validator.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
+            ValidationUtility.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));
 
-            return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully saved.";
+            return $"{InsertSpaceAfterCapitalLetter(typeof(T).Name)} with Id '{id}' sucessfully removed.";
         }
 
         public static string InvalidRole(string value)

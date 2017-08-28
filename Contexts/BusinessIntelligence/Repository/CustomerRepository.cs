@@ -6,8 +6,8 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 

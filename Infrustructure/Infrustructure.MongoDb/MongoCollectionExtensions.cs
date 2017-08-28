@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
@@ -17,7 +18,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
         public static void Remove<TEntity>(this IMongoCollection<TEntity> entityCollection, string entityId)
             where TEntity : class
         {
-            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq("_id", entityId);
+            FilterDefinition<TEntity> filter = Builders<TEntity>.Filter.Eq("_id", ObjectId.Parse(entityId));
             entityCollection.DeleteOne(filter);
         }
 

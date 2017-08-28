@@ -29,7 +29,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
 
             BusinessResponse response = service.Add(new BusinessServiceRequest()
             {
-                Business = new BusinessAm()
+                ApplicationModel = new BusinessAm()
                 {
                     AddressLineOne = "UNIT 1",
                     AddressLineTwo = "OUT OF BOUNDS",

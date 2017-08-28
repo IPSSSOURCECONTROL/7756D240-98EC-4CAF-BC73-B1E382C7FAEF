@@ -11,7 +11,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization
     {
         public void Serialize(Type serializableType, object type)
         {
-            Validator.CheckReferenceTypeForNull(type, nameof(serializableType), MethodBase.GetCurrentMethod());
+            ValidationUtility.CheckReferenceTypeForNull(type, nameof(serializableType), MethodBase.GetCurrentMethod());
 
             XmlSerializer xmlSerializer = new XmlSerializer(serializableType);
             var path = Environment.CurrentDirectory + "//ApplicationFunctionsConfiguration.xml";
@@ -24,7 +24,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization
 
         public T Deserialize<T>(string xmlString) where T: class 
         {
-            Validator.IsNullEmptyOrWhitespace(xmlString, nameof(xmlString));
+            ValidationUtility.IsNullEmptyOrWhitespace(xmlString, nameof(xmlString));
 
             XmlSerializer xmlSerializer = new XmlSerializer(typeof(T));
 

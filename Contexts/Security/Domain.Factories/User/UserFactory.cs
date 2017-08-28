@@ -36,7 +36,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
                 this.DatabaseContext.GetAll()
                     .FirstOrDefault(x => x.TypeName == applicationModel.RoleId.RemoveWhiteSpaces());
 
-            Validator.CheckReferenceTypeForNull(role, 
+            ValidationUtility.CheckReferenceTypeForNull(role, 
                 MessageFormatter.InvalidRole(applicationModel.RoleId),
                 MethodBase.GetCurrentMethod(), this.GetType());
 

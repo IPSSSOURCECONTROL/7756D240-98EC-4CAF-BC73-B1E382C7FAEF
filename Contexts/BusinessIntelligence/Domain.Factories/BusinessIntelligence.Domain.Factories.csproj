@@ -66,6 +66,10 @@
       <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{cae754f7-11aa-4284-8e42-f1f8a2f5ff39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</Project>
       <Name>Infrustructure.Utilities</Name>

@@ -85,6 +85,7 @@
     <Compile Include="Stack\StackInspector.cs" />
     <Compile Include="Workflow.Exceptions\CannotAddExistingEntityException.cs" />
     <Compile Include="Workflow.Exceptions\EntityDoesNotExistException.cs" />
+    <Compile Include="WorkflowCommon\WorkflowOperation.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

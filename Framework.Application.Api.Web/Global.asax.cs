@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System.Configuration;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Mvc;
@@ -21,8 +22,14 @@ namespace Framework.Application.Api.Web
             iocContainer.RegisterInstaller(new AccountControllerInstaller());
             this._container = iocContainer.WindsorContainer;
 
-            UserStore<ApplicationUser>.Initialize("Mongo");
-            //RoleStore<ApplicationUser>.Initialize("Mongo");
+            if (ConfigurationManager.AppSettings["IS_DEV_ENV"] == "N")
+            {
+                UserStore<ApplicationUser>.Initialize("Mongo");
+            }
+            else
+            {
+                UserStore<ApplicationUser>.Initialize("Mongo");
+            }
 
             GlobalConfiguration.Configuration.Services.Replace(
                 typeof(IHttpControllerActivator),

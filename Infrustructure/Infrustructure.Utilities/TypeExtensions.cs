@@ -14,7 +14,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
         /// <returns></returns>
         public static string ToFrontEndPresentation(this object obj)
         {
-            Validator.CheckReferenceTypeForNull(obj, 
+            ValidationUtility.CheckReferenceTypeForNull(obj, 
                 "Can not convert null type to a Front end presentation.", 
                 MethodBase.GetCurrentMethod(), typeof(TypeExtensions));
             Type type = obj.GetType();

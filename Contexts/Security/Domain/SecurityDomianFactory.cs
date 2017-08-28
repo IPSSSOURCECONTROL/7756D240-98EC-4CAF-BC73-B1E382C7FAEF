@@ -15,28 +15,28 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain
         /// <returns>A <see cref="User.User"/></returns>
         public static User.User CreateUser(CreateUserParameters createUserParameters)
         {
-            Validator.CheckReferenceTypeForNull(createUserParameters, nameof(createUserParameters),
+            ValidationUtility.CheckReferenceTypeForNull(createUserParameters, nameof(createUserParameters),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.IsNullEmptyOrWhitespace(createUserParameters.Name, nameof(createUserParameters.Name), 
+            ValidationUtility.IsNullEmptyOrWhitespace(createUserParameters.Name, nameof(createUserParameters.Name), 
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.IsNullEmptyOrWhitespace(createUserParameters.Code, nameof(createUserParameters.Code),
+            ValidationUtility.IsNullEmptyOrWhitespace(createUserParameters.Code, nameof(createUserParameters.Code),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.IsNullEmptyOrWhitespace(createUserParameters.Email, nameof(createUserParameters.Email),
+            ValidationUtility.IsNullEmptyOrWhitespace(createUserParameters.Email, nameof(createUserParameters.Email),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.IsNullEmptyOrWhitespace(createUserParameters.Password, nameof(createUserParameters.Password),
+            ValidationUtility.IsNullEmptyOrWhitespace(createUserParameters.Password, nameof(createUserParameters.Password),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.CheckReferenceTypeForNull(createUserParameters.PasswordResetPolicy, nameof(createUserParameters.PasswordResetPolicy),
+            ValidationUtility.CheckReferenceTypeForNull(createUserParameters.PasswordResetPolicy, nameof(createUserParameters.PasswordResetPolicy),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.CheckReferenceTypeForNull(createUserParameters.Role, nameof(createUserParameters.Role),
+            ValidationUtility.CheckReferenceTypeForNull(createUserParameters.Role, nameof(createUserParameters.Role),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
-            Validator.CheckReferenceTypeForNull(createUserParameters.AccountStatus, nameof(createUserParameters.AccountStatus),
+            ValidationUtility.CheckReferenceTypeForNull(createUserParameters.AccountStatus, nameof(createUserParameters.AccountStatus),
                 MethodBase.GetCurrentMethod(), typeof(SecurityDomianFactory));
 
             return new User.User( createUserParameters.Name, 
@@ -48,7 +48,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain
         public static ApplicationFunction.ApplicationFunction CreateApplicationFunction(
             string name, string assemblyInformation)
         {
-            Validator.IsNullEmptyOrWhitespace(name, nameof(name), MethodBase.GetCurrentMethod(),
+            ValidationUtility.IsNullEmptyOrWhitespace(name, nameof(name), MethodBase.GetCurrentMethod(),
                 typeof(SecurityDomianFactory));
 
             ApplicationFunction.ApplicationFunction applicationFunction = 

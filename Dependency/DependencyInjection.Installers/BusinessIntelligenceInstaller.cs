@@ -7,8 +7,7 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Database;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Workflows.ProductListing;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers

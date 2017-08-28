@@ -1,6 +1,10 @@
-﻿namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
+﻿using System.Collections.Generic;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
+
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
 {
-    public abstract class ServiceResponseBase
+    public abstract class ServiceResponseBase<TApplicationModel>
+        where TApplicationModel:ApplicationModelBase, new ()
     {
         private string _message;
 
@@ -27,7 +31,12 @@
             }
             set { this._message = value; }
         }
+
         public ServiceResult ServiceResult { get; set; }
+
+        public TApplicationModel ApplicationModel { get; set; }
+
+        public IEnumerable<TApplicationModel> ApplicationModels { get; set; } = new List<TApplicationModel>();
 
         /// <summary>
         /// Registers a <see cref="ServiceResult.Error"/> with a supporting optional message.

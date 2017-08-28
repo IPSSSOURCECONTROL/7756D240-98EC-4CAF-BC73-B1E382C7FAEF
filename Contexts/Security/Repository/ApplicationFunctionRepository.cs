@@ -3,9 +3,9 @@ using System.Linq;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction;
@@ -28,7 +28,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Add(ApplicationFunction entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
+            ValidationUtility.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
                 this.GetType());
 
             if (this.DatabaseContext.TableForQuery<ApplicationFunction>().Any(x => x.Name == entity.Name))
@@ -46,7 +46,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Update(ApplicationFunction entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
+            ValidationUtility.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
                 this.GetType());
 
             if (!this.DatabaseContext.TableForQuery<ApplicationFunction>().Any(x => x.Id == entity.Id))
@@ -61,7 +61,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
         [ValidateMethodArguments]
         public void Delete(ApplicationFunction entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
+            ValidationUtility.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
                 this.GetType());
 
             this.DatabaseContext.Remove<ApplicationFunction>(entity.Id);
@@ -69,7 +69,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
         public ApplicationFunction GetById(string id)
         {
-            Validator.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), this.GetType());
+            ValidationUtility.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), this.GetType());
 
             return this.DatabaseContext.Table<ApplicationFunction>().FirstOrDefault(x => x.Id == id);
         }
@@ -81,7 +81,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
         public bool IsExist(ApplicationFunction entity)
         {
-            Validator.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
+            ValidationUtility.CheckReferenceTypeForNull(entity, nameof(entity), MethodBase.GetCurrentMethod(),
                 this.GetType());
 
             return this.DatabaseContext.TableForQuery<ApplicationFunction>().Any(x => x.Id == entity.Id);

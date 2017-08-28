@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces
 {
     public interface IReadOnlyRepository<TEntity> where TEntity:class 
     {

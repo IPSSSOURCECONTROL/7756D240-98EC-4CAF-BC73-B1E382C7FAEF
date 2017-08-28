@@ -50,23 +50,8 @@
   <ItemGroup>
     <Compile Include="BasicRepositoryBase.cs" />
     <Compile Include="DataModelBase.cs" />
-    <Compile Include="IBasicRepository.cs" />
-    <Compile Include="IDatabaseContextAvailable.cs" />
-    <Compile Include="IReadOnlyRepository.cs" />
-    <Compile Include="IRepositoryWorkflowAvailable.cs" />
-    <Compile Include="ISecurityContextAvailable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WorkflowRepository.cs" />
-    <Compile Include="Workflow\IWorkflow.cs" />
-    <Compile Include="Workflow\IWorkflowContext.cs" />
-    <Compile Include="Workflow\IWorkflowDataAvailable.cs" />
-    <Compile Include="Workflow\IWorkflowStep.cs" />
-    <Compile Include="Workflow\IWorkflowStepsExecutionStrategy.cs" />
-    <Compile Include="Workflow\WorkflowBase.cs" />
-    <Compile Include="Workflow\WorkflowContext.cs" />
-    <Compile Include="Workflow\WorkflowOperation.cs" />
-    <Compile Include="Workflow\WorkflowStepBase.cs" />
-    <Compile Include="Workflow\WorkflowStepsExecutionStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Contexts\Security\Domain\Security.Domain.csproj">
@@ -89,6 +74,14 @@
       <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
       <Name>Infrustructure.MongoDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{cae754f7-11aa-4284-8e42-f1f8a2f5ff39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Repository.Workflow\Infrustructure.Repository.Workflow.csproj">
+      <Project>{1A9EECD7-A84F-41AC-90C8-AB56B6ADE6B9}</Project>
+      <Name>Infrustructure.Repository.Workflow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252AB5-7CFF-4F28-BC95-02A5AC8910B4}</Project>
       <Name>Infrustructure.Utilities</Name>
@@ -106,6 +99,7 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

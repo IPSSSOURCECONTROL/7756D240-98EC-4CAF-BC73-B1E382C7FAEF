@@ -3,8 +3,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer
 {
-    public class CustomerServiceRequest : ServiceRequestBase
+    public class CustomerServiceRequest : ServiceRequestBase<CustomerAm>
     {
-        public CustomerAm Customer { get; set; }=new CustomerAm();
     }
 }

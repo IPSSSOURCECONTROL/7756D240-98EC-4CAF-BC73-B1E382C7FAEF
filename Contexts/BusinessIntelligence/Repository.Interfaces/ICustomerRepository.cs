@@ -1,6 +1,6 @@
 ﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces
 {

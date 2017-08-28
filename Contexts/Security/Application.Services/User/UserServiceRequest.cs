@@ -3,8 +3,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
 {
-    public class UserServiceRequest : ServiceRequestBase
+    public class UserServiceRequest : ServiceRequestBase<UserAm>
     {
-        public UserAm User { get; set; }=new UserAm();
     }
 }

@@ -7,7 +7,9 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
 {
-    public class UserService : ApplicationServiceBase<UserResponse, 
+    public class UserService : ApplicationServiceBase2<
+        UserServiceRequest,
+        UserResponse, 
         IUserRepository, 
         Domain.User.User, UserAm>,IUserService
     {
@@ -18,43 +20,19 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
             this._aspNetCryptology = aspNetCryptology;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
-        public UserResponse GetById(UserServiceRequest request)
+        public override UserResponse Add(UserServiceRequest request)
         {
-            if (string.IsNullOrWhiteSpace(request.EntityId))
+            if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.EntityId)));
+                    nameof(UserServiceRequest.ApplicationModel)));
                 return this.Response;
             }
 
-            this.Response.User = this.DomainFactory.BuildApplicationModelType(this.Repository.GetById(request.EntityId));
-
-            return new UserResponse();
-        }
-
-        [ServiceRequestMethod]
-        public UserResponse GetAll(UserServiceRequest request)
-        {
-            this.Response.Users = this.DomainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
-
-            this.Response.RegisterSuccess();
-
-            return this.Response;
-        }
-
-        [ServiceRequestMethod]
-        public UserResponse Add(UserServiceRequest request)
-        {
-            if (request.User == null)
-            {
-                this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.User)));
-                return this.Response;
-            }
-
-            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.User);
-            user.SetPassword(this._aspNetCryptology.HashPassword(request.User.Password));
+            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.ApplicationModel);
+            user.SetPassword(this._aspNetCryptology.HashPassword(request.ApplicationModel.Password));
 
             this.Repository.Add(user);
 
@@ -63,42 +41,30 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
             return this.Response;
         }
 
+        [AuthorizeAction]
         [ServiceRequestMethod]
-        public UserResponse Update(UserServiceRequest request)
+        public override UserResponse Update(UserServiceRequest request)
         {
-            if (request.User == null)
+            if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.User)));
+                    nameof(UserServiceRequest.ApplicationModel)));
                 return this.Response;
             }
 
-            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.User);
-            user.SetPassword(this._aspNetCryptology.HashPassword(request.User.Password));
+            if (string.IsNullOrWhiteSpace(request.ApplicationModel.Id))
+            {
+                this.Response.RegisterError(MessageFormatter.IsARequiredField(
+                    nameof(UserAm.Id)));
+                return this.Response;
+            }
+
+            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.ApplicationModel, false);
+            user.SetPassword(this._aspNetCryptology.HashPassword(request.ApplicationModel.Password));
 
             this.Repository.Update(user);
 
             this.Response.RegisterSuccess(MessageFormatter.EntitySuccessfullyUpdated<Domain.User.User>(user.Id));
-
-            return this.Response;
-        }
-
-        [ServiceRequestMethod]
-        public UserResponse Delete(UserServiceRequest request)
-        {
-            if (request.User == null)
-            {
-                this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.User)));
-                return this.Response;
-            }
-
-            Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.User);
-            user.SetPassword(this._aspNetCryptology.HashPassword(request.User.Password));
-
-            this.Repository.Delete(user);
-
-            this.Response.RegisterSuccess(MessageFormatter.EntitySuccessfullyRemoved<Domain.User.User>(user.Id));
 
             return this.Response;
         }

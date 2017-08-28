@@ -4,7 +4,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Validation
 {
-    public static class Validator
+    public static class ValidationUtility
     {
         public static void IsNullEmptyOrWhitespace(string target, string message, 
             MethodBase method = null, Type type = null)

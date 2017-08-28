@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Workflows.ProductListing;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
 {

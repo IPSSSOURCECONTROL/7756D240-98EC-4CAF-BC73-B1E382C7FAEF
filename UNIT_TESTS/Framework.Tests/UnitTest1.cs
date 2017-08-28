@@ -174,7 +174,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             RoleResponse response = roleService.GetById(new RoleServiceRequest());
 
             Assert.AreEqual(ServiceResult.Error, response.ServiceResult);
-            Assert.IsNull(response.Role);
+            Assert.IsNull(response.ApplicationModel);
             Assert.AreEqual("Role with Id '' not found.", response.Message);
         }
 
@@ -187,7 +187,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             RoleResponse response = roleService.GetById(new RoleServiceRequest() { EntityId = "TEST" });
 
             Assert.AreEqual(ServiceResult.Error, response.ServiceResult);
-            Assert.IsNull(response.Role);
+            Assert.IsNull(response.ApplicationModel);
             Assert.AreEqual("Role with Id 'TEST' not found.", response.Message);
         }
 

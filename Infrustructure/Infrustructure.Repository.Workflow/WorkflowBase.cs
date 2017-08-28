@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Validation;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.WorkflowCommon;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
 {
@@ -15,7 +16,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
         {
             get
             {
-                Validator.CheckReferenceTypeForNull(this._workflowData,
+                ValidationUtility.CheckReferenceTypeForNull(this._workflowData,
                     $"WorkflowData of type '{typeof(TWorkflowData).Name}' " +
                     $"not set. Did you forget to initialize the property? " +
                     $"Set it in the construtor of the concreate '{typeof(TWorkflowData)}'.", MethodBase.GetCurrentMethod(), this.GetType());

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using MongoDB.Driver;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb

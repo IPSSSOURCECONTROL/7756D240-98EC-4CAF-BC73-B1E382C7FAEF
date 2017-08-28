@@ -79,6 +79,14 @@
       <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
       <Name>Infrustructure.MongoDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{CAE754F7-11AA-4284-8E42-F1F8A2F5FF39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository.Workflow\Infrustructure.Repository.Workflow.csproj">
+      <Project>{1A9EECD7-A84F-41AC-90C8-AB56B6ADE6B9}</Project>
+      <Name>Infrustructure.Repository.Workflow</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
       <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
       <Name>Infrustructure.Repository</Name>

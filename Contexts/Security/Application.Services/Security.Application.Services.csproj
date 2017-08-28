@@ -52,10 +52,6 @@
     <Compile Include="ApplicationFunction\ApplicationFunctionService.cs" />
     <Compile Include="ApplicationFunction\ApplicationFunctionServiceRequest.cs" />
     <Compile Include="ApplicationFunction\IApplicationFunctionService.cs" />
-    <Compile Include="LicenseSpecification\ILicenseSpecificationService.cs" />
-    <Compile Include="LicenseSpecification\LicenseSpecificationResponse.cs" />
-    <Compile Include="LicenseSpecification\LicenseSpecificationService.cs" />
-    <Compile Include="LicenseSpecification\LicenseSpecificationServiceRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role\IRoleService.cs" />
     <Compile Include="Role\RoleResponse.cs" />
@@ -86,6 +82,10 @@
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
       <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{cae754f7-11aa-4284-8e42-f1f8a2f5ff39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
       <Project>{6C9964F7-2626-4F64-9D47-62962C1F6D11}</Project>

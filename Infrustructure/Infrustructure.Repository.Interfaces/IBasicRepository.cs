@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces
 {
     /// <summary>
     /// Exposes general functions fro a basic repository without a workflow

@@ -52,7 +52,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
             IUserService target = this._iocContainer.Resolve<IUserService>();
 
             UserServiceRequest request = new UserServiceRequest();
-            request.User = null;
+            request.ApplicationModel = null;
 
             UserResponse response = target.Add(request);
 
@@ -84,7 +84,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 RoleId = nameof(SupermanRole)
             };
 
-            request.User = userAm;
+            request.ApplicationModel = userAm;
 
             UserResponse response = target.Add(request);
 
@@ -116,7 +116,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 RoleId = nameof(SupermanRole)
             };
 
-            request.User = userAm;
+            request.ApplicationModel = userAm;
 
             UserResponse response = target.Add(request);
 

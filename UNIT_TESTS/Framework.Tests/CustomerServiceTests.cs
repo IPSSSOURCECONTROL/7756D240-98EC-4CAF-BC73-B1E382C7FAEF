@@ -49,7 +49,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
 
             Assert.IsNotNull(service);
 
-            CustomerResponse response = service.Add(new CustomerServiceRequest() {Customer = null});
+            CustomerResponse response = service.Add(new CustomerServiceRequest() {ApplicationModel = null});
 
             Assert.IsNotNull(response);
             Assert.AreEqual(ServiceResult.Error, response.ServiceResult);
@@ -64,7 +64,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
 
             Assert.IsNotNull(service);
 
-            CustomerResponse response = service.Add(new CustomerServiceRequest() {Customer = new CustomerAm()
+            CustomerResponse response = service.Add(new CustomerServiceRequest() {ApplicationModel = new CustomerAm()
             {
                 //AddressLineOne = "UNIT 1",
                 AddressLineTwo = "OUT OF BOUNDS",
@@ -100,7 +100,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
 
             CustomerResponse response = service.Add(new CustomerServiceRequest()
             {
-                Customer = new CustomerAm()
+                ApplicationModel = new CustomerAm()
                 {
                     AddressLineOne = "UNIT 1",
                     AddressLineTwo = "OUT OF BOUNDS",

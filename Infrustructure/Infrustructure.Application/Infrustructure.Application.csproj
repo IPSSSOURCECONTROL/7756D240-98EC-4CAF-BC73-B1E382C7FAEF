@@ -81,6 +81,14 @@
       <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{cae754f7-11aa-4284-8e42-f1f8a2f5ff39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure.Serialization\Infrustructure.Serialization.csproj">
+      <Project>{50A8CFDC-4F8E-4E33-A23F-0CBF62E04A81}</Project>
+      <Name>Infrustructure.Serialization</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
       <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>
       <Name>Infrustructure.Utilities</Name>

@@ -3,8 +3,10 @@ using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
 {
-    public class RoleServiceRequest : ServiceRequestBase
+    public class RoleServiceRequest : ServiceRequestBase<RoleAm>
     {
-        public RoleAm Role { get; set; }
+        public RoleServiceRequest()
+        {
+        }
     }
 }

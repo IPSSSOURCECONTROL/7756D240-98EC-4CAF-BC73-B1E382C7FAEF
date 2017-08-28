@@ -2,8 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces
 {
     /// <summary>
     /// Exposes functions to manipulate the datasource.
@@ -16,7 +17,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.MongoDb
         /// on updating them. 
         /// </summary>
         /// <typeparam name="TEntity">The <see cref="AggregateRoot"/> type.</typeparam>
-        /// <returns>A querable collection of <see cref="TEntity"/></returns>
+        /// <returns>A querable collection of <see cref="AggregateRoot"/></returns>
         [CheckIfRepositoryCall]
         IQueryable<TEntity> TableForQuery<TEntity>() where TEntity : class;
 

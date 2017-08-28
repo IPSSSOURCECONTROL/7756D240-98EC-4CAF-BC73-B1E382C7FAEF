@@ -72,6 +72,10 @@
       <Project>{67B879C6-B59D-4BB1-A79B-E15FA0773D6F}</Project>
       <Name>Infrustructure.MongoDb</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository.Interfaces\Infrustructure.Repository.Interfaces.csproj">
+      <Project>{cae754f7-11aa-4284-8e42-f1f8a2f5ff39}</Project>
+      <Name>Infrustructure.Repository.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
       <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
       <Name>Infrustructure.Repository</Name>

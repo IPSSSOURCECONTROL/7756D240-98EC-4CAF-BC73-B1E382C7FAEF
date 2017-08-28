@@ -1,6 +1,6 @@
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Security;
 
-namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces
 {
     public interface ISecurityContextAvailable
     {

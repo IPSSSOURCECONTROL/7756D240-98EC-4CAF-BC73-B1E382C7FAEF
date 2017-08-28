@@ -1,3 +1,5 @@
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
+
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
 {
     public abstract class WorkflowStepBase<TWorkflowContext, TRepository>: 

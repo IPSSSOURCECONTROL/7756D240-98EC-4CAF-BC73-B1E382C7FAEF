@@ -1,4 +1,6 @@
-﻿namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
+﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.WorkflowCommon;
+
+namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
 {
     /// <summary>
     /// Defines functionality to execute a <see cref="IWorkflow{TWorkflowContext}"/> workflow.

@@ -408,9 +408,9 @@
       <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Infrustructure\Infrustructure.Interceptors\Infrustructure.Interceptors.csproj">
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Interceptors\Infrustructure.AOP.Interceptors.csproj">
       <Project>{186eb07a-9981-4ecc-8f70-8197b4807d9c}</Project>
-      <Name>Infrustructure.Interceptors</Name>
+      <Name>Infrustructure.AOP.Interceptors</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure\Infrustructure.MongoDb\Infrustructure.MongoDb.csproj">
       <Project>{67b879c6-b59d-4bb1-a79b-e15fa0773d6f}</Project>
