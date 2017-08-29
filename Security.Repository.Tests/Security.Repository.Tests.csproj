@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6D0801F0-6BB1-42DD-AA52-E29389DD2836}</ProjectGuid>
+    <ProjectGuid>{1DF8DF7D-0F2A-4EFB-9BCD-FBE8A8F7E89A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessIntelligence.Repository.Tests</RootNamespace>
-    <AssemblyName>BusinessIntelligence.Repository.Tests</AssemblyName>
+    <RootNamespace>Security.Repository.Tests</RootNamespace>
+    <AssemblyName>Security.Repository.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -37,9 +37,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <Choose>
@@ -50,9 +49,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
-          <Private>False</Private>
-        </Reference>
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -60,28 +57,32 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contexts\BusinessIntelligence\Domain\BusinessIntelligence.Domain.csproj">
-      <Project>{667383B5-925E-4BF9-ABCC-638B11D2DC81}</Project>
-      <Name>BusinessIntelligence.Domain</Name>
+    <ProjectReference Include="..\Contexts\Security\Domain\Security.Domain.csproj">
+      <Project>{6f8696f9-6a54-4ee4-8bf6-59bd4e842cb2}</Project>
+      <Name>Security.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Contexts\BusinessIntelligence\Repository.Interfaces\BusinessIntelligence.Repository.Interfaces.csproj">
-      <Project>{42C36BB8-F3CE-4A6B-BD6D-B7D82838ED37}</Project>
-      <Name>BusinessIntelligence.Repository.Interfaces</Name>
+    <ProjectReference Include="..\Contexts\Security\Repository.Interfaces\Security.Repository.Interfaces.csproj">
+      <Project>{0b3c51b4-4bb2-4b97-ba83-42e456664742}</Project>
+      <Name>Security.Repository.Interfaces</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dependency\DependencyInjection\DependencyInjection.csproj">
-      <Project>{24A56328-6A40-4C32-A717-64EC512B9F20}</Project>
+      <Project>{24a56328-6a40-4c32-a717-64ec512b9f20}</Project>
       <Name>DependencyInjection</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure\Infrustructure.Domain\Infrustructure.Domain.csproj">
-      <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
+      <Project>{63ef9e71-4a1b-4faf-924e-a6d5af892e21}</Project>
       <Name>Infrustructure.Domain</Name>
     </ProjectReference>
     <ProjectReference Include="..\Infrustructure\Infrustructure.Repository\Infrustructure.Repository.csproj">
-      <Project>{6C9964F7-2626-4F64-9D47-62962C1F6D11}</Project>
+      <Project>{6c9964f7-2626-4f64-9d47-62962c1f6d11}</Project>
       <Name>Infrustructure.Repository</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.Utilities\Infrustructure.Utilities.csproj">
+      <Project>{66252ab5-7cff-4f28-bc95-02a5ac8910b4}</Project>
+      <Name>Infrustructure.Utilities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrustructure\Infrustructure\Infrustructure.csproj">
-      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Project>{6dd00406-d7d9-4f6c-8c06-b5275ba96a98}</Project>
       <Name>Infrustructure</Name>
     </ProjectReference>
   </ItemGroup>
@@ -89,7 +90,6 @@
     <None Include="App.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationFunctionsConfiguration.xml">

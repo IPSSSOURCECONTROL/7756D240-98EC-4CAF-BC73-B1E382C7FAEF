@@ -57,8 +57,13 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AutomatedTestingContext.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services.Tests\BusinessServiceTests.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\BusinessRepositoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\CustomerRepositoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\ProductRepositoryTests.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
     <Compile Include="CustomerServiceTests.cs" />
+    <Compile Include="Security.Repository.Tests\RoleRepositoryTests.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BusinessTests.cs" />
@@ -181,6 +186,7 @@
       <Name>Infrustructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

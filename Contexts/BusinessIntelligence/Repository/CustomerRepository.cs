@@ -67,7 +67,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
         [ValidateMethodArguments]
         public bool IsExist(Customer entity)
         {
-            throw new NotImplementedException();
+            return this.DatabaseContext.Table<Customer>().Any(x => x.Id == entity.Id);
         }
     }
 }
