@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
@@ -13,13 +14,14 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
 {
+
     /// <summary>
     /// Base class for <see cref="IBasicRepository{TEntity}"/> types. All repositories of 
     /// <see cref="IBasicRepository{TEntity}"/> must derive from this type.<para/>
     /// Exposes a <see cref="DatabaseContext"/> to query the data source.
     /// Exposes a <see cref="Logger"/> for general logging purposes, if any.
     /// </summary>
-    public abstract class BasicRepositoryBase: ISecurityContextAvailable, IDatabaseContextAvailable
+    public abstract class BasicRepositoryBase<TDomainEntity> : ISecurityContextAvailable, IDatabaseContextAvailable, IBasicRepository<TDomainEntity> where TDomainEntity : AggregateRoot, IEntity
     {
         protected BasicRepositoryBase(IDatabaseContext databaseContext)
         {
@@ -69,12 +71,12 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
         /// </summary>
         /// <typeparam name="TEntity"></typeparam>
         /// <param name="id"></param>
-        protected void ThrowErrorOnEntityExists<TEntity>(string id) where TEntity : class ,IEntity
+        protected void ThrowErrorOnEntityExists<TEntity>(string id) where TEntity : class, IEntity
         {
             if (this.DatabaseContext.Table<TEntity>()
                 .Any(x => x.Id == id))
             {
-                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(), 
+                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
                     MessageFormatter.RecordWithIdAlreadyExists(id));
             }
         }
@@ -103,6 +105,54 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
                 throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
                     MessageFormatter.RecordWithIdAlreadyExists(id));
             }
+        }
+
+        [Transactional]
+        [ValidateMethodArguments]
+        public virtual void Add(TDomainEntity entity)
+        {
+            this.ThrowErrorOnEntityExists<TDomainEntity>(entity.Id);
+            this.DatabaseContext.Add(entity);
+        }
+
+        [Transactional]
+        [ValidateMethodArguments]
+        public virtual void Update(TDomainEntity entity)
+        {
+            this.ThrowErrorOnEntityDoesNotExist<TDomainEntity>(entity.Id);
+
+            this.DatabaseContext.Remove<TDomainEntity>(entity.Id);
+            this.DatabaseContext.Add(entity);
+        }
+
+        [Transactional]
+        [ValidateMethodArguments]
+        public virtual void Delete(TDomainEntity entity)
+        {
+            this.ThrowErrorOnEntityDoesNotExist<TDomainEntity>(entity.Id);
+
+            this.DatabaseContext.Remove<TDomainEntity>(entity.Id);
+        }
+
+        [ValidateMethodArguments]
+        public virtual TDomainEntity GetById(string id)
+        {
+            return this.DatabaseContext.TableForQuery<TDomainEntity>().FirstOrDefault(x => x.Id == id);
+        }
+
+        [ValidateMethodArguments]
+        public virtual IEnumerable<TDomainEntity> GetAll()
+        {
+            return this.DatabaseContext.Table<TDomainEntity>();
+        }
+
+        [ValidateMethodArguments]
+        public virtual bool IsExist(TDomainEntity entity)
+        {
+            if (entity == null)
+                return false;
+
+            return this.DatabaseContext.Table<TDomainEntity>().Any(x => x.Id == entity.Id);
         }
     }
 }

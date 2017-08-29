@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Principal;
-using System.Web;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
@@ -10,12 +8,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
 {
     public class AuthorizeActionInterceptor: InterceptorBase, IInterceptor
     {
-        private IPrincipal _principal;
-
         public void Intercept(IInvocation invocation)
         {
-            this._principal = HttpContext.Current.User;
-
             AuthorizeActionAttribute attribute = 
                 invocation.Method.GetAttribute<AuthorizeActionAttribute>();
 
@@ -30,8 +24,6 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
                                                     $"{nameof(AuthorizeActionAttribute)} can only be used " +
                                                     $"on ApplicationService types.");
             }
-
-
 
             invocation.Proceed();
         }

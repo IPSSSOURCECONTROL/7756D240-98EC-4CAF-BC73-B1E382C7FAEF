@@ -94,8 +94,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                 Reference = "aasasdasd",
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
-                RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878",
                 BusinessId = "TEST123"
             });
 
@@ -152,8 +150,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                 Reference = "aasasdasd",
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
-                RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878",
                 BusinessId = "123"
             });
 
@@ -211,8 +207,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                 Reference = "aasasdasd",
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
-                RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878",
                 BusinessId = "123"
             });
 
@@ -275,8 +269,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                 Reference = "aasasdasd",
                 Name = "Spar Silver Oaks",
                 RepresentativeId = "789",
-                RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878",
                 BusinessId = "123"
             });
 
@@ -331,8 +323,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                     Reference = "aasasdasd",
                     Name = $"TESTCUSTOMER_{i}",
                     RepresentativeId = "789",
-                    RepresentativeName = "Goodwill",
-                    RepresentativeCode = "88878",
                     BusinessId = "TEST123"
                 });
 

@@ -1,73 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
+using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
+using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository
 {
-    public class CustomerRepository: BasicRepositoryBase, ICustomerRepository
+    public class CustomerRepository: BasicRepositoryBase<Customer>, ICustomerRepository
     {
-        public CustomerRepository(IDatabaseContext databaseContext) : base(databaseContext)
+        private readonly IUserRepository _userRepository;
+
+        public CustomerRepository(IDatabaseContext databaseContext, 
+            IUserRepository repository) : base(databaseContext)
         {
+            this._userRepository = repository;
         }
 
-        [Transactional]
-        [ValidateMethodArguments]
-        public void Add(Customer entity)
+        public Representative GetRepresentativeById(string id)
         {
-            if(this.DatabaseContext.Table<Customer>().Any(x=> x.Id == entity.Id))
-                throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(), 
-                    MessageFormatter.RecordWithIdAlreadyExists(entity.Id));
+            User user = this._userRepository.GetById(id);
 
-            this.DatabaseContext.Add(entity);
-        }
+            if (user == null)
+                throw new  KbitNullArgumentException(MethodBase.GetCurrentMethod(), 
+                    $"Representative with Id {id} does not exist.");
 
-        [Transactional]
-        [ValidateMethodArguments]
-        public void Update(Customer entity)
-        {
-            if (!this.DatabaseContext.TableForQuery<Customer>().Any(x => x.Id == entity.Id))
-                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
-                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
-
-            this.DatabaseContext.Remove<Customer>(entity.Id);
-            this.DatabaseContext.Add(entity);
-        }
-
-        [Transactional]
-        [ValidateMethodArguments]
-        public void Delete(Customer entity)
-        {
-            if (!this.DatabaseContext.Table<Customer>().Any(x => x.Id == entity.Id))
-                throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
-                    MessageFormatter.RecordWithIdDoesNotExist(entity.Id));
-
-            this.DatabaseContext.Remove<Customer>(entity.Id);
-        }
-
-        [ValidateMethodArguments]
-        public Customer GetById(string id)
-        {
-            return this.DatabaseContext.TableForQuery<Customer>().FirstOrDefault(x => x.Id == id);
-        }
-
-        public IEnumerable<Customer> GetAll()
-        {
-            return this.DatabaseContext.Table<Customer>();
-        }
-
-        [ValidateMethodArguments]
-        public bool IsExist(Customer entity)
-        {
-            throw new NotImplementedException();
+            return new Representative(id, user.Name, user.Code);
         }
     }
 }

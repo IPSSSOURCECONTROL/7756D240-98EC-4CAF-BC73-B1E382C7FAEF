@@ -4,7 +4,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role
 {
-    public class RoleService : ApplicationServiceBase2<
+    public class RoleService : ApplicationServiceBase<
         RoleServiceRequest,
         RoleResponse, 
         IRoleRepository, 

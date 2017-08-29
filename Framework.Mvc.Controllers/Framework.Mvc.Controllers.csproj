@@ -93,6 +93,10 @@
       <Project>{19541CAC-FD7E-40B0-9B36-4146CE46C4CC}</Project>
       <Name>Infrustructure.Application</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure\Infrustructure.csproj">
+      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Name>Infrustructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -79,9 +79,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                 BranchCode = "206658",
                 Reference = "aasasdasd",
                 Name = "Spar Silver Oaks",
-                RepresentativeId = "789",
-                RepresentativeName = "Goodwill",
-                RepresentativeCode = "88878"
+                RepresentativeId = "789"
             } });
 
 
@@ -116,8 +114,6 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
                     Reference = "aasasdasd",
                     Name = "Spar Silver Oaks",
                     RepresentativeId = "789",
-                    RepresentativeName = "Goodwill",
-                    RepresentativeCode = "88878",
                     BusinessId = "TEST123"
                 }
             });

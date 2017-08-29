@@ -11,7 +11,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction
 {
     public class ApplicationFunctionService :
-        ApplicationServiceBase2<
+        ApplicationServiceBase<
             ApplicationFunctionServiceRequest,
             ApplicationFunctionResponse, 
             IApplicationFunctionRepository,

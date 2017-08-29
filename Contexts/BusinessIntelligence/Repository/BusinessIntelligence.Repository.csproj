@@ -103,6 +103,14 @@
       <Project>{6dd00406-d7d9-4f6c-8c06-b5275ba96a98}</Project>
       <Name>Infrustructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Security\Domain\Security.Domain.csproj">
+      <Project>{6F8696F9-6A54-4EE4-8BF6-59BD4E842CB2}</Project>
+      <Name>Security.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Security\Repository.Interfaces\Security.Repository.Interfaces.csproj">
+      <Project>{0B3C51B4-4BB2-4B97-BA83-42E456664742}</Project>
+      <Name>Security.Repository.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\BusinessIntelligence.Domain.csproj">
       <Project>{667383b5-925e-4bf9-abcc-638b11d2dc81}</Project>
       <Name>BusinessIntelligence.Domain</Name>

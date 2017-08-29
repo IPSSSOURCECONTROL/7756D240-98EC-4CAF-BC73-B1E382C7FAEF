@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository;
@@ -12,7 +11,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 {
-    public class UserRepository : BasicRepositoryBase, IUserRepository
+    public class UserRepository : BasicRepositoryBase<User>, IUserRepository
     {
         private readonly IAspNetPrincipleUserRepository _aspNetPrincipleUserRepository;
 
@@ -24,7 +23,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
         [Transactional]
         [ValidateMethodArguments]
-        public void Add(User entity)
+        public override void Add(User entity)
         {
             this.ThrowErrorOnEntityExists<User>(entity.Id);
 
@@ -40,7 +39,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
         [Transactional]
         [ValidateMethodArguments]
-        public void Update(User entity)
+        public override void Update(User entity)
         {
             if (!this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id))
             {
@@ -58,7 +57,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
         [Transactional]
         [ValidateMethodArguments]
-        public void Delete(User entity)
+        public override void Delete(User entity)
         {
             if (!this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id))
             {
@@ -68,23 +67,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Repository
 
             this.DatabaseContext.Remove<User>(entity.Id);
             this._aspNetPrincipleUserRepository.Delete(AspNetPrincipleUser.MapFrom(entity));
-        }
-
-        [ValidateMethodArguments]
-        public User GetById(string id)
-        {
-            return this.DatabaseContext.Table<User>().FirstOrDefault(x => x.Id == id);
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            return this.DatabaseContext.Table<User>();
-        }
-
-        [ValidateMethodArguments]
-        public bool IsExist(User entity)
-        {
-            return this.DatabaseContext.Table<User>().Any(x => x.Id == entity.Id);
         }
     }
 }

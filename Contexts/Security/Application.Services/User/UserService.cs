@@ -7,7 +7,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
 {
-    public class UserService : ApplicationServiceBase2<
+    public class UserService : ApplicationServiceBase<
         UserServiceRequest,
         UserResponse, 
         IUserRepository, 

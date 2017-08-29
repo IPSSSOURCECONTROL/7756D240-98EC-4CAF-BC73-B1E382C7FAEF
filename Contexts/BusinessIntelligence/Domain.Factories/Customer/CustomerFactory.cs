@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer
@@ -24,11 +23,9 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Cus
                 applicationModel.AccountNumber, 
                 applicationModel.BranchCode, applicationModel.Reference);
 
-            Representative representative = new Representative(applicationModel.RepresentativeId,
-                applicationModel.RepresentativeName, applicationModel.RepresentativeCode);
-
-            Domain.Customer.Customer customer=  new Domain.Customer.Customer(applicationModel.Name, 
-                address, contactDetails, representative, 
+            Domain.Customer.Customer customer=  new Domain.Customer.Customer(
+                applicationModel.Name, 
+                address, contactDetails, 
                 billingInformation, applicationModel.BusinessId);
 
             if (!isNew)
@@ -61,8 +58,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Cus
             applicationModel.Reference = domainEntity.BillingInformation.Reference;
 
             applicationModel.RepresentativeId = domainEntity.Representative.Id;
-            applicationModel.RepresentativeName = domainEntity.Representative.Name;
-            applicationModel.RepresentativeCode = domainEntity.Representative.Code;
             applicationModel.BusinessId = domainEntity.BusinessId;
 
             return applicationModel;

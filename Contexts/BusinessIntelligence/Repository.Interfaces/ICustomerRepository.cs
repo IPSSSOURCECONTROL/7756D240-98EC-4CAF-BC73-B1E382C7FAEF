@@ -10,6 +10,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interface
     /// </summary>
     public interface ICustomerRepository : IBasicRepository<Customer>
     {
-
+        Representative GetRepresentativeById(string id);
     }
 }

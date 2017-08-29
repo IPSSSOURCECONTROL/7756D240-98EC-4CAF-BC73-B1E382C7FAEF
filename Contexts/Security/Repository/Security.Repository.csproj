@@ -52,7 +52,6 @@
     <Compile Include="AspNetPrincipleUserRepository.cs" />
     <Compile Include="Database\SecurityDatabaseContext.cs" />
     <Compile Include="Database\SecurityDbContext.cs" />
-    <Compile Include="LicenseSpecificationRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleRepository.cs" />
     <Compile Include="UserRepository.cs" />

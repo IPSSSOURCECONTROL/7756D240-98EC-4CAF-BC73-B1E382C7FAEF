@@ -50,12 +50,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models
         public string RepresentativeId { get; set; } = string.Empty;
 
         [KbitRequired]
-        public string RepresentativeName { get; set; } = string.Empty;
-
-        [KbitRequired]
-        public string RepresentativeCode { get; set; } = string.Empty;
-
-        [KbitRequired]
         public string BusinessId { get; set; } = string.Empty;
     }
 }

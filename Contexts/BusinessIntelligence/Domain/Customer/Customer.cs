@@ -1,4 +1,5 @@
-﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+﻿using System;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
 {
@@ -12,6 +13,17 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
             this.Address = address;
             this.ContactDetails = contactDetails;
             this.Representative = representative;
+            this.BillingInformation = billingInformation;
+            this.AccountStatus = new Inactive();
+        }
+
+        public Customer(string name, Address address,
+            ContactDetails contactDetails,
+            BillingInformation billingInformation, string businessId) : base(businessId)
+        {
+            this.Name = name;
+            this.Address = address;
+            this.ContactDetails = contactDetails;
             this.BillingInformation = billingInformation;
             this.AccountStatus = new Inactive();
         }
@@ -31,6 +43,14 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
         public void Deactivate()
         {
             this.AccountStatus = new Inactive();
+        }
+
+        public void AssignRepresentative(Representative representative)
+        {
+            if(representative == null)
+                throw new ArgumentNullException("Can not set null representative.");
+
+            this.Representative = representative;
         }
 
         protected override string GetTypeName()

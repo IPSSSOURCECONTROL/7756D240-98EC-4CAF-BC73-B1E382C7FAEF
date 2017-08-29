@@ -35,6 +35,8 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
         public virtual IHttpActionResult Add(TApplicationModel applicationModel)
         {
             TServiceRequest request = new TServiceRequest();
+            request.AuthorizationContext.UserId = this.User.Identity.Name;
+
             request.ApplicationModel = applicationModel;
 
             TServiceResponse response = this._applicationService.Add(request);
@@ -49,6 +51,8 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
         public virtual IHttpActionResult Delete(TApplicationModel applicationModel)
         {
             TServiceRequest request = new TServiceRequest();
+            request.AuthorizationContext.UserId = this.User.Identity.Name;
+
             request.ApplicationModel = applicationModel;
 
             TServiceResponse response = this._applicationService.Delete(request);
@@ -63,6 +67,7 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
         public virtual IHttpActionResult GetAll()
         {
             TServiceRequest request = new TServiceRequest();
+            request.AuthorizationContext.UserId = this.User.Identity.Name;
 
             TServiceResponse response = this._applicationService.GetAll(request);
 
@@ -76,6 +81,7 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
         public virtual IHttpActionResult GetById(string id)
         {
             TServiceRequest request = new TServiceRequest();
+            request.AuthorizationContext.UserId = this.User.Identity.Name;
             request.EntityId = id;
 
             TServiceResponse response = this._applicationService.GetById(request);
@@ -90,6 +96,8 @@ namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
         public virtual IHttpActionResult Update(TApplicationModel applicationModel)
         {
             TServiceRequest request = new TServiceRequest();
+            request.AuthorizationContext.UserId = this.User.Identity.Name;
+
             request.ApplicationModel = applicationModel;
 
             TServiceResponse response = this._applicationService.Update(request);
