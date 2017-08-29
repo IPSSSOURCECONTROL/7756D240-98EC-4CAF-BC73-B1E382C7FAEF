@@ -77,5 +77,36 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Repository.Tests
 
             UnitTestContext.Initialize();
         }
+
+        [TestMethod]
+        public void TestAdduserQuicklysdsdfd()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "CODE12",
+                Email = "goodwillgumede@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Goodwill",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            user.SetLicense(new AnnualLicenseSpecification());
+
+            repository.Add(user);
+
+            User savedUser = repository.GetById(user.Id);
+
+            Assert.IsNotNull(savedUser);
+            Assert.AreEqual("Goodwill", savedUser.Name);
+
+            UnitTestContext.Initialize();
+        }
     }
 }
