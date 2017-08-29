@@ -4,6 +4,7 @@ using Castle.Core.Internal;
 using Castle.MicroKernel;
 using Castle.MicroKernel.ModelBuilder;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Contributors
 {
