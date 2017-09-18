@@ -3,9 +3,9 @@ using System.Web;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
-using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Business;
-using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.Customer;
-using KhanyisaIntel.Kbit.Framework.Mvc.Controllers.User;
+using KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers.Business;
+using KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers.Customer;
+using KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers.User;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {

@@ -52,5 +52,52 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             Assert.AreEqual(ServiceResult.Success, response.ServiceResult);
             Assert.IsNotNull(response.Message);
         }
+
+
+
+        [TestMethod]
+        public void TestInsertTestData()
+        {
+            UnitTestContext.SetUpTestData();
+        }
+
+        [TestMethod]
+        public void TestAddAloOfBusiness()
+        {
+            UnitTestContext.Initialize();
+
+            IBusinessService service = this._iocContainer.Resolve<IBusinessService>();
+
+            Assert.IsNotNull(service);
+
+            for (int i = 0; i < 10000; i++)
+            {
+                BusinessResponse response = service.Add(new BusinessServiceRequest()
+                {
+                    ApplicationModel = new BusinessAm()
+                    {
+                        AddressLineOne = "UNIT 1",
+                        AddressLineTwo = "OUT OF BOUNDS",
+                        Street = "Von Backstrom Boulevard",
+                        Suburb = "Silverlakes",
+                        TownOrCity = "Pretoria",
+                        PostalCode = "0081",
+                        Email = $"testemail{i}@yahoo.co.za",
+                        CellphoneNumber = "0721248899",
+                        Bank = "FNB",
+                        AccountNumber = "6211134445267",
+                        BranchCode = "206658",
+                        Reference = "aasasdasd",
+                        Name = $"TEST BUSINESS NAME {i}"
+                    }
+                });
+
+
+                Assert.IsNotNull(response);
+                Assert.AreEqual(ServiceResult.Success, response.ServiceResult);
+                Assert.IsNotNull(response.Message);
+            }
+
+        }
     }
 }

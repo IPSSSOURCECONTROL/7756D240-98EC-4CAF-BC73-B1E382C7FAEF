@@ -75,9 +75,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessIntelligence.Applic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DependencyInjection.Installers", "Dependency\DependencyInjection.Installers\DependencyInjection.Installers.csproj", "{A9090B8A-1EC5-45F2-A6F2-29B40F2F324D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Mvc.Controllers", "Framework.Mvc.Controllers\Framework.Mvc.Controllers.csproj", "{F0050120-95E4-4C6F-9D33-24700D4DB308}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Application.Api.Web", "Framework.Application.Api.Web\Framework.Application.Api.Web.csproj", "{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Mvc.Api.Controllers", "Framework.Mvc.Controllers\Framework.Mvc.Api.Controllers.csproj", "{F0050120-95E4-4C6F-9D33-24700D4DB308}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Application.Api.Web.Tests", "Framework.Application.Api.Web.Tests\Framework.Application.Api.Web.Tests.csproj", "{864DE0A9-B371-443E-BB18-38A9D647BAF7}"
 EndProject
@@ -95,6 +93,14 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrustructure.Repository.Workflow", "Infrustructure\Infrustructure.Repository.Workflow\Infrustructure.Repository.Workflow.csproj", "{1A9EECD7-A84F-41AC-90C8-AB56B6ADE6B9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrustructure.Authorization", "Infrustructure\Infrustructure.Authorization\Infrustructure.Authorization.csproj", "{1687319A-CE98-4395-9374-36FC037BB861}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApplication", "WebApplication", "{07B1A84E-448E-4FA0-A32A-A0B32176ACDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kbit.ControlCentre", "Kbit.ControlCentre\Kbit.ControlCentre.csproj", "{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kbit.ControlCentre.Tests", "Kbit.ControlCentre.Tests\Kbit.ControlCentre.Tests.csproj", "{19BA1BCB-37F4-4388-A00B-802FDC26AD62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Application.Api.Web", "Framework.Application.Api.Web\Framework.Application.Api.Web.csproj", "{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -222,10 +228,6 @@ Global
 		{F0050120-95E4-4C6F-9D33-24700D4DB308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0050120-95E4-4C6F-9D33-24700D4DB308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0050120-95E4-4C6F-9D33-24700D4DB308}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Release|Any CPU.Build.0 = Release|Any CPU
 		{864DE0A9-B371-443E-BB18-38A9D647BAF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{864DE0A9-B371-443E-BB18-38A9D647BAF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864DE0A9-B371-443E-BB18-38A9D647BAF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -250,6 +252,18 @@ Global
 		{1687319A-CE98-4395-9374-36FC037BB861}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1687319A-CE98-4395-9374-36FC037BB861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1687319A-CE98-4395-9374-36FC037BB861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19BA1BCB-37F4-4388-A00B-802FDC26AD62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19BA1BCB-37F4-4388-A00B-802FDC26AD62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19BA1BCB-37F4-4388-A00B-802FDC26AD62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19BA1BCB-37F4-4388-A00B-802FDC26AD62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -286,12 +300,14 @@ Global
 		{532F9B11-63BC-44FB-B12E-A4F958E28B49} = {AB8A295A-F4DB-4E8B-AB63-03E4CF73FBDE}
 		{A9090B8A-1EC5-45F2-A6F2-29B40F2F324D} = {5FE64403-D834-42A2-9C11-3F35F02A53ED}
 		{F0050120-95E4-4C6F-9D33-24700D4DB308} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
-		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
 		{864DE0A9-B371-443E-BB18-38A9D647BAF7} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
 		{186EB07A-9981-4ECC-8F70-8197B4807D9C} = {F75D6B30-831C-4F09-9C23-8208C34A00F1}
 		{2D260D27-BBAD-4B79-B503-A4F797A1BC5B} = {726E4E54-C378-47F9-BEC0-D08A373D3837}
 		{CAE754F7-11AA-4284-8E42-F1F8A2F5FF39} = {F75D6B30-831C-4F09-9C23-8208C34A00F1}
 		{1A9EECD7-A84F-41AC-90C8-AB56B6ADE6B9} = {F75D6B30-831C-4F09-9C23-8208C34A00F1}
 		{1687319A-CE98-4395-9374-36FC037BB861} = {F75D6B30-831C-4F09-9C23-8208C34A00F1}
+		{D0086437-CAF4-44A9-ADB3-E2CC9BC199FA} = {07B1A84E-448E-4FA0-A32A-A0B32176ACDD}
+		{19BA1BCB-37F4-4388-A00B-802FDC26AD62} = {07B1A84E-448E-4FA0-A32A-A0B32176ACDD}
+		{CC6DC097-EC6F-49A9-A1D0-D24DFE768323} = {16F7AB2C-55CF-4EDA-9B2D-7C89C521E7DD}
 	EndGlobalSection
 EndGlobal

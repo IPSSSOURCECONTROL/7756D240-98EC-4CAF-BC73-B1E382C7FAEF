@@ -2,7 +2,7 @@ using System.Web.Http;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
 
-namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
+namespace KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers
 {
     /// <summary>
     /// <para>Base type for all <see cref="ApiController"/> types in 

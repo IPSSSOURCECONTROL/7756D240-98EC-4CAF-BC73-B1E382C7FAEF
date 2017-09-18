@@ -81,7 +81,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             request.ApplicationModel = userAm;
@@ -113,7 +113,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             request.ApplicationModel = userAm;

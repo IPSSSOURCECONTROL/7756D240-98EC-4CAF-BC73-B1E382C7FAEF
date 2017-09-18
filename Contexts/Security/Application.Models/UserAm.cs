@@ -26,6 +26,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Models
         public string PasswordResetPolicy { get; set; }
 
         [KbitRequired]
-        public string RoleId { get; set; }
+        public string Role { get; set; }
     }
 }

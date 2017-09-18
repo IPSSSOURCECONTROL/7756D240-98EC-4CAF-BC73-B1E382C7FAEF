@@ -134,9 +134,9 @@
       <Project>{71BD50B6-66F9-4BE9-A701-BFA76A751870}</Project>
       <Name>Security.Repository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Framework.Mvc.Controllers\Framework.Mvc.Controllers.csproj">
+    <ProjectReference Include="..\..\Framework.Mvc.Controllers\Framework.Mvc.Api.Controllers.csproj">
       <Project>{F0050120-95E4-4C6F-9D33-24700D4DB308}</Project>
-      <Name>Framework.Mvc.Controllers</Name>
+      <Name>Framework.Mvc.Api.Controllers</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Infrustructure\Infrustructure.AOP\Infrustructure.AOP.csproj">
       <Project>{E41E750B-66C9-4DDC-9D41-86D202ECF014}</Project>

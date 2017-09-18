@@ -16,12 +16,18 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection
     public class IocContainer: IAutoResolver, IWindsorInstallerAvailable
     {
         private readonly WindsorContainer _windsorContainer;
+        private static readonly object SyncObject = new object();
 
         public IocContainer()
         {
             this._windsorContainer = new WindsorContainer();
             this.RegisterConstructionConstributors();
             this.InstallDependencies();
+        }
+
+        public  IWindsorContainer Current()
+        {
+            return this._windsorContainer;
         }
 
         public IWindsorContainer WindsorContainer { get {return this._windsorContainer;} }

@@ -25,15 +25,18 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
 
             if (isNew)
             {
-                return new Domain.Business.Business(applicationModel.Name, address,
+                Domain.Business.Business business = new Domain.Business.Business(applicationModel.Name, address,
                 contactDetails, billingInformation);
+                business.SetStatus(applicationModel.IsActive);
+
+                return business;
             }
             else
             {
                 Domain.Business.Business business = new Domain.Business.Business(applicationModel.Name, address,
                     contactDetails, billingInformation);
                 business.Id = applicationModel.Id;
-
+                business.SetStatus(applicationModel.IsActive);
                 return business;
             }
         }
@@ -59,6 +62,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
             applicationModel.BranchCode = domainEntity.BillingInformation.BranchCode;
             applicationModel.AccountNumber = domainEntity.BillingInformation.AccountNumber;
             applicationModel.Reference = domainEntity.BillingInformation.Reference;
+            applicationModel.IsActive = domainEntity.IsActive;
 
             return applicationModel;
         }

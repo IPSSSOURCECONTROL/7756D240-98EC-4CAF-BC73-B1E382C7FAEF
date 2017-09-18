@@ -1,0 +1,185 @@
+﻿@model Kbit.ControlCentre.Models.BusinessUsersVm
+
+@{
+    ViewBag.Title = "View/Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="normalheader  small-header">
+        <div class="hpanel">
+            <div class="panel-body">
+                <div id="hbreadcrumb" class="pull-right">
+                    <a href="@Url.Action("Index", "Business")" class="btn btn-warning"> Back</a>
+                    <a href="@Url.Action("LoadNewBusinessUserView", "Business")/@Model.BusinessId" class="btn btn-warning"> Add New</a>
+                </div>
+                <h2 class="font-light m-b-xs">
+                    Business Definition - Users
+                </h2>
+                <small>Add, modify or delete User records belonging to a Business</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+
+        </div>
+        <div class="hpanel hyellow" style="">
+            <div class="panel-heading">
+                <div class="pull-right">
+                    @*@Html.ActionLink("Add New", "New", "Business", new { }, new { @class = "btn btn-warning btn-xs" })*@
+                </div>
+                Business Definition - Users
+            </div>
+            <div class="panel-body">
+
+                <div class="dataTables_wrapper form-inline">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table id="usersMaster" class="table table-bordered table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Role</th>                                
+                                        <th>License</th>
+                                        <th>Account Status</th>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var renderedTable = $("#usersMaster").DataTable({
+                reponsive: true,
+                ajax: {
+                    url: '@Url.Action("GetAllBusinessUsers", "Business")/@Model.BusinessId',
+                    dataType: "json",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "email"
+                    },
+                    {
+                        data: "role"
+                    },
+                    {
+                        data: "licenseSpecification"
+                    },
+                    {
+                        data: "accountStatus",
+                        render: function(data, type, applicationModel) {
+                            if (data == "Active Account Status") {
+                                return "<span class ='label label-success'>" + data + "</span>";
+                            } else if(data == "Blocked Account Status") {
+                                return "<span class ='label label-danger'>" + data + "</span>";
+                            } else if (data == "Inactive Account Status") {
+                                return "<span class ='label label-warning'>" + data + "</span>";
+                            }
+                            return "<span class ='label label-warning'>" + data + "</span>";
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function(data, type, applicationModel) {
+                            return "<a href='@Url.Action("EditBusinessUser", "Business")/" +
+                                applicationModel.id +
+                                "' class='btn btn-default btn-xs'><i class='fa fa-paste'></i> View/Edit</a>";
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function(data, type, applicationModel) {
+                            return "<button class='btn btn-default btn-xs deleteRowButton2' data-ref='" +
+                                applicationModel.id +
+                                "' ><i class='fa fa-trash-o'></i> Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+
+            $('#usersMaster').on('click',
+                '.deleteRowButton2',
+                function(e) {
+                    var clickedButton = $(this);
+                    var entityid = $(e.target).data("ref");
+
+                    swal({
+                            title: "Are you sure?",
+                            text: "Your will not be able to recover this record once it has been deleted!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, delete it",
+                            cancelButtonText: "No, cancel",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
+                        function(isConfirm) {
+                            if (isConfirm) {
+                                $.ajax({
+                                    url: '@Url.Action("DeleteBusinessUser", "Business")',
+                                    contentType: 'application/json, charset=utf-8',
+                                    type: "POST",
+                                    data: JSON.stringify({ id: entityid }),
+                                    success: function(result) {
+
+                                        if (result.serviceResult != 1) {
+                                            swal("Error", result.message, "error");
+                                            console.log(result);
+                                            return;
+                                        }
+
+                                        swal({
+                                                title: "Deleted!",
+                                                text: result.message,
+                                                type: "success",
+                                                confirmButtonColor: "#DD6B55",
+                                                confirmButtonText: "Ok"
+                                            },
+                                            function(isConfirmInternal) {
+
+                                                renderedTable.row(clickedButton.parents("tr")).remove().draw();
+                                            });
+
+                                    },
+                                    error: function(error) {
+                                        console.log(error);
+                                        swal("Error", "Oops! Something went wrong! " + error.message, "error");
+                                    }
+                                });
+
+                            } else {
+                                swal("Cancelled", "", "error");
+                            }
+                        });
+                });
+        });
+    </script>
+
+}

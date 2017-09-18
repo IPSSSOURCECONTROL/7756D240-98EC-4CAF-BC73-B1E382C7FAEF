@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="AggregateRoot.cs" />
     <Compile Include="BusinessEntity.cs" />
+    <Compile Include="IBusinessLink.cs" />
     <Compile Include="IDomainFactory.cs" />
     <Compile Include="IEntity.cs" />
     <Compile Include="IValueObject.cs" />

@@ -1,0 +1,163 @@
+﻿@model Kbit.ControlCentre.Models.ViewEditUserVm
+
+@{
+    ViewBag.Title = "Add New Business User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddBusinessUser", "Business"))
+{
+    <div class="row">
+        <div class="normalheader  small-header">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <div id="hbreadcrumb" class="pull-right">
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.AntiForgeryToken()
+
+                        <a href="@Url.Action("LoadBusinessUsersView", "Business")/@Model.BusinessId" class="btn btn-warning"> Back</a>
+                        <button type="submit" class="btn btn-success" id="submitButton"><i class="fa fa-check"></i> Submit</button>
+                    </div>
+                    <h2 class="font-light m-b-xs"></h2>
+                    <small></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Add or modify a Business User
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Name, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Name)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Code, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Code, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Code)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Email, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Password, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Password, new { @class = "kbit-form-control", @id = "UserPassword" })
+                                    @Html.ValidationMessageFor(x => x.Password)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.ConfirmationPassword, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.ConfirmationPassword, new { @class = "kbit-form-control", @id = "ConfirmationUserPassword" })
+                                    @Html.ValidationMessageFor(x => x.ConfirmationPassword)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.PasswordResetPolicy, new { @class = "kbit-form-label" })
+                                    @Html.DropDownListFor(x => x.PasswordResetPolicy, new SelectList(Model.PasswordResetPolicies), new { @class = "kbit-form-selectList-control" })
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Role, new { @class = "kbit-form-label" })
+                                    @Html.DropDownListFor(x => x.Role, new SelectList(Model.Roles), new { @class = "kbit-form-selectList-control" })
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.LicenseSpecification, new { @class = "kbit-form-label" })
+                                    @Html.DropDownListFor(x => x.LicenseSpecification, new SelectList(Model.LicenseSpecifications), new { @class = "kbit-form-selectList-control" })
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.AccountStatus, new { @class = "kbit-form-label" })
+                                    @Html.DropDownListFor(x => x.AccountStatus, new SelectList(Model.AccountStatuss), new { @class = "kbit-form-selectList-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-right m-t-xs">
+                    </div>
+                    <div class="m-t-md">
+
+                        <p>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.BusinessId, new { @class = "kbit-form-control" })
+    </div>
+}
+
+<div class="SerivceCallResult">
+    <div class="callResult">
+        @Model.ServiceResult
+    </div>
+    <div class="callMessage">
+        @Model.Message
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("#UserPassword").prop("type", "password");
+            $("#ConfirmationUserPassword").prop("type", "password");
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            function showErrorMessage(error) {
+                toastr.error(error);
+            }
+
+            function showSuccess(message) {
+                toastr.success(message);
+            }
+
+            var result = $('.SerivceCallResult').find('.callResult').text().trim().toLowerCase();
+
+            var message = $('.SerivceCallResult').find('.callMessage').text().trim();
+
+            if (result == 'true') {
+                if (message.trim() != "") {
+                    showSuccess(message);
+                }
+            } else {
+                showErrorMessage(message);
+            }
+        });
+    </script>
+}

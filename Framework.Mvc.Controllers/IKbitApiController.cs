@@ -1,7 +1,7 @@
 ﻿using System.Web.Http;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
 
-namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers
+namespace KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers
 {
     /// <summary>
     /// Base interface for all <see cref="ApiController"/>'s implemented in Kbit.

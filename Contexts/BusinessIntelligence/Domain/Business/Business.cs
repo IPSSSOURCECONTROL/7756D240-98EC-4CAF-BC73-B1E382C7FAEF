@@ -2,7 +2,7 @@
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Business
 {
-    public class Business : AggregateRoot
+    public class Business : BusinessEntity
     {
         public Business(string name, Address address, 
             ContactDetails contactDetails, 
@@ -18,6 +18,27 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Business
         public Address Address { get; private set; }
         public ContactDetails ContactDetails { get; private set; }
         public BillingInformation BillingInformation { get; private set; }
+        public bool IsActive { get; private set; } = true;
+
+        public void SetStatus(bool value)
+        {
+            this.IsActive = value;
+        }
+
+        public void Activate()
+        {
+            this.IsActive = false;
+        }
+
+        public void Deactivate()
+        {
+            this.IsActive = true;
+        }
+
+        public override string BusinessId
+        {
+            get { return this.Id; }
+        }
 
         protected override string GetTypeName()
         {

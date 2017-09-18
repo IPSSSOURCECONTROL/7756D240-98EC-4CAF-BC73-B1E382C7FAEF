@@ -60,7 +60,17 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
             }
 
             Domain.User.User user = this.DomainFactory.BuildDomainEntityType(request.ApplicationModel, false);
-            user.SetPassword(this._aspNetCryptology.HashPassword(request.ApplicationModel.Password));
+
+            Domain.User.User userToBeUpdated = this.Repository.GetById(request.ApplicationModel.Id);
+
+            if (request.UserPasswordChanged)
+            {
+                user.SetPassword(this._aspNetCryptology.HashPassword(request.ApplicationModel.Password));
+            }
+            else
+            {
+                user.SetPassword(userToBeUpdated.Password.Value);
+            }
 
             this.Repository.Update(user);
 

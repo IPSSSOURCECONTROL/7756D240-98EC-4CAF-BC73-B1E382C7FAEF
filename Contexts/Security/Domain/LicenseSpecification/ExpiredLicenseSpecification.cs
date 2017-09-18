@@ -8,6 +8,12 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification
             : base(id, expires, validFrom, key)
         {
         }
+        public ExpiredLicenseSpecification()
+        {
+            this.Expires = DateTime.Now;
+            this.ValidFrom = DateTime.Now;
+            this.Key = $"{Guid.NewGuid()}{Guid.NewGuid()}{Guid.NewGuid()}";
+        }
         public override void CheckLicenseState(User.User user)
         {
         }

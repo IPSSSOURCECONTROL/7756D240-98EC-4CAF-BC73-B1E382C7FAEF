@@ -8,7 +8,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction.Applicati
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction
 {
-    public class ApplicationFunction : AggregateRoot
+    public class ApplicationFunction : AggregateRoot, IBusinessLink
     {
         private string _description;
 
@@ -24,6 +24,8 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction
             this.Name = name;
             this._description = description;
         }
+
+        public string BusinessId { get; set; }
 
         public string Name { get; set; }
 

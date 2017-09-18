@@ -1,10 +1,9 @@
-﻿using System.Web.Http;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
+﻿using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 
-namespace KhanyisaIntel.Kbit.Framework.Mvc.Controllers.User
+namespace KhanyisaIntel.Kbit.Framework.Mvc.Api.Controllers.User
 {
-    [Authorize]
+    //[Authorize]
     public class UserController: 
         KbitApiControllerBase<UserAm,IUserService, UserServiceRequest, UserResponse>
     {

@@ -30,14 +30,15 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
                 (PasswordResetPolicy)
                 this.ObjectActivator.CreateInstanceOf<PasswordResetPolicy>(
                     applicationModel.PasswordResetPolicy.RemoveWhiteSpaces());
+
             Password password = new Password(applicationModel.Password, passwordResetPolicy);
 
-            Role.Role role =
+            Domain.Role.Role role =
                 this.DatabaseContext.GetAll()
-                    .FirstOrDefault(x => x.TypeName == applicationModel.RoleId.RemoveWhiteSpaces());
+                    .FirstOrDefault(x => x.TypeName == applicationModel.Role.RemoveWhiteSpaces());
 
             ValidationUtility.CheckReferenceTypeForNull(role, 
-                MessageFormatter.InvalidRole(applicationModel.RoleId),
+                MessageFormatter.InvalidRole(applicationModel.Role),
                 MethodBase.GetCurrentMethod(), this.GetType());
 
             AccountStatus accountStatus =
@@ -52,6 +53,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
                 applicationModel.Code, applicationModel.Email, password,
                 role, accountStatus);
             user.SetLicense(licenseSpecification);
+            user.BusinessId = applicationModel.BusinessId;
 
             if (!isNew)
             {
@@ -72,9 +74,10 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.Factories.User
             userAm.Password = domainEntity.Password.Value;
             userAm.PasswordResetPolicy =
                 domainEntity.Password.PasswordResetPolicy.ToFrontEndPresentation();
-            userAm.RoleId = domainEntity.Role.ToFrontEndPresentation();
+            userAm.Role = domainEntity.Role.ToFrontEndPresentation();
             userAm.LicenseSpecification = domainEntity.License.ToFrontEndPresentation();
             userAm.Id = domainEntity.Id;
+            userAm.BusinessId = domainEntity.BusinessId;
 
             return userAm;
         }

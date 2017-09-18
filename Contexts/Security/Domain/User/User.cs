@@ -7,7 +7,7 @@ using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
 namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
 {
-    public class User: AggregateRoot
+    public class User: AggregateRoot, IBusinessLink
     {
         private LicenseSpecification.LicenseSpecification _license;
 
@@ -120,5 +120,6 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User
             return this.GetType().Name;
         }
 
+        public string BusinessId { get; set; }
     }
 }

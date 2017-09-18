@@ -45,5 +45,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models
 
         [KbitRequired]
         public string Name { get; set; } = string.Empty;
+
+        public bool IsActive { get; set; } = true;
     }
 }

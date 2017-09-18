@@ -9,7 +9,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Framework.Tests.BusinessIntelligence.Repository.Tests
+namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tests
 {
     [TestClass]
     public class ProductRepositoryTests
@@ -19,13 +19,13 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
 
         public ProductRepositoryTests()
         {
-            _autoResolver = new IocContainer();
+            this._autoResolver = new IocContainer();
         }
 
         [TestMethod]
         public void TestCanResolveDependency()
         {
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
 
             Assert.IsNotNull(target);
             Assert.IsInstanceOfType(target, typeof(IProductRepository));
@@ -36,7 +36,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestProductRepositoryAdd_MustThrowArgumentNullExceptionGivenNullParameter()
         {
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(null);
         }
 
@@ -45,9 +45,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Test description", pricingClassification);
+            Product expectedProduct = new Product("Test description", pricingClassification, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(expectedProduct);
 
             Product actualProduct = target.GetById(expectedProduct.Id);
@@ -65,9 +65,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Test description2", pricingClassification);
+            Product expectedProduct = new Product("Test description2", pricingClassification, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(expectedProduct);
             target.Add(expectedProduct);
         }
@@ -78,7 +78,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestProductRepositoryDelete_MustThrowArgumentNullExceptionGivenNullParameter()
         {
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Delete(null);
         }
 
@@ -87,9 +87,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Deleted Product", pricingClassification);
+            Product testProduct = new Product("Deleted Product", pricingClassification, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
             target.Delete(testProduct);
 
@@ -104,9 +104,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Non-Existent Product", pricingClassification);
+            Product expectedProduct = new Product("Non-Existent Product", pricingClassification,null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Delete(expectedProduct);
         }
         #endregion
@@ -118,10 +118,10 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
             PricingClassification pricingClassification2 = new PerDayClassification(200, new NoVat());
 
-            Product testProduct1 = new Product("Test Get All Products 1", pricingClassification1);
-            Product testProduct2 = new Product("Test Get All Products 2", pricingClassification2);
+            Product testProduct1 = new Product("Test Get All Products 1", pricingClassification1, null);
+            Product testProduct2 = new Product("Test Get All Products 2", pricingClassification2, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct1);
             target.Add(testProduct2);
 
@@ -147,9 +147,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Get By ID", pricingClassification1);
+            Product testProduct = new Product("Test Get By ID", pricingClassification1, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
 
             Product actualProduct = target.GetById(testProduct.Id);
@@ -169,9 +169,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Is Exists True", pricingClassification1);
+            Product testProduct = new Product("Test Is Exists True", pricingClassification1, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
 
             bool actualResult = target.IsExist(testProduct);
@@ -185,9 +185,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Is Exists False", pricingClassification1);
+            Product testProduct = new Product("Test Is Exists False", pricingClassification1, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
 
             bool actualResult = target.IsExist(testProduct);
             
@@ -201,7 +201,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void TestProductRepositoryUpdate_MustThrowArgumentNullExceptionGivenNullParameter()
         {
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Update(null);
         }
 
@@ -210,9 +210,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product initialProduct = new Product("Test New Product To Be Updated", pricingClassification);
+            Product initialProduct = new Product("Test New Product To Be Updated", pricingClassification, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(initialProduct);
             
             initialProduct.PricingClassification.Rate = 300;
@@ -234,9 +234,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Another Non-Existent Product", pricingClassification);
+            Product expectedProduct = new Product("Another Non-Existent Product", pricingClassification, null);
 
-            IProductRepository target = _autoResolver.Resolve<IProductRepository>();
+            IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Update(expectedProduct);
         }
         #endregion

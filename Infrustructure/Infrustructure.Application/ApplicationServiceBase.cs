@@ -1,4 +1,5 @@
-﻿using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+﻿using System.Linq;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
@@ -32,7 +33,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
         where TServiceRequest : ServiceRequestBase<TApplicationModelType>
         where TRepository : class, IBasicRepository<TDomainEntityType> 
         //where TRepository: class 
-        where TDomainEntityType : AggregateRoot, IEntity
+        where TDomainEntityType : AggregateRoot, IEntity, IBusinessLink
         where TApplicationModelType : ApplicationModelBase, new()
         where TServiceResponse : ServiceResponseBase<TApplicationModelType>, new()
     {
@@ -89,7 +90,9 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
         [ServiceRequestMethod]
         public virtual TServiceResponse GetAll(TServiceRequest request)
         {
-            this.Response.ApplicationModels = this.DomainFactory.BuildApplicationModelTypes(this.Repository.GetAll());
+            this.Response.ApplicationModels = this.DomainFactory.BuildApplicationModelTypes(
+                this.Repository.GetAll().Where(x=>x.BusinessId == request.AuthorizationContext.BusinessId));
+
             this.Response.RegisterSuccess();
             return this.Response;
         }
@@ -147,7 +150,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
                 return this.Response;
             }
 
-            TDomainEntityType domainEntityType = this.DomainFactory.BuildDomainEntityType(request.ApplicationModel);
+            TDomainEntityType domainEntityType = this.DomainFactory.BuildDomainEntityType(request.ApplicationModel, false);
 
             this.Repository.Delete(domainEntityType);
 

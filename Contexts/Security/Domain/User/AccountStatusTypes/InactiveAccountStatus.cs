@@ -2,6 +2,9 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes
 {
     public class InactiveAccountStatus : AccountStatus
     {
+        public InactiveAccountStatus()
+        {
+        }
         public InactiveAccountStatus(string reason)
         {
             this.Description = reason;

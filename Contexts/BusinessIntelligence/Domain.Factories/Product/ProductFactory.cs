@@ -29,11 +29,11 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
 
             if (isNew)
             {
-                return new Domain.Product.Product(applicationModel.Description, pricingClassification);
+                return new Domain.Product.Product(applicationModel.Description, pricingClassification, applicationModel.BusinessId);
             }
             else
             {
-                Domain.Product.Product product = new Domain.Product.Product(applicationModel.Description, pricingClassification);
+                Domain.Product.Product product = new Domain.Product.Product(applicationModel.Description, pricingClassification, applicationModel.BusinessId);
                 product.Id = applicationModel.Id;
                 return product;
             }

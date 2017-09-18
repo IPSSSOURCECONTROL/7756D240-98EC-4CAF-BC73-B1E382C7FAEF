@@ -84,7 +84,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
         protected void ThrowErrorOnEmailExists(User entity)
         {
             if (this.DatabaseContext.Table<User>()
-                .Any(x => x.Email == entity.Email))
+                .Any(x => x.Email == entity.Email && x.Id != entity.Id))
             {
                 throw new EntityAlreadyExistException(MethodBase.GetCurrentMethod(),
                     MessageFormatter.RecordWithNameAlreadyExists(entity.Email));
@@ -103,7 +103,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository
                 .Any(x => x.Id == id))
             {
                 throw new EntityDoesNotExistException(MethodBase.GetCurrentMethod(),
-                    MessageFormatter.RecordWithIdAlreadyExists(id));
+                    MessageFormatter.RecordWithIdDoesNotExist(id));
             }
         }
 

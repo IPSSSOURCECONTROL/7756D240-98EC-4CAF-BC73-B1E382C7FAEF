@@ -2,9 +2,9 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product
 {
-    public class Product: AggregateRoot
+    public class Product: BusinessEntity
     {
-        public Product(string description, PricingClassification pricingClassification1)
+        public Product(string description, PricingClassification pricingClassification1, string businessId) :base(businessId)
         {
             this.Description = description;
             this.PricingClassification = pricingClassification1;

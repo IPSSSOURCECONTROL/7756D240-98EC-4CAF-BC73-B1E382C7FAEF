@@ -34,6 +34,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
         public ContactDetails ContactDetails { get; private set; }
         public Representative Representative { get; private set; }
         public BillingInformation BillingInformation { get; private set; }
+        public string BusinessId { get; set; }
 
         public void Activate()
         {

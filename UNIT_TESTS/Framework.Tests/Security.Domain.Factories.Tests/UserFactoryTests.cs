@@ -70,7 +70,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Domain.Factories.Tests
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = "NonExistantRole"
+                Role = "NonExistantRole"
             };
 
             target.BuildDomainEntityType(userAm);
@@ -97,7 +97,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Domain.Factories.Tests
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             User user = target.BuildDomainEntityType(userAm);
@@ -134,7 +134,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Domain.Factories.Tests
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             User user = target.BuildDomainEntityType(userAm);
@@ -161,7 +161,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Domain.Factories.Tests
                 applicationModel.PasswordResetPolicy);
             Assert.AreEqual(user.License.TypeName.InsertSpaceAfterCapitalLetter(), applicationModel.LicenseSpecification);
             Assert.AreEqual(user.Password.Value, applicationModel.Password);
-            Assert.AreEqual(user.Role.TypeName.InsertSpaceAfterCapitalLetter(), applicationModel.RoleId);
+            Assert.AreEqual(user.Role.TypeName.InsertSpaceAfterCapitalLetter(), applicationModel.Role);
             Assert.AreEqual(user.Id, applicationModel.Id);
         }
     }
