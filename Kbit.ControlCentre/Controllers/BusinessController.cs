@@ -191,6 +191,14 @@ namespace Kbit.ControlCentre.Controllers
             }
             viewModel.Id = string.Empty;
 
+            if (viewModel.ConfirmationPassword != viewModel.Password)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = "Password & Confirmation password do not match";
+                this.BindListsToUserVm(viewModel);
+                return this.View("NewBusinessUser", viewModel);
+            }
+
             UserServiceRequest request = new UserServiceRequest();
 
             request.ApplicationModel = Mapper.Map<UserAm>(viewModel);

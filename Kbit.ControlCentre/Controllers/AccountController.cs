@@ -14,8 +14,6 @@ using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace Kbit.ControlCentre.Controllers
 {
-
-
     [Authorize]
     public class AccountController : Controller
     {
