@@ -101,7 +101,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(request.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(TApplicationModelType))));
                 return this.Response;
             }
 
@@ -122,7 +122,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(request.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(TApplicationModelType))));
                 return this.Response;
             }
 

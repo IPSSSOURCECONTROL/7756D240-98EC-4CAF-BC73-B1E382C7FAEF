@@ -99,6 +99,23 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
             }
         }
 
+        public static string NormalizeApplicationModelName(Type applicationModelType)
+        {
+            // check if string is empty
+            if(applicationModelType == null)
+                throw new ArgumentException("Application Model type cannot be null");
+
+
+            string input = applicationModelType.Name;
+
+            if (!input.EndsWith("Am"))
+            {
+                throw new ArgumentException($"{applicationModelType.Name} is not a valid Application Model.");
+            }
+
+            return input.Remove(input.Length - 2);
+        }
+
         public static string EntitySuccessfullyAdded<T>(string id) where T: AggregateRoot
         {
             ValidationUtility.IsNullEmptyOrWhitespace(id, nameof(id), MethodBase.GetCurrentMethod(), typeof(MessageFormatter));

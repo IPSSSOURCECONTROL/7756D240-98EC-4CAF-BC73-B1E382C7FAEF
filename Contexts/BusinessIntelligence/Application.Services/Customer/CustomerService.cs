@@ -17,7 +17,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(request.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(CustomerAm))));
                 return this.Response;
             }
 
@@ -47,7 +47,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(request.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(CustomerAm))));
                 return this.Response;
             }
 

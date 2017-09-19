@@ -1,5 +1,8 @@
-﻿using KhanyisaIntel.Kbit.Framework.DependencyInjection;
+﻿using System;
+using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Workflow.Exceptions;
 using KhanyisaIntel.Kbit.Framework.Security.Domain;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
@@ -78,8 +81,21 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Repository.Tests
             UnitTestContext.Initialize();
         }
 
+        #region Add
         [TestMethod]
-        public void TestAdduserQuicklysdsdfd()
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestUserAdd_MustReturnArgumentExceptionGivenNullParameter()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            
+            repository.Add(null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityAlreadyExistException))]
+        public void TestUserRepositoryAdd_MustFailDueToUserAlreadyExisting()
         {
             UnitTestContext.Initialize();
 
@@ -89,7 +105,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Repository.Tests
             User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
             {
                 AccountStatus = new ActiveAccountStatus(),
-                Code = "CODE12",
+                Code = "123",
                 Email = "goodwillgumede@yahoo.co.za",
                 Password = "P@ssWord1",
                 Name = "Goodwill",
@@ -100,13 +116,170 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Repository.Tests
             user.SetLicense(new AnnualLicenseSpecification());
 
             repository.Add(user);
+            repository.Add(user);
 
-            User savedUser = repository.GetById(user.Id);
-
-            Assert.IsNotNull(savedUser);
-            Assert.AreEqual("Goodwill", savedUser.Name);
+            
+            repository.Delete(user);
 
             UnitTestContext.Initialize();
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityAlreadyExistException))]
+        public void TestUserRepositoryAdd_MustFailDueToEmailAlreadyExisting()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "123",
+                Email = "123@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Test1",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            User user1 = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "123",
+                Email = "123@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Test2",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            user.SetLicense(new AnnualLicenseSpecification());
+
+            repository.Add(user);
+            repository.Add(user1);
+
+
+            repository.Delete(user);
+            repository.Delete(user1);
+
+            UnitTestContext.Initialize();
+        }
+        #endregion
+
+        #region Update
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestUserRepositoryUpdate_MustFailDueToNullUserParameter()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            repository.Update(null);
+
+            UnitTestContext.Initialize();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityDoesNotExistException))]
+        public void TestUserRepositoryUpdate_MustFailDueToUserNotExisting()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "789",
+                Email = "abc@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Test1",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            user.SetLicense(new AnnualLicenseSpecification());
+
+            repository.Update(user);
+
+            UnitTestContext.Initialize();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityAlreadyExistException))]
+        public void TestUserRepositoryUpdate_MustFailDueToEmailAddressAlreadyExisting()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "789",
+                Email = "abc@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Test1",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            user.SetLicense(new AnnualLicenseSpecification());
+
+            repository.Add(user);
+            repository.Update(user);
+
+            UnitTestContext.Initialize();
+        }
+        #endregion
+
+        #region Delete
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void TestUserRepositoryDelete_MustFailDueToNullUserParameter()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+            
+            repository.Delete(null);
+
+            UnitTestContext.Initialize();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(EntityDoesNotExistException))]
+        public void TestUserRepositoryDelete_MustFailDueToUserNotExisting()
+        {
+            UnitTestContext.Initialize();
+
+            IUserRepository repository = this._iocContainer.Resolve<IUserRepository>();
+            //repository.SetSecurityContext(AutomatedTestingContext.SupermanAuthorizationContext);
+
+            User user = SecurityDomianFactory.CreateUser(new CreateUserParameters()
+            {
+                AccountStatus = new ActiveAccountStatus(),
+                Code = "555",
+                Email = "boo@yahoo.co.za",
+                Password = "P@ssWord1",
+                Name = "Test1",
+                PasswordResetPolicy = new DailyPasswordResetPolicy(),
+                Role = new AdministratorRole()
+            });
+
+            user.SetLicense(new AnnualLicenseSpecification());
+
+            repository.Delete(user);
+
+            UnitTestContext.Initialize();
+        }
+        #endregion
     }
 }
