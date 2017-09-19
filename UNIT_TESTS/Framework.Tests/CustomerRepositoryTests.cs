@@ -293,9 +293,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
 
 
 
-
-
-        [TestMethod]
+        //[TestMethod]
         public void TestAddAlotOfCustomers()
         {
             UnitTestContext.Initialize();

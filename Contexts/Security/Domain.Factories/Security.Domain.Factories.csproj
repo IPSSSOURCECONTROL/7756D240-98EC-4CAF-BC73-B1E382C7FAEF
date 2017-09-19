@@ -93,6 +93,14 @@
       <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
       <Name>Infrustructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\BusinessIntelligence\Application.Models\BusinessIntelligence.Application.Models.csproj">
+      <Project>{532F9B11-63BC-44FB-B12E-A4F958E28B49}</Project>
+      <Name>BusinessIntelligence.Application.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusinessIntelligence\Repository.Interfaces\BusinessIntelligence.Repository.Interfaces.csproj">
+      <Project>{42C36BB8-F3CE-4A6B-BD6D-B7D82838ED37}</Project>
+      <Name>BusinessIntelligence.Repository.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Application.Models\Security.Application.Models.csproj">
       <Project>{3596E402-C890-48FF-871B-0F159D29019B}</Project>
       <Name>Security.Application.Models</Name>

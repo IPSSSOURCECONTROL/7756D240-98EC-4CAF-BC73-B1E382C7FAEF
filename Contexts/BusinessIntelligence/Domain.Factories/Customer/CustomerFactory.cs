@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer
 {
     public class CustomerFactory: IDomainFactory<Domain.Customer.Customer, CustomerAm>
     {
+        [ValidateMethodArguments]
         public Domain.Customer.Customer BuildDomainEntityType(CustomerAm applicationModel, bool isNew = true)
         {
             applicationModel.Validate();

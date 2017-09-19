@@ -27,7 +27,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(UserAm))));
                 return this.Response;
             }
 
@@ -48,7 +48,7 @@ namespace KhanyisaIntel.Kbit.Framework.Security.Application.Services.User
             if (request.ApplicationModel == null)
             {
                 this.Response.RegisterError(MessageFormatter.IsARequiredField(
-                    nameof(UserServiceRequest.ApplicationModel)));
+                    MessageFormatter.NormalizeApplicationModelName(typeof(UserAm))));
                 return this.Response;
             }
 

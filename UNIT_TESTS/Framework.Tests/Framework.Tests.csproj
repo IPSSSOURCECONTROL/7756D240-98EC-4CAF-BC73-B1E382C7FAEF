@@ -66,12 +66,20 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AutomatedTestingContext.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services.Test\BusinessServiceTests.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services.Test\ProductServiceTests.cs" />
+    <Compile Include="BusinessIntelligence.Domain.Factories.Tests\BusinessFactoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Domain.Factories.Tests\ProductFactoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Domain.Factories.Tests\CustomerFactoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\BusinessRepositoryTests.cs" />
+    <Compile Include="BusinessIntelligence.Repository.Tests\CustomerRepositoryTests.cs" />
     <Compile Include="BusinessIntelligence.Repository.Tests\ProductRepositoryTests.cs" />
     <Compile Include="CustomerRepositoryTests.cs" />
-    <Compile Include="CustomerServiceTests.cs" />
+    <Compile Include="BusinessIntelligence.Application.Services.Test\CustomerServiceTests.cs" />
     <Compile Include="Security.Application.Services\UserServiceTests.cs" />
     <Compile Include="Security.Domain.Factories.Tests\UserFactoryTests.cs" />
     <Compile Include="Security.Repository.Tests\AspNetPrincipleUserRepositoryTests.cs" />
+    <Compile Include="Security.Repository.Tests\RoleRepositoryTests.cs" />
     <Compile Include="Security.Repository.Tests\UserRepositoryTests.cs" />
     <Compile Include="TEST_UTILS\UnitTestContext.cs" />
     <Compile Include="UnitTest1.cs" />
@@ -84,6 +92,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <Compile Include="Security.Domain.Factories.Tests\ProductFactory.Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationFunctionsConfiguration.xml">

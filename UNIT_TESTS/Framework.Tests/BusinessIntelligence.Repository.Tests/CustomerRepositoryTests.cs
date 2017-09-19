@@ -75,9 +75,16 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
             Assert.AreEqual(expectedCustomer.Name, actualCustomer.Name);
             Assert.AreEqual(expectedCustomer.Address.AddressLineOne, actualCustomer.Address.AddressLineOne);
             Assert.AreEqual(expectedCustomer.Address.AddressLineTwo, actualCustomer.Address.AddressLineTwo);
+            Assert.AreEqual(expectedCustomer.Address.PostalCode, actualCustomer.Address.PostalCode);
+            Assert.AreEqual(expectedCustomer.Address.Street, actualCustomer.Address.Street);
+            Assert.AreEqual(expectedCustomer.Address.Suburb, actualCustomer.Address.Suburb);
+            Assert.AreEqual(expectedCustomer.Address.TownOrCity, actualCustomer.Address.TownOrCity);
             Assert.AreEqual(expectedCustomer.BillingInformation.AccountNumber, actualCustomer.BillingInformation.AccountNumber);
             Assert.AreEqual(expectedCustomer.BillingInformation.Bank, actualCustomer.BillingInformation.Bank);
+            Assert.AreEqual(expectedCustomer.BillingInformation.BranchCode, actualCustomer.BillingInformation.BranchCode);
+            Assert.AreEqual(expectedCustomer.BillingInformation.Reference, actualCustomer.BillingInformation.Reference);
             Assert.AreEqual(expectedCustomer.ContactDetails.CellphoneNumber, actualCustomer.ContactDetails.CellphoneNumber);
+            Assert.AreEqual(expectedCustomer.ContactDetails.TelephoneNumber, actualCustomer.ContactDetails.TelephoneNumber);
             Assert.AreEqual(expectedCustomer.ContactDetails.Email, actualCustomer.ContactDetails.Email);
         }
 
@@ -166,10 +173,19 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
             Customer actualCustomer = target.GetById(expectedCustomer.Id);
 
             Assert.IsNotNull(actualCustomer);
-            Assert.AreEqual(expectedCustomer.Id, actualCustomer.Id);
             Assert.AreEqual(expectedCustomer.Name, actualCustomer.Name);
-            Assert.AreEqual(expectedCustomer.BusinessId, actualCustomer.BusinessId);
             Assert.AreEqual(expectedCustomer.Address.AddressLineOne, actualCustomer.Address.AddressLineOne);
+            Assert.AreEqual(expectedCustomer.Address.AddressLineTwo, actualCustomer.Address.AddressLineTwo);
+            Assert.AreEqual(expectedCustomer.Address.PostalCode, actualCustomer.Address.PostalCode);
+            Assert.AreEqual(expectedCustomer.Address.Street, actualCustomer.Address.Street);
+            Assert.AreEqual(expectedCustomer.Address.Suburb, actualCustomer.Address.Suburb);
+            Assert.AreEqual(expectedCustomer.Address.TownOrCity, actualCustomer.Address.TownOrCity);
+            Assert.AreEqual(expectedCustomer.BillingInformation.AccountNumber, actualCustomer.BillingInformation.AccountNumber);
+            Assert.AreEqual(expectedCustomer.BillingInformation.Bank, actualCustomer.BillingInformation.Bank);
+            Assert.AreEqual(expectedCustomer.BillingInformation.BranchCode, actualCustomer.BillingInformation.BranchCode);
+            Assert.AreEqual(expectedCustomer.BillingInformation.Reference, actualCustomer.BillingInformation.Reference);
+            Assert.AreEqual(expectedCustomer.ContactDetails.CellphoneNumber, actualCustomer.ContactDetails.CellphoneNumber);
+            Assert.AreEqual(expectedCustomer.ContactDetails.TelephoneNumber, actualCustomer.ContactDetails.TelephoneNumber);
             Assert.AreEqual(expectedCustomer.ContactDetails.Email, actualCustomer.ContactDetails.Email);
 
         }
@@ -243,8 +259,20 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
             Assert.IsNotNull(updatedCustomer);
             Assert.AreEqual("UpdatedAddressLineOne", updatedCustomer.Address.AddressLineOne);
             Assert.AreEqual("Test Is Exist Customer", updatedCustomer.Name);
-            Assert.AreEqual(initialCustomer.BillingInformation.Bank, updatedCustomer.BillingInformation.Bank);
             Assert.AreEqual("UpdatedPostalCode", updatedCustomer.Address.PostalCode);
+            Assert.AreEqual(initialCustomer.Address.AddressLineOne, updatedCustomer.Address.AddressLineOne);
+            Assert.AreEqual(initialCustomer.Address.AddressLineTwo, updatedCustomer.Address.AddressLineTwo);
+            Assert.AreEqual(initialCustomer.Address.PostalCode, updatedCustomer.Address.PostalCode);
+            Assert.AreEqual(initialCustomer.Address.Street, updatedCustomer.Address.Street);
+            Assert.AreEqual(initialCustomer.Address.Suburb, updatedCustomer.Address.Suburb);
+            Assert.AreEqual(initialCustomer.Address.TownOrCity, updatedCustomer.Address.TownOrCity);
+            Assert.AreEqual(initialCustomer.BillingInformation.AccountNumber, updatedCustomer.BillingInformation.AccountNumber);
+            Assert.AreEqual(initialCustomer.BillingInformation.Bank, updatedCustomer.BillingInformation.Bank);
+            Assert.AreEqual(initialCustomer.BillingInformation.BranchCode, updatedCustomer.BillingInformation.BranchCode);
+            Assert.AreEqual(initialCustomer.BillingInformation.Reference, updatedCustomer.BillingInformation.Reference);
+            Assert.AreEqual(initialCustomer.ContactDetails.CellphoneNumber, updatedCustomer.ContactDetails.CellphoneNumber);
+            Assert.AreEqual(initialCustomer.ContactDetails.TelephoneNumber, updatedCustomer.ContactDetails.TelephoneNumber);
+            Assert.AreEqual(initialCustomer.ContactDetails.Email, updatedCustomer.ContactDetails.Email);
         }
 
         [TestMethod]
