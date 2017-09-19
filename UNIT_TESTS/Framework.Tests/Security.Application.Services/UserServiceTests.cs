@@ -192,7 +192,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                     LicenseSpecification = "Perpertual License Specification",
                     Password = "P@ssW0rd1",
                     PasswordResetPolicy = "Never Reset Password Reset Policy",
-                    RoleId = nameof(SupermanRole),
+                    Role = nameof(SupermanRole),
                     Id = "59a5a057e3496b1becd3ab84"
                 }
             });
@@ -222,7 +222,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             request.ApplicationModel = userAm;
@@ -240,7 +240,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                     LicenseSpecification = "Perpertual License Specification",
                     Password = "P@ssW0rd1",
                     PasswordResetPolicy = "Never Reset Password Reset Policy",
-                    RoleId = nameof(SupermanRole),
+                    Role = nameof(SupermanRole),
                     Id = "59adc20de349893070821ec6"
                 }
             });
@@ -271,7 +271,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
             Assert.IsNotNull(userResponse.ApplicationModels.First().AccountStatus);
             Assert.IsNotNull(userResponse.ApplicationModels.First().LicenseSpecification);
             Assert.IsNotNull(userResponse.ApplicationModels.First().PasswordResetPolicy);
-            Assert.IsNotNull(userResponse.ApplicationModels.First().RoleId);
+            Assert.IsNotNull(userResponse.ApplicationModels.First().Role);
 
             Assert.IsNotNull(userResponse.ApplicationModels.Last().Name);
             Assert.IsNotNull(userResponse.ApplicationModels.Last().Email);
@@ -280,7 +280,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
             Assert.IsNotNull(userResponse.ApplicationModels.Last().AccountStatus);
             Assert.IsNotNull(userResponse.ApplicationModels.Last().LicenseSpecification);
             Assert.IsNotNull(userResponse.ApplicationModels.Last().PasswordResetPolicy);
-            Assert.IsNotNull(userResponse.ApplicationModels.Last().RoleId);
+            Assert.IsNotNull(userResponse.ApplicationModels.Last().Role);
         }
         #endregion
 
@@ -304,7 +304,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
                 LicenseSpecification = "Perpertual License Specification",
                 Password = "P@ssW0rd1",
                 PasswordResetPolicy = "Never Reset Password Reset Policy",
-                RoleId = nameof(SupermanRole)
+                Role = nameof(SupermanRole)
             };
 
             User user = factory.BuildDomainEntityType(userAm);
@@ -323,7 +323,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.Security.Application.Services
             Assert.AreEqual(userAm.LicenseSpecification, customerResponse.ApplicationModel.LicenseSpecification);
             Assert.AreEqual(userAm.Password, customerResponse.ApplicationModel.Password);
             Assert.AreEqual(userAm.PasswordResetPolicy, customerResponse.ApplicationModel.PasswordResetPolicy);
-            Assert.AreEqual(userAm.RoleId.InsertSpaceAfterCapitalLetter(), customerResponse.ApplicationModel.RoleId);
+            Assert.AreEqual(userAm.Role.InsertSpaceAfterCapitalLetter(), customerResponse.ApplicationModel.Role);
         }
         #endregion
     }
