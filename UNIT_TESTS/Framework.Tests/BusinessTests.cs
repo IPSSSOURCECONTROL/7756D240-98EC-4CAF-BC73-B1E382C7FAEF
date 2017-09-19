@@ -61,7 +61,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             UnitTestContext.SetUpTestData();
         }
 
-        [TestMethod]
+       // [TestMethod]
         public void TestAddAloOfBusiness()
         {
             UnitTestContext.Initialize();
