@@ -224,6 +224,7 @@
     <Compile Include="Models\BusinessUsersVm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexBusinessVm.cs" />
+    <Compile Include="Models\IndexCustomerVm.cs" />
     <Compile Include="Models\IndexUserVm.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewEditBusinessVm.cs" />
@@ -512,6 +513,8 @@
     <Content Include="Views\Business\NewBusinessUser.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
+    <Content Include="Views\Customer\Edit.cshtml" />
+    <Content Include="Views\Customer\NewBusinessCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

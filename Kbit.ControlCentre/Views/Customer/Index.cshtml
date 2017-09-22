@@ -1,24 +1,169 @@
-﻿@model dynamic
+﻿@using Kbit.ControlCentre.Session
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = "Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="row">
-    <div class="col-lg-12">
-        <div class="hpanel" style="">
-            <div class="panel-heading">
-                <div class="panel-tools">
-                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+    <div class="normalheader  small-header">
+        <div class="hpanel">
+            <div class="panel-body">
+                <div id="hbreadcrumb" class="pull-right">
+                    @Html.ActionLink("Add New", "LoadNewCustomerView", "Customer", new { }, new { @class = "btn btn-warning" })
                 </div>
-                Customers Definition
+                <h2 class="font-light m-b-xs">
+                    Customer Definition
+                </h2>
+                <small>Add, modify or delete Customers</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div>
+
+        </div>
+        <div class="hpanel hyellow" style="">
+            <div class="panel-heading">
+                Customer Definition
             </div>
             <div class="panel-body">
 
-                <div class="h-200"></div>
+                <div class="dataTables_wrapper form-inline">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="table-responsive">
+                                <table id="customerMaster" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Email</th>
+                                            <th>Cellphone Number</th>
+                                            <th>Telephone Number</th>
+                                            <th>Town/City</th>
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var renderedTable = $("#customerMaster").DataTable({
+                reponsive: true,
+                ajax: {
+                    url: '@Url.Action("GetAllBusinessCustomers", "Customer")/@Session[SessionConstants.CurrentUserBusinessId].ToString()',
+                    dataType: "json",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "name"
+                    },
+                    {
+                        data: "email"
+                    },
+                    {
+                        data: "cellphoneNumber"
+                    },
+                    {
+                        data: "telephoneNumber"
+                    },
+                    {
+                        data: "townOrCity"
+                    },
+                    {
+                        data: "id",
+                        render: function(data, type, applicationModel) {
+                            return "<a href='@Url.Action("EditCustomer", "Customer")/" +
+                                applicationModel.id +
+                                "' class='btn btn-default btn-xs'><i class='fa fa-paste'></i> View/Edit</a>";
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function (data, type, applicationModel) {
+                            return "<button class='btn btn-default btn-xs deleteRowButton2' data-ref='" +
+                                applicationModel.id +
+                                "' ><i class='fa fa-trash-o'></i> Delete</button>";
+                        }
+                    }
+                ]
+            });
+
+            $('#customerMaster').on('click',
+                '.deleteRowButton2',
+                function (e) {
+                    var clickedButton = $(this);
+                    var entityid = $(e.target).data("ref");
+
+                    swal({
+                        title: "Are you sure?",
+                        text: "Your will not be able to recover this record once it has been deleted!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it",
+                        cancelButtonText: "No, cancel",
+                        closeOnConfirm: false,
+                        closeOnCancel: false
+                    },
+                        function (isConfirm) {
+                            if (isConfirm) {
+                                $.ajax({
+                                    url: '@Url.Action("DeleteBusinessCustomer", "Customer")',
+                                    contentType: 'application/json, charset=utf-8',
+                                    type: "POST",
+                                    data: JSON.stringify({ id: entityid }),
+                                    success: function (result) {
+
+                                        if (result.serviceResult != 1) {
+                                            swal("Error", result.message, "error");
+                                            console.log(result);
+                                            return;
+                                        }
+
+                                        swal({
+                                            title: "Deleted!",
+                                            text: result.message,
+                                            type: "success",
+                                            confirmButtonColor: "#DD6B55",
+                                            confirmButtonText: "Ok"
+                                        },
+                                            function (isConfirmInternal) {
+
+                                                renderedTable.row(clickedButton.parents("tr")).remove().draw();
+                                            });
+
+                                    },
+                                    error: function (error) {
+                                        console.log(error);
+                                        swal("Error", "Oops! Something went wrong! " + error.message, "error");
+                                    }
+                                });
+
+                            } else {
+                                swal("Cancelled", "", "error");
+                            }
+                        });
+                });
+        });
+    </script>
+
+}

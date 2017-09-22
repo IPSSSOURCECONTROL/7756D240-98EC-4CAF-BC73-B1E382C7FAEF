@@ -1,0 +1,193 @@
+﻿@model Kbit.ControlCentre.Models.ViewEditCustomerVm
+
+@{
+    ViewBag.Title = "Edit/Modify Customer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateCustomer", "Customer"))
+{
+    <div class="row">
+        <div class="normalheader  small-header">
+            <div class="hpanel">
+                <div class="panel-body">
+                    <div id="hbreadcrumb" class="pull-right">
+                        @Html.HiddenFor(x => x.Id)
+                        @Html.AntiForgeryToken()
+
+                        <a href="@Url.Action("Index", "Customer")" class="btn btn-warning"> Back</a>
+                        <button type="submit" class="btn btn-success" id="submitButton"><i class="fa fa-check"></i> Submit</button>
+                    </div>
+                    <h2 class="font-light m-b-xs"></h2>
+                    <small></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+                    Add or modify a Business Customer
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+
+                        <div class="col-lg-9">
+                            <div class="row">
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Name, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Name, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Name)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Email, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Email, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Email)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.TelephoneNumber, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.TelephoneNumber, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.TelephoneNumber)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.CellphoneNumber, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.CellphoneNumber, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.CellphoneNumber)
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.AddressLineOne, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.AddressLineOne, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.AddressLineOne)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.AddressLineTwo, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.AddressLineTwo, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.AddressLineTwo)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Street, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Street, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Street)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Suburb, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Suburb, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Suburb)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.TownOrCity, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.TownOrCity, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.TownOrCity)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.PostalCode, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.PostalCode, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.PostalCode)
+                                </div>
+
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Bank, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Bank, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Bank)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.AccountNumber, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.AccountNumber, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.AccountNumber)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.BranchCode, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.BranchCode, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.BranchCode)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.Reference, new { @class = "kbit-form-label" })
+                                    @Html.TextBoxFor(x => x.Reference, new { @class = "kbit-form-control" })
+                                    @Html.ValidationMessageFor(x => x.Reference)
+                                </div>
+                                <div class="form-group col-lg-6">
+                                    @Html.LabelFor(x => x.RepresentativeId, new { @class = "kbit-form-label" })
+                                    @Html.DropDownListFor(x => x.RepresentativeId, new SelectList(Model.Users, "Id", "Name"), "-- Select Representative --", new { @class = "kbit-form-selectList-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-right m-t-xs">
+                    </div>
+                    <div class="m-t-md">
+
+                        <p>
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.HiddenFor(x => x.BusinessId, new { @class = "kbit-form-control" })
+    </div>
+}
+
+<div class="SerivceCallResult">
+    <div class="callResult">
+        @Model.ServiceResult
+    </div>
+    <div class="callMessage">
+        @Model.Message
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            function showErrorMessage(error) {
+                toastr.error(error);
+            }
+
+            function showSuccess(message) {
+                toastr.success(message);
+            }
+
+            var result = $('.SerivceCallResult').find('.callResult').text().trim().toLowerCase();
+
+            var message = $('.SerivceCallResult').find('.callMessage').text().trim();
+
+            if (result == 'true') {
+                if (message.trim() != "") {
+                    showSuccess(message);
+                }
+            } else {
+                showErrorMessage(message);
+            }
+        });
+    </script>
+}

@@ -12,7 +12,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
         public ApplicationModelBase()
         {
         }
-        public string BusinessId { get; set; }
+        public virtual string BusinessId { get; set; }
         public string Id { get; set; } = string.Empty;
 
         /// <summary>

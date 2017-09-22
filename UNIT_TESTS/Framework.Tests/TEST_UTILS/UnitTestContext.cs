@@ -2,6 +2,7 @@
 using System.Linq;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
@@ -40,7 +41,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS
             _iocContainer.Resolve<IRoleRepository>().Add(new SupermanRole());
             _iocContainer.Resolve<IRoleRepository>().Add(new NoRole());
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 20; i++)
             {
                 BusinessResponse response = service.Add(new BusinessServiceRequest()
                 {
@@ -79,6 +80,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS
             }
         }
 
+
         private static void LoadUsersForBusiness(BusinessAm savedBusinessAm)
         {
             for (int i = 0; i < 20; i++)
@@ -90,7 +92,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS
                 {
                     Name = $"TESTUSER_{i}",
                     Code = null,
-                    Email = $"TESTUSER_{i}@{savedBusinessAm.Name.Replace(" ", string.Empty)}.co.za",
+                    Email = $"testuser{i}@{savedBusinessAm.Name.Replace(" ", string.Empty).ToLower()}.co.za",
                     AccountStatus = "Active Account Status",
                     LicenseSpecification = "Perpertual License Specification",
                     Password = "P@ssW0rd1",
@@ -106,6 +108,48 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.TEST_UTILS
                 Assert.IsNotNull(response);
                 Assert.AreEqual(ServiceResult.Success, response.ServiceResult);
                 Assert.IsTrue(response.Message.Contains(" sucessfully saved."));
+
+                request.AuthorizationContext.BusinessId = savedBusinessAm.Id;
+
+                UserAm savedUser = target.GetAll(request).ApplicationModels.FirstOrDefault(x => x.Email == userAm.Email);
+
+                LoadCustomersForBusiness(savedBusinessAm, savedUser);
+            }
+        }
+
+        private static void LoadCustomersForBusiness(BusinessAm savedBusinessAm, UserAm savedUser)
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                ICustomerService service = _iocContainer.Resolve<ICustomerService>();
+
+                Assert.IsNotNull(service);
+
+                CustomerResponse response = service.Add(new CustomerServiceRequest()
+                {
+                    ApplicationModel = new CustomerAm()
+                    {
+                        AddressLineOne = "UNIT 1",
+                        AddressLineTwo = "OUT OF BOUNDS",
+                        Street = "Von Backstrom Boulevard",
+                        Suburb = "Silverlakes",
+                        TownOrCity = "Pretoria",
+                        PostalCode = "0081",
+                        Email = $"customer{i}@yahoo.co.za",
+                        CellphoneNumber = "0721248899",
+                        Bank = "FNB",
+                        AccountNumber = "6211134445267",
+                        BranchCode = "206658",
+                        Reference = "aasasdasd",
+                        Name = $"Test Customer Name {savedUser.Name}{i}",
+                        RepresentativeId = savedUser.Id,
+                        BusinessId = savedBusinessAm.Id
+                    }
+                });
+
+                Assert.IsNotNull(response);
+                Assert.AreEqual(ServiceResult.Success, response.ServiceResult);
+                Assert.IsNotNull(response.Message);
             }
         }
     }

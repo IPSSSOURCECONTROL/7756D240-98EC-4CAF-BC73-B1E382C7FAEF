@@ -16,6 +16,7 @@ namespace Kbit.ControlCentre.Models
         public string Code { get; set; }
 
         [Required]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
 
         [Required]
