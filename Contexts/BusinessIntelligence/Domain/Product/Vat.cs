@@ -1,7 +1,10 @@
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product
 {
-    public class Vat
+    public class Vat : VatClassification
     {
-        public decimal Percentage { get; set; } = 14.0m;
+        public Vat()
+        {
+            this.Percentage = 14.00m;
+        }
     }
 }

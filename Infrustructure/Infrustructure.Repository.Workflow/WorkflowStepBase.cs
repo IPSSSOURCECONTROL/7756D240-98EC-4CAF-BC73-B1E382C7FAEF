@@ -1,3 +1,5 @@
+using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
@@ -16,6 +18,9 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow
         public TWorkflowContext WorkflowContext { get; set; }
 
         public TRepository Repository { get; }
+
+        [MandatoryInjection]
+        public ILoggingType Logger { get; set; }
 
         protected virtual void OnPretransaction()
         {

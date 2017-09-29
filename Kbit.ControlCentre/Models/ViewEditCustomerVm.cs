@@ -77,9 +77,17 @@ namespace Kbit.ControlCentre.Models
         [StringLength(255)]
         public string Name { get; set; } = string.Empty;
 
-        public string RepresentativeId { get; set; } = string.Empty;
+        [Required]
+        [StringLength(6)]
+        public string Code { get; set; }
 
-        public string BusinessId { get; set; } = string.Empty;
+        public int CostEstimateCount { get; set; }
+
+        public int InvoiceNoteCount { get; set; }
+
+        public int CreditNoteCount { get; set; }
+
+        public string RepresentativeId { get; set; } = string.Empty;
 
         public IEnumerable<ViewEditUserVm> Users { get; set; }=new List<ViewEditUserVm>();
     }

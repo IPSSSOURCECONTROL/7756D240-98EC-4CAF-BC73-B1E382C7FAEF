@@ -8,6 +8,7 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Stack;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 {
@@ -29,6 +30,9 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
 
             container.Register(Component.For<IAspNetCryptology>()
                 .ImplementedBy<AspNetCryptology>());
+
+            container.Register(Component.For<IPolymorphicTyeNameProvider>()
+                .ImplementedBy<PolymorphicTyeNameProvider>());
 
             this.InstallAop(container);
         }

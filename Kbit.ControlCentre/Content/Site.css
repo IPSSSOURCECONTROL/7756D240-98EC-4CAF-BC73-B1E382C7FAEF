@@ -71,3 +71,8 @@ border-color: #e74c3c!important;
        -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
           transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
 }
+
+
+.padding-top-10px {
+    padding-top: 25px;
+}

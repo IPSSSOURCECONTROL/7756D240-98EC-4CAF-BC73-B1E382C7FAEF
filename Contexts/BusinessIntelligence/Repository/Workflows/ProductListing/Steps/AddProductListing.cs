@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Workflow;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Workflows.ProductListing.Steps
@@ -12,9 +14,12 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Workflows
 
         protected override void OnPretransaction()
         {
-            this.Repository.GetAll();
-            if(this.WorkflowContext.Entity.Business == null)
-                throw new Exception();
+
+        }
+
+        protected override void OnTransaction()
+        {
+            
         }
     }
 }

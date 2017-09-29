@@ -1,4 +1,6 @@
-﻿using MongoDB.Bson;
+﻿using System;
+using System.Text;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Domain
@@ -61,6 +63,30 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Domain
             }
 
             return entity.Id == this.Id;
+        }
+
+        public string ApplyGrammerToTypeName<TDomainType>() where TDomainType: class
+        {
+            string input = typeof(TDomainType).Name;
+
+            if (input.Contains("_"))
+            {
+                return input.Replace('_', ' ');
+            }
+            else
+            {
+                StringBuilder newString = new StringBuilder();
+                foreach (Char char1 in input)
+                {
+                    if (char.IsUpper(char1))
+                        newString.Append(new char[] { ' ', char1 });
+                    else
+                        newString.Append(char1);
+                }
+
+                newString.Remove(0, 1);
+                return newString.ToString();
+            }
         }
 
         public override int GetHashCode()

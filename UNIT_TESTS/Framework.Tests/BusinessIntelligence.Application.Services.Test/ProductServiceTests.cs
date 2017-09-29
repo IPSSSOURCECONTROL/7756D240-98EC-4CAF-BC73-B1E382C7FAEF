@@ -82,7 +82,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
                     Description = "Some Description 123",
                     PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                     Rate = pricingClassification.Rate,
-                    Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                    VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
                 }
             });
             
@@ -124,7 +124,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
                     Description = null,
                     PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                     Rate = pricingClassification.Rate,
-                    Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                    VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
                 }
             });
 
@@ -182,7 +182,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
                     Description = null,
                     PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                     Rate = pricingClassification.Rate,
-                    Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                    VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
                 }
             });
 
@@ -207,7 +207,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
                     Description = "Description One",
                     PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                     Rate = pricingClassification.Rate,
-                    Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter(),
+                    VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter(),
                     Id = "59aeebffe34973364cb43a31"
                 }
             });
@@ -236,12 +236,12 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
             Assert.IsNotNull(customerResponse.ApplicationModels.First().Description);
             Assert.IsNotNull(customerResponse.ApplicationModels.First().PricingClassification);
             Assert.IsNotNull(customerResponse.ApplicationModels.First().Rate);
-            Assert.IsNotNull(customerResponse.ApplicationModels.First().Vat);
+            Assert.IsNotNull(customerResponse.ApplicationModels.First().VatClassification);
 
             Assert.IsNotNull(customerResponse.ApplicationModels.Last().Description);
             Assert.IsNotNull(customerResponse.ApplicationModels.Last().PricingClassification);
             Assert.IsNotNull(customerResponse.ApplicationModels.Last().Rate);
-            Assert.IsNotNull(customerResponse.ApplicationModels.Last().Vat);
+            Assert.IsNotNull(customerResponse.ApplicationModels.Last().VatClassification);
         }
 
 
@@ -265,7 +265,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
                 Description = "Some Description 123",
                 PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                 Rate = pricingClassification.Rate,
-                Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
             };
 
             Product product = factory.BuildDomainEntityType(productAm);
@@ -280,7 +280,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Application.Se
             Assert.IsNotNull(businessResponse.ApplicationModel.Description);
             Assert.IsNotNull(businessResponse.ApplicationModel.PricingClassification);
             Assert.IsNotNull(businessResponse.ApplicationModel.Rate);
-            Assert.IsNotNull(businessResponse.ApplicationModel.Vat);
+            Assert.IsNotNull(businessResponse.ApplicationModel.VatClassification);
             Assert.IsNotNull(businessResponse.ApplicationModel.Id);
         }
 

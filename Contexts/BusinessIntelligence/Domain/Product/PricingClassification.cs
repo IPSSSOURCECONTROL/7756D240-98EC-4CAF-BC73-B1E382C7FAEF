@@ -6,13 +6,13 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product
         {
         }
 
-        protected PricingClassification(decimal rate, Vat vat)
+        protected PricingClassification(decimal rate, VatClassification vat)
         {
             this.Rate = rate;
             this.Vat = vat ?? new NoVat();
         }
 
         public decimal Rate { get; set; }
-        public Vat Vat { get; set; }
+        public VatClassification Vat { get; set; }
     }
 }

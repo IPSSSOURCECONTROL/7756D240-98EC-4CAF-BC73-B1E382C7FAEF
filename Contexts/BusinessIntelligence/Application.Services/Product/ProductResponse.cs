@@ -13,5 +13,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             : base(message, serviceResult)
         {
         }
+
+        public decimal TotalAmount { get; set; } = 0.00m;
     }
 }

@@ -210,11 +210,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\CostEstimateController.cs" />
+    <Compile Include="Controllers\CreditNoteController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Extensions\ControllerExtensions.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InvoiceNoteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Models\ViewEditCostEstimateVm.cs" />
     <Compile Include="Cors\AllowCrossSiteAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -225,10 +230,12 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\IndexBusinessVm.cs" />
     <Compile Include="Models\IndexCustomerVm.cs" />
+    <Compile Include="Models\IndexProductVm.cs" />
     <Compile Include="Models\IndexUserVm.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ViewEditBusinessVm.cs" />
     <Compile Include="Models\ViewEditCustomerVm.cs" />
+    <Compile Include="Models\ViewEditProductVm.cs" />
     <Compile Include="Models\ViewEditUserVm.cs" />
     <Compile Include="MvcDependency\ContainerFactory.cs" />
     <Compile Include="MvcDependency\ControllerInstaller.cs" />
@@ -515,10 +522,18 @@
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\NewBusinessCustomer.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\NewBusinessProduct.cshtml" />
+    <Content Include="Views\CostEstimate\Index.cshtml" />
+    <Content Include="Views\CostEstimate\EditCustomerCostEstimates.cshtml" />
+    <Content Include="Views\CostEstimate\NewCustomerCostEstimate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\CreditNote\" />
+    <Folder Include="Views\InvoiceNote\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

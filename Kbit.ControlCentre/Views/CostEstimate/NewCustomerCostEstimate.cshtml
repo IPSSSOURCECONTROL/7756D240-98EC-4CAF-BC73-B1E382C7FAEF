@@ -1,0 +1,346 @@
+﻿@using Kbit.ControlCentre.Session
+@model Kbit.ControlCentre.Models.ViewEditCostEstimateVm
+
+@{
+    ViewBag.Title = "New Cost Estimate";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="normalheader small-header">
+        <div class="hpanel">
+            <div class="panel-body">
+                <div id="hbreadcrumb" class="pull-right">
+                    @Html.ActionLink(" Back", "Index", "CostEstimate", new { }, new { @class = "btn btn-warning fa fa-pencil" })
+                    <button class="btn btn-warning"><i class="fa fa-print"></i> Print</button>
+                    @Html.ActionLink(" Save", "SaveCostEstimate", "CostEstimate", new { }, new { @class = "btn btn-warning fa fa-save" })
+                </div>
+                <h2 class="font-light m-b-xs">
+                    Customer Definition
+                </h2>
+                <small>Add, modify or delete Customers</small>
+            </div>
+            
+            <div class="hpanel padding-top-10px">
+
+                <div class="panel-body p-xl">
+                    <!--Top Level Section-->
+                    <div class="row m-b-xl">
+                        <div class="col-sm-6">
+                            <h3>
+                                <strong>@Model.Business.Name</strong>
+                            </h3>
+                            <address>
+                                @*<strong>Homer, Inc.</strong><br>*@
+                                @Model.Business.AddressLineOne<br>
+                                @Model.Business.AddressLineTwo<br>
+                                @Model.Business.TownOrCity<br>
+                                @Model.Business.PostalCode<br>
+                                <abbr title="Phone">P:</abbr> @Model.Business.TelephoneNumber <br>
+                                <abbr title="Cellphone">C:</abbr> @Model.Business.CellphoneNumber
+                            </address>
+                            <h4><strong>Payment Information</strong></h4>
+                            <address>
+                                <strong>Bank: </strong>@Model.Business.Bank<br>
+                                <strong>Account Number: </strong>@Model.Business.AccountNumber<br>
+                                <strong>Branch Code: </strong>@Model.Business.BranchCode<br>
+                                <strong>Reference: </strong>@Model.Business.Reference<br>
+                            </address>
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <address>
+                                <strong> </strong><br />
+                                <strong> </strong><br />
+                                <strong>CE Number</strong> <br>
+                                CUS102547888 <br>
+                                <strong>Date</strong> <br>
+                                @DateTime.Now<br>
+                                <strong>Customer Name</strong><br>
+                                @Model.Customer.Name<br>
+                            </address>
+                            <h4><strong>Bill To</strong></h4>
+                            <address>
+                                @Model.Customer.Name<br>
+                                @Model.Customer.AddressLineOne<br>
+                                @Model.Customer.AddressLineTwo<br>
+                                @Model.Customer.Email<br>
+                                @Model.Customer.CellphoneNumber<br>
+                                @Model.Customer.TelephoneNumber<br>
+                                <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#viewEditCostEstimateModal"><i class="fa fa-plus"></i> Add New Product Item</button>
+                            </address>
+                            <p>
+                                @*<span><strong>Due Date:</strong> May 24, 2016</span>*@
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive m-t">
+                        <table class="table table-striped" id="productListingTable">
+                            <thead>
+                                <tr>
+                                    <th>Product Code</th>
+                                    <th>Product Description</th>
+                                    <th>Quantity</th>
+                                    <th>UOM</th>
+                                    <th>Discount</th>
+                                    <th>VAT</th>
+                                    <th>Unit Price</th>
+                                    <th>Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row m-t">
+                        <div class="col-md-4 col-md-offset-8">
+                            <table class="table table-striped text-right">
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Sub Total :</strong></td>
+                                        <td id="subTotalCell">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Total Discount :</strong></td>
+                                        <td id="totalDiscountCell">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>TOTAL :</strong></td>
+                                        <td id="totalCell">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="m-t">
+                                <strong>Comments</strong>
+                                It is a long established fact that a reader will be distracted by the readable content of a page
+                                when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-12">
+
+
+
+
+
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="viewEditCostEstimateModal" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <button type="button" class="close"
+                        data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">
+                    Cost Estimate - Add Line Item
+                </h4>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="form-group">
+                    @Html.LabelFor(x => x.ProductId, new { @class = "kbit-form-label"})
+                    @Html.DropDownListFor(x => x.ProductId, new SelectList(Model.Products, "Id", "Description"),
+                   new { @class = "kbit-form-selectList-control", @id = "productField" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Quantity, new { @class = "kbit-form-label" })
+                    @Html.TextBoxFor(x => x.Quantity, new { @class = "kbit-form-control", @id = "quantityField" })
+                    @Html.ValidationMessageFor(x => x.Quantity)
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(x => x.Discount, new { @class = "kbit-form-label" })
+                    @Html.TextBoxFor(x => x.Discount, new { @class = "kbit-form-control", @id = "discountField" })
+                    @Html.ValidationMessageFor(x => x.Discount)
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="productLineItemCloseButton"
+                        data-dismiss="modal">
+                    Close
+                </button>
+                <button type="button" class="btn btn-primary" id="productLineItemButton">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            function showErrorMessage(error) {
+                toastr.error(error);
+            }
+
+            function showSuccess(message) {
+                toastr.success(message);
+            }
+
+            function clearViewEditCostEstimateModal() {
+                $("#quantityField").val(1);
+                $("#discountField").val(0.00);
+            }
+
+            function calculateSubTotalAmounts() {
+
+                var productDetailsArray = [];
+
+                $("tr.productListItemRowItem").each(function () {
+                    $this = $(this);
+
+                    var discount = parseFloat($this.find(".discountCell").text().replace("%", "")).toFixed(2);
+
+                    productDetailsArray.push({
+                        "productId": $this.find(".productIdCell").attr("id"),
+                        "discount": discount,
+                        "quantity": parseInt($this.find(".quantityCell").text())
+                    });
+                });
+
+                var jsonData = JSON.stringify(productDetailsArray);
+
+                var url =
+                    '@Url.Action("CalculateProductListSubTotalAmounts", "CostEstimate")';
+
+                $.ajax({
+                    url: url,
+                    data: { "productDetailsArray": jsonData },
+                    dataType: "json",
+                    type: "GET",
+                    cache: false,
+                    contentType: "application/json; charset=utf-8",
+                    success: function (viewModel) {
+                        if (viewModel.serviceResult == false) {
+                            showErrorMessage(viewModel.message);
+                        } else {
+                            $("#subTotalCell").innerHTML(viewModel.subTotal);
+                            $("#totalDiscountCell").innerHTML(viewModel.totalDiscount);
+                            $("#totalCell").innerHTML(viewModel.overallTotal);
+                        }
+                    },
+                    async: false,
+                    traditional:true
+                });
+            }
+
+            function calculateProductLineItemPrice(produuctId, discount, quantity) {
+                var total = 0;
+
+                var productDetails = {
+                    "productId": produuctId,
+                    "discount": discount,
+                    "quantity": quantity
+                }
+
+                var url =
+                    '@Url.Action("CalculateProductListItemTotalAmount", "CostEstimate")';
+
+                $.ajax({
+                    url: url,
+                    data: productDetails,
+                    success: function(viewModel) {
+                        if (viewModel.serviceResult == false) {
+                            showErrorMessage(viewModel.message);
+                        } else {
+                            total = viewModel.totalAmount;
+                        }
+                    },
+                    async:false
+                });
+
+                return total;
+            }
+
+            $("#productLineItemButton").click(function() {
+                var productId = $("#productField").val();
+
+                var getProductByIdUrl =
+                    '@Url.Action("GetProductById", "CostEstimate")/' + productId;
+
+                $.get(getProductByIdUrl,
+                    function(viewModel) {
+                        if (viewModel.serviceResult == false) {
+                            showErrorMessage(viewModel.message);
+                        } else {
+                            $("#productListingTable").append("<tr class='productListItemRowItem'>" +
+                                "<td id='"+productId+"' class='productIdCell'>" +
+                                viewModel.productCode +
+                                "</td>" +
+                                "<td>" +
+                                viewModel.description +
+                                "</td>" +
+                                "<td class='quantityCell'>" +
+                                $("#quantityField").val() +
+                                "</td>" +
+                                "<td>" +
+                                viewModel.pricingClassification +
+                                "</td>" +
+                                "<td class='discountCell'>" +
+                                $("#discountField").val() +
+                                "%</td>" +
+                                "<td>" +
+                                viewModel.vatRate +
+                                "%</td>" +
+                                "<td>R " +
+                                viewModel.rate +
+                                "</td>" +
+                                "<td class='totalAmountCell'>R " +
+                                calculateProductLineItemPrice(productId,
+                                    $("#discountField").val(),
+                                    $("#quantityField").val()) +
+                                "</td>" +
+                                "</tr>");
+                            clearViewEditCostEstimateModal();
+                            calculateSubTotalAmounts();
+                            $("#productLineItemCloseButton").click();
+                        }
+                    });
+            });
+
+        });
+    </script>
+}
+
+

@@ -11,7 +11,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
     public class ProductFactory : IDomainFactory<Domain.Product.Product, ProductAm>
     {
         private readonly IObjectActivator _objectActivator;
-
+ 
         public ProductFactory(IObjectActivator objectActivator)
         {
             this._objectActivator = objectActivator;
@@ -21,7 +21,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
         public Domain.Product.Product BuildDomainEntityType(ProductAm applicationModel, bool isNew)
         {
             applicationModel.Validate();
-            Vat vat = (Vat)this._objectActivator.CreateInstanceOf<Vat>(applicationModel.Vat.Replace(" ", string.Empty));
+            VatClassification vat = (VatClassification)this._objectActivator.CreateInstanceOf<Vat>(applicationModel.VatClassification.Replace(" ", string.Empty));
             PricingClassification pricingClassification =
                 (PricingClassification)this._objectActivator
                 .CreateInstanceOf<PricingClassification>(applicationModel.PricingClassification.Replace(" ",string.Empty),
@@ -29,12 +29,15 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
 
             if (isNew)
             {
-                return new Domain.Product.Product(applicationModel.Description, pricingClassification, applicationModel.BusinessId);
+                return new Domain.Product.Product(applicationModel.ProductCode, applicationModel.Description, 
+                    pricingClassification, applicationModel.BusinessId);
             }
             else
             {
-                Domain.Product.Product product = new Domain.Product.Product(applicationModel.Description, pricingClassification, applicationModel.BusinessId);
+                Domain.Product.Product product = new Domain.Product.Product(applicationModel.ProductCode, 
+                    applicationModel.Description, pricingClassification, applicationModel.BusinessId);
                 product.Id = applicationModel.Id;
+
                 return product;
             }
             
@@ -46,10 +49,12 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Pro
             ProductAm productAm = new ProductAm();
 
             productAm.Description = domainEntity.Description;
+            productAm.ProductCode = domainEntity.ProductCode;
+            productAm.VatRate = domainEntity.PricingClassification.Vat.Percentage;
             productAm.PricingClassification =
                 MessageFormatter.InsertSpaceAfterCapitalLetter(domainEntity.PricingClassification.GetType().Name);
             productAm.Rate = domainEntity.PricingClassification.Rate;
-            productAm.Vat = MessageFormatter.InsertSpaceAfterCapitalLetter(domainEntity.PricingClassification.Vat.GetType().Name);
+            productAm.VatClassification = MessageFormatter.InsertSpaceAfterCapitalLetter(domainEntity.PricingClassification.Vat.GetType().Name);
             productAm.Id = domainEntity.Id;
 
             return productAm;

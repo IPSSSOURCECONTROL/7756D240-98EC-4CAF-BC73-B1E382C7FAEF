@@ -69,6 +69,7 @@
     <Compile Include="Product\PricingClassification.cs" />
     <Compile Include="Product\Product.cs" />
     <Compile Include="Product\Vat.cs" />
+    <Compile Include="Product\VatClassification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

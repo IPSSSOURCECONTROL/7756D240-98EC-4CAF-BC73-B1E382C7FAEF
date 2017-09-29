@@ -49,7 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IPolymorphicTyeNameProvider.cs" />
     <Compile Include="MessageFormatter.cs" />
+    <Compile Include="PolymorphicTyeNameProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="TypeExtensions.cs" />
@@ -62,6 +64,10 @@
     <ProjectReference Include="..\Infrustructure.Validation\Infrustructure.Validation.csproj">
       <Project>{1a92cb62-dd3c-47f3-a6cb-843e93119f50}</Project>
       <Name>Infrustructure.Validation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrustructure\Infrustructure.csproj">
+      <Project>{6DD00406-D7D9-4F6C-8C06-B5275BA96A98}</Project>
+      <Name>Infrustructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

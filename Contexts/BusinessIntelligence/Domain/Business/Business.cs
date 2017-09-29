@@ -20,19 +20,14 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Business
         public BillingInformation BillingInformation { get; private set; }
         public bool IsActive { get; private set; } = true;
 
-        public void SetStatus(bool value)
-        {
-            this.IsActive = value;
-        }
-
         public void Activate()
         {
-            this.IsActive = false;
+            this.IsActive = true;
         }
 
         public void Deactivate()
         {
-            this.IsActive = true;
+            this.IsActive = false;
         }
 
         public override string BusinessId

@@ -96,9 +96,10 @@ namespace Kbit.ControlCentre.Controllers
                 return this.EditCustomer(viewModel.Id);
             }
 
-            this.ServiceRequest.ApplicationModel = Mapper.Map<CustomerAm>(viewModel);
             this.ServiceRequest.AuthorizationContext.UserId = this.User.Identity.Name;
             this.ServiceRequest.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
+            this.ServiceRequest.ApplicationModel = Mapper.Map<CustomerAm>(viewModel);
+            this.ServiceRequest.ApplicationModel.BusinessId = this.ServiceRequest.AuthorizationContext.BusinessId;
 
             this.ServiceResponse = this.ApplicationService.Update(this.ServiceRequest);
 
@@ -175,7 +176,7 @@ namespace Kbit.ControlCentre.Controllers
             return this.Json(this.ServiceResponse);
         }
 
-        public IEnumerable<ViewEditUserVm> GetBusinessUsers()
+        private IEnumerable<ViewEditUserVm> GetBusinessUsers()
         {
             UserServiceRequest request = new UserServiceRequest();
             request.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];

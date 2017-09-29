@@ -5,18 +5,27 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing
 {
-    public abstract class ProductListing: AggregateRoot
+    public abstract class ProductListing: BusinessEntity
     {
-        protected ProductListing(Business.Business business, Customer.Customer customer)
+        protected ProductListing(Business.Business business)
         {
             this.Business = business;
-            this.Customer = customer;
+            this.DateTime = DateTime.Now;
         }
 
-        public Business.Business Business { get; }
-        public Customer.Customer Customer { get; }
-        public DateTime DateTime { get; } = DateTime.Now;
-        public ICollection<ProductListingItem> ProductListingItems { get; } = new List<ProductListingItem>();
+        public virtual string ProductListingUniqueIdentifier { get; private set; } = string.Empty;
+        public Business.Business Business { get; private set; }
+        public Customer.Customer Customer { get; private set; }
+        public DateTime DateTime { get; private set; }
+        public ICollection<ProductListingItem> ProductListingItems { get; private set; } = new List<ProductListingItem>();
+
+        public void AssignCustomer(Customer.Customer customer)
+        {
+            if(customer == null)
+                throw new InvalidOperationException("Can not assign invalid Customer to Product Listing.");
+
+            this.Customer = customer;
+        }
 
         public void  AddProductListingItem(ProductListingItem productListingItem)
         {
@@ -28,12 +37,12 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
 
         public decimal CalculateSubTotalForAllProducts()
         {
-            return 0;
+            return this.ProductListingItems.Sum(x => x.CalculateAmount());
         }
 
         public decimal CalculateTotalDiscountForAllProducts()
         {
-            return 0;
+            return this.ProductListingItems.Sum(x => x.CalculateTotalDiscount());
         }
 
         public decimal CalculateTotalForAllProducts()

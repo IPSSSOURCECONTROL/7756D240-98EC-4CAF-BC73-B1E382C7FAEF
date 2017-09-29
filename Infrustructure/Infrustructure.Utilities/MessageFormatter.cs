@@ -8,7 +8,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
 {
     public class MessageFormatter
     {
-        public static object FormatException(Exception exception)
+        public static object FormatException(System.Exception exception)
         {
             StringBuilder errorMessage = new StringBuilder();
 

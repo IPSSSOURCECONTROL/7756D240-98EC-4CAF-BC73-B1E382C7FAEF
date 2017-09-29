@@ -45,7 +45,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Test description", pricingClassification, null);
+            Product expectedProduct = new Product("Test description", "test code",pricingClassification, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(expectedProduct);
@@ -65,7 +65,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Test description2", pricingClassification, null);
+            Product expectedProduct = new Product("Test description2", "test code", pricingClassification, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(expectedProduct);
@@ -87,7 +87,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Deleted Product", pricingClassification, null);
+            Product testProduct = new Product("Deleted Product", "test code", pricingClassification, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
@@ -104,7 +104,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Non-Existent Product", pricingClassification,null);
+            Product expectedProduct = new Product("Non-Existent Product", "",pricingClassification,null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Delete(expectedProduct);
@@ -118,8 +118,8 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
             PricingClassification pricingClassification2 = new PerDayClassification(200, new NoVat());
 
-            Product testProduct1 = new Product("Test Get All Products 1", pricingClassification1, null);
-            Product testProduct2 = new Product("Test Get All Products 2", pricingClassification2, null);
+            Product testProduct1 = new Product("Test Get All Products 1", "", pricingClassification1, null);
+            Product testProduct2 = new Product("Test Get All Products 2", "", pricingClassification2, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct1);
@@ -147,7 +147,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Get By ID", pricingClassification1, null);
+            Product testProduct = new Product("Test Get By ID", "", pricingClassification1, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
@@ -169,7 +169,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Is Exists True", pricingClassification1, null);
+            Product testProduct = new Product("Test Is Exists True", "", pricingClassification1, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(testProduct);
@@ -185,7 +185,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification1 = new PerUnitClassification(100, new Vat());
 
-            Product testProduct = new Product("Test Is Exists False", pricingClassification1, null);
+            Product testProduct = new Product("Test Is Exists False", "", pricingClassification1, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
 
@@ -210,7 +210,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product initialProduct = new Product("Test New Product To Be Updated", pricingClassification, null);
+            Product initialProduct = new Product("Test New Product To Be Updated", "", pricingClassification, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Add(initialProduct);
@@ -234,7 +234,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Repository.Tes
         {
             PricingClassification pricingClassification = new PerUnitClassification(100, new Vat());
 
-            Product expectedProduct = new Product("Another Non-Existent Product", pricingClassification, null);
+            Product expectedProduct = new Product("Another Non-Existent Product", "test code", pricingClassification, null);
 
             IProductRepository target = this._autoResolver.Resolve<IProductRepository>();
             target.Update(expectedProduct);

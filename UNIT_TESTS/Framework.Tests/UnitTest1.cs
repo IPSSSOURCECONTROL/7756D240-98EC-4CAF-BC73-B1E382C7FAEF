@@ -2,12 +2,19 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Business;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Configuration;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Reflection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.ApplicationFunction;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.Role;
 using KhanyisaIntel.Kbit.Framework.Security.Domain.ApplicationFunction;
@@ -284,6 +291,41 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             IEnumerable<ApplicationFunction> deletedApplicationFunctions = repository.GetAll();
 
             Assert.IsTrue(!deletedApplicationFunctions.Any());
+        }
+
+        [TestMethod]
+        public void TestPolymorphicTyeNameProvider()
+        {
+            IPolymorphicTyeNameProvider target = this._iocContainer.Resolve<IPolymorphicTyeNameProvider>();
+
+            Assert.IsNotNull(target);
+
+            var polymorphicTypeNames = target.GetPolymorphicTypeNamesForBaseType<PricingClassification>();
+
+            Assert.IsNotNull(polymorphicTypeNames);
+        }
+
+        [TestMethod]
+        public void TestCostEstimateListing()
+        {
+            IBusinessRepository repository = this._iocContainer.Resolve<IBusinessRepository>();
+            ICustomerRepository customerRepository = this._iocContainer.Resolve<ICustomerRepository>();
+            IProductRepository productRepository = this._iocContainer.Resolve<IProductRepository>();
+
+            Business business = repository.GetAll().FirstOrDefault();
+
+            Customer customer = customerRepository.GetAll().FirstOrDefault(x => x.BusinessId == business.Id);
+
+            Product product1 = productRepository.GetAll().FirstOrDefault(x => x.BusinessId == business.Id);
+
+            CostEstimateListing costEstimateListing = new CostEstimateListing(business);
+
+            ProductListingItem productListingItem = new ProductListingItem(product1);
+            productListingItem.Quantity = 56;
+            productListingItem.ApplyDiscount(23.36m);
+
+            costEstimateListing.AddProductListingItem(productListingItem);
+           
         }
     }
 }

@@ -52,6 +52,10 @@
     <Compile Include="WorkflowStepsExecutionStrategy.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infrustructure.AOP.Attributes\Infrustructure.AOP.Attributes.csproj">
+      <Project>{FCEFD633-BB12-4EA8-99CA-3C593B1F4D52}</Project>
+      <Name>Infrustructure.AOP.Attributes</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Infrustructure.Domain\Infrustructure.Domain.csproj">
       <Project>{63EF9E71-4A1B-4FAF-924E-A6D5AF892E21}</Project>
       <Name>Infrustructure.Domain</Name>

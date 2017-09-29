@@ -27,7 +27,11 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
             {
                 Domain.Business.Business business = new Domain.Business.Business(applicationModel.Name, address,
                 contactDetails, billingInformation);
-                business.SetStatus(applicationModel.IsActive);
+                
+                if(applicationModel.IsActive)
+                    business.Activate();
+                else
+                    business.Deactivate();
 
                 return business;
             }
@@ -36,7 +40,12 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Bus
                 Domain.Business.Business business = new Domain.Business.Business(applicationModel.Name, address,
                     contactDetails, billingInformation);
                 business.Id = applicationModel.Id;
-                business.SetStatus(applicationModel.IsActive);
+
+                if (applicationModel.IsActive)
+                    business.Activate();
+                else
+                    business.Deactivate();
+
                 return business;
             }
         }

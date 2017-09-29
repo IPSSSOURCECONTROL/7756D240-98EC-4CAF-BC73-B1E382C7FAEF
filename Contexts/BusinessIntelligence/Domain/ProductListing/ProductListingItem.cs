@@ -15,7 +15,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
 
         public decimal Discount { get; private set; }
         public int Quantity { get; set; }
-        public Product.Product Product { get; }
+        public Product.Product Product { get; private set; }
 
         public void ApplyDiscount(decimal discount)
         {
@@ -24,12 +24,13 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
 
         public decimal CalculateAmount()
         {
-            return 0;
+            return this.Product.PricingClassification.Rate * this.Quantity;
         }
 
         public decimal CalculateTotalDiscount()
         {
-            return 0;
+            decimal discount = this.CalculateAmount() * (this.Discount/100);
+            return this.CalculateAmount() - discount;
         }
     }
 }

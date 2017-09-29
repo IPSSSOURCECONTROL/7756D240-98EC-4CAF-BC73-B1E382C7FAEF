@@ -1,12 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Customer
 {
     public class CustomerFactory: IDomainFactory<Domain.Customer.Customer, CustomerAm>
     {
+        private IBasicRepository<Domain.Business.Business> _businessRepository;
+
+        public CustomerFactory(IBasicRepository<Domain.Business.Business> businessRepository)
+        {
+            this._businessRepository = businessRepository;
+        }
+
         [ValidateMethodArguments]
         public Domain.Customer.Customer BuildDomainEntityType(CustomerAm applicationModel, bool isNew = true)
         {
@@ -27,8 +37,11 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Cus
 
             Domain.Customer.Customer customer=  new Domain.Customer.Customer(
                 applicationModel.Name, 
+                applicationModel.Code,
                 address, contactDetails, 
                 billingInformation, applicationModel.BusinessId);
+
+            //this.BuildProductListings(customer, applicationModel);
 
             if (!isNew)
             {
@@ -43,6 +56,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Cus
             CustomerAm applicationModel = new CustomerAm();
             applicationModel.Id = domainEntity.Id;
             applicationModel.Name = domainEntity.Name;
+            applicationModel.Code = domainEntity.Code;
             applicationModel.AddressLineOne = domainEntity.Address.AddressLineOne;
             applicationModel.AddressLineTwo = domainEntity.Address.AddressLineTwo;
             applicationModel.Street = domainEntity.Address.Street;
@@ -62,6 +76,12 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Factories.Cus
             applicationModel.RepresentativeId = domainEntity.Representative.Id;
             applicationModel.BusinessId = domainEntity.BusinessId;
 
+            applicationModel.CostEstimateCount =
+                domainEntity.GetSpecificProductListingTypes<CostEstimateListing>().Count();
+            applicationModel.CreditNoteCount =
+                domainEntity.GetSpecificProductListingTypes<CreditListing>().Count();
+            applicationModel.InvoiceNoteCount =
+                domainEntity.GetSpecificProductListingTypes<InvoiceListing>().Count();
             return applicationModel;
         }
 

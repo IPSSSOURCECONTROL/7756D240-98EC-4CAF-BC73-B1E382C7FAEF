@@ -9,7 +9,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
 {
     public abstract class ApplicationModelBase
     {
-        public ApplicationModelBase()
+        protected ApplicationModelBase()
         {
         }
         public virtual string BusinessId { get; set; }
@@ -28,8 +28,8 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model
 
             foreach (PropertyInfo property in properties)
             {
-                var asdasd = property.GetValue(this);
-                ValidationUtility.CheckField(asdasd,
+                object propertyValue = property.GetValue(this);
+                ValidationUtility.CheckField(propertyValue,
                     MessageFormatter.IsARequiredField(property.Name),
                     MethodBase.GetCurrentMethod());
             }

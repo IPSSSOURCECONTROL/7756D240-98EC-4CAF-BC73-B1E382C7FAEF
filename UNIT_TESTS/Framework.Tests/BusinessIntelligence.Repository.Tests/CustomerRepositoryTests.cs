@@ -63,7 +63,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryAdd_MustCreateANewCustomer()
         {
-            Customer expectedCustomer = new Customer("My Customer 1" ,this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("My Customer 1" , "test Code",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -92,7 +92,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(EntityAlreadyExistException))]
         public void TestCustomerRepositoryAdd_MustNotCreateANewCustomerDueToCustomerAlreadyExisting()
         {
-            Customer expectedCustomer = new Customer("My Customer Already Existing", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("My Customer Already Existing", "asdasd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -113,7 +113,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryDelete_MustDeleteExistingCustomer()
         {
-            Customer expectedCustomer = new Customer("My Customer To Delete", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("My Customer To Delete", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -129,7 +129,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(EntityDoesNotExistException))]
         public void TestCustomerRepositoryDelete_MustNotDeleteCustomerDueToCustomerNotExisting()
         {
-            Customer expectedCustomer = new Customer("My Customer That Does Not Exist", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("My Customer That Does Not Exist","asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -141,9 +141,9 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryGetAll_MustReturnAllExistingCustomers()
         {
-            Customer expectedCustomer1 = new Customer("Get All Customer 1", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer1 = new Customer("Get All Customer 1", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
-            Customer expectedCustomer2 = new Customer("Get All Customer 2", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer2 = new Customer("Get All Customer 2", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId456");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -164,7 +164,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryGetByID_MustReturnAnExistingCustomer()
         {
-            Customer expectedCustomer = new Customer("Test Get By ID", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("Test Get By ID", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -195,7 +195,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryIsExists_MustReturnTrueGivenAnExistingCustomer()
         {
-            Customer expectedCustomer = new Customer("Test Is Exist Customer", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("Test Is Exist Customer", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -210,7 +210,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryIsExists_MustReturnFalseGivenANonExistingCustomer()
         {
-            Customer expectedCustomer = new Customer("Test Is Exist Customer", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("Test Is Exist Customer", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -234,7 +234,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [TestMethod]
         public void TestCustomerRepositoryUpdate_MustUpdateAnExistingCustomer()
         {
-            Customer initialCustomer = new Customer("Test Is Exist Customer", this._address, this._contactDetails, this._representative,
+            Customer initialCustomer = new Customer("Test Is Exist Customer", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();
@@ -247,7 +247,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
                 , "UpdatedTownOrCity"
                 , "UpdatedPostalCode");
 
-            Customer updatingCustomer = new Customer("Test Is Exist Customer", updatedAddress, this._contactDetails, this._representative,
+            Customer updatingCustomer = new Customer("Test Is Exist Customer","asdsd", updatedAddress, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             updatingCustomer.Id = initialCustomer.Id;
@@ -279,7 +279,7 @@ namespace Framework.Tests.BusinessIntelligence.Repository.Tests
         [ExpectedException(typeof(EntityDoesNotExistException))]
         public void TestCustomerRepositoryUpdate_MustThrowExceptionDueToCustomerNotExisting()
         {
-            Customer expectedCustomer = new Customer("Test Non-Existent Customer", this._address, this._contactDetails, this._representative,
+            Customer expectedCustomer = new Customer("Test Non-Existent Customer", "asdsd",this._address, this._contactDetails, this._representative,
                 this._billingInformation, "BusinessId123");
 
             ICustomerRepository target = _autoResolver.Resolve<ICustomerRepository>();

@@ -70,7 +70,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factori
                 Description = "Some Description",
                 PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                 Rate = pricingClassification.Rate,
-                Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
             };
 
             Product product = target.BuildDomainEntityType(productAm);
@@ -78,7 +78,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factori
             Assert.IsNotNull(product);
             Assert.AreEqual(productAm.Description, product.Description);
             Assert.AreEqual(productAm.PricingClassification, product.PricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter());
-            Assert.AreEqual(productAm.Vat, product.PricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter());
+            Assert.AreEqual(productAm.VatClassification, product.PricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter());
             Assert.AreEqual(productAm.Rate, product.PricingClassification.Rate);
         }
 
@@ -94,7 +94,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factori
                 Description = "Some Description 123",
                 PricingClassification = pricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(),
                 Rate = pricingClassification.Rate,
-                Vat = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
+                VatClassification = pricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter()
             };
 
             Product product = target.BuildDomainEntityType(productAm);
@@ -106,7 +106,7 @@ namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factori
 
             Assert.IsNotNull(applicationModel);
             Assert.AreEqual(product.PricingClassification.GetType().Name.InsertSpaceAfterCapitalLetter(), applicationModel.PricingClassification);
-            Assert.AreEqual(product.PricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter(), applicationModel.Vat);
+            Assert.AreEqual(product.PricingClassification.Vat.GetType().Name.InsertSpaceAfterCapitalLetter(), applicationModel.VatClassification);
             Assert.AreEqual(product.PricingClassification.Rate, applicationModel.Rate);
             Assert.AreEqual(product.Description, applicationModel.Description);
         }

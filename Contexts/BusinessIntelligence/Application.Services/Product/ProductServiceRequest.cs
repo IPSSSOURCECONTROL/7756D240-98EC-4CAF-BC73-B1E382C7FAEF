@@ -5,5 +5,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 {
     public class ProductServiceRequest : ServiceRequestBase<ProductAm>
     {
+        public int Quantity { get; set; }
+        public decimal Discount { get; set; }
     }
 }

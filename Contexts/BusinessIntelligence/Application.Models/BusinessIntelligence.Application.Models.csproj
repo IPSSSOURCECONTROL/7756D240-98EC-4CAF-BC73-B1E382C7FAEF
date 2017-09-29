@@ -53,6 +53,7 @@
     <Compile Include="CustomerAm.cs" />
     <Compile Include="ProductAm.cs" />
     <Compile Include="ProductListingAm.cs" />
+    <Compile Include="ProductListingItemAm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VatAm.cs" />
   </ItemGroup>

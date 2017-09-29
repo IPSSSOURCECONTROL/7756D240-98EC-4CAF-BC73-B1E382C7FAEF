@@ -83,6 +83,8 @@ namespace Kbit.ControlCentre.Models
         {
         }
 
+
+        public string BusinessId { get; set; }
         public string Message { get; set; } = string.Empty;
         public bool ServiceResult { get; set; } = false;
     }
