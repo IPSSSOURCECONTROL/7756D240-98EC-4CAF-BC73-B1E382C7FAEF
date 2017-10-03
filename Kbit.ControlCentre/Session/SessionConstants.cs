@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Kbit.ControlCentre.Session
+﻿namespace Kbit.ControlCentre.Session
 {
     public static class SessionConstants
     {

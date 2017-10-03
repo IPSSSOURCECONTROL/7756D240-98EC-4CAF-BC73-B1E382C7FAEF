@@ -41,11 +41,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product
             this.PricingClassification = pricingClassification;
         }
 
-        protected override string GetTypeName()
-        {
-            return this.GetType().Name;
-        }
-
         public decimal CalculateTotalAmount(int quantity, decimal discount)
         {
             decimal totalWithoutDiscount = quantity * this.PricingClassification.Rate;
@@ -56,7 +51,35 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product
 
             decimal totalVat = totalWithoutVatApplied * (this.PricingClassification.Vat.Percentage/100);
 
-            return totalWithoutVatApplied + totalVat;
+            return Math.Round(totalWithoutVatApplied + totalVat,2);
         }
+
+        public decimal CalculateTotalDiscount(int quantity, decimal discount)
+        {
+            decimal totalWithoutDiscount = quantity * this.PricingClassification.Rate;
+
+            decimal totalDiscountWithoutVatApplied = totalWithoutDiscount * (discount / 100);
+
+            decimal totalVat = totalDiscountWithoutVatApplied * (this.PricingClassification.Vat.Percentage / 100);
+
+            return Math.Round(totalDiscountWithoutVatApplied + totalVat, 2);
+        }
+
+        public decimal CalculateTotalVat(int quantity, decimal discount)
+        {
+            decimal totalWithoutDiscount = quantity * this.PricingClassification.Rate;
+
+            decimal totalDiscount = totalWithoutDiscount * (discount / 100);
+
+            decimal totalWithoutVatApplied = totalWithoutDiscount - totalDiscount;
+
+            return Math.Round(totalWithoutVatApplied * (this.PricingClassification.Vat.Percentage / 100), 2);
+        }
+
+        protected override string GetTypeName()
+        {
+            return this.GetType().Name;
+        }
+
     }
 }

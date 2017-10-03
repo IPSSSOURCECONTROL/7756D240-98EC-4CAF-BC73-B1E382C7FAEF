@@ -5,8 +5,6 @@ using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 
 namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factories.Tests

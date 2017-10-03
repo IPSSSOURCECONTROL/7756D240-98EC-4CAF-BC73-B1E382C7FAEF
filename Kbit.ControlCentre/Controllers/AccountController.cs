@@ -9,7 +9,6 @@ using Microsoft.Owin.Security;
 using Kbit.ControlCentre.Models;
 using Kbit.ControlCentre.Session;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace Kbit.ControlCentre.Controllers

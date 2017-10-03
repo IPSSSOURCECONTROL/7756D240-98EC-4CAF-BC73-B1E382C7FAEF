@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Business;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Product;

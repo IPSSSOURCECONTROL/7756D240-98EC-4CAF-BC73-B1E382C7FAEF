@@ -15,5 +15,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         }
 
         public decimal TotalAmount { get; set; } = 0.00m;
+        public decimal TotalDiscount { get; set; } = 0.00m;
+        public decimal TotalVat { get; set; } = 0.00m;
     }
 }

@@ -20,5 +20,10 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
             Type type = obj.GetType();
             return type.Name.InsertSpaceAfterCapitalLetter();
         }
+
+        public static string Abbreviate(this string name)
+        {
+            return null;
+        }
     }
 }

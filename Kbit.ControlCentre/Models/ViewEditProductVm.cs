@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using AutoMapper.Attributes;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 

@@ -7,6 +7,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
     {
         [AuthorizeAction]
         [ServiceRequestMethod]
-        ProductResponse CalculateProductTotal(ProductServiceRequest request);
+        ProductResponse CalculateProductTotals(ProductServiceRequest request);
     }
 }

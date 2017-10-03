@@ -1,6 +1,4 @@
-﻿using System;
-using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Business;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Product;

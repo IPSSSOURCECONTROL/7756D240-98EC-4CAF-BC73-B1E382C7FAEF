@@ -1,6 +1,5 @@
 ﻿@using Kbit.ControlCentre.IdentityExtensions
 @using Kbit.ControlCentre.Session
-@using KhanyisaIntel.Kbit.Framework.Security.Domain.User
 
 <!DOCTYPE html>
 <html>
@@ -60,7 +59,7 @@
             <ul class="nav navbar-nav no-borders">
                 <li>
                     @*<a href="#" id="sidebar" class="right-sidebar-toggle ">*@
-                    <a href="#" id="sidebar1" class="right-sidebar-toggle ">
+                    <a href="#" id="sidebar1" class="">
                         <i class="btn btn-xs btn-success btn-circle"></i>
                         <span style="font-size: 15px;">@Session[SessionConstants.CurrentUserName].ToString()</span>
 
@@ -81,31 +80,7 @@
 
             @if (User.Identity.IsAuthenticated)
             {
-                <li>
-                    <a href="#"><i class="fa fa-address-book"></i><span class="nav-label"> Master Data</span><span class="fa arrow"></span> </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="@Url.Action("index", "Customer")"><i class="fa fa-male"></i> <span> Customers</span></a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("index", "Product")"><i class="fa fa-product-hunt"></i> <span> Products</span></a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="fa fa-credit-card"></i><span class="nav-label"> Core Business</span><span class="fa arrow"></span> </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="@Url.Action("Index", "CostEstimate")"><i class="fa fa-cart-plus"></i> <span>Cost Estimates</span></a></li>
-                        <li><a href="@Url.Action("index", "InvoiceNote")"><i class="fa fa-money"></i> <span>Invoices</span></a></li>
-                        <li><a href="@Url.Action("index", "CreditNote")"><i class="fa fa-money"></i> <span>Credits</span></a></li>
-                    </ul>
-                </li>
-                <li class="active">
-                    <a href="@Url.Action("index", "DashBoard")"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
-                </li>
-                <li>
-                    <a href="@Url.Action("index", "Analytics")"><i class="fa fa-bar-chart"></i> <span>Analytics</span></a>
-                </li>
+
                 if (User.Identity.IsAdminRole((string) Session[SessionConstants.CurrentUserRole]))
                 {
                     <li>
@@ -119,6 +94,31 @@
                 }
                 else
                 {
+                    <li>
+                        <a href="#"><i class="fa fa-address-book"></i><span class="nav-label"> Master Data</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="@Url.Action("index", "Customer")"><i class="fa fa-male"></i> <span> Customers</span></a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("index", "Product")"><i class="fa fa-product-hunt"></i> <span> Products</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-credit-card"></i><span class="nav-label"> Core Business</span><span class="fa arrow"></span> </a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="@Url.Action("Index", "CostEstimate")"><i class="fa fa-cart-plus"></i> <span>Cost Estimates</span></a></li>
+                            <li><a href="@Url.Action("index", "InvoiceNote")"><i class="fa fa-money"></i> <span>Invoices</span></a></li>
+                            <li><a href="@Url.Action("index", "CreditNote")"><i class="fa fa-money"></i> <span>Credits</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="@Url.Action("index", "DashBoard")"><i class="fa fa-tachometer"></i> <span>Dashboard</span></a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("index", "Analytics")"><i class="fa fa-bar-chart"></i> <span>Analytics</span></a>
+                    </li>
                     <li>
                         <a href="@Url.Action("Index", "User")"><i class="fa fa-users"></i> <span>Users</span></a>
                     </li>
@@ -249,9 +249,9 @@
     <!-- Footer-->
     <footer class="footer">
         <span class="pull-right">
-            Example text
+            
         </span>
-        Company 2015-2020
+        Khanyisa Intel.
     </footer>
 </div>
 

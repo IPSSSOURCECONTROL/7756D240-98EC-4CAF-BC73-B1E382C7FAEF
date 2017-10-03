@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
 {

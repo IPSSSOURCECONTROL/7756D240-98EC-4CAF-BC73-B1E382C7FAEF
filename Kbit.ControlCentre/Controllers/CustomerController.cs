@@ -7,7 +7,6 @@ using Kbit.ControlCentre.Session;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
 using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
 
 namespace Kbit.ControlCentre.Controllers

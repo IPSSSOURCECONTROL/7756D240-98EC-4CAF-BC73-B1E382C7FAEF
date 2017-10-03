@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Kbit.ControlCentre.Cors;
@@ -12,6 +10,7 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Bus
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Product;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace Kbit.ControlCentre.Controllers
 {
@@ -20,11 +19,14 @@ namespace Kbit.ControlCentre.Controllers
     {
         private readonly IBusinessService _businessService;
         private readonly IProductService _productService;
+        private readonly IUniqueValueGenerator _uniqueValueGenerator;
 
-        public CostEstimateController(IBusinessService businessService, IProductService productService)
+        public CostEstimateController(IBusinessService businessService, 
+            IProductService productService, IUniqueValueGenerator uniqueValueGenerator)
         {
             this._businessService = businessService;
             this._productService = productService;
+            this._uniqueValueGenerator = uniqueValueGenerator;
         }
 
         public ActionResult Index()
@@ -81,6 +83,7 @@ namespace Kbit.ControlCentre.Controllers
 
             viewModel.Customer = Mapper.Map<ViewEditCustomerVm>(this.ServiceResponse.ApplicationModel);
             viewModel.Business = Mapper.Map<ViewEditBusinessVm>(this.GetBusiness());
+            viewModel.ProductListingNumber = $"CE{this._uniqueValueGenerator.GenerateUniqueValue()}";
             Mapper.Map(this.GetBusinessProducts(), viewModel.Products);
             viewModel.ServiceResult = true;
 
@@ -145,7 +148,7 @@ namespace Kbit.ControlCentre.Controllers
             request.Discount = productDetails.Discount;
             request.Quantity = productDetails.Quantity;
 
-            ProductResponse response = this._productService.CalculateProductTotal(request);
+            ProductResponse response = this._productService.CalculateProductTotals(request);
             CalculateProductListItemTotalAmountVm viewModel = new CalculateProductListItemTotalAmountVm();
 
             if (response.ServiceResult != ServiceResult.Success)
@@ -160,23 +163,42 @@ namespace Kbit.ControlCentre.Controllers
             return this.Json(viewModel, JsonRequestBehavior.AllowGet);
         }
 
-        [HttpGet]
+        [HttpPost]
         [JsonNetFilter]
         public ActionResult CalculateProductListSubTotalAmounts(List<ProductLineItemVm> productDetailsArray)
-        {
-            return null; // throw new NotImplementedException();
+        {         
+            ProductListingFooterTotalsVm viewModel = new ProductListingFooterTotalsVm();
+
+            if (productDetailsArray == null)
+            {
+                viewModel.ServiceResult = true;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            foreach (ProductLineItemVm productDetails in productDetailsArray)
+            {
+                ProductServiceRequest request = new ProductServiceRequest();
+                request.AuthorizationContext.UserId = (string)this.Session[SessionConstants.CurrentUserName];
+                request.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
+                request.EntityId = productDetails.ProductId;
+                request.Discount = productDetails.Discount;
+                request.Quantity = productDetails.Quantity;
+                 
+                ProductResponse response = this._productService.CalculateProductTotals(request);
+                if (response.ServiceResult != ServiceResult.Success)
+                {
+
+                    viewModel.ServiceResult = false;
+                    viewModel.Message = response.Message;
+                    return this.Json(response, JsonRequestBehavior.AllowGet);
+                }
+                viewModel.SubTotal +=response.TotalAmount;
+                viewModel.TotalDiscount += response.TotalDiscount;
+                viewModel.TotalVat += response.TotalVat;
+            }
+
+            viewModel.ServiceResult = true;
+            return this.Json(viewModel, JsonRequestBehavior.AllowGet);
         }
-    }
-
-    public class CalculateProductListItemTotalAmountVm : ViewModelBase
-    {
-        public decimal TotalAmount { get; set; } = 0.00m;
-    }
-
-    public class ProductLineItemVm
-    {
-        public string ProductId { get; set; }
-        public decimal Discount { get; set; }
-        public int Quantity { get; set; }
     }
 }

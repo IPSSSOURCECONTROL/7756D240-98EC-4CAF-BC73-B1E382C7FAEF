@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.DependencyInjection;
 using KhanyisaIntel.Kbit.Framework.DependencyInjection;
@@ -9,12 +8,6 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Exception;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Models;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.LicenseSpecification;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.AccountStatusTypes;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User.PasswordTypes;
 
 namespace KhanyisaIntel.Kbit.Framework.Tests.BusinessIntelligence.Domain.Factories.Tests
 {

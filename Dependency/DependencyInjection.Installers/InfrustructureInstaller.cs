@@ -34,6 +34,9 @@ namespace KhanyisaIntel.Kbit.Framework.DependencyInjection.Installers
             container.Register(Component.For<IPolymorphicTyeNameProvider>()
                 .ImplementedBy<PolymorphicTyeNameProvider>());
 
+            container.Register(Component.For<IUniqueValueGenerator>()
+                .ImplementedBy<UniqueValueGenerator>());
+
             this.InstallAop(container);
         }
 

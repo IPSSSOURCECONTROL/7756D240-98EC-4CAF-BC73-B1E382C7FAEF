@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using AutoMapper.Attributes;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 
@@ -87,6 +84,7 @@ namespace Kbit.ControlCentre.Models
 
         public int CreditNoteCount { get; set; }
 
+        [Display(Name = "Account Manager")]
         public string RepresentativeId { get; set; } = string.Empty;
 
         public IEnumerable<ViewEditUserVm> Users { get; set; }=new List<ViewEditUserVm>();

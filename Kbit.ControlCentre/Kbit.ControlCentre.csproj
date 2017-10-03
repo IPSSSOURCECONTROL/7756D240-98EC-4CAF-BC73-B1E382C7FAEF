@@ -210,6 +210,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Models\CalculateProductListItemTotalAmountVm.cs" />
     <Compile Include="Controllers\CostEstimateController.cs" />
     <Compile Include="Controllers\CreditNoteController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
@@ -218,6 +219,8 @@
     <Compile Include="Controllers\InvoiceNoteController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Models\ProductLineItemVm.cs" />
+    <Compile Include="Models\ProductListingFooterTotalsVm.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Models\ViewEditCostEstimateVm.cs" />
     <Compile Include="Cors\AllowCrossSiteAttribute.cs" />

@@ -13,7 +13,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
         ProductAm>,
         IProductService
     {
-        public ProductResponse CalculateProductTotal(ProductServiceRequest request)
+        public ProductResponse CalculateProductTotals(ProductServiceRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.EntityId))
             {
@@ -30,7 +30,8 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
             else
             {
                 this.Response.TotalAmount = domainEntityType.CalculateTotalAmount(request.Quantity, request.Discount);
-                //this.Response.
+                this.Response.TotalDiscount = domainEntityType.CalculateTotalDiscount(request.Quantity, request.Discount);
+                this.Response.TotalVat = domainEntityType.CalculateTotalVat(request.Quantity, request.Discount);
                 this.Response.RegisterSuccess();
             }
 

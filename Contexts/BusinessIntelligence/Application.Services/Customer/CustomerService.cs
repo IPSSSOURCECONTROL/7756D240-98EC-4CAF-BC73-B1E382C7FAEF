@@ -1,5 +1,7 @@
-﻿using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
+﻿using System;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;

@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Principal;
-using System.Web;
-using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
-using KhanyisaIntel.Kbit.Framework.Security.Application.Services.User;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.Role;
-using KhanyisaIntel.Kbit.Framework.Security.Domain.User;
+﻿using System.Security.Principal;
 using KhanyisaIntel.Kbit.Framework.Security.Repository.Interfaces;
 
 namespace Kbit.ControlCentre.IdentityExtensions
