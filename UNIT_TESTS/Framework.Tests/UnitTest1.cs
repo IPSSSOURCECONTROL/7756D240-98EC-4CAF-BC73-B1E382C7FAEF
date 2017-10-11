@@ -320,8 +320,8 @@ namespace KhanyisaIntel.Kbit.Framework.Tests
             CostEstimateListing costEstimateListing = new CostEstimateListing(business);
 
             ProductListingItem productListingItem = new ProductListingItem(product1);
-            productListingItem.Quantity = 56;
-            productListingItem.ApplyDiscount(23.36m);
+            //productListingItem.Quantity = 56;
+            //productListingItem.ApplyDiscount(23.36m);
 
             costEstimateListing.AddProductListingItem(productListingItem);
            

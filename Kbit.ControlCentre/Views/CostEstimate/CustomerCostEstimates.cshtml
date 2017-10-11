@@ -1,23 +1,22 @@
 ﻿@using Kbit.ControlCentre.Session
-@model dynamic
+@model Kbit.ControlCentre.Models.IndexCustomerProductListingVm
 
 @{
-    ViewBag.Title = "Products";
+    ViewBag.Title = "CustomerProductListing";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <div class="row">
     <div class="normalheader  small-header">
         <div class="hpanel">
             <div class="panel-body">
                 <div id="hbreadcrumb" class="pull-right">
-                    @Html.ActionLink("Add New", "LoadNewProductView", "Product", new { }, new { @class = "btn btn-primary btn-sm button-150" })
+                   
                 </div>
                 <h2 class="font-light m-b-xs">
-                    Product Definition
+                    @Model.CustomName - Cost Estimates
                 </h2>
-                <small>Add, modify or delete Products</small>
+                <small>Add, modify or delete Customer Cost Estimates</small>
             </div>
         </div>
     </div>
@@ -25,30 +24,28 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <div>
 
+        <div>
         </div>
+
         <div class="hpanel hyellow" style="">
             <div class="panel-heading">
-                Product Definition
+                All Customer Cost Estimates
             </div>
             <div class="panel-body">
 
                 <div class="dataTables_wrapper form-inline">
                     <div class="row">
                         <div class="col-sm-12">
-                            <div class="table-responsive">
-                                <table id="ProductMaster" class="table table-bordered table-hover">
+                            <div class="table-responsive m-t">
+                                <table id="customerProductListings" class="table table-bordered table-hover">
                                     <thead>
-                                    <tr>
-                                        <th>Code</th>
-                                        <th>Description</th>
-                                        <th>Pricing Classification</th>
-                                        <th>Rate</th>
-                                        <th>Vat Classification</th>
-                                        <td>...</td>
-                                        <td>...</td>
-                                    </tr>
+                                        <tr>
+                                            <th>Cost Estimate Name</th>
+                                            <th>Date Time</th>
+                                            <td>...</td>
+                                            <td>...</td>
+                                        </tr>
                                     </thead>
                                     <tbody></tbody>
                                 </table>
@@ -56,9 +53,18 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+    </div>
+</div>
+
+
+<div class="action-panel-box">
+    <div class="pull-right">
+        @Html.ActionLink(" Back", "Index", "CostEstimate", new { }, new { @class = "btn btn-warning btn-sm button-150" })
+    </div>
+    <div class="pull-left">
+        @Html.ActionLink("Add New", "LoadCreateCustomerCostEstimatesView"+"/"+@Model.CustomerId, "CostEstimate", new { }, new { @class = "btn btn-warning btn-sm button-150" })       
     </div>
 </div>
 
@@ -66,74 +72,67 @@
 {
     <script type="text/javascript">
         $(document).ready(function() {
-
-            var renderedTable = $("#ProductMaster").DataTable({
-                reponsive: true,
+            $(".hide-menu").click();
+            var renderedTable = $("#customerProductListings").DataTable({
+                reponsive: false,
                 ajax: {
-                    url: '@Url.Action("GetAllBusinessProducts", "Product")/@Session[SessionConstants.CurrentUserBusinessId].ToString()',
+                    url: '@Url.Action("GetCustomerCostEstimates", "CostEstimate")/@Model.CustomerId',
                     dataType: "json",
                     dataSrc: ""
                 },
                 columns: [
                     {
-                        data: "productCode"
+                        data: "productListingUniqueIdentifier"
                     },
                     {
-                        data: "description"
-                    },
-                    {
-                        data: "pricingClassification"
-                    },
-                    {
-                        data: "rate"
-                    },
-                    {
-                        data: "vatClassification"
+                        data: "dateTime"
                     },
                     {
                         data: "id",
                         render: function(data, type, applicationModel) {
-                            return "<a href='@Url.Action("EditProduct", "Product")/" +
+                            return "<a href='@Url.Action("LoadEditCustomerCostEstimatesView", "CostEstimate")/" +
                                 applicationModel.id +
                                 "' class='btn btn-default btn-xs'><i class='fa fa-paste'></i> View/Edit</a>";
                         }
                     },
                     {
                         data: "id",
-                        render: function (data, type, applicationModel) {
+                        render: function(data, type, applicationModel) {
                             return "<button class='btn btn-default btn-xs deleteRowButton2' data-ref='" +
-                                applicationModel.id +
+                                applicationModel.productListingUniqueIdentifier +
                                 "' ><i class='fa fa-trash-o'></i> Delete</button>";
                         }
                     }
                 ]
             });
 
-            $('#ProductMaster').on('click',
+            $('#customerProductListings').on('click',
                 '.deleteRowButton2',
-                function (e) {
+                function(e) {
                     var clickedButton = $(this);
-                    var entityid = $(e.target).data("ref");
+                    var id = $(e.target).data("ref");//Product listing Id
+                    var customerId = '@Model.CustomerId';
 
                     swal({
-                        title: "Are you sure?",
-                        text: "Your will not be able to recover this record once it has been deleted!",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, delete it",
-                        cancelButtonText: "No, cancel",
-                        closeOnConfirm: false,
-                        closeOnCancel: false
-                    },
+                            title: "Are you sure?",
+                            text: "Your will not be able to recover this record once it has been deleted!",
+                            type: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, delete it",
+                            cancelButtonText: "No, cancel",
+                            closeOnConfirm: false,
+                            closeOnCancel: false
+                        },
                         function (isConfirm) {
+
                             if (isConfirm) {
                                 $.ajax({
-                                    url: '@Url.Action("DeleteBusinessProduct", "Product")',
+                                    url: '@Url.Action("DeleteCustomerEstimate", "CostEstimate")',
                                     contentType: 'application/json, charset=utf-8',
                                     type: "POST",
-                                    data: JSON.stringify({ id: entityid }),
-                                    success: function (result) {
+                                    data: JSON.stringify({ id: id, customerId: customerId }),
+                                    success: function(result) {
 
                                         if (result.serviceResult != 1) {
                                             swal("Error", result.message, "error");
@@ -142,19 +141,19 @@
                                         }
 
                                         swal({
-                                            title: "Deleted!",
-                                            text: result.message,
-                                            type: "success",
-                                            confirmButtonColor: "#DD6B55",
-                                            confirmButtonText: "Ok"
-                                        },
-                                            function (isConfirmInternal) {
+                                                title: "Deleted!",
+                                                text: result.message,
+                                                type: "success",
+                                                confirmButtonColor: "#DD6B55",
+                                                confirmButtonText: "Ok"
+                                            },
+                                            function(isConfirmInternal) {
 
                                                 renderedTable.row(clickedButton.parents("tr")).remove().draw();
                                             });
 
                                     },
-                                    error: function (error) {
+                                    error: function(error) {
                                         console.log(error);
                                         swal("Error", "Oops! Something went wrong! " + error.message, "error");
                                     }
@@ -167,5 +166,6 @@
                 });
         });
     </script>
+
 
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
+using Kbit.ControlCentre.Controllers.Globals;
 using Kbit.ControlCentre.Cors;
 using Kbit.ControlCentre.Models;
 using Kbit.ControlCentre.Session;
@@ -88,6 +89,59 @@ namespace Kbit.ControlCentre.Controllers
             viewModel.ServiceResult = true;
 
             return this.View("NewCustomerCostEstimate", viewModel);
+        }
+
+        public ActionResult LoadCustomerCostEstimatesView(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return this.RedirectToAction("Index");
+
+            this.ServiceRequest.EntityId = id;
+
+            this.ServiceResponse = this.ApplicationService.GetCostEstimates(this.ServiceRequest);
+
+            IndexCustomerProductListingVm viewModel = new IndexCustomerProductListingVm();
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = this.ServiceResponse.Message;
+                return this.View("CustomerCostEstimates", viewModel);
+            }
+
+            viewModel.CustomerId = id;
+            viewModel.CustomName = this.ServiceResponse.ApplicationModel.Name;
+            Mapper.Map(this.ServiceResponse.ProductListings, viewModel.ProductListings);
+            viewModel.ServiceResult = true;
+
+            return this.View("CustomerCostEstimates", viewModel);
+        }
+
+        [HttpGet]
+        [JsonNetFilter]
+        public ActionResult GetCustomerCostEstimates(string id)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return this.RedirectToAction("Index");
+
+            this.ServiceRequest.EntityId = id;
+
+            this.ServiceResponse = this.ApplicationService.GetCostEstimates(this.ServiceRequest);
+
+            IndexCustomerProductListingVm viewModel = new IndexCustomerProductListingVm();
+
+            List<ProductListingVm> models = new List<ProductListingVm>();
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = this.ServiceResponse.Message;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            Mapper.Map(this.ServiceResponse.ProductListings, viewModel.ProductListings);
+
+            return this.Json(viewModel.ProductListings, JsonRequestBehavior.AllowGet);
         }
 
         private IEnumerable<ProductAm> GetBusinessProducts()
@@ -199,6 +253,53 @@ namespace Kbit.ControlCentre.Controllers
 
             viewModel.ServiceResult = true;
             return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [JsonNetFilter]
+        public ActionResult SaveProductListing(SaveProductListingVm viewModel)
+        {
+            if (viewModel.ProductDetailsArray == null || string.IsNullOrWhiteSpace(viewModel.Id))
+            {
+                viewModel.Message = $"{ControllerText.ServerError} Invalid Operation.";
+                viewModel.ServiceResult = true;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            Mapper.Map(viewModel.ProductDetailsArray, this.ServiceRequest.ProductListingItems);
+
+            this.ServiceRequest.EntityId = viewModel.Id;
+            this.ServiceRequest.ProductListingUniqueIdentifier =
+                viewModel.ProductListingUniqueIdentifier;
+
+            this.ServiceResponse = this.ApplicationService.AddCostEstimate(this.ServiceRequest);
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = this.ServiceResponse.Message;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            viewModel.ServiceResult = true;
+            viewModel.Message = this.ServiceResponse.Message;
+            return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteCustomerEstimate(string id, string customerId)
+        {
+            this.ServiceRequest.EntityId = customerId;
+            this.ServiceRequest.ProductListingUniqueIdentifier = id;
+
+            this.ServiceResponse = this.ApplicationService.DeleteProductListing(this.ServiceRequest);
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                return this.Json(this.ServiceResponse);
+            }
+
+            return this.Json(this.ServiceResponse);
         }
     }
 }

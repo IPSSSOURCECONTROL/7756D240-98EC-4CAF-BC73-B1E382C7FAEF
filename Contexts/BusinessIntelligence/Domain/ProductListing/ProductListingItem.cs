@@ -6,31 +6,34 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
     {
         public ProductListingItem(Product.Product product)
         {
-
             if (product == null)
                 throw new CannotAddNullProductToProductListingException(nameof(product));
 
             this.Product = product;
         }
 
-        public decimal Discount { get; private set; }
-        public int Quantity { get; set; }
+        public decimal TotalAmount { get; private set; }
+        public decimal TotalDiscount { get; private set; }
+        public decimal TotalVat { get; private set; }
+        public int Quantity { get; private set; }
         public Product.Product Product { get; private set; }
 
-        public void ApplyDiscount(decimal discount)
+        public void CalculateAmount(int quantity, decimal discount)
         {
-            this.Discount = discount;
+            this.Quantity = quantity;
+            this.TotalAmount = this.Product.CalculateTotalAmount(quantity, discount);
         }
 
-        public decimal CalculateAmount()
+        public void CalculateTotalDiscount(int quantity, decimal discount)
         {
-            return this.Product.PricingClassification.Rate * this.Quantity;
+            this.Quantity = quantity;
+            this.TotalDiscount = this.Product.CalculateTotalDiscount(quantity, discount);
         }
 
-        public decimal CalculateTotalDiscount()
+        public void CalculateTotalVat(int quantity, decimal discount)
         {
-            decimal discount = this.CalculateAmount() * (this.Discount/100);
-            return this.CalculateAmount() - discount;
+            this.Quantity = quantity;
+            this.TotalVat = this.Product.CalculateTotalVat(quantity, discount);
         }
     }
 }

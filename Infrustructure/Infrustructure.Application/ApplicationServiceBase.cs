@@ -2,6 +2,7 @@
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Serialization;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
@@ -60,6 +61,9 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Application
 
         [MandatoryInjection]
         public IObjectSerializer ObjectSerializer { get; set; }
+
+        [MandatoryInjection]
+        public ILoggingType Logger { get; set; }
 
         [AuthorizeAction]
         [ServiceRequestMethod]

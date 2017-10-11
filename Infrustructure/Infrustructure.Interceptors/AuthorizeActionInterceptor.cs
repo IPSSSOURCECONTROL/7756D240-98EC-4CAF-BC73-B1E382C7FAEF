@@ -14,7 +14,11 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Interceptors
                 invocation.Method.GetAttribute<AuthorizeActionAttribute>();
 
             if (attribute == null)
+            {
                 invocation.Proceed();
+                return;
+            }
+
 
             if (
                 !invocation.MethodInvocationTarget.DeclaringType.GetInterfaces()

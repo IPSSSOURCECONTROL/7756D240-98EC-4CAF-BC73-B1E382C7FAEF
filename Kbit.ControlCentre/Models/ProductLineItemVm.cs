@@ -1,6 +1,10 @@
+using AutoMapper.Attributes;
+using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models;
+
 namespace Kbit.ControlCentre.Models
 {
-    public class ProductLineItemVm
+    [MapsFrom(typeof(ProductListingItemAm), ReverseMap = true)]
+    public class ProductLineItemVm: ViewModelBase
     {
         public string ProductId { get; set; }
         public decimal Discount { get; set; }

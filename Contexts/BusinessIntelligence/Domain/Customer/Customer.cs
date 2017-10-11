@@ -44,7 +44,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
         public Representative Representative { get; private set; }
         public BillingInformation BillingInformation { get; private set; }
 
-        public IEnumerable<ProductListing.ProductListing> ProductListings { get; private set; }
+        public IEnumerable<ProductListing.ProductListing> ProductListings { get; set; }
 
         public void Activate()
         {
@@ -86,6 +86,24 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.Customer
         protected override string GetTypeName()
         {
             return this.GetType().Name;
+        }
+
+        public void DeleteProductListing(string productListingUniqueIdentifier)
+        {
+            if (!this.ProductListings.Any(x => x.ProductListingUniqueIdentifier ==
+                                                  productListingUniqueIdentifier))
+            {
+                throw new InvalidOperationException($"Product Listing with Id {productListingUniqueIdentifier} " +
+                                                    $"does not exist.");
+            }
+
+            Domain.ProductListing.ProductListing productListingToDelete = this.ProductListings
+                .FirstOrDefault(x => x.ProductListingUniqueIdentifier == productListingUniqueIdentifier);
+
+            List<Domain.ProductListing.ProductListing> productListings = this.ProductListings.ToList();
+            productListings.Remove(productListingToDelete);
+
+            this.ProductListings = productListings;
         }
     }
 }

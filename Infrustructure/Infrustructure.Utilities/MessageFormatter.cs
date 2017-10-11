@@ -59,6 +59,11 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
             return $"Record with Id '{value}' does not exist.";
         }
 
+        public static string TargetObjectWithIdDoesNotExist(string targetObject, string value)
+        {
+            return $"{targetObject} with Id '{value}' does not exist.";
+        }
+
         public static string EntityCanNotBeNull()
         {
             return "Entity can not be null";
@@ -141,5 +146,7 @@ namespace KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities
         {
             return $"{value} is invalid. No such Role exists";
         }
+
+        public static string ServerError { get; set; } = "Internal Server error occurred.";
     }
 }

@@ -4,5 +4,8 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 {
     public interface ICustomerService : IApplicationService<CustomerServiceRequest, CustomerResponse>
     {
+        CustomerResponse AddCostEstimate(CustomerServiceRequest request);
+        CustomerResponse GetCostEstimates(CustomerServiceRequest request);
+        CustomerResponse DeleteProductListing(CustomerServiceRequest request);
     }
 }

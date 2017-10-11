@@ -210,6 +210,10 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BusinessController.cs" />
+    <Compile Include="Controllers\Globals\ControllerText.cs" />
+    <Compile Include="Models\IndexCustomerProductListingVm.cs" />
+    <Compile Include="Models\ProductListingVm.cs" />
+    <Compile Include="Models\SaveProductListingVm.cs" />
     <Compile Include="Models\CalculateProductListItemTotalAmountVm.cs" />
     <Compile Include="Controllers\CostEstimateController.cs" />
     <Compile Include="Controllers\CreditNoteController.cs" />
@@ -531,6 +535,7 @@
     <Content Include="Views\CostEstimate\Index.cshtml" />
     <Content Include="Views\CostEstimate\EditCustomerCostEstimates.cshtml" />
     <Content Include="Views\CostEstimate\NewCustomerCostEstimate.cshtml" />
+    <Content Include="Views\CostEstimate\CustomerCostEstimates.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

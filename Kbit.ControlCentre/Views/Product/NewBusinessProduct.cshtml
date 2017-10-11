@@ -99,7 +99,8 @@
 @section scripts
 {
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
+            $(".hide-menu").click();
             toastr.options = {
                 "closeButton": true,
                 "debug": false,
@@ -130,12 +131,25 @@
 
             var message = $('.SerivceCallResult').find('.callMessage').text().trim();
 
+            sweetAlertInitialize();
+
             if (result == 'true') {
                 if (message.trim() != "") {
-                    showSuccess(message);
+                    swal({
+                        title: "Info",
+                        text: message,
+                        type: "success"
+                    },
+                        function () {
+                            window.location.replace('@Url.Action("Index", "Product")');
+                        });
                 }
             } else {
-                showErrorMessage(message);
+                swal({
+                    title: "Error",
+                    text: message,
+                    type: "error"
+                });
             }
         });
     </script>

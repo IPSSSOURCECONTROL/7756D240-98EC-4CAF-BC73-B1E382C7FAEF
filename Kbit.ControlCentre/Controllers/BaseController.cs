@@ -5,6 +5,7 @@ using Kbit.ControlCentre.ToastrWrapper;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application.Model;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Logging;
 
 namespace Kbit.ControlCentre.Controllers
 {
@@ -24,6 +25,8 @@ namespace Kbit.ControlCentre.Controllers
 
         [MandatoryInjection]
         public TApplicationService ApplicationService { get; set; }
+        [MandatoryInjection]
+        public ILoggingType Logger { get; set; }
         public TServiceResponse ServiceResponse { get; set; } = new TServiceResponse();
         public TViewlModel ControllerViewlModel { get; set; }=new TViewlModel();
         public TServiceRequest ServiceRequest

@@ -59,7 +59,7 @@ namespace Kbit.ControlCentre.Controllers
         {
             if (!this.ModelState.IsValid)
             {
-                viewModel.Users = this.GetBusinessUsers();
+                viewModel.Representatives = this.GetBusinessUsers();
                 return this.LoadNewCustomerView(viewModel.Id);
             }
 
@@ -74,14 +74,14 @@ namespace Kbit.ControlCentre.Controllers
             {
                 viewModel.ServiceResult = false;
                 viewModel.Message = this.ServiceResponse.Message;
-                viewModel.Users = this.GetBusinessUsers();
+                viewModel.Representatives = this.GetBusinessUsers();
 
                 return this.View("NewBusinessCustomer", viewModel);
             }
 
             viewModel.ServiceResult = true;
             viewModel.Message = this.ServiceResponse.Message;
-            viewModel.Users = this.GetBusinessUsers();
+            viewModel.Representatives = this.GetBusinessUsers();
 
             return this.View("NewBusinessCustomer", viewModel);
         }
@@ -106,13 +106,13 @@ namespace Kbit.ControlCentre.Controllers
             {
                 viewModel.ServiceResult = false;
                 viewModel.Message = this.ServiceResponse.Message;
-                viewModel.Users = this.GetBusinessUsers();
+                viewModel.Representatives = this.GetBusinessUsers();
                 return this.View("Edit", viewModel);
             }
 
             viewModel.ServiceResult = true;
             viewModel.Message = this.ServiceResponse.Message;
-            viewModel.Users = this.GetBusinessUsers();
+            viewModel.Representatives = this.GetBusinessUsers();
             return this.View("Edit", viewModel);
         }
 
@@ -122,7 +122,7 @@ namespace Kbit.ControlCentre.Controllers
             viewModel.BusinessId = id;
             viewModel.ServiceResult = true;
 
-            viewModel.Users = this.GetBusinessUsers();
+            viewModel.Representatives = this.GetBusinessUsers();
 
             return this.View("NewBusinessCustomer", viewModel);
         }
@@ -147,7 +147,7 @@ namespace Kbit.ControlCentre.Controllers
 
             viewModel = Mapper.Map<ViewEditCustomerVm>(this.ServiceResponse.ApplicationModel);
             viewModel.ServiceResult = true;
-            viewModel.Users = this.GetBusinessUsers();
+            viewModel.Representatives = this.GetBusinessUsers();
 
             return this.View("Edit", viewModel);
         }

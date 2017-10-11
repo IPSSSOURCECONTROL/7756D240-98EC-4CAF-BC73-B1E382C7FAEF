@@ -24,6 +24,10 @@ namespace Kbit.ControlCentre
                     "~/scripts/homer.js",
                     "~/scripts/charts.js",
 
+                    "~/vendor/ladda/dist/spin.min.js",
+                    "~/vendor/ladda/dist/ladda.min.js",
+                    "~/vendor/ladda/dist/ladda.jquery.min.js",
+
                     "~/vendor/datatables/media/js/jquery.dataTables.min.js",
                     "~/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js",
                     "~/vendor/pdfmake/build/pdfmake.min.js",

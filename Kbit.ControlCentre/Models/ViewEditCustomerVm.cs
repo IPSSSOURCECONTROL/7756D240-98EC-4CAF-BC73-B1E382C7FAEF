@@ -87,6 +87,6 @@ namespace Kbit.ControlCentre.Models
         [Display(Name = "Account Manager")]
         public string RepresentativeId { get; set; } = string.Empty;
 
-        public IEnumerable<ViewEditUserVm> Users { get; set; }=new List<ViewEditUserVm>();
+        public IEnumerable<ViewEditUserVm> Representatives { get; set; }=new List<ViewEditUserVm>();
     }
 }

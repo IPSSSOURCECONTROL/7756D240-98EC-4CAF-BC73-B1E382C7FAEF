@@ -6,7 +6,7 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Models
     {
         public decimal Discount { get; set; }
         public int Quantity { get; set; }
-        public ProductAm Product { get; set; }
+        public string ProductId { get; set; }
         public decimal Subtotal { get; set; }
     }
 }
