@@ -85,13 +85,22 @@
                         data: "productListingUniqueIdentifier"
                     },
                     {
-                        data: "dateTime"
+                        data: "dateTime",
+                        render: function(data, type, applicationModel) {
+                            return new Date(data).toUTCString();
+                        }
                     },
                     {
                         data: "id",
                         render: function(data, type, applicationModel) {
-                            return "<a href='@Url.Action("LoadEditCustomerCostEstimatesView", "CostEstimate")/" +
-                                applicationModel.id +
+                            var loadEditCustomerCostEstimatesViewUrl =
+                                '@Url.Action("LoadEditCustomerCostEstimatesView", "CostEstimate")?id=' +
+                                    applicationModel.customerId +
+                                    '&productListingNumber=' +
+                                    applicationModel.productListingUniqueIdentifier;
+
+                            return "<a href='" +
+                                loadEditCustomerCostEstimatesViewUrl +
                                 "' class='btn btn-default btn-xs'><i class='fa fa-paste'></i> View/Edit</a>";
                         }
                     },
@@ -110,7 +119,7 @@
                 '.deleteRowButton2',
                 function(e) {
                     var clickedButton = $(this);
-                    var id = $(e.target).data("ref");//Product listing Id
+                    var id = $(e.target).data("ref"); //Product listing Id
                     var customerId = '@Model.CustomerId';
 
                     swal({
@@ -124,7 +133,7 @@
                             closeOnConfirm: false,
                             closeOnCancel: false
                         },
-                        function (isConfirm) {
+                        function(isConfirm) {
 
                             if (isConfirm) {
                                 $.ajax({

@@ -35,6 +35,15 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
             this.ProductListingItems.Add(productListingItem);
         }
 
+        public void RemoveProductListingItem(ProductListingItem productListingItem)
+        {
+            if (productListingItem == null)
+                return;
+
+            this.ProductListingItems.Remove(productListingItem);
+        }
+
+
         public void AssignUniqueIdentifier(string value)
         {
             if (string.IsNullOrWhiteSpace(value))
@@ -69,6 +78,11 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListin
         {
             if (this.ProductListingItems.Any(x => x.Product.Id == id))
                 this.ProductListingItems.Remove(this.ProductListingItems.First(x => x.Product.Id == id));
+        }
+
+        public void ClearProductListingItems()
+        {
+            this.ProductListingItems = new List<ProductListingItem>();
         }
     }
 }

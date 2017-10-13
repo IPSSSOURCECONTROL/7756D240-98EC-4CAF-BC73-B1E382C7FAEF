@@ -37,10 +37,11 @@ namespace Kbit.ControlCentre.Controllers
 
         public ActionResult EditCustomerCostEstimates()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return this.Index();
         }
 
-        public ActionResult LoadEditCustomerCostEstimatesView(string id)
+        public ActionResult LoadEditCustomerCostEstimatesView(string id, string productListingNumber)
         {
             if (string.IsNullOrWhiteSpace(id))
                 return this.RedirectToAction("Index");
@@ -49,7 +50,7 @@ namespace Kbit.ControlCentre.Controllers
 
             this.ServiceResponse = this.ApplicationService.GetById(this.ServiceRequest);
 
-            ViewEditCustomerVm viewModel = new ViewEditCustomerVm();
+            ViewEditCostEstimateVm viewModel = new ViewEditCostEstimateVm();
 
             if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
             {
@@ -58,7 +59,10 @@ namespace Kbit.ControlCentre.Controllers
                 return this.View("EditCustomerCostEstimates", viewModel);
             }
 
-            viewModel = Mapper.Map<ViewEditCustomerVm>(this.ServiceResponse.ApplicationModel);
+            viewModel.Customer = Mapper.Map<ViewEditCustomerVm>(this.ServiceResponse.ApplicationModel);
+            viewModel.Business = Mapper.Map<ViewEditBusinessVm>(this.GetBusiness());
+            viewModel.ProductListingNumber = productListingNumber;
+            Mapper.Map(this.GetBusinessProducts(), viewModel.Products);
             viewModel.ServiceResult = true;
 
             return this.View("EditCustomerCostEstimates", viewModel);
@@ -144,29 +148,6 @@ namespace Kbit.ControlCentre.Controllers
             return this.Json(viewModel.ProductListings, JsonRequestBehavior.AllowGet);
         }
 
-        private IEnumerable<ProductAm> GetBusinessProducts()
-        {
-            ProductServiceRequest request = new ProductServiceRequest();
-            request.AuthorizationContext.UserId = (string)this.Session[SessionConstants.CurrentUserName];
-            request.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
-
-            ProductResponse response = this._productService.GetAll(request);
-
-            return response.ApplicationModels;
-        }
-
-        private BusinessAm GetBusiness()
-        {
-            BusinessServiceRequest request = new BusinessServiceRequest();
-            request.AuthorizationContext.UserId = (string)this.Session[SessionConstants.CurrentUserName];
-            request.AuthorizationContext.BusinessId = (string) this.Session[SessionConstants.CurrentUserBusinessId];
-            request.EntityId = (string) this.Session[SessionConstants.CurrentUserBusinessId];
-
-            BusinessResponse response = this._businessService.GetById(request);
-
-            return response.ApplicationModel;
-        }
-
         [HttpGet]
         [JsonNetFilter]
         public ActionResult GetProductById(string id)
@@ -188,6 +169,35 @@ namespace Kbit.ControlCentre.Controllers
             }
             Mapper.Map(response.ApplicationModel, viewModel);
             viewModel.ServiceResult = true;
+            return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        [JsonNetFilter]
+        public ActionResult GetProductListItems(string id, string productListingNumber)
+        {
+            if (string.IsNullOrWhiteSpace(id))
+                return this.RedirectToAction("Index");
+
+            this.ServiceRequest.EntityId = id;
+            this.ServiceRequest.ProductListingUniqueIdentifier = productListingNumber;
+
+            this.ServiceResponse = this.ApplicationService.GetProductListingItems(this.ServiceRequest);
+
+            IndexCustomerProductListingVm viewModel = new IndexCustomerProductListingVm();
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = this.ServiceResponse.Message;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            Mapper.Map(this.ServiceResponse.ProductListingItems, viewModel.ProductListingItems);
+            viewModel.ProductListingNumber = productListingNumber;
+            viewModel.DateTime = this.ServiceResponse.ProductListingDateCreated;
+            viewModel.ServiceResult = true;
+
             return this.Json(viewModel, JsonRequestBehavior.AllowGet);
         }
 
@@ -257,6 +267,37 @@ namespace Kbit.ControlCentre.Controllers
 
         [HttpPost]
         [JsonNetFilter]
+        public ActionResult UpdateProductListing(SaveProductListingVm viewModel)
+        {
+            if (viewModel.ProductDetailsArray == null || string.IsNullOrWhiteSpace(viewModel.Id))
+            {
+                viewModel.Message = $"{ControllerText.ServerError} Invalid Operation.";
+                viewModel.ServiceResult = true;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            Mapper.Map(viewModel.ProductDetailsArray, this.ServiceRequest.ProductListingItems);
+
+            this.ServiceRequest.EntityId = viewModel.Id;
+            this.ServiceRequest.ProductListingUniqueIdentifier =
+                viewModel.ProductListingUniqueIdentifier;
+
+            this.ServiceResponse = this.ApplicationService.UpdateCostEstimate(this.ServiceRequest);
+
+            if (this.ServiceResponse.ServiceResult != ServiceResult.Success)
+            {
+                viewModel.ServiceResult = false;
+                viewModel.Message = this.ServiceResponse.Message;
+                return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+            }
+
+            viewModel.ServiceResult = true;
+            viewModel.Message = this.ServiceResponse.Message;
+            return this.Json(viewModel, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        [JsonNetFilter]
         public ActionResult SaveProductListing(SaveProductListingVm viewModel)
         {
             if (viewModel.ProductDetailsArray == null || string.IsNullOrWhiteSpace(viewModel.Id))
@@ -300,6 +341,30 @@ namespace Kbit.ControlCentre.Controllers
             }
 
             return this.Json(this.ServiceResponse);
+        }
+
+
+        private IEnumerable<ProductAm> GetBusinessProducts()
+        {
+            ProductServiceRequest request = new ProductServiceRequest();
+            request.AuthorizationContext.UserId = (string)this.Session[SessionConstants.CurrentUserName];
+            request.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
+
+            ProductResponse response = this._productService.GetAll(request);
+
+            return response.ApplicationModels;
+        }
+
+        private BusinessAm GetBusiness()
+        {
+            BusinessServiceRequest request = new BusinessServiceRequest();
+            request.AuthorizationContext.UserId = (string)this.Session[SessionConstants.CurrentUserName];
+            request.AuthorizationContext.BusinessId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
+            request.EntityId = (string)this.Session[SessionConstants.CurrentUserBusinessId];
+
+            BusinessResponse response = this._businessService.GetById(request);
+
+            return response.ApplicationModel;
         }
     }
 }

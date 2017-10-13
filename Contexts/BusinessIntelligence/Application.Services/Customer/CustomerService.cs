@@ -7,6 +7,7 @@ using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Domain.ProductListing;
 using KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Repository.Interfaces;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.AOP.Attributes;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Application;
+using KhanyisaIntel.Kbit.Framework.Infrustructure.Domain;
 using KhanyisaIntel.Kbit.Framework.Infrustructure.Utilities;
 
 namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services.Customer
@@ -19,15 +20,18 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
     {
         private readonly IBusinessRepository _businessRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IDomainFactory<Domain.Product.Product, ProductAm> _productDomainFactory;
 
-        public CustomerService(IBusinessRepository businessRepository, IProductRepository productRepository)
+        public CustomerService(
+            IBusinessRepository businessRepository, 
+            IProductRepository productRepository, 
+            IDomainFactory<Domain.Product.Product, ProductAm> productDomainFactory)
         {
             this._businessRepository = businessRepository;
             this._productRepository = productRepository;
+            this._productDomainFactory = productDomainFactory;
         }
 
-        [AuthorizeAction]
-        [ServiceRequestMethod]
         public override CustomerResponse Add(CustomerServiceRequest request)
         {
             if (request.ApplicationModel == null)
@@ -57,9 +61,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             return this.Response;
         }
-
-        [AuthorizeAction]
-        [ServiceRequestMethod]
         public override CustomerResponse Update(CustomerServiceRequest request)
         {
             if (request.ApplicationModel == null)
@@ -82,9 +83,6 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             return this.Response;
         }
-
-        [AuthorizeAction]
-        [ServiceRequestMethod]
         public CustomerResponse AddCostEstimate(CustomerServiceRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.EntityId))
@@ -152,9 +150,74 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             return this.Response;
         }
+        public CustomerResponse UpdateCostEstimate(CustomerServiceRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.EntityId))
+            {
+                this.Response.RegisterError(MessageFormatter.IsARequiredField(nameof(request.EntityId)));
+                return this.Response;
+            }
 
-        [AuthorizeAction]
-        [ServiceRequestMethod]
+            if (request.ProductListingItems == null)
+            {
+                this.Response.RegisterError(MessageFormatter.IsARequiredField(nameof(request.ProductListingItems)));
+                return this.Response;
+            }
+
+            Domain.Customer.Customer customer = this.Repository.GetById(request.EntityId);
+            Domain.Business.Business business = this._businessRepository.GetById(request.AuthorizationContext.BusinessId);
+
+            if (customer == null)
+            {
+                this.Response.RegisterError(MessageFormatter.TargetObjectWithIdDoesNotExist(
+                    nameof(Domain.Customer.Customer),
+                    request.EntityId));
+                return this.Response;
+            }
+
+            if (business == null)
+            {
+                this.Response.RegisterError(MessageFormatter.TargetObjectWithIdDoesNotExist(
+                    nameof(Domain.Business.Business),
+                    request.EntityId));
+                return this.Response;
+            }
+
+            Domain.ProductListing.ProductListing costEstimateListing =
+                customer.ProductListings.FirstOrDefault(
+                    x => x.ProductListingUniqueIdentifier == request.ProductListingUniqueIdentifier);
+            costEstimateListing.ClearProductListingItems();
+
+            foreach (ProductListingItemAm requestProductListingItem in request.ProductListingItems)
+            {
+                Domain.Product.Product product = this._productRepository.GetById(requestProductListingItem.ProductId);
+
+                if (product == null)
+                {
+                    this.Response.RegisterError(MessageFormatter.TargetObjectWithIdDoesNotExist(nameof(Domain.Product.Product),
+                        requestProductListingItem.ProductId));
+                    return this.Response;
+                }
+
+                ProductListingItem productListingItem = new ProductListingItem(product);
+                productListingItem.CalculateAmount(requestProductListingItem.Quantity,
+                    requestProductListingItem.Discount);
+                productListingItem.CalculateTotalDiscount(requestProductListingItem.Quantity,
+                    requestProductListingItem.Discount);
+                productListingItem.CalculateTotalVat(requestProductListingItem.Quantity,
+                    requestProductListingItem.Discount);
+
+                costEstimateListing.AddProductListingItem(productListingItem);
+            }
+
+            this.Repository.Update(customer);
+
+            this.Response.RegisterSuccess($"Cost Estimate with ID {request.ProductListingUniqueIdentifier} successfully " +
+                                          $"updated for customer '{customer.Name}'");
+
+            return this.Response;
+
+        }
         public CustomerResponse GetCostEstimates(CustomerServiceRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.EntityId))
@@ -188,9 +251,63 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             return this.Response;
         }
+        public CustomerResponse GetProductListingItems(CustomerServiceRequest request)
+        {
+            if (string.IsNullOrWhiteSpace(request.EntityId))
+            {
+                this.Response.RegisterError(MessageFormatter.ServerError);
+                this.Logger.Error("Null customer id.");
+                return this.Response;
+            }
 
-        [AuthorizeAction]
-        [ServiceRequestMethod]
+            if (string.IsNullOrWhiteSpace(request.ProductListingUniqueIdentifier))
+            {
+                this.Response.RegisterError(MessageFormatter.ServerError);
+                this.Logger.Error($"Null {nameof(request.ProductListingUniqueIdentifier)}");
+                return this.Response;
+            }
+
+
+            Domain.Customer.Customer customer = this.Repository.GetById(request.EntityId);
+
+            if (customer == null)
+            {
+                this.Response.RegisterError(MessageFormatter.TargetObjectWithIdDoesNotExist(
+                    nameof(Domain.Customer.Customer),
+                    request.EntityId));
+                return this.Response;
+            }
+
+            if (customer.ProductListings.All(x => x.ProductListingUniqueIdentifier != request.ProductListingUniqueIdentifier))
+            {
+                this.Response.RegisterError(MessageFormatter.RecordWithIdDoesNotExist(request.ProductListingUniqueIdentifier));
+                return this.Response;
+            }
+
+            Domain.ProductListing.ProductListing productListing =
+                customer.ProductListings.FirstOrDefault(
+                    x => x.ProductListingUniqueIdentifier == request.ProductListingUniqueIdentifier);
+
+            List<ProductListingItemAm> productListingItemAms = new List<ProductListingItemAm>();
+
+            foreach (ProductListingItem productListingItem in productListing.ProductListingItems)
+            {
+                ProductListingItemAm productListingItemAm = new ProductListingItemAm();
+                productListingItemAm.Product = this._productDomainFactory.BuildApplicationModelType(productListingItem.Product);
+                productListingItemAm.Discount = productListingItem.Discount;
+                productListingItemAm.ProductId = productListingItemAm.Product.Id;
+                productListingItemAm.Quantity = productListingItem.Quantity;
+                productListingItemAm.Subtotal = productListingItem.TotalAmount;
+
+                productListingItemAms.Add(productListingItemAm);
+            }
+
+            this.Response.ProductListingDateCreated = productListing.DateTime;
+            this.Response.ProductListingItems = productListingItemAms;
+            this.Response.RegisterSuccess("Cost Estimate successfully removed.");
+
+            return this.Response;
+        }
         public CustomerResponse DeleteProductListing(CustomerServiceRequest request)
         {
             if (string.IsNullOrWhiteSpace(request.EntityId))
@@ -326,5 +443,5 @@ namespace KhanyisaIntel.Kbit.Framework.BusinessIntelligence.Application.Services
 
             return productListingAms;
         }
-        }
     }
+}
